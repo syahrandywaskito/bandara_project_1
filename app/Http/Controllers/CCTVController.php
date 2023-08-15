@@ -42,31 +42,13 @@ class CCTVController extends Controller
         
         CctvModel::create($request->all());
         
-        $actions = ['ekskalator', 'behind', 'iOne' /* tambahkan formulir lain jika diperlukan */];
-        $action = $request->input('action');
+        $hardware_name = $request->input('hardware_name');
 
-        foreach ($actions as $formAction) {
-            if ($action === $formAction) {
-                // Logika penanganan untuk setiap formulir
-                // Misalnya:
-                switch ($formAction) {
-                    case 'ekskalator':
-                            $successMessage = 'Input CCTV Ekskalator success';
-                        break;
-                    case 'behind':
-                            $successMessage = 'Input CCTV Behind success';
-                        break;
-                    case 'iOne':
-                            $successMessage = 'Input CCTV I One success';
-                        break;
-                    // Tambahkan kasus lain jika diperlukan
-                }
-                
-                // Redirect atau lakukan tindakan lain setelah penanganan formulir
-            }
-        }
-        
-        return redirect()->route('cctv.create')->with('success', $successMessage);
+        $successMessage = "Input {$hardware_name} success";
+
+        session(['formSubmitted' => true]);
+
+        return redirect()->back()->with('success', $successMessage);
     }
 
     /**
@@ -86,7 +68,7 @@ class CCTVController extends Controller
      * @return View
      */
 
-    public function show(CCTVController $cctv) : View
+    public function show(CctvModel $cctv) : View
     {
         return view('admin.report.cctv.show', compact('cctv'));
     }
@@ -97,7 +79,7 @@ class CCTVController extends Controller
      * @return View
      */
 
-    public function edit(CCTVController $cctv) : View
+    public function edit(CctvModel $cctv) : View
     {
         return view('admin.report.cctv.edit', compact('cctv'));
     }
@@ -113,7 +95,6 @@ class CCTVController extends Controller
     {
 
         $request->validate([
-            'date' => 'required',
             'hardware_name' => 'required',
             'record_status' => 'required',
             'record_desc' => 'required',
@@ -125,7 +106,7 @@ class CCTVController extends Controller
         
         $cctv->update($request->all());
 
-        return redirect()->route('cctv')->withSuccess('You successfully edit data');
+        return redirect()->route('cctv.index')->withSuccess('You successfully edit data');
     }
 
     /**

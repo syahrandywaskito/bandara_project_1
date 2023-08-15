@@ -134,10 +134,19 @@
   </aside>
   
 
+  
+
   <div class="py-7 px-5 sm:ml-64">  
     <section class="bg-white">
       <div class="py-16 px-4 mx-auto max-w-screen-xl text-start lg:py-16">
         <div class="bg-gray-50 border border-gray-100 rounded-lg shadow-md p-8 md:p-8 mb-8"> 
+
+
+          @php
+              // use Illuminate\Support\Facades\DB;
+              // $hardware_name = DB::table('cctv_models')->select('hardware_name')->pluck('hardware_name');
+              // var_dump($hardware_name);
+          @endphp
 
           <!-- Breadcrumb -->
           <nav class="flex px-5 py-3 text-gray-900 border-2 border-gray-200 rounded-lg bg-gray-200 shadow-sm" aria-label="Breadcrumb">
@@ -181,7 +190,7 @@
             </p>
           </div>
         </div>
-        <div method="post" action="{{route('cctv.store')}}" class="font-roboto flex-row items-center ">
+        <div method="post" class="font-roboto flex-row items-center ">
           @csrf
           <div class="my-6 mx-4 lg:mx-0 font-montserrat font-semibold">
             <h3>CCTV Keberangkatan (KBRT)</h3>
@@ -209,15 +218,16 @@
 
           {{-- Ekskalator --}}
           <form action="{{route('cctv.store')}}" method="post" id="elementToHide1">
+            
              @csrf
             <div class="mb-3 lg:flex space-x-4 items-center justify-start space-y-4 lg:space-y-0">
               <div class="hidden lg:block">
                 <label for="date" class="block mb-2 text-sm font-medium text-gray-900">Current Date</label>
-                <input type="date" class="bg-gray-100 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="date" value="{{now()->format('Y-m-d')}}" readonly>
+                <input type="date" class="bg-gray-100 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3"  required name="date" value="{{now()->format('Y-m-d')}}" readonly>
               </div>
               <div>
                 <label for="hardware-name" class="block mb-2 text-sm font-medium text-gray-900">Hardware Name</label>
-                <input type="text" id="hardware-name" class="bg-gray-100 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required value="CCTV KBRT Ekskalator" readonly name="hardware_name">
+                <input type="text" id="hardware-name" class="bg-gray-100 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required value="CCTV KBRT Ekskalator" readonly name="hardware_name" value="{{ old('input_field') }}">
               </div>
               <div>
                 <label for="record-status" class="block mb-2 text-sm font-medium text-gray-900">Record Status</label>
@@ -246,8 +256,6 @@
                 <input type="text" id="clean-desc" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="clean_desc">
               </div>
             </div>
-
-              <input type="hidden" name="action" value="ekskalator">
 
             <div class="justify-center lg:justify-start space-x-4 flex">
 

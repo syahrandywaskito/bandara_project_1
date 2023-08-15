@@ -228,7 +228,7 @@
                 <p class="font-montserrat">
                   {{now()->format('l')}}, {{now()->format('d M Y')}}
                 </p>
-                <p class="font-montserrat" id="clock-arrival">
+                <p class="font-montserrat clock">
                 </p>
               </div>
             </div>    
@@ -323,7 +323,7 @@
             <p class="font-montserrat">
               {{now()->format('l')}}, {{now()->format('d M Y')}}
             </p>
-            <p class="font-montserrat" id="clock-departure">
+            <p class="font-montserrat clock">
             </p>
           </div>
         </div>    
@@ -413,6 +413,34 @@
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init();
+  </script>
+  {{-- clock --}}
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+    // Function to update the clock display
+    function updateClock() {
+        const now = new Date();
+        const hours = now.getHours();
+        const minutes = now.getMinutes();
+        const seconds = now.getSeconds();
+        
+        const formattedTime = `${formatNumber(hours)} : ${formatNumber(minutes)} : ${formatNumber(seconds)}`;
+        
+        $('.clock').html(formattedTime); // Update the clock element's contents
+    }
+    
+    // Helper function to format numbers with leading zeros
+    function formatNumber(number) {
+        return (number < 10 ? '0' : '') + number;
+    }
+    
+    // Update the clock every second
+    setInterval(updateClock, 1000);
+    
+    // Initial clock update
+    updateClock();
+  }); 
   </script>
   {{-- js script --}}
   <script src="{{asset('js/clock.js')}}"></script>

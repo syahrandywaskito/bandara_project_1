@@ -136,6 +136,7 @@
     <section class="bg-white">
       <div class="pt-10 pb-6 px-4 mx-auto max-w-screen-xl lg:pt-16 lg:pb-0">
           <div class="bg-gray-50 border border-gray-100 rounded-lg shadow-lg p-8 md:p-12 mb-8">
+
               <!-- Breadcrumb -->
               <nav class="flex px-5 py-3 text-gray-900 border-2 border-gray-200 rounded-lg bg-gray-200 shadow-sm" aria-label="Breadcrumb">
                 <ol class="inline-flex items-center space-x-1 md:space-x-3 font-montserrat">
@@ -271,7 +272,7 @@
                           <a href="{{route('cctv.show', $data->id)}}">Show</a>
                         </td>
                         <td class="px-6 py-4">
-                          <a href="{{route('cctv.edit', $data->id)}}">Edit</a>
+                          <a href="{{route('cctv.edit', $data->id)}}" class="block text-white bg-violet-900 hover:bg-violet-600 focus:ring-4 focus:outline-none focus:ring-violet-600 font-medium rounded-lg text-sm px-5 py-2 text-center">Edit</a>
                         </td>
                         <td class="px-6 py-4">
                           <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="block text-white bg-red-800 hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-red-600 font-medium rounded-lg text-sm px-5 py-2 text-center" type="button">
