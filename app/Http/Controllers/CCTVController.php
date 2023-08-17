@@ -7,6 +7,8 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Validator;
 
 class CCTVController extends Controller
 {
@@ -25,13 +27,12 @@ class CCTVController extends Controller
      * @return Redirect
      */
     
-    public function store(Request $request) : RedirectResponse
+    public function store(Request $request)
     {
 
         
         // Redirect jika tidak ada aksi yang cocok
-        
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             'date' => 'required',
             'hardware_name' => 'required',
             'record_status' => 'required',
@@ -39,16 +40,26 @@ class CCTVController extends Controller
             'clean_status' => 'required',
             'clean_desc' => 'required',
         ]);
+
+
+        // check if validator fail
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), 422);
+        }
         
-        CctvModel::create($request->all());
-        
+        $data = new CctvModel;
+
+        $data::create($request->all()); 
+
         $hardware_name = $request->input('hardware_name');
 
         $successMessage = "Input {$hardware_name} success";
 
-        session(['formSubmitted' => true]);
+        $response =[
+            'message' => $successMessage,
+        ];
 
-        return redirect()->back()->with('success', $successMessage);
+        return response()->json($response);
     }
 
     /**

@@ -133,20 +133,10 @@
     </div>
   </aside>
   
-
-  
-
   <div class="py-7 px-5 sm:ml-64">  
     <section class="bg-white">
       <div class="py-16 px-4 mx-auto max-w-screen-xl text-start lg:py-16">
         <div class="bg-gray-50 border border-gray-100 rounded-lg shadow-md p-8 md:p-8 mb-8"> 
-
-
-          @php
-              // use Illuminate\Support\Facades\DB;
-              // $hardware_name = DB::table('cctv_models')->select('hardware_name')->pluck('hardware_name');
-              // var_dump($hardware_name);
-          @endphp
 
           <!-- Breadcrumb -->
           <nav class="flex px-5 py-3 text-gray-900 border-2 border-gray-200 rounded-lg bg-gray-200 shadow-sm" aria-label="Breadcrumb">
@@ -178,8 +168,6 @@
             </ol>
           </nav>
 
-         
-
           <h1 class="text-gray-900 lg:px-2 mt-6 text-lg md:text-xl font-montserrat font-bold">
             Add Data Page
           </h1>
@@ -190,21 +178,19 @@
             </p>
           </div>
         </div>
+
         <div method="post" class="font-roboto flex-row items-center ">
-          @csrf
           <div class="my-6 mx-4 lg:mx-0 font-montserrat font-semibold">
             <h3>CCTV Keberangkatan (KBRT)</h3>
           </div>
 
-          @if(session('success'))
-            <div data-dial-init class="fixed bottom-6 right-24 group z-30">
+            <div data-dial-init class="fixed bottom-6 right-24 group z-30 ">
               <div id="alert-3" class="flex items-center p-4 mb-4 text-green-800 rounded-lg bg-green-50 z-30" role="alert">
                 <svg class="flex-shrink-0 w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
                 </svg>
                 <span class="sr-only">Info</span>
-                <div class="ml-3 text-sm font-medium">
-                  {{session('success')}} 
+                <div class="ml-3 text-sm font-medium alert-message">
                 </div>
                 <button type="hide" class="ml-auto -mx-1.5 -my-1.5 bg-green-50 text-green-500 rounded-lg focus:ring-2 focus:ring-green-400 p-1.5 hover:bg-green-200 inline-flex items-center justify-center h-8 w-8" data-dismiss-target="#alert-3" aria-label="Close">
                   <span class="sr-only">Close</span>
@@ -214,511 +200,690 @@
                 </button>
               </div>
             </div>
-          @endif
 
           {{-- Ekskalator --}}
-          <form action="{{route('cctv.store')}}" method="post" id="elementToHide1">
-            
-             @csrf
-            <div class="mb-3 lg:flex space-x-4 items-center justify-start space-y-4 lg:space-y-0">
-              <div class="hidden lg:block">
-                <label for="date" class="block mb-2 text-sm font-medium text-gray-900">Current Date</label>
-                <input type="date" class="bg-gray-100 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3"  required name="date" value="{{now()->format('Y-m-d')}}" readonly>
+          <div id="elementToHide1">
+            <form id="dataForm1" enctype="multipart/form-data">
+               @csrf
+              <div class="mb-3 lg:flex space-x-4 items-center justify-start space-y-4 lg:space-y-0">
+                <div class="hidden lg:block">
+                  <label for="date" class="block mb-2 text-sm font-medium text-gray-900">Current Date</label>
+                  <input type="date" class="bg-gray-100 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3"  required name="date" value="{{now()->format('Y-m-d')}}" readonly>
+                </div>
+                <div>
+                  <label for="hardware-name" class="block mb-2 text-sm font-medium text-gray-900">Hardware Name</label>
+                  <input type="text" id="hardware-name" class="bg-gray-100 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required value="CCTV KBRT Ekskalator" readonly name="hardware_name">
+                </div>
+                <div>
+                  <label for="record-status" class="block mb-2 text-sm font-medium text-gray-900">Record Status</label>
+                  <select id="record-status" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="record_status">
+                    <option selected>Select Status</option>
+                    <option value="B">B</option>
+                    <option value="S">S</option>
+                    <option value="T">T</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="record-desc" class="block mb-2 text-sm font-medium text-gray-900">Record Description</label>
+                  <input type="text" id="record-desc" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="record_desc">
+                </div>
+                <div>
+                  <label for="clean-status" class="block mb-2 text-sm font-medium text-gray-900">Clean Status</label>
+                  <select id="clean-status" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="clean_status">
+                    <option selected>Select Status</option>
+                    <option value="B">B</option>
+                    <option value="S">S</option>
+                    <option value="T">T</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="clean-desc" class="block mb-2 text-sm font-medium text-gray-900">Clean Description</label>
+                  <input type="text" id="clean-desc" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="clean_desc">
+                </div>
               </div>
-              <div>
-                <label for="hardware-name" class="block mb-2 text-sm font-medium text-gray-900">Hardware Name</label>
-                <input type="text" id="hardware-name" class="bg-gray-100 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required value="CCTV KBRT Ekskalator" readonly name="hardware_name" value="{{ old('input_field') }}">
+              
+              <div class="inline-flex rounded-md shadow-sm" role="group">
+                <button type="submit" data-form="dataForm1" class="submitButton px-4 py-2 text-sm font-medium bg-gray-900 text-white border-2 border-gray-900 rounded-l-lg hover:bg-gray-500 hover:border-gray-500 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white">
+                  Submit
+                </button>
+                <button type="reset" class="px-4 py-2 text-sm font-medium text-white bg-gray-900 border-2 border-t border-b border-gray-900 hover:bg-gray-500 hover:border-gray-500 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white">
+                  Reset
+                </button>
+                <button type="button" data-target="#elementToHide1" class="hideButton px-4 py-2 text-sm font-medium text-white bg-gray-900 border-2 border-gray-900 rounded-r-md hover:bg-gray-500 hover:border-gray-500 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white">
+                  Hide
+                </button>
               </div>
-              <div>
-                <label for="record-status" class="block mb-2 text-sm font-medium text-gray-900">Record Status</label>
-                <select id="record-status" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="record_status">
-                  <option selected>Select Status</option>
-                  <option value="B">B</option>
-                  <option value="S">S</option>
-                  <option value="T">T</option>
-                </select>
-              </div>
-              <div>
-                <label for="record-desc" class="block mb-2 text-sm font-medium text-gray-900">Record Description</label>
-                <input type="text" id="record-desc" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="record_desc">
-              </div>
-              <div>
-                <label for="clean-status" class="block mb-2 text-sm font-medium text-gray-900">Clean Status</label>
-                <select id="clean-status" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="clean_status">
-                  <option selected>Select Status</option>
-                  <option value="B">B</option>
-                  <option value="S">S</option>
-                  <option value="T">T</option>
-                </select>
-              </div>
-              <div>
-                <label for="clean-desc" class="block mb-2 text-sm font-medium text-gray-900">Clean Description</label>
-                <input type="text" id="clean-desc" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="clean_desc">
-              </div>
-            </div>
 
-            <div class="justify-center lg:justify-start space-x-4 flex">
-
-              <button type="submit" class="text-gray-100 bg-indigo-800 hover:bg-indigo-400 hover:text-white transition duration-200 focus:ring-4 focus:outline-none focus:ring-indigo-400 rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center" title="Submit Input ">Submit</button>
-
-              <button type="reset" class="text-white bg-gray-400 hover:bg-gray-500 focus:ring-4 transition duration-200 focus:outline-none focus:ring-gray-500 rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center" title="Reset Input">Reset</button>
-
-              <button type="button" data-target="#elementToHide1" class="text-white bg-red-800 hover:bg-red-600 focus:ring-4 transition duration-200 focus:outline-none focus:ring-red-600 rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center hideButton" title="Close Form">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
-                  <path fill-rule="evenodd" d="M5.47 5.47a.75.75 0 011.06 0L12 10.94l5.47-5.47a.75.75 0 111.06 1.06L13.06 12l5.47 5.47a.75.75 0 11-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 01-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 010-1.06z" clip-rule="evenodd"/>
-                </svg>                
-              </button>
-            </div>
-          </form>
+            </form>
+          </div>
 
           <hr class="border-2 rounded-xl border-indigo-800 border-opacity-30 lg:hidden">
 
           {{-- Behind --}}
-          <form action="{{route('cctv.store')}}" method="post" class="mt-4" id="elementToHide2">
-            @csrf
-            <div class="mb-3 lg:flex space-x-4 items-center justify-start space-y-4 lg:space-y-0">
-              <div class="hidden lg:block">
-                <label for="date" class="block mb-2 text-sm font-medium text-gray-900">Current Date</label>
-                <input type="date" class="bg-gray-100 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="date" value="{{now()->format('Y-m-d')}}" readonly>
+          <div id="elementToHide2" class="mt-4">
+            <form id="dataForm2" enctype="multipart/form-data">
+              @csrf
+              <div class="mb-3 lg:flex space-x-4 items-center justify-start space-y-4 lg:space-y-0">
+                <div class="hidden lg:block">
+                  <label for="date" class="block mb-2 text-sm font-medium text-gray-900">Current Date</label>
+                  <input type="date" class="bg-gray-100 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="date" value="{{now()->format('Y-m-d')}}" readonly>
+                </div>
+                <div>
+                  <label for="hardware-name" class="block mb-2 text-sm font-medium text-gray-900">Hardware Name</label>
+                  <input type="text" id="hardware-name" class="bg-gray-100 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required value="CCTV KBRT Behind" readonly name="hardware_name">
+                </div>
+                <div>
+                  <label for="record-status" class="block mb-2 text-sm font-medium text-gray-900">Record Status</label>
+                  <select id="record-status" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="record_status">
+                    <option selected>Select Status</option>
+                    <option value="B">B</option>
+                    <option value="S">S</option>
+                    <option value="T">T</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="record-desc" class="block mb-2 text-sm font-medium text-gray-900">Record Description</label>
+                  <input type="text" id="record-desc" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="record_desc">
+                </div>
+                <div>
+                  <label for="clean-status" class="block mb-2 text-sm font-medium text-gray-900">Clean Status</label>
+                  <select id="clean-status" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="clean_status">
+                    <option selected>Select Status</option>
+                    <option value="B">B</option>
+                    <option value="S">S</option>
+                    <option value="T">T</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="clean-desc" class="block mb-2 text-sm font-medium text-gray-900">Clean Description</label>
+                  <input type="text" id="clean-desc" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="clean_desc">
+                </div>
               </div>
-              <div>
-                <label for="hardware-name" class="block mb-2 text-sm font-medium text-gray-900">Hardware Name</label>
-                <input type="text" id="hardware-name" class="bg-gray-100 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required value="CCTV KBRT Behind" readonly name="hardware_name">
+  
+              <div class="inline-flex rounded-md shadow-sm" role="group">
+                <button type="submit" data-form="dataForm2" class="submitButton px-4 py-2 text-sm font-medium bg-gray-900 text-white border-2 border-gray-900 rounded-l-lg hover:bg-gray-500 hover:border-gray-500 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white">
+                  Submit
+                </button>
+                <button type="reset" class="px-4 py-2 text-sm font-medium text-white bg-gray-900 border-2 border-t border-b border-gray-900 hover:bg-gray-500 hover:border-gray-500 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white">
+                  Reset
+                </button>
+                <button type="button" data-target="#elementToHide2" class="hideButton px-4 py-2 text-sm font-medium text-white bg-gray-900 border-2 border-gray-900 rounded-r-md hover:bg-gray-500 hover:border-gray-500 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white">
+                  Hide
+                </button>
               </div>
-              <div>
-                <label for="record-status" class="block mb-2 text-sm font-medium text-gray-900">Record Status</label>
-                <select id="record-status" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="record_status">
-                  <option selected>Select Status</option>
-                  <option value="B">B</option>
-                  <option value="S">S</option>
-                  <option value="T">T</option>
-                </select>
-              </div>
-              <div>
-                <label for="record-desc" class="block mb-2 text-sm font-medium text-gray-900">Record Description</label>
-                <input type="text" id="record-desc" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="record_desc">
-              </div>
-              <div>
-                <label for="clean-status" class="block mb-2 text-sm font-medium text-gray-900">Clean Status</label>
-                <select id="clean-status" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="clean_status">
-                  <option selected>Select Status</option>
-                  <option value="B">B</option>
-                  <option value="S">S</option>
-                  <option value="T">T</option>
-                </select>
-              </div>
-              <div>
-                <label for="clean-desc" class="block mb-2 text-sm font-medium text-gray-900">Clean Description</label>
-                <input type="text" id="clean-desc" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="clean_desc">
-              </div>
-            </div>
-
-             <input type="hidden" name="action" value="behind">
-
-            <div class="justify-center lg:justify-start space-x-4 flex">
-              <button type="submit" class="text-gray-100 bg-indigo-800 hover:bg-indigo-400 hover:text-white transition duration-200 focus:ring-4 focus:outline-none focus:ring-indigo-400 rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center" title="Submit Input">Submit</button>
-
-              <button type="reset" class="text-white bg-gray-400 hover:bg-gray-500 focus:ring-4 transition duration-200 focus:outline-none focus:ring-gray-500 rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center" title="Reset Input">Reset</button>
-
-              <button type="button" data-target="#elementToHide2" class="text-white bg-red-800 hover:bg-red-600 focus:ring-4 transition duration-200 focus:outline-none focus:ring-red-600 rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center hideButton" title="Close Form">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
-                  <path fill-rule="evenodd" d="M5.47 5.47a.75.75 0 011.06 0L12 10.94l5.47-5.47a.75.75 0 111.06 1.06L13.06 12l5.47 5.47a.75.75 0 11-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 01-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 010-1.06z" clip-rule="evenodd" />
-                </svg>                
-              </button>
-            </div>
-          </form>
+            </form>
+          </div>
 
           <hr class="border-2 rounded-xl border-indigo-800 border-opacity-30 lg:hidden">
 
           {{-- I One --}}
-          <form action="{{route('cctv.store')}}" method="post" class="mt-4" id="elementToHide3">
-            @csrf
-            <div class="mb-3 lg:flex space-x-4 items-center justify-start space-y-4 lg:space-y-0">
-              <div class="hidden lg:block">
-                <label for="date" class="block mb-2 text-sm font-medium text-gray-900">Current Date</label>
-                <input type="date" class="bg-gray-100 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="date" value="{{now()->format('Y-m-d')}}" readonly>
+          <div id="elementToHide3" class="mt-4">
+            <form id="dataForm3" enctype="multipart/form-data">
+              @csrf
+              <div class="mb-3 lg:flex space-x-4 items-center justify-start space-y-4 lg:space-y-0">
+                <div class="hidden lg:block">
+                  <label for="date" class="block mb-2 text-sm font-medium text-gray-900">Current Date</label>
+                  <input type="date" class="bg-gray-100 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="date" value="{{now()->format('Y-m-d')}}" readonly>
+                </div>
+                <div>
+                  <label for="hardware-name" class="block mb-2 text-sm font-medium text-gray-900">Hardware Name</label>
+                  <input type="text" id="hardware-name" class="bg-gray-100 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required value="CCTV KBRT I One" readonly name="hardware_name">
+                </div>
+                <div>
+                  <label for="record-status" class="block mb-2 text-sm font-medium text-gray-900">Record Status</label>
+                  <select id="record-status" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="record_status">
+                    <option selected>Select Status</option>
+                    <option value="B">B</option>
+                    <option value="S">S</option>
+                    <option value="T">T</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="record-desc" class="block mb-2 text-sm font-medium text-gray-900">Record Description</label>
+                  <input type="text" id="record-desc" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="record_desc">
+                </div>
+                <div>
+                  <label for="clean-status" class="block mb-2 text-sm font-medium text-gray-900">Clean Status</label>
+                  <select id="clean-status" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="clean_status">
+                    <option selected>Select Status</option>
+                    <option value="B">B</option>
+                    <option value="S">S</option>
+                    <option value="T">T</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="clean-desc" class="block mb-2 text-sm font-medium text-gray-900">Clean Description</label>
+                  <input type="text" id="clean-desc" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="clean_desc">
+                </div>
               </div>
-              <div>
-                <label for="hardware-name" class="block mb-2 text-sm font-medium text-gray-900">Hardware Name</label>
-                <input type="text" id="hardware-name" class="bg-gray-100 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required value="CCTV KBRT I One" readonly name="hardware_name">
+  
+              <div class="inline-flex rounded-md shadow-sm" role="group">
+                <button type="submit" data-form="dataForm3" class="submitButton px-4 py-2 text-sm font-medium bg-gray-900 text-white border-2 border-gray-900 rounded-l-lg hover:bg-gray-500 hover:border-gray-500 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white">
+                  Submit
+                </button>
+                <button type="reset" class="px-4 py-2 text-sm font-medium text-white bg-gray-900 border-2 border-t border-b border-gray-900 hover:bg-gray-500 hover:border-gray-500 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white">
+                  Reset
+                </button>
+                <button type="button" data-target="#elementToHide3" class="hideButton px-4 py-2 text-sm font-medium text-white bg-gray-900 border-2 border-gray-900 rounded-r-md hover:bg-gray-500 hover:border-gray-500 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white">
+                  Hide
+                </button>
               </div>
-              <div>
-                <label for="record-status" class="block mb-2 text-sm font-medium text-gray-900">Record Status</label>
-                <select id="record-status" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="record_status">
-                  <option selected>Select Status</option>
-                  <option value="B">B</option>
-                  <option value="S">S</option>
-                  <option value="T">T</option>
-                </select>
+            </form>
+          </div>
+
+          <hr class="border-2 rounded-xl border-indigo-800 border-opacity-30 lg:hidden">
+
+          {{-- SCP 2 --}}
+          <div id="elementToHide4" class="mt-4">
+            <form id="dataForm4" enctype="multipart/form-data">
+              @csrf
+              <div class="mb-3 lg:flex space-x-4 items-center justify-start space-y-4 lg:space-y-0">
+                <div class="hidden lg:block">
+                  <label for="date" class="block mb-2 text-sm font-medium text-gray-900">Current Date</label>
+                  <input type="date" class="bg-gray-100 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="date" value="{{now()->format('Y-m-d')}}" readonly>
+                </div>
+                <div>
+                  <label for="hardware-name" class="block mb-2 text-sm font-medium text-gray-900">Hardware Name</label>
+                  <input type="text" id="hardware-name" class="bg-gray-100 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required value="CCTV KBRT SCP 2" readonly name="hardware_name">
+                </div>
+                <div>
+                  <label for="record-status" class="block mb-2 text-sm font-medium text-gray-900">Record Status</label>
+                  <select id="record-status" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="record_status">
+                    <option selected>Select Status</option>
+                    <option value="B">B</option>
+                    <option value="S">S</option>
+                    <option value="T">T</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="record-desc" class="block mb-2 text-sm font-medium text-gray-900">Record Description</label>
+                  <input type="text" id="record-desc" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="record_desc">
+                </div>
+                <div>
+                  <label for="clean-status" class="block mb-2 text-sm font-medium text-gray-900">Clean Status</label>
+                  <select id="clean-status" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="clean_status">
+                    <option selected>Select Status</option>
+                    <option value="B">B</option>
+                    <option value="S">S</option>
+                    <option value="T">T</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="clean-desc" class="block mb-2 text-sm font-medium text-gray-900">Clean Description</label>
+                  <input type="text" id="clean-desc" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="clean_desc">
+                </div>
               </div>
-              <div>
-                <label for="record-desc" class="block mb-2 text-sm font-medium text-gray-900">Record Description</label>
-                <input type="text" id="record-desc" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="record_desc">
+  
+              <div class="inline-flex rounded-md shadow-sm" role="group">
+                <button type="submit" data-form="dataForm4" class="submitButton px-4 py-2 text-sm font-medium bg-gray-900 text-white border-2 border-gray-900 rounded-l-lg hover:bg-gray-500 hover:border-gray-500 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white">
+                  Submit
+                </button>
+                <button type="reset" class="px-4 py-2 text-sm font-medium text-white bg-gray-900 border-2 border-t border-b border-gray-900 hover:bg-gray-500 hover:border-gray-500 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white">
+                  Reset
+                </button>
+                <button type="button" data-target="#elementToHide4" class="hideButton px-4 py-2 text-sm font-medium text-white bg-gray-900 border-2 border-gray-900 rounded-r-md hover:bg-gray-500 hover:border-gray-500 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white">
+                  Hide
+                </button>
               </div>
-              <div>
-                <label for="clean-status" class="block mb-2 text-sm font-medium text-gray-900">Clean Status</label>
-                <select id="clean-status" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="clean_status">
-                  <option selected>Select Status</option>
-                  <option value="B">B</option>
-                  <option value="S">S</option>
-                  <option value="T">T</option>
-                </select>
+            </form>
+          </div>
+
+          <hr class="border-2 rounded-xl border-indigo-800 border-opacity-30 lg:hidden">
+
+          {{-- Mushola --}}
+          <div id="elementToHide5" class="mt-4">
+            <form id="dataForm5" enctype="multipart/form-data">
+              @csrf
+              <div class="mb-3 lg:flex space-x-4 items-center justify-start space-y-4 lg:space-y-0">
+                <div class="hidden lg:block">
+                  <label for="date" class="block mb-2 text-sm font-medium text-gray-900">Current Date</label>
+                  <input type="date" class="bg-gray-100 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="date" value="{{now()->format('Y-m-d')}}" readonly>
+                </div>
+                <div>
+                  <label for="hardware-name" class="block mb-2 text-sm font-medium text-gray-900">Hardware Name</label>
+                  <input type="text" id="hardware-name" class="bg-gray-100 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required value="CCTV KBRT Mushola" readonly name="hardware_name">
+                </div>
+                <div>
+                  <label for="record-status" class="block mb-2 text-sm font-medium text-gray-900">Record Status</label>
+                  <select id="record-status" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="record_status">
+                    <option selected>Select Status</option>
+                    <option value="B">B</option>
+                    <option value="S">S</option>
+                    <option value="T">T</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="record-desc" class="block mb-2 text-sm font-medium text-gray-900">Record Description</label>
+                  <input type="text" id="record-desc" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="record_desc">
+                </div>
+                <div>
+                  <label for="clean-status" class="block mb-2 text-sm font-medium text-gray-900">Clean Status</label>
+                  <select id="clean-status" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="clean_status">
+                    <option selected>Select Status</option>
+                    <option value="B">B</option>
+                    <option value="S">S</option>
+                    <option value="T">T</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="clean-desc" class="block mb-2 text-sm font-medium text-gray-900">Clean Description</label>
+                  <input type="text" id="clean-desc" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="clean_desc">
+                </div>
               </div>
-              <div>
-                <label for="clean-desc" class="block mb-2 text-sm font-medium text-gray-900">Clean Description</label>
-                <input type="text" id="clean-desc" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="clean_desc">
+  
+              <div class="inline-flex rounded-md shadow-sm" role="group">
+                <button type="submit" data-form="dataForm5" class="submitButton px-4 py-2 text-sm font-medium bg-gray-900 text-white border-2 border-gray-900 rounded-l-lg hover:bg-gray-500 hover:border-gray-500 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white">
+                  Submit
+                </button>
+                <button type="reset" class="px-4 py-2 text-sm font-medium text-white bg-gray-900 border-2 border-t border-b border-gray-900 hover:bg-gray-500 hover:border-gray-500 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white">
+                  Reset
+                </button>
+                <button type="button" data-target="#elementToHide5" class="hideButton px-4 py-2 text-sm font-medium text-white bg-gray-900 border-2 border-gray-900 rounded-r-md hover:bg-gray-500 hover:border-gray-500 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white">
+                  Hide
+                </button>
               </div>
-            </div>
-
-              <input type="hidden" name="action" value="iOne">
-
-            <div class="justify-center lg:justify-start space-x-4 flex">
-
-              <button type="submit" class="text-gray-100 bg-indigo-800 hover:bg-indigo-400 hover:text-white transition duration-200 focus:ring-4 focus:outline-none focus:ring-indigo-400 rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center" title="Submit Input">Submit</button>
-
-              <button type="reset" class="text-white bg-gray-400 hover:bg-gray-500 focus:ring-4 transition duration-200 focus:outline-none focus:ring-gray-500 rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center" title="Reset Input">Reset</button>
-
-              <button type="button" data-target="#elementToHide3" class="text-white bg-red-800 hover:bg-red-600 focus:ring-4 transition duration-200 focus:outline-none focus:ring-red-6  00 rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center hideButton" title="Close Form">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
-                  <path fill-rule="evenodd" d="M5.47 5.47a.75.75 0 011.06 0L12 10.94l5.47-5.47a.75.75 0 111.06 1.06L13.06 12l5.47 5.47a.75.75 0 11-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 01-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 010-1.06z" clip-rule="evenodd" />
-                </svg>                
-              </button>
-            </div>
-          </form>
+            </form>
+          </div>
 
           <hr class="border-2 rounded-xl border-indigo-800 border-opacity-30 lg:hidden">
-          <div class="mb-6 lg:flex space-x-4 items-center justify-start space-y-4 lg:space-y-0">
-            <div class="hidden lg:block">
-              <label for="date" class="block mb-2 text-sm font-medium text-gray-900">Current Date</label>
-              <input type="date" class="bg-gray-100 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="date" value="{{now()->format('Y-m-d')}}" readonly>
-            </div>
-            <div>
-              <label for="hardware-name" class="block mb-2 text-sm font-medium text-gray-900">Hardware Name</label>
-              <input type="text" id="hardware-name" class="bg-gray-100 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required value="CCTV KBRT SCP 2" readonly name="hardware_name">
-            </div>
-            <div>
-              <label for="record-status" class="block mb-2 text-sm font-medium text-gray-900">Record Status</label>
-              <select id="record-status" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="record_status">
-                <option selected>Select Status</option>
-                <option value="B">B</option>
-                <option value="S">S</option>
-                <option value="T">T</option>
-              </select>
-            </div>
-            <div>
-              <label for="record-desc" class="block mb-2 text-sm font-medium text-gray-900">Record Description</label>
-              <input type="text" id="record-desc" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="record_desc">
-            </div>
-            <div>
-              <label for="clean-status" class="block mb-2 text-sm font-medium text-gray-900">Clean Status</label>
-              <select id="clean-status" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="clean_status">
-                <option selected>Select Status</option>
-                <option value="B">B</option>
-                <option value="S">S</option>
-                <option value="T">T</option>
-              </select>
-            </div>
-            <div>
-              <label for="clean-desc" class="block mb-2 text-sm font-medium text-gray-900">Clean Description</label>
-              <input type="text" id="clean-desc" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="clean_desc">
-            </div>
+
+          {{-- Ruang Tunggu --}}
+          <div id="elementToHide6" class="mt-4">
+            <form id="dataForm6" enctype="multipart/form-data">
+              @csrf
+              <div class="mb-3 lg:flex space-x-4 items-center justify-start space-y-4 lg:space-y-0">
+                <div class="hidden lg:block">
+                  <label for="date" class="block mb-2 text-sm font-medium text-gray-900">Current Date</label>
+                  <input type="date" class="bg-gray-100 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="date" value="{{now()->format('Y-m-d')}}" readonly>
+                </div>
+                <div>
+                  <label for="hardware-name" class="block mb-2 text-sm font-medium text-gray-900">Hardware Name</label>
+                  <input type="text" id="hardware-name" class="bg-gray-100 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required value="CCTV KBRT Ruang Tunggu" readonly name="hardware_name">
+                </div>
+                <div>
+                  <label for="record-status" class="block mb-2 text-sm font-medium text-gray-900">Record Status</label>
+                  <select id="record-status" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="record_status">
+                    <option selected>Select Status</option>
+                    <option value="B">B</option>
+                    <option value="S">S</option>
+                    <option value="T">T</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="record-desc" class="block mb-2 text-sm font-medium text-gray-900">Record Description</label>
+                  <input type="text" id="record-desc" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="record_desc">
+                </div>
+                <div>
+                  <label for="clean-status" class="block mb-2 text-sm font-medium text-gray-900">Clean Status</label>
+                  <select id="clean-status" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="clean_status">
+                    <option selected>Select Status</option>
+                    <option value="B">B</option>
+                    <option value="S">S</option>
+                    <option value="T">T</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="clean-desc" class="block mb-2 text-sm font-medium text-gray-900">Clean Description</label>
+                  <input type="text" id="clean-desc" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="clean_desc">
+                </div>
+              </div>
+  
+              <div class="inline-flex rounded-md shadow-sm" role="group">
+                <button type="submit" data-form="dataForm6" class="submitButton px-4 py-2 text-sm font-medium bg-gray-900 text-white border-2 border-gray-900 rounded-l-lg hover:bg-gray-500 hover:border-gray-500 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white">
+                  Submit
+                </button>
+                <button type="reset" class="px-4 py-2 text-sm font-medium text-white bg-gray-900 border-2 border-t border-b border-gray-900 hover:bg-gray-500 hover:border-gray-500 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white">
+                  Reset
+                </button>
+                <button type="button" data-target="#elementToHide6" class="hideButton px-4 py-2 text-sm font-medium text-white bg-gray-900 border-2 border-gray-900 rounded-r-md hover:bg-gray-500 hover:border-gray-500 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white">
+                  Hide
+                </button>
+              </div>
+            </form>
           </div>
+
           <hr class="border-2 rounded-xl border-indigo-800 border-opacity-30 lg:hidden">
-          <div class="mb-6 lg:flex space-x-4 items-center justify-start space-y-4 lg:space-y-0">
-            <div class="hidden lg:block">
-              <label for="date" class="block mb-2 text-sm font-medium text-gray-900">Current Date</label>
-              <input type="date" class="bg-gray-100 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="date" value="{{now()->format('Y-m-d')}}" readonly>
-            </div>
-            <div>
-              <label for="hardware-name" class="block mb-2 text-sm font-medium text-gray-900">Hardware Name</label>
-              <input type="text" id="hardware-name" class="bg-gray-100 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required value="CCTV KBRT Mushola" readonly name="hardware_name">
-            </div>
-            <div>
-              <label for="record-status" class="block mb-2 text-sm font-medium text-gray-900">Record Status</label>
-              <select id="record-status" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="record_status">
-                <option selected>Select Status</option>
-                <option value="B">B</option>
-                <option value="S">S</option>
-                <option value="T">T</option>
-              </select>
-            </div>
-            <div>
-              <label for="record-desc" class="block mb-2 text-sm font-medium text-gray-900">Record Description</label>
-              <input type="text" id="record-desc" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="record_desc">
-            </div>
-            <div>
-              <label for="clean-status" class="block mb-2 text-sm font-medium text-gray-900">Clean Status</label>
-              <select id="clean-status" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="clean_status">
-                <option selected>Select Status</option>
-                <option value="B">B</option>
-                <option value="S">S</option>
-                <option value="T">T</option>
-              </select>
-            </div>
-            <div>
-              <label for="clean-desc" class="block mb-2 text-sm font-medium text-gray-900">Clean Description</label>
-              <input type="text" id="clean-desc" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="clean_desc">
-            </div>
+
+          {{-- SCP 1 L --}}
+          <div id="elementToHide7" class="mt-4">
+            <form id="dataForm7" enctype="multipart/form-data">
+              @csrf
+              <div class="mb-3 lg:flex space-x-4 items-center justify-start space-y-4 lg:space-y-0">
+                <div class="hidden lg:block">
+                  <label for="date" class="block mb-2 text-sm font-medium text-gray-900">Current Date</label>
+                  <input type="date" class="bg-gray-100 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="date" value="{{now()->format('Y-m-d')}}" readonly>
+                </div>
+                <div>
+                  <label for="hardware-name" class="block mb-2 text-sm font-medium text-gray-900">Hardware Name</label>
+                  <input type="text" id="hardware-name" class="bg-gray-100 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required value="CCTV KBRT SCP 1 L" readonly name="hardware_name">
+                </div>
+                <div>
+                  <label for="record-status" class="block mb-2 text-sm font-medium text-gray-900">Record Status</label>
+                  <select id="record-status" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="record_status">
+                    <option selected>Select Status</option>
+                    <option value="B">B</option>
+                    <option value="S">S</option>
+                    <option value="T">T</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="record-desc" class="block mb-2 text-sm font-medium text-gray-900">Record Description</label>
+                  <input type="text" id="record-desc" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="record_desc">
+                </div>
+                <div>
+                  <label for="clean-status" class="block mb-2 text-sm font-medium text-gray-900">Clean Status</label>
+                  <select id="clean-status" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="clean_status">
+                    <option selected>Select Status</option>
+                    <option value="B">B</option>
+                    <option value="S">S</option>
+                    <option value="T">T</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="clean-desc" class="block mb-2 text-sm font-medium text-gray-900">Clean Description</label>
+                  <input type="text" id="clean-desc" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="clean_desc">
+                </div>
+              </div>
+  
+              <div class="inline-flex rounded-md shadow-sm" role="group">
+                <button type="submit" data-form="dataForm7" class="submitButton px-4 py-2 text-sm font-medium bg-gray-900 text-white border-2 border-gray-900 rounded-l-lg hover:bg-gray-500 hover:border-gray-500 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white">
+                  Submit
+                </button>
+                <button type="reset" class="px-4 py-2 text-sm font-medium text-white bg-gray-900 border-2 border-t border-b border-gray-900 hover:bg-gray-500 hover:border-gray-500 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white">
+                  Reset
+                </button>
+                <button type="button" data-target="#elementToHide7" class="hideButton px-4 py-2 text-sm font-medium text-white bg-gray-900 border-2 border-gray-900 rounded-r-md hover:bg-gray-500 hover:border-gray-500 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white">
+                  Hide
+                </button>
+              </div>
+            </form>
           </div>
+
           <hr class="border-2 rounded-xl border-indigo-800 border-opacity-30 lg:hidden">
-          <div class="mb-6 lg:flex space-x-4 items-center justify-start space-y-4 lg:space-y-0">
-            <div class="hidden lg:block">
-              <label for="date" class="block mb-2 text-sm font-medium text-gray-900">Current Date</label>
-              <input type="date" class="bg-gray-100 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="date" value="{{now()->format('Y-m-d')}}" readonly>
-            </div>
-            <div>
-              <label for="hardware-name" class="block mb-2 text-sm font-medium text-gray-900">Hardware Name</label>
-              <input type="text" id="hardware-name" class="bg-gray-100 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required value="CCTV KBRT Ruang Tunggu" readonly name="hardware_name">
-            </div>
-            <div>
-              <label for="record-status" class="block mb-2 text-sm font-medium text-gray-900">Record Status</label>
-              <select id="record-status" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="record_status">
-                <option selected>Select Status</option>
-                <option value="B">B</option>
-                <option value="S">S</option>
-                <option value="T">T</option>
-              </select>
-            </div>
-            <div>
-              <label for="record-desc" class="block mb-2 text-sm font-medium text-gray-900">Record Description</label>
-              <input type="text" id="record-desc" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="record_desc">
-            </div>
-            <div>
-              <label for="clean-status" class="block mb-2 text-sm font-medium text-gray-900">Clean Status</label>
-              <select id="clean-status" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="clean_status">
-                <option selected>Select Status</option>
-                <option value="B">B</option>
-                <option value="S">S</option>
-                <option value="T">T</option>
-              </select>
-            </div>
-            <div>
-              <label for="clean-desc" class="block mb-2 text-sm font-medium text-gray-900">Clean Description</label>
-              <input type="text" id="clean-desc" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="clean_desc">
-            </div>
+
+          {{-- Lobi Lt 2 --}}
+          <div id="elementToHide8" class="mt-4">
+            <form id="dataForm8" enctype="multipart/form-data">
+              @csrf
+              <div class="mb-3 lg:flex space-x-4 items-center justify-start space-y-4 lg:space-y-0">
+                <div class="hidden lg:block">
+                  <label for="date" class="block mb-2 text-sm font-medium text-gray-900">Current Date</label>
+                  <input type="date" class="bg-gray-100 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="date" value="{{now()->format('Y-m-d')}}" readonly>
+                </div>
+                <div>
+                  <label for="hardware-name" class="block mb-2 text-sm font-medium text-gray-900">Hardware Name</label>
+                  <input type="text" id="hardware-name" class="bg-gray-100 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required value="CCTV KBRT Lobi Lt 2" readonly name="hardware_name">
+                </div>
+                <div>
+                  <label for="record-status" class="block mb-2 text-sm font-medium text-gray-900">Record Status</label>
+                  <select id="record-status" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="record_status">
+                    <option selected>Select Status</option>
+                    <option value="B">B</option>
+                    <option value="S">S</option>
+                    <option value="T">T</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="record-desc" class="block mb-2 text-sm font-medium text-gray-900">Record Description</label>
+                  <input type="text" id="record-desc" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="record_desc">
+                </div>
+                <div>
+                  <label for="clean-status" class="block mb-2 text-sm font-medium text-gray-900">Clean Status</label>
+                  <select id="clean-status" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="clean_status">
+                    <option selected>Select Status</option>
+                    <option value="B">B</option>
+                    <option value="S">S</option>
+                    <option value="T">T</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="clean-desc" class="block mb-2 text-sm font-medium text-gray-900">Clean Description</label>
+                  <input type="text" id="clean-desc" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="clean_desc">
+                </div>
+              </div>
+  
+              <div class="inline-flex rounded-md shadow-sm" role="group">
+                <button type="submit" data-form="dataForm8" class="submitButton px-4 py-2 text-sm font-medium bg-gray-900 text-white border-2 border-gray-900 rounded-l-lg hover:bg-gray-500 hover:border-gray-500 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white">
+                  Submit
+                </button>
+                <button type="reset" class="px-4 py-2 text-sm font-medium text-white bg-gray-900 border-2 border-t border-b border-gray-900 hover:bg-gray-500 hover:border-gray-500 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white">
+                  Reset
+                </button>
+                <button type="button" data-target="#elementToHide8" class="hideButton px-4 py-2 text-sm font-medium text-white bg-gray-900 border-2 border-gray-900 rounded-r-md hover:bg-gray-500 hover:border-gray-500 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white">
+                  Hide
+                </button>
+              </div>
+            </form>
           </div>
+
           <hr class="border-2 rounded-xl border-indigo-800 border-opacity-30 lg:hidden">
-          <div class="mb-6 lg:flex space-x-4 items-center justify-start space-y-4 lg:space-y-0">
-            <div class="hidden lg:block">
-              <label for="date" class="block mb-2 text-sm font-medium text-gray-900">Current Date</label>
-              <input type="date" class="bg-gray-100 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="date" value="{{now()->format('Y-m-d')}}" readonly>
-            </div>
-            <div>
-              <label for="hardware-name" class="block mb-2 text-sm font-medium text-gray-900">Hardware Name</label>
-              <input type="text" id="hardware-name" class="bg-gray-100 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required value="CCTV KBRT SCP 1 L" readonly name="hardware_name">
-            </div>
-            <div>
-              <label for="record-status" class="block mb-2 text-sm font-medium text-gray-900">Record Status</label>
-              <select id="record-status" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="record_status">
-                <option selected>Select Status</option>
-                <option value="B">B</option>
-                <option value="S">S</option>
-                <option value="T">T</option>
-              </select>
-            </div>
-            <div>
-              <label for="record-desc" class="block mb-2 text-sm font-medium text-gray-900">Record Description</label>
-              <input type="text" id="record-desc" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="record_desc">
-            </div>
-            <div>
-              <label for="clean-status" class="block mb-2 text-sm font-medium text-gray-900">Clean Status</label>
-              <select id="clean-status" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="clean_status">
-                <option selected>Select Status</option>
-                <option value="B">B</option>
-                <option value="S">S</option>
-                <option value="T">T</option>
-              </select>
-            </div>
-            <div>
-              <label for="clean-desc" class="block mb-2 text-sm font-medium text-gray-900">Clean Description</label>
-              <input type="text" id="clean-desc" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="clean_desc">
-            </div>
+
+          {{-- Ex 2 --}}
+          <div id="elementToHide9" class="mt-4">
+            <form id="dataForm9" enctype="multipart/form-data">
+              @csrf
+              <div class="mb-3 lg:flex space-x-4 items-center justify-start space-y-4 lg:space-y-0">
+                <div class="hidden lg:block">
+                  <label for="date" class="block mb-2 text-sm font-medium text-gray-900">Current Date</label>
+                  <input type="date" class="bg-gray-100 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="date" value="{{now()->format('Y-m-d')}}" readonly>
+                </div>
+                <div>
+                  <label for="hardware-name" class="block mb-2 text-sm font-medium text-gray-900">Hardware Name</label>
+                  <input type="text" id="hardware-name" class="bg-gray-100 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required value="CCTV KBRT Ex 2" readonly name="hardware_name">
+                </div>
+                <div>
+                  <label for="record-status" class="block mb-2 text-sm font-medium text-gray-900">Record Status</label>
+                  <select id="record-status" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="record_status">
+                    <option selected>Select Status</option>
+                    <option value="B">B</option>
+                    <option value="S">S</option>
+                    <option value="T">T</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="record-desc" class="block mb-2 text-sm font-medium text-gray-900">Record Description</label>
+                  <input type="text" id="record-desc" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="record_desc">
+                </div>
+                <div>
+                  <label for="clean-status" class="block mb-2 text-sm font-medium text-gray-900">Clean Status</label>
+                  <select id="clean-status" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="clean_status">
+                    <option selected>Select Status</option>
+                    <option value="B">B</option>
+                    <option value="S">S</option>
+                    <option value="T">T</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="clean-desc" class="block mb-2 text-sm font-medium text-gray-900">Clean Description</label>
+                  <input type="text" id="clean-desc" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="clean_desc">
+                </div>
+              </div>
+  
+              <div class="inline-flex rounded-md shadow-sm" role="group">
+                <button type="submit" data-form="dataForm9" class="submitButton px-4 py-2 text-sm font-medium bg-gray-900 text-white border-2 border-gray-900 rounded-l-lg hover:bg-gray-500 hover:border-gray-500 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white">
+                  Submit
+                </button>
+                <button type="reset" class="px-4 py-2 text-sm font-medium text-white bg-gray-900 border-2 border-t border-b border-gray-900 hover:bg-gray-500 hover:border-gray-500 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white">
+                  Reset
+                </button>
+                <button type="button" data-target="#elementToHide9" class="hideButton px-4 py-2 text-sm font-medium text-white bg-gray-900 border-2 border-gray-900 rounded-r-md hover:bg-gray-500 hover:border-gray-500 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white">
+                  Hide
+                </button>
+              </div>
+            </form>
           </div>
+
           <hr class="border-2 rounded-xl border-indigo-800 border-opacity-30 lg:hidden">
-          <div class="mb-6 lg:flex space-x-4 items-center justify-start space-y-4 lg:space-y-0">
-            <div class="hidden lg:block">
-              <label for="date" class="block mb-2 text-sm font-medium text-gray-900">Current Date</label>
-              <input type="date" class="bg-gray-100 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="date" value="{{now()->format('Y-m-d')}}" readonly>
-            </div>
-            <div>
-              <label for="hardware-name" class="block mb-2 text-sm font-medium text-gray-900">Hardware Name</label>
-              <input type="text" id="hardware-name" class="bg-gray-100 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required value="CCTV KBRT Lobi Lt 2" readonly name="hardware_name">
-            </div>
-            <div>
-              <label for="record-status" class="block mb-2 text-sm font-medium text-gray-900">Record Status</label>
-              <select id="record-status" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="record_status">
-                <option selected>Select Status</option>
-                <option value="B">B</option>
-                <option value="S">S</option>
-                <option value="T">T</option>
-              </select>
-            </div>
-            <div>
-              <label for="record-desc" class="block mb-2 text-sm font-medium text-gray-900">Record Description</label>
-              <input type="text" id="record-desc" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="record_desc">
-            </div>
-            <div>
-              <label for="clean-status" class="block mb-2 text-sm font-medium text-gray-900">Clean Status</label>
-              <select id="clean-status" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="clean_status">
-                <option selected>Select Status</option>
-                <option value="B">B</option>
-                <option value="S">S</option>
-                <option value="T">T</option>
-              </select>
-            </div>
-            <div>
-              <label for="clean-desc" class="block mb-2 text-sm font-medium text-gray-900">Clean Description</label>
-              <input type="text" id="clean-desc" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="clean_desc">
-            </div>
+
+          {{-- Jalan Lingkungan --}}
+          <div id="elementToHide10" class="mt-4">
+            <form id="dataForm10" enctype="multipart/form-data">
+              @csrf
+              <div class="mb-3 lg:flex space-x-4 items-center justify-start space-y-4 lg:space-y-0">
+                <div class="hidden lg:block">
+                  <label for="date" class="block mb-2 text-sm font-medium text-gray-900">Current Date</label>
+                  <input type="date" class="bg-gray-100 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="date" value="{{now()->format('Y-m-d')}}" readonly>
+                </div>
+                <div>
+                  <label for="hardware-name" class="block mb-2 text-sm font-medium text-gray-900">Hardware Name</label>
+                  <input type="text" id="hardware-name" class="bg-gray-100 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required value="CCTV KBRT Jalan Lingkungan" readonly name="hardware_name">
+                </div>
+                <div>
+                  <label for="record-status" class="block mb-2 text-sm font-medium text-gray-900">Record Status</label>
+                  <select id="record-status" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="record_status">
+                    <option selected>Select Status</option>
+                    <option value="B">B</option>
+                    <option value="S">S</option>
+                    <option value="T">T</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="record-desc" class="block mb-2 text-sm font-medium text-gray-900">Record Description</label>
+                  <input type="text" id="record-desc" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="record_desc">
+                </div>
+                <div>
+                  <label for="clean-status" class="block mb-2 text-sm font-medium text-gray-900">Clean Status</label>
+                  <select id="clean-status" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="clean_status">
+                    <option selected>Select Status</option>
+                    <option value="B">B</option>
+                    <option value="S">S</option>
+                    <option value="T">T</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="clean-desc" class="block mb-2 text-sm font-medium text-gray-900">Clean Description</label>
+                  <input type="text" id="clean-desc" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="clean_desc">
+                </div>
+              </div>
+  
+              <div class="inline-flex rounded-md shadow-sm" role="group">
+                <button type="submit" data-form="dataForm10" class="submitButton px-4 py-2 text-sm font-medium bg-gray-900 text-white border-2 border-gray-900 rounded-l-lg hover:bg-gray-500 hover:border-gray-500 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white">
+                  Submit
+                </button>
+                <button type="reset" class="px-4 py-2 text-sm font-medium text-white bg-gray-900 border-2 border-t border-b border-gray-900 hover:bg-gray-500 hover:border-gray-500 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white">
+                  Reset
+                </button>
+                <button type="button" data-target="#elementToHide10" class="hideButton px-4 py-2 text-sm font-medium text-white bg-gray-900 border-2 border-gray-900 rounded-r-md hover:bg-gray-500 hover:border-gray-500 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white">
+                  Hide
+                </button>
+              </div>
+            </form>
           </div>
+
           <hr class="border-2 rounded-xl border-indigo-800 border-opacity-30 lg:hidden">
-          <div class="mb-6 lg:flex space-x-4 items-center justify-start space-y-4 lg:space-y-0">
-            <div class="hidden lg:block">
-              <label for="date" class="block mb-2 text-sm font-medium text-gray-900">Current Date</label>
-              <input type="date" class="bg-gray-100 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="date" value="{{now()->format('Y-m-d')}}" readonly>
-            </div>
-            <div>
-              <label for="hardware-name" class="block mb-2 text-sm font-medium text-gray-900">Hardware Name</label>
-              <input type="text" id="hardware-name" class="bg-gray-100 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required value="CCTV KBRT Ex 2" readonly name="hardware_name">
-            </div>
-            <div>
-              <label for="record-status" class="block mb-2 text-sm font-medium text-gray-900">Record Status</label>
-              <select id="record-status" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="record_status">
-                <option selected>Select Status</option>
-                <option value="B">B</option>
-                <option value="S">S</option>
-                <option value="T">T</option>
-              </select>
-            </div>
-            <div>
-              <label for="record-desc" class="block mb-2 text-sm font-medium text-gray-900">Record Description</label>
-              <input type="text" id="record-desc" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="record_desc">
-            </div>
-            <div>
-              <label for="clean-status" class="block mb-2 text-sm font-medium text-gray-900">Clean Status</label>
-              <select id="clean-status" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="clean_status">
-                <option selected>Select Status</option>
-                <option value="B">B</option>
-                <option value="S">S</option>
-                <option value="T">T</option>
-              </select>
-            </div>
-            <div>
-              <label for="clean-desc" class="block mb-2 text-sm font-medium text-gray-900">Clean Description</label>
-              <input type="text" id="clean-desc" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="clean_desc">
-            </div>
+
+          {{-- Ex 1 --}}
+          <div id="elementToHide11" class="mt-4">
+            <form id="dataForm11" enctype="multipart/form-data">
+              @csrf
+              <div class="mb-3 lg:flex space-x-4 items-center justify-start space-y-4 lg:space-y-0">
+                <div class="hidden lg:block">
+                  <label for="date" class="block mb-2 text-sm font-medium text-gray-900">Current Date</label>
+                  <input type="date" class="bg-gray-100 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="date" value="{{now()->format('Y-m-d')}}" readonly>
+                </div>
+                <div>
+                  <label for="hardware-name" class="block mb-2 text-sm font-medium text-gray-900">Hardware Name</label>
+                  <input type="text" id="hardware-name" class="bg-gray-100 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required value="CCTV KBRT Ex 1" readonly name="hardware_name">
+                </div>
+                <div>
+                  <label for="record-status" class="block mb-2 text-sm font-medium text-gray-900">Record Status</label>
+                  <select id="record-status" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="record_status">
+                    <option selected>Select Status</option>
+                    <option value="B">B</option>
+                    <option value="S">S</option>
+                    <option value="T">T</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="record-desc" class="block mb-2 text-sm font-medium text-gray-900">Record Description</label>
+                  <input type="text" id="record-desc" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="record_desc">
+                </div>
+                <div>
+                  <label for="clean-status" class="block mb-2 text-sm font-medium text-gray-900">Clean Status</label>
+                  <select id="clean-status" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="clean_status">
+                    <option selected>Select Status</option>
+                    <option value="B">B</option>
+                    <option value="S">S</option>
+                    <option value="T">T</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="clean-desc" class="block mb-2 text-sm font-medium text-gray-900">Clean Description</label>
+                  <input type="text" id="clean-desc" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="clean_desc">
+                </div>
+              </div>
+  
+              <div class="inline-flex rounded-md shadow-sm" role="group">
+                <button type="submit" data-form="dataForm11" class="submitButton px-4 py-2 text-sm font-medium bg-gray-900 text-white border-2 border-gray-900 rounded-l-lg hover:bg-gray-500 hover:border-gray-500 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white">
+                  Submit
+                </button>
+                <button type="reset" class="px-4 py-2 text-sm font-medium text-white bg-gray-900 border-2 border-t border-b border-gray-900 hover:bg-gray-500 hover:border-gray-500 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white">
+                  Reset
+                </button>
+                <button type="button" data-target="#elementToHide11" class="hideButton px-4 py-2 text-sm font-medium text-white bg-gray-900 border-2 border-gray-900 rounded-r-md hover:bg-gray-500 hover:border-gray-500 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white">
+                  Hide
+                </button>
+              </div>
+            </form>
           </div>
+
           <hr class="border-2 rounded-xl border-indigo-800 border-opacity-30 lg:hidden">
-          <div class="mb-6 lg:flex space-x-4 items-center justify-start space-y-4 lg:space-y-0">
-            <div class="hidden lg:block">
-              <label for="date" class="block mb-2 text-sm font-medium text-gray-900">Current Date</label>
-              <input type="date" class="bg-gray-100 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="date" value="{{now()->format('Y-m-d')}}" readonly>
-            </div>
-            <div>
-              <label for="hardware-name" class="block mb-2 text-sm font-medium text-gray-900">Hardware Name</label>
-              <input type="text" id="hardware-name" class="bg-gray-100 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required value="CCTV KBRT Jalan Lingkungan" readonly name="hardware_name">
-            </div>
-            <div>
-              <label for="record-status" class="block mb-2 text-sm font-medium text-gray-900">Record Status</label>
-              <select id="record-status" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="record_status">
-                <option selected>Select Status</option>
-                <option value="B">B</option>
-                <option value="S">S</option>
-                <option value="T">T</option>
-              </select>
-            </div>
-            <div>
-              <label for="record-desc" class="block mb-2 text-sm font-medium text-gray-900">Record Description</label>
-              <input type="text" id="record-desc" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="record_desc">
-            </div>
-            <div>
-              <label for="clean-status" class="block mb-2 text-sm font-medium text-gray-900">Clean Status</label>
-              <select id="clean-status" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="clean_status">
-                <option selected>Select Status</option>
-                <option value="B">B</option>
-                <option value="S">S</option>
-                <option value="T">T</option>
-              </select>
-            </div>
-            <div>
-              <label for="clean-desc" class="block mb-2 text-sm font-medium text-gray-900">Clean Description</label>
-              <input type="text" id="clean-desc" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="clean_desc">
-            </div>
+
+          {{-- SCP 1 --}}
+          <div id="elementToHide12" class="mt-4">
+            <form id="dataForm12" enctype="multipart/form-data">
+              @csrf
+              <div class="mb-3 lg:flex space-x-4 items-center justify-start space-y-4 lg:space-y-0">
+                <div class="hidden lg:block">
+                  <label for="date" class="block mb-2 text-sm font-medium text-gray-900">Current Date</label>
+                  <input type="date" class="bg-gray-100 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="date" value="{{now()->format('Y-m-d')}}" readonly>
+                </div>
+                <div>
+                  <label for="hardware-name" class="block mb-2 text-sm font-medium text-gray-900">Hardware Name</label>
+                  <input type="text" id="hardware-name" class="bg-gray-100 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required value="CCTV KBRT SCP 1" readonly name="hardware_name">
+                </div>
+                <div>
+                  <label for="record-status" class="block mb-2 text-sm font-medium text-gray-900">Record Status</label>
+                  <select id="record-status" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="record_status">
+                    <option selected>Select Status</option>
+                    <option value="B">B</option>
+                    <option value="S">S</option>
+                    <option value="T">T</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="record-desc" class="block mb-2 text-sm font-medium text-gray-900">Record Description</label>
+                  <input type="text" id="record-desc" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="record_desc">
+                </div>
+                <div>
+                  <label for="clean-status" class="block mb-2 text-sm font-medium text-gray-900">Clean Status</label>
+                  <select id="clean-status" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="clean_status">
+                    <option selected>Select Status</option>
+                    <option value="B">B</option>
+                    <option value="S">S</option>
+                    <option value="T">T</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="clean-desc" class="block mb-2 text-sm font-medium text-gray-900">Clean Description</label>
+                  <input type="text" id="clean-desc" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="clean_desc">
+                </div>
+              </div>
+  
+              <div class="inline-flex rounded-md shadow-sm" role="group">
+                <button type="submit" data-form="dataForm12" class="submitButton px-4 py-2 text-sm font-medium bg-gray-900 text-white border-2 border-gray-900 rounded-l-lg hover:bg-gray-500 hover:border-gray-500 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white">
+                  Submit
+                </button>
+                <button type="reset" class="px-4 py-2 text-sm font-medium text-white bg-gray-900 border-2 border-t border-b border-gray-900 hover:bg-gray-500 hover:border-gray-500 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white">
+                  Reset
+                </button>
+                <button type="button" data-target="#elementToHide12" class="hideButton px-4 py-2 text-sm font-medium text-white bg-gray-900 border-2 border-gray-900 rounded-r-md hover:bg-gray-500 hover:border-gray-500 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white">
+                  Hide
+                </button>
+              </div>
+            </form>
           </div>
-          <hr class="border-2 rounded-xl border-indigo-800 border-opacity-30 lg:hidden">
-          <div class="mb-6 lg:flex space-x-4 items-center justify-start space-y-4 lg:space-y-0">
-            <div class="hidden lg:block">
-              <label for="date" class="block mb-2 text-sm font-medium text-gray-900">Current Date</label>
-              <input type="date" class="bg-gray-100 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="date" value="{{now()->format('Y-m-d')}}" readonly>
-            </div>
-            <div>
-              <label for="hardware-name" class="block mb-2 text-sm font-medium text-gray-900">Hardware Name</label>
-              <input type="text" id="hardware-name" class="bg-gray-100 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required value="CCTV KBRT Ex 1" readonly name="hardware_name">
-            </div>
-            <div>
-              <label for="record-status" class="block mb-2 text-sm font-medium text-gray-900">Record Status</label>
-              <select id="record-status" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="record_status">
-                <option selected>Select Status</option>
-                <option value="B">B</option>
-                <option value="S">S</option>
-                <option value="T">T</option>
-              </select>
-            </div>
-            <div>
-              <label for="record-desc" class="block mb-2 text-sm font-medium text-gray-900">Record Description</label>
-              <input type="text" id="record-desc" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="record_desc">
-            </div>
-            <div>
-              <label for="clean-status" class="block mb-2 text-sm font-medium text-gray-900">Clean Status</label>
-              <select id="clean-status" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="clean_status">
-                <option selected>Select Status</option>
-                <option value="B">B</option>
-                <option value="S">S</option>
-                <option value="T">T</option>
-              </select>
-            </div>
-            <div>
-              <label for="clean-desc" class="block mb-2 text-sm font-medium text-gray-900">Clean Description</label>
-              <input type="text" id="clean-desc" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="clean_desc">
-            </div>
-          </div>
-          <hr class="border-2 rounded-xl border-indigo-800 border-opacity-30 lg:hidden">
-          <div class="mb-6 lg:flex space-x-4 items-center justify-start space-y-4 lg:space-y-0">
-            <div class="hidden lg:block">
-              <label for="date" class="block mb-2 text-sm font-medium text-gray-900">Current Date</label>
-              <input type="date" class="bg-gray-100 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="date" value="{{now()->format('Y-m-d')}}" readonly>
-            </div>
-            <div>
-              <label for="hardware-name" class="block mb-2 text-sm font-medium text-gray-900">Hardware Name</label>
-              <input type="text" id="hardware-name" class="bg-gray-100 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required value="CCTV KBRT SCP 1" readonly name="hardware_name">
-            </div>
-            <div>
-              <label for="record-status" class="block mb-2 text-sm font-medium text-gray-900">Record Status</label>
-              <select id="record-status" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="record_status">
-                <option selected>Select Status</option>
-                <option value="B">B</option>
-                <option value="S">S</option>
-                <option value="T">T</option>
-              </select>
-            </div>
-            <div>
-              <label for="record-desc" class="block mb-2 text-sm font-medium text-gray-900">Record Description</label>
-              <input type="text" id="record-desc" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="record_desc">
-            </div>
-            <div>
-              <label for="clean-status" class="block mb-2 text-sm font-medium text-gray-900">Clean Status</label>
-              <select id="clean-status" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="clean_status">
-                <option selected>Select Status</option>
-                <option value="B">B</option>
-                <option value="S">S</option>
-                <option value="T">T</option>
-              </select>
-            </div>
-            <div>
-              <label for="clean-desc" class="block mb-2 text-sm font-medium text-gray-900">Clean Description</label>
-              <input type="text" id="clean-desc" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="clean_desc">
-            </div>
-          </div>
+
           <hr class="border-2 rounded-xl border-indigo-800 border-opacity-30 lg:hidden">
           <div class="mb-6 lg:flex space-x-4 items-center justify-start space-y-4 lg:space-y-0">
             <div class="hidden lg:block">
@@ -1722,11 +1887,6 @@
               <input type="text" id="clean-desc" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="clean_desc">
             </div>
           </div>
-
-          <div class="justify-center lg:justify-start space-x-4 flex">
-            <button type="submit" class="text-gray-100 bg-indigo-800 hover:bg-indigo-400 hover:text-white transition duration-200 focus:ring-4 focus:outline-none focus:ring-indigo-400 rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Submit</button>
-            <button type="reset" class="text-white bg-gray-400 hover:bg-gray-500 focus:ring-4 transition duration-200 focus:outline-none focus:ring-gray-500 rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Reset</button>
-          </div>
         </div>        
       </div>
     </section>
@@ -1734,19 +1894,40 @@
 
   <script>
     $(document).ready(function() {
-      $(".hideButton").click(function() {
-        const targetSelector = $(this).data("target");
-        const targetElement = $(targetSelector);
+        $(".hideButton").click(function() {
+            const targetSelector = $(this).data("target");
+            const targetElement = $(targetSelector);
 
-        targetElement.toggle();
-        if (targetElement.is(":visible")) {
-          $(this).text("Hide Element");
-        } else {
-          $(this).text("Show Element");
-        }
-      });
+            targetElement.toggle();
+            if (targetElement.is(":visible")) {
+                $(this).text("Hide Element");
+            } else {
+                $(this).text("Show Element");
+            }
+        });
+
+        $(".submitButton").click(function (event) {
+            event.preventDefault();
+            var formData = new FormData(document.getElementById($(this).data("form")));
+
+            var responseElement = $(this).closest('form').find('.responseMessage');
+
+            fetch("{{ route('cctv.store') }}", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                responseElement.text(data.message);
+                $(".alert-message").text(data.message);
+                $(".alert-message").show();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
     });
-  </script>
+</script>
 
 </body>
 </html>
