@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CCTVList;
 use App\Models\CctvModel;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -70,7 +71,10 @@ class CCTVController extends Controller
     
     public function create() : View
     {
-        return view('admin.report.cctv.create');
+
+        $list = CCTVList::all();
+
+        return view('admin.report.cctv.create', compact('list'));
     }
 
     /**
