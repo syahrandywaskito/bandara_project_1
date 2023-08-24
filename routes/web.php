@@ -5,6 +5,7 @@ use App\Http\Controllers\CCTVController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ReportController;
+use App\Http\Controllers\UsersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,3 +48,6 @@ Route::controller(ReportController::class)->group(function(){
 });
 
 Route::resource('/dashboard/report/cctv', CCTVController::class);
+Route::post('//dashboard/report/cctv/filter', [CCTVController::class, 'filter'])->name('cctv.filter');
+
+Route::resource('/dashboard/users/users', UsersController::class);

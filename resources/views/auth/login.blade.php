@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="shortcut icon" href="{{ asset('img/logo.png') }}" type="image/x-icon">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <title>Teknik - Login</title>
 
   {{-- tailwind css using vite --}}
@@ -27,11 +28,11 @@
   {{-- Login Form --}}
   <section class="h-screen mt-12 mb-10 sm:my-0 sm:h-screen">
     <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-        <a href="#" class="flex items-center mb-6 text-2xl font-bold font-montserrat text-gray-900 uppercase ">
+        <a href="#" class="flex items-center mb-6 text-2xl font-bold font-montserrat text-gray-900 uppercase" data-aos="fade-down" data-aos-duration="500" data-aos-delay="100">
             Login   
         </a>
-        <div class="w-full bg-gray-50 rounded-lg shadow-lg md:mt-0 sm:max-w-md xl:p-0">
-            <div class="p-6 space-y-4 md:space-y-6 sm:p-8 font-roboto">
+        <div class="w-full bg-gray-50 rounded-lg shadow-lg md:mt-0 sm:max-w-md xl:p-0" data-aos="fade-up" data-aos-duration="600" data-aos-delay="200">
+            <div class="p-6 space-y-4 md:space-y-6 sm:p-8 font-roboto" data-aos="fade-up" data-aos-duration="500" data-aos-delay="400">
                 <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
                     Login to your account
                 </h1>
@@ -70,5 +71,10 @@
 
 
   {{-- js script --}}
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+  
 </body>
 </html>

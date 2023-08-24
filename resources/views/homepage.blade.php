@@ -340,32 +340,79 @@
                       <th scope="col" class="px-6 py-3">
                           Destination
                       </th>
-                      <th scope="col" class="px-6 py-3">
-                          Time
-                      </th>
-                      <th scope="col" class="px-6 py-3">
-                          Remark
-                      </th>
-
                   </tr>
               </thead>
               <tbody class=" font-roboto text-center">
+                @php
+                    $day = now()->format('l');
+                @endphp
+                @if ($day == 'Monday' || $day == 'Wednesday')
                   <tr class="bg-white border-b ">
                       <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                           Batik Air
                       </th>
                       <td class="px-6 py-4">
-                          ID-7583
+                          ID-7580
                       </td>
                       <td class="px-6 py-4">
                           Jakarta Halim Perdana
                       </td>
-                      <td class="px-6 py-4">
-                          12.55
-                      </td>
-                      <td class="px-6 py-4">
-                          Scheduled
-                      </td>
+                  </tr>
+                  <tr class="bg-white border-b ">
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                        Garuda Indonesia
+                    </th>
+                    <td class="px-6 py-4">
+                        GA-291
+                    </td>
+                    <td class="px-6 py-4">
+                        Jakarta Soekarno-Hatta
+                    </td>
+                  </tr>
+                  <tr class="bg-white border-b ">
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                        Citilink
+                    </th>
+                    <td class="px-6 py-4">
+                        QG-751
+                    </td>
+                    <td class="px-6 py-4">
+                      Jakarta Soekarno-Hatta
+                    </td>
+                  </tr>
+                  <tr class="bg-white border-b ">
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                        Batik Air
+                    </th>
+                    <td class="px-6 py-4">
+                        ID-7582
+                    </td>
+                    <td class="px-6 py-4">
+                      Jakarta Halim Perdana
+                    </td>
+                  </tr>
+                  <tr class="bg-white border-b ">
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                        Citilink
+                    </th>
+                    <td class="px-6 py-4">
+                        QG-165
+                    </td>
+                    <td class="px-6 py-4">
+                      Jakarta Halim Perdana
+                    </td>
+                  </tr>
+                @else
+                  <tr class="bg-white border-b ">
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                        Batik Air
+                    </th>
+                    <td class="px-6 py-4">
+                        ID-7583
+                    </td>
+                    <td class="px-6 py-4">
+                        Jakarta Halim Perdana
+                    </td>
                   </tr>
                   <tr class="bg-white border-b ">
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
@@ -377,12 +424,6 @@
                     <td class="px-6 py-4">
                         Jakarta Halim Perdana
                     </td>
-                    <td class="px-6 py-4">
-                        12.55
-                    </td>
-                    <td class="px-6 py-4">
-                        Scheduled
-                    </td>
                   </tr>
                   <tr class="bg-white border-b ">
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
@@ -394,13 +435,8 @@
                     <td class="px-6 py-4">
                         Jakarta Halim Perdana
                     </td>
-                    <td class="px-6 py-4">
-                        12.55
-                    </td>
-                    <td class="px-6 py-4">
-                        Scheduled
-                    </td>
                   </tr>
+                @endif
               </tbody>
           </table>
         </div>

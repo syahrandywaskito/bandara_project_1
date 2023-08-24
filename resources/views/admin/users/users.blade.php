@@ -7,7 +7,6 @@
   <link rel="shortcut icon" href="{{asset('img/logo.png')}}" type="image/x-icon">
   <title>Admin - Dashboard</title>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
    {{-- tailwind css using vite --}}
    @vite(['resources/css/app.css','resources/js/app.js'])
 </head>
@@ -24,9 +23,9 @@
                 <path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
               </svg>
           </button>
-          <a href="{{route('cctv.index')}}" class="flex ml-2 md:mr-24">
+          <a href="{{route('dashboard')}}" class="flex ml-2 md:mr-24">
             <img src="{{asset('img/logo.png')}}" class="h-8 mr-3" alt="FlowBite Logo" />
-            <span class="self-center text-xl font-roboto font-semibold sm:text-2xl text-gray-100 whitespace-nowrap">Report - CCTV</span>
+            <span class="self-center text-xl font-roboto font-semibold sm:text-2xl text-gray-100 whitespace-nowrap">Users Page</span>
           </a>
         </div>
         <div class="flex items-center">
@@ -52,9 +51,6 @@
                   </li>
                   <li>
                     <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:translate-x-1 transition duration-200" role="menuitem">Settings</a>
-                  </li>
-                  <li>
-                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:translate-x-1 transition duration-200" role="menuitem">Earnings</a>
                   </li>
                   <li>
                     <a href="{{route('logout')}}" class="block px-4 py-2 text-sm text-gray-700 hover:translate-x-1 transition duration-200" role="menuitem">Logout</a>
@@ -106,16 +102,16 @@
           </li>
           
           <li>
-            <a href="#" class="flex items-center p-2 text-gray-100 rounded-lg hover:text-gray-900 hover:bg-gray-100 group transition duration-150">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
-                <path d="M12.75 12.75a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM7.5 15.75a.75.75 0 100-1.5.75.75 0 000 1.5zM8.25 17.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM9.75 15.75a.75.75 0 100-1.5.75.75 0 000 1.5zM10.5 17.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12 15.75a.75.75 0 100-1.5.75.75 0 000 1.5zM12.75 17.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM14.25 15.75a.75.75 0 100-1.5.75.75 0 000 1.5zM15 17.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM16.5 15.75a.75.75 0 100-1.5.75.75 0 000 1.5zM15 12.75a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM16.5 13.5a.75.75 0 100-1.5.75.75 0 000 1.5z" />
-                <path fill-rule="evenodd" d="M6.75 2.25A.75.75 0 017.5 3v1.5h9V3A.75.75 0 0118 3v1.5h.75a3 3 0 013 3v11.25a3 3 0 01-3 3H5.25a3 3 0 01-3-3V7.5a3 3 0 013-3H6V3a.75.75 0 01.75-.75zm13.5 9a1.5 1.5 0 00-1.5-1.5H5.25a1.5 1.5 0 00-1.5 1.5v7.5a1.5 1.5 0 001.5 1.5h13.5a1.5 1.5 0 001.5-1.5v-7.5z" clip-rule="evenodd" />
-              </svg>                
-              <span class="flex-1 ml-3 whitespace-nowrap">Schedule</span>
-            </a>
+              <a href="#" class="flex items-center p-2 text-gray-100 rounded-lg hover:text-gray-900 hover:bg-gray-100 group transition duration-150">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                  <path d="M12.75 12.75a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM7.5 15.75a.75.75 0 100-1.5.75.75 0 000 1.5zM8.25 17.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM9.75 15.75a.75.75 0 100-1.5.75.75 0 000 1.5zM10.5 17.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12 15.75a.75.75 0 100-1.5.75.75 0 000 1.5zM12.75 17.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM14.25 15.75a.75.75 0 100-1.5.75.75 0 000 1.5zM15 17.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM16.5 15.75a.75.75 0 100-1.5.75.75 0 000 1.5zM15 12.75a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM16.5 13.5a.75.75 0 100-1.5.75.75 0 000 1.5z" />
+                  <path fill-rule="evenodd" d="M6.75 2.25A.75.75 0 017.5 3v1.5h9V3A.75.75 0 0118 3v1.5h.75a3 3 0 013 3v11.25a3 3 0 01-3 3H5.25a3 3 0 01-3-3V7.5a3 3 0 013-3H6V3a.75.75 0 01.75-.75zm13.5 9a1.5 1.5 0 00-1.5-1.5H5.25a1.5 1.5 0 00-1.5 1.5v7.5a1.5 1.5 0 001.5 1.5h13.5a1.5 1.5 0 001.5-1.5v-7.5z" clip-rule="evenodd" />
+                </svg> 
+                <span class="flex-1 ml-3 whitespace-nowrap">Schedule</span>
+              </a>
           </li>
           <li>
-              <a href="#" class="flex items-center p-2 text-gray-100 rounded-lg hover:bg-gray-100 hover:text-gray-900 group transition duration-150">
+              <a href="{{route('users.index')}}" class="flex items-center p-2 text-gray-100 rounded-lg hover:bg-gray-100 hover:text-gray-900 group transition duration-150">
                 <svg class="flex-shrink-0 w-5 h-5 text-gray-100  group-hover:text-gray-900" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
                     <path d="M14 2a3.963 3.963 0 0 0-1.4.267 6.439 6.439 0 0 1-1.331 6.638A4 4 0 1 0 14 2Zm1 9h-1.264A6.957 6.957 0 0 1 15 15v2a2.97 2.97 0 0 1-.184 1H19a1 1 0 0 0 1-1v-1a5.006 5.006 0 0 0-5-5ZM6.5 9a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM8 10H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5Z"/>
                 </svg>
@@ -134,6 +130,7 @@
     </div>
   </aside>
 
+  {{-- content --}}
   <div class="py-7 mt-6 sm:mt-4 px-5 sm:ml-64"> 
     <section class="bg-white">
       <div class="pt-10 pb-6 px-4 mx-auto max-w-screen-xl lg:pt-16 lg:pb-0">
@@ -154,31 +151,26 @@
                       <svg class="w-3 h-3 mx-1 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
                       </svg>
-                      <span class="ml-1 text-sm font-medium text-gray-700 md:ml-2">CCTV</span>
+                      <span class="ml-1 text-sm font-medium text-gray-700 md:ml-2">User Page</span>
                     </div>
                   </li>
                 </ol>
               </nav>
               <h1 class="text-gray-900 mt-8 text-2xl md:text-4xl font-roboto font-bold mb-4">
-                Table Data Laporan Pengecekan CCTV
+                User Table
               </h1>
               <p class="text-lg font-normal font-montserrat text-gray-500 mb-3">
-                Tabel laporan ini akan menampilkan hasil input pengecekan yang sudah dilakukan sebelumnya. Tabel dapat diganti sesuai tanggal data pengecekan.
+                This page contain table for users are sign up or register to become admin
               </p>
 
               {{-- Menu opsi --}}
               <div class="pt-3 lg:flex items-center flex-row space-y-7 lg:space-x-4 lg:space-y-0">
-                  {{-- add data --}}
-                  <div>
+                  {{-- <div>
                     <a href="{{route('cctv.create')}}" class="p-4 rounded-lg text-sm font-montserrat shadow bg-indigo-800 text-gray-100 hover:bg-indigo-100 hover:text-gray-900 transition duration-300 focus:ring-2 focus:ring-indigo-800">Add Data</a>
-                  </div>
-                  {{-- Search --}}
+                  </div> --}}
                   <div>
                     <form>
                       <div class="flex">
-                          <label for="search-dropdown" class="mb-2 text-sm font-medium text-gray-900 sr-only">
-                            Your Email
-                          </label>
                           <button id="dropdown-button" data-dropdown-toggle="dropdown-search" class="flex-shrink-0 z-10 inline-flex items-center py-3 px-4 text-sm font-medium font-montserrat text-center text-gray-900 bg-gray-100 border-2 border-gray-300 rounded-l-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100" type="button">
                             All categories 
                             <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
@@ -188,19 +180,10 @@
                           <div id="dropdown-search" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
                               <ul class="py-2 text-sm text-gray-700 font-montserrat" aria-labelledby="dropdown-button">
                                 <li>
-                                    <button type="button" class="inline-flex w-full px-4 py-2 hover:translate-x-1 transition duration-200">Hardware Name</button>
+                                    <button type="button" class="inline-flex w-full px-4 py-2 hover:translate-x-1 transition duration-200">Full Name</button>
                                 </li>
                                 <li>
-                                    <button type="button" class="inline-flex w-full px-4 py-2 hover:translate-x-1 transition duration-200">Record Status</button>
-                                </li>
-                                <li>
-                                    <button type="button" class="inline-flex w-full px-4 py-2 hover:translate-x-1 transition duration-200">Record Description</button>
-                                </li>
-                                <li>
-                                    <button type="button" class="inline-flex w-full px-4 py-2 hover:translate-x-1 transition duration-200">Clean Status</button>
-                                </li>
-                                <li>
-                                    <button type="button" class="inline-flex w-full px-4 py-2 hover:translate-x-1 transition duration-200">Clean Description</button>
+                                    <button type="button" class="inline-flex w-full px-4 py-2 hover:translate-x-1 transition duration-200">Email</button>
                                 </li>
                               </ul>
                           </div>
@@ -217,27 +200,6 @@
                       </div>
                     </form>
                   </div>
-                  {{-- Select date --}}
-                  <div class=" flex-initial w-60">
-                    <form class="flex items-center" method="get" action="{{route('cctv.index')}}"> 
-                      @csrf  
-                      <label for="date" class="sr-only">Search</label>
-                      <div class="relative w-full">
-                          <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
-                              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm.75-13a.75.75 0 00-1.5 0v5c0 .414.336.75.75.75h4a.75.75 0 000-1.5h-3.25V5z" clip-rule="evenodd" />
-                            </svg>                                         
-                          </div>
-                          <input type="date" id="date" name="selected_date" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-3" required>
-                      </div>
-                      <button type="submit" class="p-3.5 ml-2 text-sm font-medium text-white bg-indigo-800 rounded-lg border-2 rounded-r-lg border-indigo-800 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">
-                          <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
-                          </svg>
-                          <span class="sr-only">Search</span>
-                      </button>
-                    </form>
-                  </div>
               </div>
 
           </div>
@@ -246,96 +208,39 @@
         <div class="relative overflow-x-auto shadow-lg bg-gray-50 sm:rounded-lg p-4">
           <table class="w-full text-sm text-left">
               <caption class="p-5 text-lg font-semibold text-left text-gray-900 font-montserrat">
-                  Pengecekan CCTV
+                  User Data
                   <p class=" font-normal mt-1 text-sm">
-                    {{ $date->format('d M Y ') }}
+                    {{now()->format('l')}}, 
+                    {{now()->format('Y-m-d')}}
                   </p>
               </caption>
               <thead class="text-xs text-gray-100 uppercase bg-indigo-800 text-center font-roboto">
                   <tr>
                       <th scope="col" class="px-6 py-3">
-                          Nama Perangkat
+                          Full Name
                       </th>
                       <th scope="col" class="px-6 py-3">
-                          Status Record
+                          Email
                       </th>
                       <th scope="col" class="px-6 py-3">
-                          Keterangan Record
-                      </th>
-                      <th scope="col" class="px-6 py-3">
-                          Status Kebersihan
-                      </th>
-                      <th scope="col" class="px-6 py-3">
-                          Kondisi Kebersihan
+                          Password
                       </th>
                       <th scope="col" colspan="3" class="px-6 py-3">
-                          Opsi
+                          Option
                       </th>
                   </tr>
               </thead>
               <tbody class=" font-roboto text-center">
-                  @foreach ($cctvs as $data)
+                  @foreach ($users as $user)
                       <tr>
                         <td class="px-6 py-4">
-                          {{$data->hardware_name}}
+                          {{$user->name}}
                         </td>
                         <td class="px-6 py-4">
-                          {{$data->record_status}}
+                          {{$user->email}}
                         </td>
                         <td class="px-6 py-4">
-                          {{$data->record_desc}}
-                        </td>
-                        <td class="px-6 py-4">
-                          {{$data->clean_status}}
-                        </td>
-                        <td class="px-6 py-4">
-                          {{$data->clean_desc}}
-                        </td>
-                        <td class="px-6 py-4">
-                          
-                          <!-- Modal toggle -->
-                          <button data-modal-target="defaultModal" data-modal-toggle="defaultModal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
-                            Show
-                          </button>
-
-                          @php
-                              
-                              // use Illuminate\Support\Facades\DB;
-
-                          @endphp
-                          <!-- Main modal -->
-                          <div id="defaultModal" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
-                              <div class="relative w-full max-w-2xl max-h-full">
-                                  <!-- Modal content -->
-                                  <div class="relative bg-white rounded-lg shadow">
-                                      <!-- Modal header -->
-                                      <div class="flex items-start justify-between p-4 border-b rounded-t">
-                                          <h3 class="text-xl font-semibold text-gray-900">
-                                              
-                                          </h3>
-                                          <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center" data-modal-hide="defaultModal">
-                                              <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                                                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
-                                              </svg>
-                                              <span class="sr-only">Close modal</span>
-                                          </button>
-                                      </div>
-                                      <!-- Modal body -->
-                                      <div class="p-6 space-y-6">
-                                          <p class="text-base leading-relaxed text-gray-500">
-                                              With less than a month to go before the European Union enacts new consumer privacy laws for its citizens, companies around the world are updating their terms of service agreements to comply.
-                                          </p>
-                                          <p class="text-base leading-relaxed text-gray-500">
-                                              The European Union’s General Data Protection Regulation (G.D.P.R.) goes into effect on May 25 and is meant to ensure a common set of data rights in the European Union. It requires organizations to notify users as soon as possible of high-risk data breaches that could personally affect them.
-                                          </p>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-
-                        </td>
-                        <td class="px-6 py-4">
-                          <a href="{{route('cctv.edit', $data->id)}}" class="block text-white bg-violet-900 hover:bg-violet-600 focus:ring-4 focus:outline-none focus:ring-violet-600 font-medium rounded-lg text-sm px-5 py-2 text-center">Edit</a>
+                          {{$user->password}}
                         </td>
                         <td class="px-6 py-4">
                           <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="block text-white bg-red-800 hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-red-600 font-medium rounded-lg text-sm px-5 py-2 text-center" type="button">
@@ -357,7 +262,7 @@
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
                                     </svg>
                                     <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Are you sure you want to delete this data?</h3>
-                                    <form action="{{route('cctv.destroy', $data->id)}}" method="post">
+                                    <form action="{{route('users.destroy', $user->id)}}" method="post">
                                       @csrf
                                       @method('DELETE')
                                       <button data-modal-hide="popup-modal" type="submit" class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
@@ -377,7 +282,6 @@
     </section>
   </div>
 
-  {{-- Modal --}}
 
 </body>
 </html>

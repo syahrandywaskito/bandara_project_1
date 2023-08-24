@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\CCTVList;
 use App\Models\CctvModel;
+use Carbon\Carbon;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -13,13 +14,28 @@ use Illuminate\Support\Facades\Validator;
 
 class CCTVController extends Controller
 {
-    public function index() : View
+    public function index(Request $request) : View
     {
         $cctvs = CctvModel::all();
-        return view('admin.report.cctv', compact('cctvs'));
+
+        $today = now()->format('Y-m-d');
+
+        $selectedDate = $request->input('selected_date');
+
+        
+        if (isset($selectedDate)) {
+            
+            $data = CctvModel::whereDate('date', $selectedDate)->get();
+        }
+        else {
+            
+            $data = CctvModel::whereDate('date', $today)->get();
+        }
+        
+        $date = Carbon::parse($selectedDate);
+
+        return view('admin.report.cctv', ['cctvs' => $data, 'date' => $date]);
     }
-
-
     
     /**
      * Store data to table
