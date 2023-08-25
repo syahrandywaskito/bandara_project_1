@@ -2,24 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CctvModel;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
 class reportController extends Controller
 {
-    // cctv controller
-    // public function cctv () : View
-    // {
-    //     return view('admin.report.cctv');
-    // }
-
-    public function komputer() : View
+    public function index() : View  
     {
-        return view('admin.report.komputer');
-    }
 
-    public function fids() : View
-    {
-        return view('admin.report.fids');
+      $cctv = CctvModel::all();
+
+      $today = now()->format('Y-m-d');
+
+      // cureent date for cctv report table
+      $cctvDate = CctvModel::whereDate('date', $today)->get();
+      
+
+      return view('tool.report', ['cctv' => $cctvDate]);
     }
 }

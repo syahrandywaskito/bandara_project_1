@@ -95,10 +95,10 @@
                   <a href="{{route('cctv.index')}}" class="block px-4 py-2 hover:translate-x-1 transition duration-200">CCTV</a>
                 </li>
                 <li>
-                  <a href="{{route('komputer')}}" class="block px-4 py-2 hover:translate-x-1 transition duration-200">Komputer</a>
+                  <a href="" class="block px-4 py-2 hover:translate-x-1 transition duration-200">Komputer</a>
                 </li>
                 <li>
-                  <a href="{{route('fids')}}" class="block px-4 py-2 hover:translate-x-1 transition duration-200">FIDS</a>
+                  <a href="" class="block px-4 py-2 hover:translate-x-1 transition duration-200">FIDS</a>
                 </li>
               </ul>
             </div>

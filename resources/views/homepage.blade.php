@@ -58,7 +58,7 @@
                     </ul>
                     <hr class="border-0 bg-gradient-to-r from-indigo-600 to-blue-300 h-1 ">
                     <div class="py-2">
-                      <a href="" class="block px-4 py-2 hover:translate-x-1 transition duration-200">Report</a>
+                      <a href="{{route('report.index')}}" class="block px-4 py-2 hover:translate-x-1 transition duration-200">Report</a>
                     </div>
                 </div>
 
@@ -153,7 +153,7 @@
 
     {{-- Text --}}
     <section class="py-5 px-4 mx-auto max-w-screen-xl text-center lg:py-10 md:w-[60%]">
-      <h1 class="mb-4 text-4xl font-semibold tracking-tight leading-none text-gray-950 md:text-5xl lg:text-6xl font-montserrat" data-aos="fade-up" data-aos-delay="100">
+      <h1 class=" uppercase mb-4 text-4xl font-semibold tracking-tight leading-none text-gray-950 lg:text-5xl font-montserrat" data-aos="fade-up" data-aos-delay="100">
         Website Teknik Bandara Abdurrahman Saleh
       </h1>
       <p class="mb-8 pt-3 text-lg font-normal text-gray-800 lg:text-xl font-montserrat" data-aos="fade-up" data-aos-delay="200">

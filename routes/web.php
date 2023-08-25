@@ -42,10 +42,7 @@ Route::controller(AuthController::class)->group(function(){
   Route::get('/logout', 'Logout')->name('logout');
 });
 
-Route::controller(ReportController::class)->group(function(){
-  Route::get('/dashboard/report/komputer', 'komputer')->name('komputer');
-  Route::get('/dashboard/report/fids', 'fids')->name('fids');
-});
+Route::get('/tool/report', [ReportController::class, 'index'])->name('report.index');
 
 Route::resource('/dashboard/report/cctv', CCTVController::class);
 Route::post('//dashboard/report/cctv/filter', [CCTVController::class, 'filter'])->name('cctv.filter');
