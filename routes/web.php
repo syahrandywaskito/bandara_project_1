@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CCTVController;
+use App\Http\Controllers\FIDSController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ReportController;
@@ -45,6 +46,7 @@ Route::controller(AuthController::class)->group(function(){
 Route::get('/tool/report', [ReportController::class, 'index'])->name('report.index');
 
 Route::resource('/dashboard/report/cctv', CCTVController::class);
-Route::post('//dashboard/report/cctv/filter', [CCTVController::class, 'filter'])->name('cctv.filter');
 
 Route::resource('/dashboard/users/users', UsersController::class);
+
+Route::resource('/dashboard/report/fids', FIDSController::class);

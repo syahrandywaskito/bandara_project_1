@@ -98,7 +98,7 @@
                   <a href="" class="block px-4 py-2 hover:translate-x-1 transition duration-200">Komputer</a>
                 </li>
                 <li>
-                  <a href="" class="block px-4 py-2 hover:translate-x-1 transition duration-200">FIDS</a>
+                  <a href="{{route('fids.index')}}" class="block px-4 py-2 hover:translate-x-1 transition duration-200">FIDS</a>
                 </li>
               </ul>
             </div>

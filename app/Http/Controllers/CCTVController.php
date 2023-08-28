@@ -47,7 +47,6 @@ class CCTVController extends Controller
     public function store(Request $request)
     {
 
-        
         // Redirect jika tidak ada aksi yang cocok
         $validator = Validator::make($request->all(), [
             'date' => 'required',

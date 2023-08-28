@@ -95,7 +95,7 @@
                   <a href="" class="block px-4 py-2 hover:translate-x-1 transition duration-200">Komputer</a>
                 </li>
                 <li>
-                  <a href="" class="block px-4 py-2 hover:translate-x-1 transition duration-200">FIDS</a>
+                  <a href="{{route('fids.index')}}" class="block px-4 py-2 hover:translate-x-1 transition duration-200">FIDS</a>
                 </li>
               </ul>
             </div>
@@ -165,9 +165,6 @@
 
               {{-- Menu opsi --}}
               <div class="pt-3 lg:flex items-center flex-row space-y-7 lg:space-x-4 lg:space-y-0">
-                  {{-- <div>
-                    <a href="{{route('cctv.create')}}" class="p-4 rounded-lg text-sm font-montserrat shadow bg-indigo-800 text-gray-100 hover:bg-indigo-100 hover:text-gray-900 transition duration-300 focus:ring-2 focus:ring-indigo-800">Add Data</a>
-                  </div> --}}
                   <div>
                     <form>
                       <div class="flex">
