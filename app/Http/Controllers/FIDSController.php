@@ -7,6 +7,7 @@ use App\Models\fidslist;
 use Carbon\Carbon;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,7 @@ class FIDSController extends Controller
     public function index(Request $request) : View
     {
 
-        $fids = fids::all();
+        $fidss = fids::all();
 
         $today = now()->format('Y-m-d');
 
@@ -77,10 +78,16 @@ class FIDSController extends Controller
         return response()->json($response);
     }
 
-    public function edit(fids $fids) : View
+
+    public function show(fids $fid) : View
+    {
+        return view('admin.report.fids.show', compact('fid'));
+    }
+
+    public function edit(fids $fid) : View
     {
 
-        return view('admin.report.fids.edit', compact('fids'));
+        return view('admin.report.fids.edit', compact('fid'));
     }
 
     public function update(Request $request, $id) : RedirectResponse
@@ -101,10 +108,10 @@ class FIDSController extends Controller
         return redirect()->route('fids.index')->with('success', 'you successfuly update data');
     }
 
-    public function destroy(fids $fids)
+    public function destroy(fids $fid)
     {
-        $fids->delete();
+        $fid->delete();
 
-        return redirect()->route('fids.index')->with('success', 'you successfully delete data');
+        return redirect()->back()->with('success', 'you successfully delete data');
     }
 }

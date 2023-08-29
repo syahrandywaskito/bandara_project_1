@@ -171,7 +171,7 @@
   <section id="about">
     {{-- carousel --}}
     <div class="py-3 px-4 mx-auto max-w-screen-xl">
-        <div class="bg-gray-50 border border-gray-200 rounded-lg shadow-lg p-8 md:p-12 mb-8"> 
+        <div class="bg-white border border-gray-200 rounded-lg shadow-lg p-8 md:p-12 mb-8"> 
           <div class="text-center pb-7 md:pb-10" data-aos="fade-up" data-aos-delay="300" data-aos-ease="ease-in-out">
             <h1 class="font-semibold font-montserrat text-lg md:text-2xl uppercase">Tool Overview</h1>
           </div>
@@ -219,10 +219,10 @@
     </div>
     {{-- Arrival Schedule --}}
     <div class="py-3 px-4 mx-auto max-w-screen-xl">
-          <div class="bg-gray-100 border border-gray-200 rounded-lg shadow-lg p-8 md:py-10 md:px-12" data-aos="fade-left" data-aos-delay="300" data-aos-duration="500" data-aos-ease="ease-in-out"> 
+          <div class="bg-white border border-gray-200 rounded-lg shadow-lg p-8 md:py-10 md:px-12" data-aos="fade-left" data-aos-delay="300" data-aos-duration="500" data-aos-ease="ease-in-out"> 
             <div class="pb-6 px-3 flex justify-between items-center">
               <div class="text-xl">
-                <h2 class="font-montserrat font-semibold uppercase">Arrival</h2>
+                <h2 class="font-montserrat font-semibold uppercase">Flight Schedule</h2>
               </div>
               <div class="">
                 <p class="font-montserrat">
@@ -243,207 +243,52 @@
                               Flight
                           </th>
                           <th scope="col" class="px-6 py-3">
-                              From
+                              Departure Time
                           </th>
                           <th scope="col" class="px-6 py-3">
-                              Time
+                              Destination
                           </th>
                           <th scope="col" class="px-6 py-3">
-                              Remark
+                              Arrival Time
                           </th>
-
                       </tr>
                   </thead>
                   <tbody class=" font-roboto text-center">
-                      <tr class="bg-white border-b ">
-                          <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                              Batik Air
-                          </th>
-                          <td class="px-6 py-4">
-                              ID-7583
-                          </td>
-                          <td class="px-6 py-4">
-                              Jakarta Halim Perdana
-                          </td>
-                          <td class="px-6 py-4">
-                              12.55
-                          </td>
-                          <td class="px-6 py-4">
-                              Scheduled
-                          </td>
-                      </tr>
-                      <tr class="bg-white border-b ">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                            Batik Air
-                        </th>
-                        <td class="px-6 py-4">
-                            ID-7583
-                        </td>
-                        <td class="px-6 py-4">
-                            Jakarta Halim Perdana
-                        </td>
-                        <td class="px-6 py-4">
-                            12.55
-                        </td>
-                        <td class="px-6 py-4">
-                            Scheduled
-                        </td>
-                      </tr>
-                      <tr class="bg-white border-b ">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                            Batik Air
-                        </th>
-                        <td class="px-6 py-4">
-                            ID-7583
-                        </td>
-                        <td class="px-6 py-4">
-                            Jakarta Halim Perdana
-                        </td>
-                        <td class="px-6 py-4">
-                            12.55
-                        </td>
-                        <td class="px-6 py-4">
-                            Scheduled
-                        </td>
-                      </tr>
+                      
                   </tbody>
               </table>
             </div>
           </div>
-          
-    </div>
-    {{-- Departure Schedule --}}
-    <div class="py-3 px-4 mx-auto max-w-screen-xl">
-      <div class="bg-gray-100 border border-gray-200 rounded-lg shadow-lg p-8 md:py-10 md:px-12" data-aos="fade-right" data-aos-delay="300" data-aos-duration="600" data-aos-ease="ease-in-out"> 
-        <div class="pb-6 px-3 flex justify-between items-center">
-          <div class="text-xl">
-            <h2 class="font-montserrat font-semibold uppercase">Departure</h2>
-          </div>
-          <div class="text-mc">
-            <p class="font-montserrat">
-              {{now()->format('l')}}, {{now()->format('d M Y')}}
-            </p>
-            <p class="font-montserrat clock">
-            </p>
-          </div>
-        </div>    
-        <div class="relative overflow-x-auto rounded-lg drop-shadow-xl">
-          <table class="w-full text-sm text-left text-gray-500">
-              <thead class="text-xs uppercase bg-gradient-to-r from-indigo-600 to-blue-500 text-gray-50 font-roboto text-center">
-                  <tr>
-                      <th scope="col" class="px-6 py-3">
-                          Airline
-                      </th>
-                      <th scope="col" class="px-6 py-3">
-                          Flight
-                      </th>
-                      <th scope="col" class="px-6 py-3">
-                          Destination
-                      </th>
-                  </tr>
-              </thead>
-              <tbody class=" font-roboto text-center">
-                @php
-                    $day = now()->format('l');
-                @endphp
-                @if ($day == 'Monday' || $day == 'Wednesday')
-                  <tr class="bg-white border-b ">
-                      <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                          Batik Air
-                      </th>
-                      <td class="px-6 py-4">
-                          ID-7580
-                      </td>
-                      <td class="px-6 py-4">
-                          Jakarta Halim Perdana
-                      </td>
-                  </tr>
-                  <tr class="bg-white border-b ">
-                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                        Garuda Indonesia
-                    </th>
-                    <td class="px-6 py-4">
-                        GA-291
-                    </td>
-                    <td class="px-6 py-4">
-                        Jakarta Soekarno-Hatta
-                    </td>
-                  </tr>
-                  <tr class="bg-white border-b ">
-                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                        Citilink
-                    </th>
-                    <td class="px-6 py-4">
-                        QG-751
-                    </td>
-                    <td class="px-6 py-4">
-                      Jakarta Soekarno-Hatta
-                    </td>
-                  </tr>
-                  <tr class="bg-white border-b ">
-                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                        Batik Air
-                    </th>
-                    <td class="px-6 py-4">
-                        ID-7582
-                    </td>
-                    <td class="px-6 py-4">
-                      Jakarta Halim Perdana
-                    </td>
-                  </tr>
-                  <tr class="bg-white border-b ">
-                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                        Citilink
-                    </th>
-                    <td class="px-6 py-4">
-                        QG-165
-                    </td>
-                    <td class="px-6 py-4">
-                      Jakarta Halim Perdana
-                    </td>
-                  </tr>
-                @else
-                  <tr class="bg-white border-b ">
-                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                        Batik Air
-                    </th>
-                    <td class="px-6 py-4">
-                        ID-7583
-                    </td>
-                    <td class="px-6 py-4">
-                        Jakarta Halim Perdana
-                    </td>
-                  </tr>
-                  <tr class="bg-white border-b ">
-                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                        Batik Air
-                    </th>
-                    <td class="px-6 py-4">
-                        ID-7583
-                    </td>
-                    <td class="px-6 py-4">
-                        Jakarta Halim Perdana
-                    </td>
-                  </tr>
-                  <tr class="bg-white border-b ">
-                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                        Batik Air
-                    </th>
-                    <td class="px-6 py-4">
-                        ID-7583
-                    </td>
-                    <td class="px-6 py-4">
-                        Jakarta Halim Perdana
-                    </td>
-                  </tr>
-                @endif
-              </tbody>
-          </table>
-        </div>
-      </div>
-      </div>    
     </div>
   </section>
+
+  {{-- footer --}}
+  <footer class="bg-white rounded-lg shadow m-4">
+    <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+        <div class="sm:flex sm:items-center sm:justify-between">
+            <a href="{{route('homepage')}}" class="flex items-center mb-4 sm:mb-0">
+                <img src="{{asset('img/logo.png')}}" class="h-8 mr-3" alt="Flowbite Logo" />
+                <span class="self-center text-2xl font-semibold whitespace-nowrap uppercase">Teknik Bandara Abdulrachman Saleh</span>
+            </a>
+            <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0">
+                <li>
+                    <a href="#" class="mr-4 hover:underline md:mr-6 ">About</a>
+                </li>
+                <li>
+                    <a href="#" class="mr-4 hover:underline md:mr-6">Privacy Policy</a>
+                </li>
+                <li>
+                    <a href="#" class="mr-4 hover:underline md:mr-6 ">Licensing</a>
+                </li>
+                <li>
+                    <a href="#" class="hover:underline">Contact</a>
+                </li>
+            </ul>
+        </div>
+        <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+        <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="https://flowbite.com/" class="hover:underline">Flowbite™</a>. All Rights Reserved.</span>
+    </div>
+  </footer>
 
   {{-- JS AOS --}}
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

@@ -15,6 +15,7 @@ class fids extends Model
         'monitor_view',
         'view_desc',
         'clean_condition',
-        'condition_desc'
+        'condition_desc',
+        
     ];
 }

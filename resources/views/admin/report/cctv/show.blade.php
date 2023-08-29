@@ -7,7 +7,7 @@
   <link rel="shortcut icon" href="{{asset('img/logo.png')}}" type="image/x-icon">
   <title>Admin - Dashboard</title>
 
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
    {{-- tailwind css using vite --}}
    @vite(['resources/css/app.css','resources/js/app.js'])
 </head>
@@ -24,9 +24,9 @@
                 <path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
               </svg>
           </button>
-          <a href="{{route('dashboard')}}" class="flex ml-2 md:mr-24">
+          <a href="{{route('cctv.index')}}" class="flex ml-2 md:mr-24">
             <img src="{{asset('img/logo.png')}}" class="h-8 mr-3" alt="FlowBite Logo" />
-            <span class="self-center text-xl font-roboto font-semibold sm:text-2xl text-gray-100 whitespace-nowrap">CCTV - Edit Data</span>
+            <span class="self-center text-xl font-roboto font-semibold sm:text-2xl text-gray-100 whitespace-nowrap">CCTV - Show</span>
           </a>
         </div>
         <div class="flex items-center">
@@ -133,7 +133,7 @@
         </ul>
     </div>
   </aside>
-  
+
 
   <div class="py-7 px-5 sm:ml-64">  
     <section class="bg-white">
@@ -156,7 +156,7 @@
                   <svg class="w-3 h-3 mx-1 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
                   </svg>
-                  <a href="{{route('cctv.index')}}" class="ml-1 text-sm font-medium text-gray-900 hover:text-indigo-600 md:ml-2">CCTV</a>
+                  <a href="{{URL::previous()}}" class="ml-1 text-sm font-medium text-gray-900 hover:text-indigo-600 md:ml-2">CCTV</a>
                 </div>
               </li>
               <li aria-current="page">
@@ -164,62 +164,39 @@
                   <svg class="w-3 h-3 mx-1 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
                   </svg>
-                  <span class="ml-1 text-sm font-medium text-gray-700 md:ml-2">Edit</span>
+                  <span class="ml-1 text-sm font-medium text-gray-700 md:ml-2">Show</span>
                 </div>
               </li>
             </ol>
           </nav>
 
-          <h1 class="text-gray-900 lg:px-2 mt-6 text-lg md:text-xl font-montserrat font-bold">
-            Edit Page 
-          </h1>
-          <div class="lg:hidden font-montserrat pt-3">
+          <div class="text-center mt-8 font-montserrat">
+            <h1 class="text-gray-900 lg:px-2 text-lg md:text-xl  font-bold uppercase">
+              Show Page 
+            </h1>
+            <p>{{ $cctv->hardware_name }}</p>
+          </div>
+
+          <div class="lg:px-2 font-montserrat mt-8">
             <h3>Current Date</h3>
             <p>
               {{now()->format('l')}}, {{now()->format('d M Y')}}
             </p>
           </div>
-        </div>
 
-        <form class="font-montserrat" action="{{route('cctv.update', $cctv->id)}}" method="POST">
-          @csrf
-          @method('PUT')
-          <div>
-            <label for="hardware-name" class="block mb-2 text-sm font-medium text-gray-900">Hardware Name</label>
-            <input type="text" id="hardware-name" class="bg-gray-100 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required value="{{$cctv->hardware_name}}" readonly name="hardware_name">
+          <div class="font-montserrat mt-6 lg:px-2">
+            <p class=" font-semibold text-lg">Record Description</p>
+            <p>{{ $cctv->record_desc }}</p>
           </div>
-          <div class="mt-3">
-            <label for="record-status" class="block mb-2 text-sm font-medium text-gray-900">Record Status</label>
-            <select id="record-status" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="record_status">
-              <option selected>Select Status</option>
-              <option value="B">B</option>
-              <option value="S">S</option>
-              <option value="T">T</option>
-            </select>
+
+          <div class="font-montserrat mt-6 lg:px-2">
+            <p class=" font-semibold text-lg">Record Status</p>
+            <p>{{ $cctv->record_status }}</p>
           </div>
-          <div class="mt-3">
-            <label for="record-desc" class="block mb-2 text-sm font-medium text-gray-900">Record Description</label>
-            <input type="text" id="record-desc" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="record_desc" value="{{$cctv->record_desc}}">
-          </div >
-          <div class="mt-3">
-            <label for="clean-status" class="block mb-2 text-sm font-medium text-gray-900">Clean Status</label>
-            <select id="clean-status" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="clean_status">
-              <option selected>Select Status</option>
-              <option value="B">B</option>
-              <option value="S">S</option>
-              <option value="T">T</option>
-            </select>
-          </div>
-          <div class="mt-3">
-            <label for="clean-desc" class="block mb-2 text-sm font-medium text-gray-900">Clean Description</label>
-            <input type="text" id="clean-desc" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="clean_desc" value="{{$cctv->clean_desc}}">
-          </div>
-          <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center mt-3">Submit</button>
-        </form>
+        </div>
       </div>
     </section>
-
-    
   </div>
+
 </body>
 </html>

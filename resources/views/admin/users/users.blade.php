@@ -156,8 +156,8 @@
                   </li>
                 </ol>
               </nav>
-              <h1 class="text-gray-900 mt-8 text-2xl md:text-4xl font-roboto font-bold mb-4">
-                User Table
+              <h1 class="text-gray-900 mt-8 text-xl md:text-2xl font-roboto font-bold mb-4 uppercase">
+                User Information Page
               </h1>
               <p class="text-lg font-normal font-montserrat text-gray-500 mb-3">
                 This page contain table for users are sign up or register to become admin
@@ -205,10 +205,10 @@
         <div class="relative overflow-x-auto shadow-lg bg-gray-50 sm:rounded-lg p-4">
           <table class="w-full text-sm text-left">
               <caption class="p-5 text-lg font-semibold text-left text-gray-900 font-montserrat">
-                  User Data
+                <span class="uppercase">Table Data</span>
                   <p class=" font-normal mt-1 text-sm">
                     {{now()->format('l')}}, 
-                    {{now()->format('Y-m-d')}}
+                    {{now()->format('d M Y')}}
                   </p>
               </caption>
               <thead class="text-xs text-gray-100 uppercase bg-indigo-800 text-center font-roboto">
@@ -220,9 +220,6 @@
                           Email
                       </th>
                       <th scope="col" class="px-6 py-3">
-                          Password
-                      </th>
-                      <th scope="col" colspan="3" class="px-6 py-3">
                           Option
                       </th>
                   </tr>
@@ -237,16 +234,25 @@
                           {{$user->email}}
                         </td>
                         <td class="px-6 py-4">
-                          {{$user->password}}
-                        </td>
-                        <td class="px-6 py-4">
-                          <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="block text-white bg-red-800 hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-red-600 font-medium rounded-lg text-sm px-5 py-2 text-center" type="button">
-                            Delete
-                          </button>
+                          <div class="inline-flex rounded-md shadow-md" role="group">
+                            <button type="button" class=" inline-flex items-center px-4 py-2 text-sm font-medium text-gray-50 bg-indigo-800 rounded-l-lg hover:bg-gray-100 hover:text-indigo-800 focus:z-10 focus:ring-2 focus:ring-indigo-800 transition duration-200">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 mr-2 h-5">
+                                <path d="M5.433 13.917l1.262-3.155A4 4 0 017.58 9.42l6.92-6.918a2.121 2.121 0 013 3l-6.92 6.918c-.383.383-.84.685-1.343.886l-3.154 1.262a.5.5 0 01-.65-.65z" />
+                                <path d="M3.5 5.75c0-.69.56-1.25 1.25-1.25H10A.75.75 0 0010 3H4.75A2.75 2.75 0 002 5.75v9.5A2.75 2.75 0 004.75 18h9.5A2.75 2.75 0 0017 15.25V10a.75.75 0 00-1.5 0v5.25c0 .69-.56 1.25-1.25 1.25h-9.5c-.69 0-1.25-.56-1.25-1.25v-9.5z" />
+                              </svg>                                                          
+                              Edit
+                            </button>
+                            <button type="button" ata-modal-target="popup-modal" data-modal-toggle="popup-modal" class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-50 bg-indigo-800 rounded-r-md hover:bg-gray-100 hover:text-red-800 focus:z-10 focus:ring-2 focus:ring-red-800 focus:bg-gray-100 focus:text-red-800 transition duration-200">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 mr-1 h-5">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z" clip-rule="evenodd" />
+                              </svg>                                                                                        
+                              Delete
+                            </button>
+                          </div>
                         </td>
                       </tr>
                       <div id="popup-modal" tabindex="-1" class="fixed top-0 left-0 right-0 z-50 hidden p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
-                        <div class="relative w-full max-w-md max-h-full">
+                        <div class="relative w-full max-w-md max-h-full font-montserrat">
                             <div class="relative bg-white rounded-lg shadow">
                                 <button type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center" data-modal-hide="popup-modal">
                                     <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
@@ -278,7 +284,6 @@
       </div>
     </section>
   </div>
-
-
+  
 </body>
 </html>

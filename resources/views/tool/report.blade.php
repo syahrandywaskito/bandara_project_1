@@ -160,11 +160,6 @@
       <p class="mb-8 pt-3 text-lg font-normal text-gray-800 lg:text-xl font-montserrat" data-aos="fade-up" data-aos-delay="200">
         Halaman yang memuat semua laporan checkup harian dari perangkat-perangkat yang ada di bandara <strong>Abdulrachman Saleh</strong>
       </p>
-      <div class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
-        <a href="#about" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-[#f9f5f2] rounded-lg bg-[#5e7c60] font-montserrat hover:-translate-y-1 hover:scale-105 transition duration-200 focus:ring-4 focus:ring-gray-100" data-aos="fade-up" data-aos-delay="300">
-            Let's Look
-        </a>  
-    </div>
     </section>
   </header>
 
@@ -263,7 +258,7 @@
             </div>
           </div>
           <h2 id="accordion-color-heading-3">
-            <button type="button" class="flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-800" data-accordion-target="#accordion-color-body-3" aria-expanded="false" aria-controls="accordion-color-body-3">
+            <button type="button" class="flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 focus:ring-2 focus:ring-[#5e7c60]" data-accordion-target="#accordion-color-body-3" aria-expanded="false" aria-controls="accordion-color-body-3">
               <span>FIDS Report</span>
               <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
@@ -271,26 +266,60 @@
             </button>
           </h2>
           <div id="accordion-color-body-3" class="hidden" aria-labelledby="accordion-color-heading-3">
-            <div class="p-5">
-              <p class="mb-2 text-gray-500">
-                The main difference is that the core components from Flowbite are open source under the MIT license, whereas Tailwind UI is a paid product. Another difference is that Flowbite relies on smaller and standalone components, whereas Tailwind UI offers sections of pages.
-              </p>
-              <p class="mb-2 text-gray-500">
-                However, we actually recommend using both Flowbite, Flowbite Pro, and even Tailwind UI as there is no technical reason stopping you from using the best of two worlds.
-              </p>
-              <p class="mb-2 text-gray-500">
-                Learn more about these technologies:
-              </p>
-              <ul class="pl-5 text-gray-500 list-disc">
-                <li>
-                  <a href="https://flowbite.com/pro/" class="text-blue-600 hover:underline">Flowbite Pro
-                  </a>
-                </li>
-                <li>
-                  <a href="https://tailwindui.com/" rel="nofollow" class="text-blue-600 hover:underline">Tailwind UI
-                  </a>
-                </li>
-              </ul>
+            <div class="p-5 font-roboto bg-white">
+              <div class="p-5">
+                <p class="mb-2 font-semibold">
+                  Report Table
+                </p>
+                <p>
+                  {{now()->format('l')}}, 
+                  {{now()->format('d M Y')}}
+                </p>
+              </div>
+              <div class="relative overflow-x-auto rounded-md shadow-md">
+                <table class="w-full text-sm text-center">
+                    <thead class="text-xs uppercase bg-gray-50">
+                        <tr>
+                            <th scope="col" class="px-6 py-3">
+                                Monitor Name
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Monitor View
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                View Description
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Clean Condition
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Condition Description
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      @foreach ($fids as $data)
+                        <tr class="bg-white border-b">
+                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                {{$data->monitor_name}}
+                            </th>
+                            <td class="px-6 py-4">
+                                {{$data->monitor_view}}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{$data->view_desc}}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{$data->clean_condition}}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{$data->condition_desc}}
+                            </td>
+                        </tr>
+                      @endforeach
+                    </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>
