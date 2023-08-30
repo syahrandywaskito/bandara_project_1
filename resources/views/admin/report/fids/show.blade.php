@@ -256,7 +256,7 @@
                 <div class="font-montserrat mt-6 lg:px-2">
                   <p class="text-sm uppercase font-semibold">Created At</p>
                   <p class="pt-2">
-                    {{ $fid->created_at}}
+                    {{ $fid->created_at->format('d M Y')}}
                   </p>
                 </div>
               </div>
@@ -264,7 +264,7 @@
                 <div class="font-montserrat mt-6 lg:px-2">
                   <p class="text-sm uppercase font-semibold">Updated At</p>
                   <p class="pt-2">
-                    {{ $fid->updated_at}}
+                    {{ $fid->updated_at->format('d M Y')}}
                   </p>
                 </div>
               </div>
@@ -273,22 +273,6 @@
               </div> --}}
             </div>
           </div>
-          {{-- <div class="sm:text-center sm:flex sm:justify-center">
-            <div class="sm:flex sm:justify-between sm:w-3/4">
-              <div class="font-montserrat mt-6 lg:px-2">
-                <p class="text-sm uppercase font-semibold">Monitor View</p>
-                <p class="pt-2">
-                  {{ $fid->created_at}}
-                </p>
-              </div>
-              <div class="font-montserrat mt-6 lg:px-2">
-                <p class="text-sm uppercase font-semibold">Clean Condition</p>
-                <p class="pt-2">
-                  {{ $fid->updated_at}}
-                </p>
-              </div>
-            </div>
-          </div> --}}
         </div>
       </div>
     </section>

@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class fids extends Model
 {
     use HasFactory;
+    public $timestamps = true;
+    
+    protected $table = 'fids';
 
     protected $fillable = [
         'date',
@@ -16,7 +19,6 @@ class fids extends Model
         'view_desc',
         'clean_condition',
         'condition_desc',
-        'created_at',
-        'updated_at',
     ];
+
 }

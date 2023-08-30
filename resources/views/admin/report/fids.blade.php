@@ -169,7 +169,12 @@
               <div class="pt-3 lg:flex items-center flex-row space-y-7 lg:space-x-4 lg:space-y-0">
                   {{-- add data --}}
                   <div>
-                    <a href="{{route('fids.create')}}" class="p-4 rounded-lg text-sm font-montserrat text-white shadow bg-indigo-800 border-2 rounded-r-lg border-indigo-800 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 transition duration-300">Add Data</a>
+                    <a href="{{route('fids.create')}}" class="px-5 py-3 text-base font-medium text-center inline-flex items-center text-gray-50 bg-indigo-800 rounded-lg hover:bg-gray-100 hover:text-green-700 focus:z-10 focus:ring-2 focus:ring-indigo-800 transition duration-200">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 mr-2 h-5">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm.75-11.25a.75.75 0 00-1.5 0v2.5h-2.5a.75.75 0 000 1.5h2.5v2.5a.75.75 0 001.5 0v-2.5h2.5a.75.75 0 000-1.5h-2.5v-2.5z" clip-rule="evenodd" />
+                      </svg>                                          
+                      Add 
+                    </a>
                   </div>
                   {{-- Search --}}
                   <div>
@@ -206,7 +211,7 @@
                           <div class="relative w-full font-montserrat">
                               <input type="search" id="search-dropdown" class="font-montserrat block p-3 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-r-lg border-l-gray-50 border-l-2 border-2 border-gray-300 focus:ring-blue-500" placeholder="search" required>
   
-                              <button type="submit" class="absolute top-0 right-0 p-2.5 text-sm font-medium h-full text-white bg-indigo-800 rounded-r-lg border-2 border-indigo-800 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">
+                              <button type="submit" class="absolute top-0 right-0 p-2.5 text-sm font-medium h-full text-gray-50 bg-indigo-800 rounded-r-lg hover:bg-gray-100 hover:text-indigo-800 focus:z-10 focus:ring-2 focus:ring-indigo-800 transition duration-200">
                                   <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                                       <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
                                   </svg>
@@ -229,7 +234,7 @@
                           </div>
                           <input type="date" id="date" name="selected_date" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-3" required>
                       </div>
-                      <button type="submit" class="p-3.5 ml-2 text-sm font-medium text-white bg-indigo-800 rounded-lg border-2 rounded-r-lg border-indigo-800 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">
+                      <button type="submit" class="p-4 ml-2 text-sm font-medium text-gray-50 bg-indigo-800 rounded-lg hover:bg-gray-100 hover:text-indigo-800 focus:z-10 focus:ring-2 focus:ring-indigo-800 transition duration-200">
                           <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
                           </svg>

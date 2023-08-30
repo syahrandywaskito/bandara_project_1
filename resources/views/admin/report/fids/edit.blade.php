@@ -179,41 +179,43 @@
               {{now()->format('l')}}, {{now()->format('d M Y')}}
             </p>
           </div>
+          <form class="font-montserrat lg:px-2 mt-6" action="{{route('fids.update', $fid->id)}}" method="POST">
+            @csrf
+            @method('PUT')
+            
+            <div class="grid grid-cols-1 grid-flow-row-dense md:grid-cols-3 gap-4">
+              <div class=" md:col-span-3">
+                <label for="hardware-name" class="block mb-2 text-sm font-medium text-gray-900">Monitor Name</label>
+                <input type="text" id="hardware-name" class="bg-gray-100 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required value="{{$fid->monitor_name}}" readonly name="monitor_name">
+              </div>
+              <div>
+                <label for="record-status" class="block mb-2 text-sm font-medium text-gray-900">Monitor View</label>
+                <select id="record-status" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="monitor_view">
+                  <option selected>Select Condition</option>
+                  <option value="V">V</option>
+                  <option value="X">X</option>
+                </select>
+              </div>
+              <div class="md:col-span-2">
+                <label for="record-desc" class="block mb-2 text-sm font-medium text-gray-900">View Description</label>
+                <input type="text" id="record-desc" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="view_desc" value="{{$fid->view_desc}}">
+              </div>
+              <div>
+                <label for="clean-status" class="block mb-2 text-sm font-medium text-gray-900">Clean Condition</label>
+                <select id="clean-status" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="clean_condition">
+                  <option selected>Select Condition</option>
+                  <option value="V">V</option>
+                  <option value="X">X</option>
+                </select>
+              </div>
+              <div class="md:col-span-2">
+                <label for="clean-desc" class="block mb-2 text-sm font-medium text-gray-900">Condition Description</label>
+                <input type="text" id="clean-desc" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="condition_desc" value="{{$fid->condition_desc}}">
+              </div>
+            </div>
+            <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center mt-3">Submit</button>
+          </form>
         </div>
-
-        <form class="font-montserrat" action="{{route('fids.update', $fid->id)}}" method="POST">
-          @csrf
-          @method('PUT')
-          <div>
-            <label for="hardware-name" class="block mb-2 text-sm font-medium text-gray-900">Monitor Name</label>
-            <input type="text" id="hardware-name" class="bg-gray-100 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required value="{{$fid->monitor_name}}" readonly name="monitor_name">
-          </div>
-          <div class="mt-3">
-            <label for="record-status" class="block mb-2 text-sm font-medium text-gray-900">Monitor View</label>
-            <select id="record-status" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="monitor_view">
-              <option selected>Select Condition</option>
-              <option value="V">V</option>
-              <option value="X">X</option>
-            </select>
-          </div>
-          <div class="mt-3">
-            <label for="record-desc" class="block mb-2 text-sm font-medium text-gray-900">View Description</label>
-            <input type="text" id="record-desc" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="view_desc" value="{{$fid->view_desc}}">
-          </div >
-          <div class="mt-3">
-            <label for="clean-status" class="block mb-2 text-sm font-medium text-gray-900">Clean Condition</label>
-            <select id="clean-status" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="clean_condition">
-              <option selected>Select Condition</option>
-              <option value="V">V</option>
-              <option value="X">X</option>
-            </select>
-          </div>
-          <div class="mt-3">
-            <label for="clean-desc" class="block mb-2 text-sm font-medium text-gray-900">Condition Description</label>
-            <input type="text" id="clean-desc" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="condition_desc" value="{{$fid->condition_desc}}">
-          </div>
-          <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center mt-3">Submit</button>
-        </form>
       </div>
     </section>
 
