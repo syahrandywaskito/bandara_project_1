@@ -83,7 +83,7 @@
           </a>
 
           <a href="{{route('register')}}"
-             class="py-3 px-4 bg-white text-indigo-500 rounded-lg shadow-md font-medium hover:bg-opacity-75 transition duration-200">
+             class="py-2 px-4 bg-white text-indigo-500 rounded-lg shadow-md font-medium hover:bg-opacity-75 transition duration-200">
              Register
           </a>
         </section>
@@ -232,61 +232,100 @@
                 </p>
               </div>
             </div>    
-            <div class="relative overflow-x-auto rounded-lg drop-shadow-xl">
-              <table class="w-full text-sm text-left text-gray-500">
-                  <thead class="text-xs uppercase bg-gradient-to-r from-indigo-600 to-blue-500 text-gray-50 font-roboto text-center">
-                      <tr>
-                          <th scope="col" class="px-6 py-3">
-                              Airline
-                          </th>
-                          <th scope="col" class="px-6 py-3">
-                              Flight
-                          </th>
-                          <th scope="col" class="px-6 py-3">
-                              Departure Time
-                          </th>
-                          <th scope="col" class="px-6 py-3">
-                              Destination
-                          </th>
-                          <th scope="col" class="px-6 py-3">
-                              Arrival Time
-                          </th>
-                      </tr>
+            <div class="relative overflow-x-auto rounded-lg shadow-md">
+              <div class="relative overflow-x-auto">
+                <table class="w-full text-sm text-left">
+                  <thead class="text-xs text-center text-gray-50 uppercase bg-gradient-to-r from-indigo-600 to-blue-500">
+                    <tr>
+                      <th scope="col" class="px-6 py-3">
+                        Airline
+                      </th>
+                      <th scope="col" class="px-6 py-3">
+                        Flight ID
+                      </th>
+                      <th scope="col" class="px-6 py-3">
+                        Departure
+                      </th>
+                      <th scope="col" class="px-6 py-3">
+                        Destination
+                      </th>
+                      <th scope="col" class="px-6 py-3">
+                        Arrival
+                      </th>
+                    </tr>
                   </thead>
-                  <tbody class=" font-roboto text-center">
-                      
+                  <tbody id="scheduleData" class="text-center font-roboto">
+                    <script>
+                      const apiUrl = 'https://airlabs.co/api/v9/schedules?dep_iata=MLG&api_key=84cea78b-daa2-4bcd-9042-b9cb4501a443';
+                      const scheduleDataElement = document.getElementById('scheduleData');
+                                                
+                      fetch(apiUrl)
+                      .then(response => response.json())
+                      .then(data => {
+                        if (data.response) {
+                          const today = new Date().toISOString().split('T')[0]; // Get today's date in YYYY-MM-DD format
+                          const todaySchedules = data.response.filter(schedule => {
+                          // Exclude schedules with flight_iata ID7109 and QG161
+                          return !['ID7109', 'QG161'].includes(schedule.flight_iata) && schedule.dep_time_utc.includes(today);
+                          });
+                                                          
+                          todaySchedules.forEach(schedule => {
+                          const row = document.createElement('tr');
+                          const airlineName = schedule.airline_icao === 'BTK' ? 'Batik Air' : (schedule.airline_icao === 'GIA' ?  'Garuda Indonesia' : (schedule.airline_icao === 'CTV' ? 'Citilink' : 'N/A'));
+                          const airportName = schedule.arr_iata === 'HLP' ? 'Halim Perdana Kusuma' : (schedule.arr_iata === 'CGK' ? 'Soekarno-Hatta' : 'N/A');
+                          row.innerHTML = `
+                                            <td class="px-6 py-4">${airlineName || 'N/A'}</td>
+                                            <td class="px-6 py-4">${schedule.flight_iata || 'N/A'}</td>
+                                            <td class="px-6 py-4">${schedule.dep_time || 'N/A'}</td>
+                                            <td class="px-6 py-4">${airportName || 'N/A'}</td>
+                                            <td class="px-6 py-4">${schedule.arr_time || 'N/A'}</td>
+                                          `;
+                          scheduleDataElement.appendChild(row);
+                          });
+                        } 
+                        else {
+                          console.error('No schedules found in the response.');
+                        }
+                      })
+                      .catch(error => {
+                          console.error('An error occurred:', error);
+                      });
+                    </script>
                   </tbody>
-              </table>
+                </table>
+              </div>
             </div>
+           
           </div>
+          
     </div>
   </section>
 
   {{-- footer --}}
-  <footer class="bg-white rounded-lg shadow m-4">
+  <footer class="bg-white mt-6 shadow">
     <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
-        <div class="sm:flex sm:items-center sm:justify-between">
+        <div class="sm:flex sm:items-center sm:justify-between font-roboto">
             <a href="{{route('homepage')}}" class="flex items-center mb-4 sm:mb-0">
                 <img src="{{asset('img/logo.png')}}" class="h-8 mr-3" alt="Flowbite Logo" />
-                <span class="self-center text-2xl font-semibold whitespace-nowrap uppercase">Teknik Bandara Abdulrachman Saleh</span>
+                <span class="self-center text-lg md:text-xl font-semibold whitespace-nowrap uppercase">Teknik Bandara Abdulrachman Saleh</span>
             </a>
-            <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0">
+
+            <ul class="flex flex-wrap items-center my-7 justify-center sm:mt-0 text-sm font-medium text-gray-500 sm:mb-0">
                 <li>
-                    <a href="#" class="mr-4 hover:underline md:mr-6 ">About</a>
+                    <a href="#" class="mr-4 hover:underline md:mr-6 ">Tool</a>
                 </li>
                 <li>
-                    <a href="#" class="mr-4 hover:underline md:mr-6">Privacy Policy</a>
+                    <a href="#" class="mr-4 hover:underline md:mr-6">Service</a>
                 </li>
                 <li>
-                    <a href="#" class="mr-4 hover:underline md:mr-6 ">Licensing</a>
-                </li>
-                <li>
-                    <a href="#" class="hover:underline">Contact</a>
+                    <a href="#" class="mr-4 hover:underline md:mr-6 ">Contact Us</a>
                 </li>
             </ul>
         </div>
-        <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-        <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="https://flowbite.com/" class="hover:underline">Flowbite™</a>. All Rights Reserved.</span>
+        <div>
+          <hr class="h-px my-8 bg-gray-200 border-0">
+          <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="https://flowbite.com/" class="hover:underline">UPT Bandara Abdulrachman Saleh</a>. All Rights Reserved.</span>
+        </div>
     </div>
   </footer>
 

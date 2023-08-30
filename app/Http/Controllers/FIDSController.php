@@ -81,7 +81,7 @@ class FIDSController extends Controller
 
     public function show(fids $fid) : View
     {
-        return view('admin.report.fids.show', compact('fid'));
+        return view('admin.report.fids.show', ['fid' => $fid]);
     }
 
     public function edit(fids $fid) : View

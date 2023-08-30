@@ -16,6 +16,7 @@ class fids extends Model
         'view_desc',
         'clean_condition',
         'condition_desc',
-        
+        'created_at',
+        'updated_at',
     ];
 }
