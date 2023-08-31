@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,7 +36,7 @@
                 Home
               </a>
 
-              <a id="dropdownHoverButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover" class="text-gray-100  font-semibold text-sm px-5 py-2.5 text-center inline-flex items-center  border-b-2 border-gray-100" type="button">
+              <a id="dropdownHoverButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover" class="text-gray-100  font-semibold text-sm px-5 py-2.5 text-center inline-flex items-center  border-b-2 border-gray-100 cursor-pointer" type="button">
                 Tool 
                 <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
@@ -83,7 +83,7 @@
           </a>
 
           <a href="{{route('register')}}"
-             class="py-3 px-4 bg-[#f9f5f2] text-[#5e7c60] rounded-lg shadow-md font-medium hover:bg-opacity-75 transition duration-200">
+             class="py-2 px-4 bg-[#f9f5f2] text-[#5e7c60] rounded-lg shadow-md font-medium hover:bg-opacity-75 transition duration-200">
              Register
           </a>
         </section>
@@ -105,7 +105,7 @@
             <a href="{{route('homepage')}}" class="block text-md text-gray-100 py-4 px-2 font-bold">Home</a>
           </li>
           <li>
-            <a id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="text-gray-100 hover: focus:ring-4 focus:outline-none px-2 py-2.5 inline-flex items-center" type="button">
+            <a id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="text-gray-100 hover: focus:ring-4 focus:outline-none px-2 py-2.5 inline-flex items-center cursor-pointer" type="button">
               Tool
               <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
@@ -124,9 +124,9 @@
                   <a href="/tool/fids" class="block px-4 py-2 hover:translate-x-1 transition duration-200">FIDS</a>
                 </li>
               </ul>
-              <hr class="border-0 bg-gradient-to-r from-indigo-600 to-blue-300 h-1 ">
+              <hr class="border-0 bg-[#5e7c60] h-1 ">
               <div class="py-2">
-                <a href="" class="block px-4 py-2 hover:translate-x-1 transition duration-200">Report</a>
+                <a href="{{route('report.index')}}" class="block px-4 py-2 hover:translate-x-1 transition duration-200">Report</a>
               </div>
             </div>
           </li>
@@ -140,7 +140,7 @@
             <a href="{{route('login')}}" class="block text-md text-gray-100 py-4 px-2 hover:translate-x-1 transition duration-200">Log In</a>
           </li>
           <li>
-            <a href="{{route('register')}}" class="block text-md bg-white text-indigo-500 rounded-lg shadow-md py-3 px-4 hover:bg-opacity-75 transition duration-200 text-center">Register</a>
+            <a href="{{route('register')}}" class="block text-md bg-white text-[#5e7c60] rounded-lg shadow-md py-3 px-4 hover:bg-opacity-75 transition duration-200 text-center">Register</a>
           </li>
         </ul>
       </section>
@@ -155,16 +155,21 @@
     {{-- Text --}}
     <section class="py-5 px-4 mx-auto max-w-screen-xl text-center lg:py-10 md:w-[60%]">
       <h1 class=" uppercase mb-4 text-3xl font-semibold tracking-tight leading-none text-gray-950 md:text-4xl lg:text-5xl font-montserrat" data-aos="fade-up" data-aos-delay="100">
-        Hardware maintenance Checkup Report Page
+        Hardware maintenance Checkup Report
       </h1>
       <p class="mb-8 pt-3 text-lg font-normal text-gray-800 lg:text-xl font-montserrat" data-aos="fade-up" data-aos-delay="200">
-        Halaman yang memuat semua laporan checkup harian dari perangkat-perangkat yang ada di bandara <strong>Abdulrachman Saleh</strong>
+        A page that contains all the daily checkup reports of devices at <strong>Abdulrachman Saleh Airport</strong>
       </p>
+      <a href="#report" class="text-gray-900 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center hover:translate-y-3 transition duration-200">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6  h-6" data-aos="fade-up" data-aos-delay="300">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 5.25l-7.5 7.5-7.5-7.5m15 6l-7.5 7.5-7.5-7.5" />
+        </svg> 
+      </a>
     </section>
   </header>
 
   {{-- report section --}}
-  <section>
+  <section id="report">
     <div class="py-3 px-4 mx-auto max-w-screen-xl">
       <div class="bg-white border border-gray-200 rounded-lg shadow-lg p-8 md:p-12 mb-8"> 
         <div class="text-center pb-7 md:pb-10" data-aos="fade-up" data-aos-delay="300" data-aos-ease="ease-in-out">
@@ -327,6 +332,49 @@
     </div>
   </section>
 
+   {{-- footer --}}
+   <footer class="bg-white mt-6 shadow">
+    <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+        <div class="sm:flex sm:items-center sm:mx-5 xl:mx-0 sm:justify-between font-roboto">
+          <div class="sm:w-1/2 text-center sm:text-start">
+            <a href="{{route('homepage')}}" class="flex items-center mb-4 mx-3 sm:mx-0 sm:mb-0">
+                <img src="{{asset('img/logo.png')}}" class="h-8 mr-3" alt="Flowbite Logo" />
+                <span class="self-center text-lg md:text-xl font-semibold whitespace-nowrap uppercase">Teknik Bandara Abdulrachman Saleh</span>
+            </a>
+            <p class="pt-4">
+              Jl. Komodor Udara Abdul Rahman Saleh,<br>
+              Krajan, Bunut Wetan, Kec. Pakis Kabupaten Malang, <br>
+              Jawa Timur 65154 <br><br>
+              Telp ( 0341 ) 2992700
+
+            </p>
+          </div>
+          <div>
+            <ul class="flex flex-wrap items-center my-7 justify-center sm:mt-0 text-sm font-medium text-gray-500 sm:mb-0">
+                <li>
+                    <a href="#" class="mr-4 hover:border-b-2 border-gray-500 transition duration-200 md:mr-6 ">Tool</a>
+                </li>
+                <li>
+                    <a href="#" class="mr-4 hover:border-b-2 border-gray-500 transition duration-200 md:mr-6">Service</a>
+                </li>
+                <li>
+                    <a href="#" class="mr-4 hover:border-b-2 border-gray-500 transition duration-200 md:mr-6 ">Contact Us</a>
+                </li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <hr class="h-px my-8 bg-gray-200 border-0">
+          <span class="block text-sm text-gray-500 text-center font-roboto">
+            © 2023 
+            <a href="" class="hover:border-b-2 border-gray-500 transition duration-200">
+            UPT Bandara Abdulrachman Saleh</a>
+            . All Rights Reserved.
+          </span>
+        </div>
+    </div>
+  </footer>
+
   {{-- JS AOS --}}
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
@@ -334,41 +382,9 @@
   </script>
   {{-- clock --}}
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script>
-    $(document).ready(function() {
-    // Function to update the clock display
-    function updateClock() {
-        const now = new Date();
-        const hours = now.getHours();
-        const minutes = now.getMinutes();
-        const seconds = now.getSeconds();
-        
-        const formattedTime = `${formatNumber(hours)} : ${formatNumber(minutes)} : ${formatNumber(seconds)}`;
-        
-        $('.clock').html(formattedTime); // Update the clock element's contents
-    }
-    
-    // Helper function to format numbers with leading zeros
-    function formatNumber(number) {
-        return (number < 10 ? '0' : '') + number;
-    }
-    
-    // Update the clock every second
-    setInterval(updateClock, 1000);
-    
-    // Initial clock update
-    updateClock();
-  }); 
-  </script>
+  
   {{-- js script --}}
   <script src="{{asset('js/clock.js')}}"></script>
-  <script>
-    const btn = document.querySelector("#mobile-menu-button");
-    const menu = document.querySelector("#mobile-menu");
-
-    btn.addEventListener("click", () => {
-      menu.classList.toggle("hidden");
-    })
-  </script>
+  <script src="{{asset('js/smoothScroll.js')}}"></script>
 </body>
 </html>

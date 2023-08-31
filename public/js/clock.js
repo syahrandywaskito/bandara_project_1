@@ -1,9 +1,6 @@
-setInterval(function(){
-  let waktu = new Date();
-  let jam = waktu.getHours();
-  let menit = waktu.getMinutes();
-  let detik = waktu.getSeconds();
+const btn = document.querySelector("#mobile-menu-button");
+    const menu = document.querySelector("#mobile-menu");
 
-  document.getElementById("clock-arrival").innerHTML = jam + " : " + menit + " : " + detik;
-  document.getElementById("clock-departure").innerHTML = jam + " : " + menit + " : " + detik;
-}, 500);
+    btn.addEventListener("click", () => {
+      menu.classList.toggle("hidden");
+    })

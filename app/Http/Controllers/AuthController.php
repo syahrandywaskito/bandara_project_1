@@ -33,7 +33,7 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)) {
 
             $request->session()->regenerate();
-            return redirect()->route('dashboard')->withSuccess('You are succesfully logged in');
+            return redirect()->route('dashboard')->with('success','You are succesfully logged in');
         }
 
         return back()->withErrors([
@@ -84,7 +84,7 @@ class AuthController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect()->route('homepage')->withSuccess('You are logged out successfully');
+        return redirect()->route('homepage')->with('success','You are logged out successfully');
     }
 }
 
