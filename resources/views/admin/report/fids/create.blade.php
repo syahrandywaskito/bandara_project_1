@@ -7,6 +7,7 @@
   <link rel="shortcut icon" href="{{asset('img/logo.png')}}" type="image/x-icon">
   <title>Admin - Dashboard</title>
 
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
    {{-- tailwind css using vite --}}
    @vite(['resources/css/app.css','resources/js/app.js'])
@@ -326,5 +327,9 @@
     });
   </script>
 
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 </body>
 </html>

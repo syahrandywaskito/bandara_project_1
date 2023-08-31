@@ -8,15 +8,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
+
 class AuthController extends Controller
 {
-
-    // public function __construct()
-    // {
-    //     $this->middleware('guest')->except([
-    //         'logout', 'dashboard'
-    //     ]);
-    // }
 
     public function Login() : View
     {
@@ -30,10 +24,14 @@ class AuthController extends Controller
             'password' => 'required',
         ]);
 
+        $fullname = User::where('email', request()->input('email'))->value('name');
+
+        $successMessage = "Welcome $fullname, You are succesfully logged in";
+
         if (Auth::attempt($credentials)) {
 
             $request->session()->regenerate();
-            return redirect()->route('dashboard')->with('success','You are succesfully logged in');
+            return redirect()->route('dashboard')->with('success', $successMessage);
         }
 
         return back()->withErrors([
@@ -84,7 +82,7 @@ class AuthController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect()->route('homepage')->with('success','You are logged out successfully');
+        return redirect()->route('login')->with('success','You are logged out successfully');
     }
 }
 

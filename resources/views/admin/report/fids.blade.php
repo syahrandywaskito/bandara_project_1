@@ -7,6 +7,7 @@
   <link rel="shortcut icon" href="{{asset('img/logo.png')}}" type="image/x-icon">
   <title>Admin - Dashboard</title>
 
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
    {{-- tailwind css using vite --}}
    @vite(['resources/css/app.css','resources/js/app.js'])
 </head>
@@ -252,7 +253,7 @@
               <caption class="p-5 text-lg font-semibold text-left text-gray-900 font-montserrat">
                 <span class="uppercase">FIDS Checkup Table</span>
                   <p class=" font-normal mt-1 text-sm">
-                    {{ $date->format('d M Y ') }}
+                    {{$day}} ,{{ $date->format('d M Y ') }}
                   </p>
               </caption>
               <thead class="text-xs text-gray-100 uppercase bg-indigo-800 text-center font-roboto">
@@ -355,7 +356,7 @@
   </div>
 
   @if ($message = Session::get('success'))
-  <dir class="fixed top-28 right-10">
+  <dir class="fixed top-28 right-10" data-aos="fade-left">
     <div id="alert-3" class="flex items-center shadow-md p-4 mb-4 text-green-800 rounded-lg bg-green-50 font-montserrat" role="alert">
       <svg class="flex-shrink-0 w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
         <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
@@ -373,5 +374,9 @@
   </dir>
   @endif
 
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 </body>
 </html>

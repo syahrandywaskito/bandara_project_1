@@ -174,11 +174,19 @@
             <p class="text-sm uppercase">{{ $fid->monitor_name }}</p>
           </div>
 
-          <div class="lg:px-2 font-montserrat mt-8">
-            <h3>Current Date</h3>
-            <p>
-              {{now()->format('l')}}, {{now()->format('d M Y')}}
-            </p>
+          <div class="lg:px-2 font-montserrat mt-8 flex justify-between">
+            <div>
+              <h3>Data Date</h3>
+              <p>
+                {{$day}}, {{$date}}
+              </p>
+            </div>
+            <div class="text-end">
+              <h3>Actual Date</h3>
+              <p>
+                {{now()->format('l')}}, {{now()->format('d M Y')}}
+              </p>
+            </div>
           </div>
 
           <hr class="h-px my-4 bg-gray-400 border-0">

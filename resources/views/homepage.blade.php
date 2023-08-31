@@ -155,7 +155,7 @@
     <section class="py-5 px-4 mx-auto max-w-screen-xl text-center lg:py-10 md:w-[60%]">
       <h1 class=" uppercase mb-4 text-3xl font-semibold tracking-tight leading-none text-gray-950 lg:text-5xl font-montserrat" data-aos="fade-up" data-aos-delay="100">
         Abdulrachman Saleh Airport <br>
-        Engineerings Website
+        Engineering Website
       </h1>
       <p class="mb-8 pt-3 text-lg font-normal text-gray-800 lg:text-xl font-montserrat" data-aos="fade-up" data-aos-delay="200">
         Welcome to the <strong>Abdurrahman Saleh Airport</strong> Engineering Website. We are ready to serve and provide information about the techniques used at <strong>Abdurrahman Saleh Airport</strong>

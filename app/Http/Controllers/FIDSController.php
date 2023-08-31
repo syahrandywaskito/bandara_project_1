@@ -33,8 +33,9 @@ class FIDSController extends Controller
         }
         
         $date = Carbon::parse($selectedDate);
+        $day = $date->format('l');
 
-        return view('admin.report.fids', ['fids' => $data, 'date' => $date]);
+        return view('admin.report.fids', ['fids' => $data, 'date' => $date, 'day' => $day]);
     }
 
     public function create() : View
@@ -81,7 +82,13 @@ class FIDSController extends Controller
 
     public function show(fids $fid) : View
     {
-        return view('admin.report.fids.show', ['fid' => $fid]);
+        
+        $date = Carbon::parse($fid->date);
+
+        $formattedDate = $date->format('d M Y');
+        $formattedDay = $date->format('l');
+
+        return view('admin.report.fids.show', ['fid' => $fid, 'date' => $formattedDate, 'day' => $formattedDay]);
     }
 
     public function edit(fids $fid) : View
@@ -105,7 +112,7 @@ class FIDSController extends Controller
 
         $fids->update($request->all());
 
-        return redirect()->route('fids.index')->with('success', 'you successfuly update data');
+        return redirect()->route('fids.index')->with('success', 'you successfuly updated data');
     }
 
     public function destroy(fids $fid)

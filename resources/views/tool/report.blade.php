@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Teknik - Homepage</title> 
+  <title>Teknik - Report</title> 
   <link rel="shortcut icon" href="{{ asset('img/logo.png') }}" type="image/x-icon">
 
   {{-- AOS --}}
@@ -169,9 +169,9 @@
   </header>
 
   {{-- report section --}}
-  <section id="report">
+  <section id="report" class="h-[100vh]">
     <div class="py-3 px-4 mx-auto max-w-screen-xl">
-      <div class="bg-white border border-gray-200 rounded-lg shadow-lg p-8 md:p-12 mb-8"> 
+      <div class="bg-white border border-gray-200 rounded-lg shadow-lg p-8 md:p-12"> 
         <div class="text-center pb-7 md:pb-10" data-aos="fade-up" data-aos-delay="300" data-aos-ease="ease-in-out">
           <h1 class="font-semibold font-montserrat text-lg md:text-2xl uppercase">Report Data</h1>
         </div>
