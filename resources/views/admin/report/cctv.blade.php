@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="shortcut icon" href="{{asset('img/logo.png')}}" type="image/x-icon">
-  <title>Admin - Dashboard</title>
+  <title>Admin - Laporan</title>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
    {{-- tailwind css using vite --}}
@@ -26,7 +26,7 @@
           </button>
           <a href="{{route('cctv.index')}}" class="flex ml-2 md:mr-24">
             <img src="{{asset('img/logo.png')}}" class="h-8 mr-3" alt="FlowBite Logo" />
-            <span class="self-center text-xl font-roboto font-semibold sm:text-2xl text-gray-100 whitespace-nowrap">Report - CCTV</span>
+            <span class="self-center text-lg uppercase font-roboto font-semibold sm:text-xl text-gray-100 whitespace-nowrap">laporan - CCTV</span>
           </a>
         </div>
         <div class="flex items-center">
@@ -52,9 +52,6 @@
                   </li>
                   <li>
                     <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:translate-x-1 transition duration-200" role="menuitem">Settings</a>
-                  </li>
-                  <li>
-                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:translate-x-1 transition duration-200" role="menuitem">Earnings</a>
                   </li>
                   <li>
                     <a href="{{route('logout')}}" class="block px-4 py-2 text-sm text-gray-700 hover:translate-x-1 transition duration-200" role="menuitem">Logout</a>
@@ -84,7 +81,7 @@
               <svg class="flex-shrink-0 w-5 h-5 text-gray-100  group-hover:text-gray-900" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
                 <path d="M6.143 0H1.857A1.857 1.857 0 0 0 0 1.857v4.286C0 7.169.831 8 1.857 8h4.286A1.857 1.857 0 0 0 8 6.143V1.857A1.857 1.857 0 0 0 6.143 0Zm10 0h-4.286A1.857 1.857 0 0 0 10 1.857v4.286C10 7.169 10.831 8 11.857 8h4.286A1.857 1.857 0 0 0 18 6.143V1.857A1.857 1.857 0 0 0 16.143 0Zm-10 10H1.857A1.857 1.857 0 0 0 0 11.857v4.286C0 17.169.831 18 1.857 18h4.286A1.857 1.857 0 0 0 8 16.143v-4.286A1.857 1.857 0 0 0 6.143 10Zm10 0h-4.286A1.857 1.857 0 0 0 10 11.857v4.286c0 1.026.831 1.857 1.857 1.857h4.286A1.857 1.857 0 0 0 18 16.143v-4.286A1.857 1.857 0 0 0 16.143 10Z"/>
               </svg>
-              <span class="ml-3">Report</span>
+              <span class="ml-3">Laporan</span>
               <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
               </svg>
@@ -105,15 +102,17 @@
             </div>
           </li>
           
-          <li>
-            <a href="#" class="flex items-center p-2 text-gray-100 rounded-lg hover:text-gray-900 hover:bg-gray-100 group transition duration-150">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
-                <path d="M12.75 12.75a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM7.5 15.75a.75.75 0 100-1.5.75.75 0 000 1.5zM8.25 17.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM9.75 15.75a.75.75 0 100-1.5.75.75 0 000 1.5zM10.5 17.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12 15.75a.75.75 0 100-1.5.75.75 0 000 1.5zM12.75 17.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM14.25 15.75a.75.75 0 100-1.5.75.75 0 000 1.5zM15 17.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM16.5 15.75a.75.75 0 100-1.5.75.75 0 000 1.5zM15 12.75a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM16.5 13.5a.75.75 0 100-1.5.75.75 0 000 1.5z" />
-                <path fill-rule="evenodd" d="M6.75 2.25A.75.75 0 017.5 3v1.5h9V3A.75.75 0 0118 3v1.5h.75a3 3 0 013 3v11.25a3 3 0 01-3 3H5.25a3 3 0 01-3-3V7.5a3 3 0 013-3H6V3a.75.75 0 01.75-.75zm13.5 9a1.5 1.5 0 00-1.5-1.5H5.25a1.5 1.5 0 00-1.5 1.5v7.5a1.5 1.5 0 001.5 1.5h13.5a1.5 1.5 0 001.5-1.5v-7.5z" clip-rule="evenodd" />
-              </svg>                
-              <span class="flex-1 ml-3 whitespace-nowrap">Schedule</span>
-            </a>
-          </li>
+          @if (auth()->user()->position == 'Informasi' || auth()->user()->position == 'Kepala Seksi Teknik')
+            <li>
+              <a href="#" class="flex items-center p-2 text-gray-100 rounded-lg hover:text-gray-900 hover:bg-gray-100 group transition duration-150">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                  <path d="M12.75 12.75a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM7.5 15.75a.75.75 0 100-1.5.75.75 0 000 1.5zM8.25 17.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM9.75 15.75a.75.75 0 100-1.5.75.75 0 000 1.5zM10.5 17.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12 15.75a.75.75 0 100-1.5.75.75 0 000 1.5zM12.75 17.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM14.25 15.75a.75.75 0 100-1.5.75.75 0 000 1.5zM15 17.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM16.5 15.75a.75.75 0 100-1.5.75.75 0 000 1.5zM15 12.75a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM16.5 13.5a.75.75 0 100-1.5.75.75 0 000 1.5z" />
+                  <path fill-rule="evenodd" d="M6.75 2.25A.75.75 0 017.5 3v1.5h9V3A.75.75 0 0118 3v1.5h.75a3 3 0 013 3v11.25a3 3 0 01-3 3H5.25a3 3 0 01-3-3V7.5a3 3 0 013-3H6V3a.75.75 0 01.75-.75zm13.5 9a1.5 1.5 0 00-1.5-1.5H5.25a1.5 1.5 0 00-1.5 1.5v7.5a1.5 1.5 0 001.5 1.5h13.5a1.5 1.5 0 001.5-1.5v-7.5z" clip-rule="evenodd" />
+                </svg>                
+                <span class="flex-1 ml-3 whitespace-nowrap">Schedule</span>
+              </a>
+            </li>
+          @endif
           <li>
               <a href="#" class="flex items-center p-2 text-gray-100 rounded-lg hover:bg-gray-100 hover:text-gray-900 group transition duration-150">
                 <svg class="flex-shrink-0 w-5 h-5 text-gray-100  group-hover:text-gray-900" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
@@ -159,18 +158,23 @@
                   </li>
                 </ol>
               </nav>
-              <h1 class="text-gray-900 mt-8 text-2xl md:text-4xl font-roboto font-bold mb-4">
-                Table Data Laporan Pengecekan CCTV
+              <h1 class="text-gray-900 mt-8 text-xl uppercase md:text-2xl font-roboto font-bold mb-4">
+                Laporan pengecekan CCTV
               </h1>
               <p class="text-lg font-normal font-montserrat text-gray-500 mb-3">
-                Tabel laporan ini akan menampilkan hasil input pengecekan yang sudah dilakukan sebelumnya. Tabel dapat diganti sesuai tanggal data pengecekan.
+                Tabel laporan ini akan menampilkan hasil input dari pengecekan yang telah dilakukan sebelumnya. Tabel ini dapat diubah sesuai dengan tanggal data pengecekan
               </p>
 
               {{-- Menu opsi --}}
               <div class="pt-3 lg:flex items-center flex-row space-y-7 lg:space-x-4 lg:space-y-0">
                   {{-- add data --}}
                   <div>
-                    <a href="{{route('cctv.create')}}" class="p-4 rounded-lg text-sm font-montserrat shadow bg-indigo-800 text-gray-100 hover:bg-indigo-100 hover:text-gray-900 transition duration-300 focus:ring-2 focus:ring-indigo-800">Add Data</a>
+                    <a href="{{route('cctv.create')}}" class="px-5 py-3 text-base font-medium text-center inline-flex items-center text-gray-50 bg-indigo-800 rounded-lg hover:bg-gray-100 hover:text-green-700 focus:z-10 focus:ring-2 focus:ring-indigo-800 transition duration-200">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 mr-2 h-5">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm.75-11.25a.75.75 0 00-1.5 0v2.5h-2.5a.75.75 0 000 1.5h2.5v2.5a.75.75 0 001.5 0v-2.5h2.5a.75.75 0 000-1.5h-2.5v-2.5z" clip-rule="evenodd" />
+                      </svg>                                          
+                      Tambah 
+                    </a>
                   </div>
                   {{-- Search --}}
                   <div>
@@ -246,9 +250,9 @@
         <div class="relative overflow-x-auto shadow-lg bg-gray-50 sm:rounded-lg p-4">
           <table class="w-full text-sm text-left">
               <caption class="p-5 text-lg font-semibold text-left text-gray-900 font-montserrat">
-                  Pengecekan CCTV
+                <span class="uppercase">Tabel pengecekan</span>
                   <p class=" font-normal mt-1 text-sm">
-                    {{ $date->format('d M Y ') }}
+                     {{$day}}, {{ $date}}
                   </p>
               </caption>
               <thead class="text-xs text-gray-100 uppercase bg-indigo-800 text-center font-roboto">
@@ -257,10 +261,10 @@
                           Nama Perangkat
                       </th>
                       <th scope="col" class="px-6 py-3">
-                          Status Record
+                          Status Rekaman
                       </th>
                       <th scope="col" class="px-6 py-3">
-                          Keterangan Record
+                          Keterangan Rekaman
                       </th>
                       <th scope="col" class="px-6 py-3">
                           Status Kebersihan
@@ -268,8 +272,8 @@
                       <th scope="col" class="px-6 py-3">
                           Kondisi Kebersihan
                       </th>
-                      <th scope="col" colspan="3" class="px-6 py-3">
-                          Opsi
+                      <th scope="col" class="px-6 py-3">
+                          Aksi
                       </th>
                   </tr>
               </thead>
@@ -292,15 +296,28 @@
                           {{$data->clean_desc}}
                         </td>
                         <td class="px-6 py-4">
-                          <a href="{{route('cctv.show', $data->id)}}" class="block text-white bg-indigo-800 border-2 rounded-r-lg border-indigo-800 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2 text-center">Show</a>
-                        </td>
-                        <td class="px-6 py-4">
-                          <a href="{{route('cctv.edit', $data->id)}}" class="block text-white bg-violet-900 hover:bg-violet-600 focus:ring-4 focus:outline-none focus:ring-violet-600 font-medium rounded-lg text-sm px-5 py-2 text-center">Edit</a>
-                        </td>
-                        <td class="px-6 py-4">
-                          <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="block text-white bg-red-800 hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-red-600 font-medium rounded-lg text-sm px-5 py-2 text-center" type="button">
-                            Delete
-                          </button>
+                          <div class="inline-flex rounded-md shadow-md" role="group">
+                            <a href="{{route('cctv.edit', $data->id)}}" class=" inline-flex items-center px-4 py-2 text-sm font-medium text-gray-50 bg-indigo-800 rounded-l-lg hover:bg-gray-100 hover:text-indigo-800 focus:z-10 focus:ring-2 focus:ring-indigo-800 transition duration-200">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 mr-2 h-5">
+                                <path d="M5.433 13.917l1.262-3.155A4 4 0 017.58 9.42l6.92-6.918a2.121 2.121 0 013 3l-6.92 6.918c-.383.383-.84.685-1.343.886l-3.154 1.262a.5.5 0 01-.65-.65z" />
+                                <path d="M3.5 5.75c0-.69.56-1.25 1.25-1.25H10A.75.75 0 0010 3H4.75A2.75 2.75 0 002 5.75v9.5A2.75 2.75 0 004.75 18h9.5A2.75 2.75 0 0017 15.25V10a.75.75 0 00-1.5 0v5.25c0 .69-.56 1.25-1.25 1.25h-9.5c-.69 0-1.25-.56-1.25-1.25v-9.5z" />
+                              </svg>                                                          
+                              Edit
+                            </a>
+                            <a href="{{route('cctv.show', $data->id)}}" class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-50 bg-indigo-800 hover:bg-gray-100 hover:text-indigo-800 focus:z-10 focus:ring-2 focus:ring-indigo-800 transition duration-200">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 mr-2 h-5">
+                                <path d="M10 12.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z" />
+                                <path fill-rule="evenodd" d="M.664 10.59a1.651 1.651 0 010-1.186A10.004 10.004 0 0110 3c4.257 0 7.893 2.66 9.336 6.41.147.381.146.804 0 1.186A10.004 10.004 0 0110 17c-4.257 0-7.893-2.66-9.336-6.41zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd" />
+                              </svg>                              
+                              Lihat
+                            </a>
+                            <button type="button" ata-modal-target="popup-modal" data-modal-toggle="popup-modal" class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-50 bg-indigo-800 rounded-r-md hover:bg-gray-100 hover:text-red-800 focus:z-10 focus:ring-2 focus:ring-red-800 focus:bg-gray-100 focus:text-red-800 transition duration-200">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 mr-1 h-5">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z" clip-rule="evenodd" />
+                              </svg>                                                                                        
+                              Delete
+                            </button>
+                          </div>
                         </td>
                       </tr>
                       <div id="popup-modal" tabindex="-1" class="fixed top-0 left-0 right-0 z-50 hidden p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
@@ -316,7 +333,6 @@
                                     <svg class="mx-auto mb-4 text-gray-400 w-12 h-12 dark:text-gray-200" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
                                     </svg>
-                                    <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Are you sure you want to delete this data?</h3>
                                     <form action="{{route('cctv.destroy', $data->id)}}" method="post">
                                       @csrf
                                       @method('DELETE')
@@ -324,7 +340,7 @@
                                           Delete
                                       </button>
                                     </form>
-                                    <button data-modal-hide="popup-modal" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10">No, cancel</button>
+                                    <button data-modal-hide="popup-modal" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10">Batalkan</button>
                                 </div>
                             </div>
                         </div>

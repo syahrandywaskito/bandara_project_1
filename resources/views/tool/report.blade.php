@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Teknik - Report</title> 
+  <title>Laporan</title> 
   <link rel="shortcut icon" href="{{ asset('img/logo.png') }}" type="image/x-icon">
 
   {{-- AOS --}}
@@ -26,18 +26,18 @@
             <section>
               <a href="" class=" flex items-center py-4 px-2">
                 <img src="{{ asset('img/logo.png') }}" class=" h-11 w-10 mr-3" alt="logo">
-                <span class=" font-semibold text-gray-100 text-lg">TEKNIK</span>
+                <span class=" font-semibold text-gray-100 uppercase text-lg">teknik dan <br>pelayanan jasa</span>
               </a>
             </section>
             
             <section class=" hidden md:flex items-center space-x-2">
               <a href="{{route('homepage')}}"
                 class=" py-4 px-2 text-gray-100 font-semibold hover:-translate-y-1 transition duration-200">
-                Home
+                Beranda
               </a>
 
               <a id="dropdownHoverButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover" class="text-gray-100  font-semibold text-sm px-5 py-2.5 text-center inline-flex items-center  border-b-2 border-gray-100 cursor-pointer" type="button">
-                Tool 
+                Alat
                 <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
                 </svg>
@@ -58,18 +58,18 @@
                     </ul>
                     <hr class="border-0 bg-[#5e7c60] h-1 ">
                     <div class="py-2">
-                      <a href="{{route('report.index')}}" class="block px-4 py-2 hover:translate-x-1 transition duration-200">Report</a>
+                      <a href="{{route('report.index')}}" class="block px-4 py-2 hover:translate-x-1 transition duration-200">Laporan</a>
                     </div>
                 </div>
 
               <a href=""
                 class=" py-4 px-2 text-gray-100 font-semibold hover:-translate-y-1 transition duration-200">
-                Service             
+                Layanan             
               </a>
 
               <a href=""
                 class=" py-4 px-2 text-gray-100 font-semibold hover:-translate-y-1 transition duration-200">
-                Contact Us
+                Hubungi Kami
               </a>
             </section>
 
@@ -102,11 +102,11 @@
       <section class="hidden pb-3" id="mobile-menu">
         <ul>
           <li >
-            <a href="{{route('homepage')}}" class="block text-md text-gray-100 py-4 px-2 font-bold">Home</a>
+            <a href="{{route('homepage')}}" class="block text-md text-gray-100 py-4 px-2 font-bold">Beranda</a>
           </li>
           <li>
             <a id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="text-gray-100 hover: focus:ring-4 focus:outline-none px-2 py-2.5 inline-flex items-center cursor-pointer" type="button">
-              Tool
+              Alat
               <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
               </svg>
@@ -126,7 +126,7 @@
               </ul>
               <hr class="border-0 bg-[#5e7c60] h-1 ">
               <div class="py-2">
-                <a href="{{route('report.index')}}" class="block px-4 py-2 hover:translate-x-1 transition duration-200">Report</a>
+                <a href="{{route('report.index')}}" class="block px-4 py-2 hover:translate-x-1 transition duration-200">laporan</a>
               </div>
             </div>
           </li>
@@ -154,14 +154,14 @@
 
     {{-- Text --}}
     <section class="py-5 px-4 mx-auto max-w-screen-xl text-center lg:py-10 md:w-[60%]">
-      <h1 class=" uppercase mb-4 text-3xl font-semibold tracking-tight leading-none text-gray-950 md:text-4xl lg:text-5xl font-montserrat" data-aos="fade-up" data-aos-delay="100">
-        Hardware maintenance Checkup Report
+      <h1 class=" uppercase mb-4 text-3xl font-semibold tracking-tight leading-none text-gray-950 md:text-4xl lg:text-4xl font-montserrat" data-aos="fade-up" data-aos-delay="100">
+        Laporan checkup harian
       </h1>
       <p class="mb-8 pt-3 text-lg font-normal text-gray-800 lg:text-xl font-montserrat" data-aos="fade-up" data-aos-delay="200">
-        A page that contains all the daily checkup reports of devices at <strong>Abdulrachman Saleh Airport</strong>
+        Halaman yang memuat semua laporan pemeriksaan harian di <strong>Bandar Udara Abdulrachman Saleh</strong>
       </p>
       <a href="#report" class="text-gray-900 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center hover:translate-y-3 transition duration-200">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6  h-6" data-aos="fade-up" data-aos-delay="300">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 animate-bounce h-6" data-aos="fade-up" data-aos-delay="300">
           <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 5.25l-7.5 7.5-7.5-7.5m15 6l-7.5 7.5-7.5-7.5" />
         </svg> 
       </a>
@@ -173,12 +173,12 @@
     <div class="py-3 px-4 mx-auto max-w-screen-xl">
       <div class="bg-white border border-gray-200 rounded-lg shadow-lg p-8 md:p-12"> 
         <div class="text-center pb-7 md:pb-10" data-aos="fade-up" data-aos-delay="300" data-aos-ease="ease-in-out">
-          <h1 class="font-semibold font-montserrat text-lg md:text-2xl uppercase">Report Data</h1>
+          <h1 class="font-semibold font-montserrat text-lg md:text-2xl uppercase">Laporan</h1>
         </div>
         <div id="accordion-color" class="shadow-md rounded-lg" data-accordion="collapse" data-active-classes="bg-[#5e7c60] text-[#f9f5f2]">
           <h2 id="accordion-color-heading-1">
             <button type="button" class="flex items-center justify-between w-full p-5 font-medium text-left text-[#5e7c60] rounded-t-xl focus:ring-2 focus:ring-[#5e7c60]" data-accordion-target="#accordion-color-body-1" aria-expanded="true" aria-controls="accordion-color-body-1">
-              <span>CCTV Report</span>
+              <span>Laporan CCTV</span>
               <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
               </svg>
@@ -188,7 +188,7 @@
             <div class="p-5 font-roboto bg-white">
               <div class="p-5">
                 <p class="mb-2 font-semibold">
-                  Report Table
+                  Tabel Laporan
                 </p>
                 <p>
                   {{now()->format('l')}}, 
@@ -200,19 +200,19 @@
                     <thead class="text-xs uppercase bg-gray-50">
                         <tr>
                             <th scope="col" class="px-6 py-3">
-                                Hardware Name
+                                Nama Perangkat
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Record Status
+                                Status rekaman
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Record Description
+                                Keterangan rekaman
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Clean Status
+                                status kebersihan
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Clean Description
+                                keterangan kebersihan
                             </th>
                         </tr>
                     </thead>
@@ -243,7 +243,7 @@
           </div>
           <h2 id="accordion-color-heading-2">
             <button type="button" class="flex items-center justify-between w-full p-5 font-medium text-left text-[#5e7c60] focus:ring-2 focus:ring-[#5e7c60]" data-accordion-target="#accordion-color-body-2" aria-expanded="false" aria-controls="accordion-color-body-2">
-              <span>Komputer Report</span>
+              <span>Laporan Komputer</span>
               <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
               </svg>
@@ -264,7 +264,7 @@
           </div>
           <h2 id="accordion-color-heading-3">
             <button type="button" class="flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 focus:ring-2 focus:ring-[#5e7c60]" data-accordion-target="#accordion-color-body-3" aria-expanded="false" aria-controls="accordion-color-body-3">
-              <span>FIDS Report</span>
+              <span>Laporan FIDS</span>
               <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
               </svg>
@@ -274,7 +274,7 @@
             <div class="p-5 font-roboto bg-white">
               <div class="p-5">
                 <p class="mb-2 font-semibold">
-                  Report Table
+                  Tabel Laporan
                 </p>
                 <p>
                   {{now()->format('l')}}, 
@@ -286,19 +286,19 @@
                     <thead class="text-xs uppercase bg-gray-50">
                         <tr>
                             <th scope="col" class="px-6 py-3">
-                                Monitor Name
+                                Nama Perangkat
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Monitor View
+                                kondisi tampilan 
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                View Description
+                                ketengan tampilan
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Clean Condition
+                                kondisi kebersihan
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Condition Description
+                                keterangan kebersihan
                             </th>
                         </tr>
                     </thead>

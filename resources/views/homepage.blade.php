@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="id" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Teknik - Homepage</title> 
+  <title>Homepage</title> 
   <link rel="shortcut icon" href="{{ asset('img/logo.png') }}" type="image/x-icon">
 
   {{-- AOS --}}
@@ -26,18 +26,18 @@
             <section>
               <a href="" class=" flex items-center py-4 px-2">
                 <img src="{{ asset('img/logo.png') }}" class=" h-11 w-10 mr-3" alt="logo">
-                <span class=" font-semibold text-gray-100 text-lg">TEKNIK</span>
+                <span class=" font-semibold text-gray-100 text-lg uppercase">Teknik dan <br>pelayanan jasa</span>
               </a>
             </section>
             
             <section class=" hidden md:flex items-center space-x-2">
               <a href=""
                 class=" py-4 px-2 text-gray-100 border-b-2 border-gray-100 font-semibold">
-                Home
+                Beranda
               </a>
 
               <a id="dropdownHoverButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover" class="text-gray-100 hover:-translate-y-1 font-semibold rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center transition duration-200 cursor-pointer" type="button">
-                Tool 
+                Alat 
                 <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
                 </svg>
@@ -58,18 +58,18 @@
                     </ul>
                     <hr class="border-0 bg-gradient-to-r from-indigo-600 to-blue-300 h-1 ">
                     <div class="py-2">
-                      <a href="{{route('report.index')}}" class="block px-4 py-2 hover:translate-x-1 transition duration-200">Report</a>
+                      <a href="{{route('report.index')}}" class="block px-4 py-2 hover:translate-x-1 transition duration-200">Laporan</a>
                     </div>
                 </div>
 
               <a href=""
                 class=" py-4 px-2 text-gray-100 font-semibold hover:-translate-y-1 transition duration-200">
-                Service             
+                Layanan             
               </a>
 
               <a href=""
                 class=" py-4 px-2 text-gray-100 font-semibold hover:-translate-y-1 transition duration-200">
-                Contact Us
+                Hubungi Kami
               </a>
             </section>
 
@@ -102,11 +102,11 @@
       <section class="hidden pb-3" id="mobile-menu">
         <ul>
           <li class="active">
-            <a href="" class="block text-md text-gray-100 py-4 px-2 font-bold">Home</a>
+            <a href="" class="block text-md text-gray-100 py-4 px-2 font-bold">Beranda</a>
           </li>
           <li>
             <a id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="text-gray-100 hover: focus:ring-4 focus:outline-none px-2 py-2.5 cursor-pointer inline-flex items-center" type="button">
-              Tool
+              Alat
               <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
               </svg>
@@ -126,7 +126,7 @@
               </ul>
               <hr class="border-0 bg-gradient-to-r from-indigo-600 to-blue-300 h-1 ">
               <div class="py-2">
-                <a href="{{route('report.index')}}" class="block px-4 py-2 hover:translate-x-1 transition duration-200">Report</a>
+                <a href="{{route('report.index')}}" class="block px-4 py-2 hover:translate-x-1 transition duration-200">Laporan</a>
               </div>
             </div>
           </li>
@@ -137,7 +137,7 @@
             <a href="" class="block text-md text-gray-100 py-4 px-2 hover:translate-x-1 transition duration-200">Contact Us</a>
           </li>
           <li>
-            <a href="{{route('login')}}" class="block text-md text-gray-100 py-4 px-2 hover:translate-x-1 transition duration-200">Log In</a>
+            <a href="{{route('login')}}" class="block text-md text-gray-100 py-4 px-2 hover:translate-x-1 transition duration-200">Login</a>
           </li>
           <li>
             <a href="{{route('register')}}" class="block text-md bg-white text-indigo-500 rounded-lg shadow-md py-3 px-4 hover:bg-opacity-75 transition duration-200 text-center">Register</a>
@@ -153,15 +153,15 @@
 
     {{-- Text --}}
     <section class="py-5 px-4 mx-auto max-w-screen-xl text-center lg:py-10 md:w-[60%]">
-      <h1 class=" uppercase mb-4 text-3xl font-semibold tracking-tight leading-none text-gray-950 lg:text-5xl font-montserrat" data-aos="fade-up" data-aos-delay="100">
-        Abdulrachman Saleh Airport <br>
-        Engineering Website
+      <h1 class=" uppercase mb-4 text-3xl font-semibold tracking-tight leading-none text-gray-950 lg:text-4xl font-montserrat" data-aos="fade-up" data-aos-delay="100">
+        Teknik dan Pelayanan Jasa <br>
+        Bandar Udara Abdulrachman Saleh
       </h1>
       <p class="mb-8 pt-3 text-lg font-normal text-gray-800 lg:text-xl font-montserrat" data-aos="fade-up" data-aos-delay="200">
-        Welcome to the <strong>Abdurrahman Saleh Airport</strong> Engineering Website. We are ready to serve and provide information about the techniques used at <strong>Abdurrahman Saleh Airport</strong>
+        Selamat datang di Website Teknik dan Pelayanan Jasa <strong>Bandar Udara Abdulrachman Saleh</strong>. 
       </p>
       <a href="#about" class="text-gray-900 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center hover:translate-y-3 transition duration-200">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6  h-6" data-aos="fade-up" data-aos-delay="300">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 animate-bounce h-6" data-aos="fade-up" data-aos-delay="300">
           <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 5.25l-7.5 7.5-7.5-7.5m15 6l-7.5 7.5-7.5-7.5" />
         </svg> 
       </a>
@@ -223,11 +223,11 @@
           <div class="bg-white border border-gray-200 rounded-lg shadow-lg p-8 md:py-10 md:px-12" data-aos="fade-left" data-aos-delay="300" data-aos-duration="500" data-aos-ease="ease-in-out"> 
             <div class="pb-6 px-3 flex justify-between items-center">
               <div class="text-xl">
-                <h2 class="font-montserrat font-semibold uppercase">Flight Schedule</h2>
+                <h2 class="font-montserrat font-semibold uppercase">Jadwal Penerbangan</h2>
               </div>
               <div class="">
                 <p class="font-montserrat">
-                  {{now()->format('l')}}, {{now()->format('d M Y')}}
+                  {{now()->locale('id')->format('l')}}, {{now()->format('d M Y')}}
                 </p>
                 <p class="font-montserrat clock">
                 </p>
@@ -239,19 +239,19 @@
                   <thead class="text-xs text-center text-gray-50 uppercase bg-gradient-to-r from-indigo-600 to-blue-500">
                     <tr>
                       <th scope="col" class="px-6 py-3">
-                        Airline
+                        maskapai
                       </th>
                       <th scope="col" class="px-6 py-3">
-                        Flight ID
+                        id Penerbangan
                       </th>
                       <th scope="col" class="px-6 py-3">
-                        Departure
+                        keberangkatan
                       </th>
                       <th scope="col" class="px-6 py-3">
-                        Destination
+                        tujuan
                       </th>
                       <th scope="col" class="px-6 py-3">
-                        Arrival
+                        kedatangan
                       </th>
                     </tr>
                   </thead>
@@ -309,7 +309,9 @@
           <div class="sm:w-1/2 text-center sm:text-start">
             <a href="{{route('homepage')}}" class="flex items-center mb-4 mx-3 sm:mx-0 sm:mb-0">
                 <img src="{{asset('img/logo.png')}}" class="h-8 mr-3" alt="Flowbite Logo" />
-                <span class="self-center text-lg md:text-xl font-semibold whitespace-nowrap uppercase">Teknik Bandara Abdulrachman Saleh</span>
+                <span class="self-center text-lg md:text-xl font-semibold whitespace-nowrap uppercase">Teknik dan pelayanan jasa
+                  <br> 
+                  bandar udara abdulrachman saleh</span>
             </a>
             <p class="pt-4">
               Jl. Komodor Udara Abdul Rahman Saleh,<br>

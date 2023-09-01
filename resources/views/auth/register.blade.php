@@ -20,7 +20,7 @@
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-6 pl-2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
         </svg>
-        <span class="self-center text-md md:text-lg font-montserrat whitespace-nowrap pl-2 pr-3 py-2">Back</span>
+        <span class="self-center text-md md:text-md font-roboto uppercase whitespace-nowrap pl-2 pr-3 py-2">Kembali</span>
       </a>
     </div>
   </nav>
@@ -34,16 +34,16 @@
         <div class="w-full bg-gray-50 rounded-lg shadow-lg md:mt-0 sm:max-w-md xl:p-0" data-aos="fade-up" data-aos-duration="600" data-aos-delay="200">
             <div class="p-6 space-y-4 md:space-y-6 sm:p-8 font-roboto" data-aos="fade-up" data-aos-duration="500" data-aos-delay="400">
                 <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
-                    Create an Account
+                    Buat Akun
                 </h1>
                 <form class="space-y-4 md:space-y-6" action="{{route('store')}}" method="post">
                   @csrf
                     <div>
-                        <label for="name" class="block mb-2 text-sm font-medium text-gray-900">Name</label>
+                        <label for="name" class="block mb-2 text-sm font-medium text-gray-900">Nama Lengkap</label>
                         <input type="text" name="name" id="name" class="bg-gray-50 border-2 border-gray-200 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5 focus:border-indigo-400 focus:outline-none" required="">
                     </div>
                     <div>
-                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Your Email</label>
+                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Email</label>
                         <input type="email" name="email" id="email" class="bg-gray-50 border-2 border-gray-200 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5 focus:border-indigo-400 focus:outline-none" required="">
                     </div>
                     <div>
@@ -51,9 +51,9 @@
                       <input type="password" name="password" id="password" class="bg-gray-50 border-2 border-gray-200 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5 focus:border-indigo-400 focus:outline-none" required="">
                     </div>
                     <div>
-                      <label for="position" class="block mb-2 text-sm font-medium text-gray-900">Position</label>
+                      <label for="position" class="block mb-2 text-sm font-medium text-gray-900">Jabatan</label>
                       <select id="position" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg p-2.5 focus:border-indigo-400 focus:outline-none block w-full" name="position">
-                        <option selected>Choose a Position</option>
+                        <option selected class="bg-gray-300">Pilih Jabatan</option>
                         <option value="Kepala Seksi Teknik">Kepala Seksi Teknik</option>
                         <option value="Pemeriksa Sanitasi">Pemeriksa Sanitasi</option>
                         <option value="Pengelola Terminal">Pengelola Terminal</option>
@@ -64,10 +64,10 @@
                       </select>
                     </div>
                     <button type="submit" class="w-full text-gray-100 font-montserrat bg-gradient-to-r from-indigo-600 to-blue-500 hover:-translate-y-1 hover:scale-105 transition duration-300 focus:ring-4 focus:outline-none font-semibold rounded-lg text-sm px-5 py-2.5 text-center shadow-md">
-                      Create an account
+                      Buat Akun
                     </button>
                     <p class="text-sm font-light text-gray-700">
-                        Already have an account? <a href="{{route('login')}}" class="font-medium text-primary-600 hover:underline dark:text-primary-500">Login</a>
+                        Sudah punya akun ? <a href="{{route('login')}}" class="font-medium text-primary-600 hover:underline dark:text-primary-500">Login</a>
                     </p>
                 </form>
             </div>

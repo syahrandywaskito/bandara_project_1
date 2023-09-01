@@ -33,8 +33,10 @@ class CCTVController extends Controller
         }
         
         $date = Carbon::parse($selectedDate);
+        $formattedDate = $date->format('d M Y');
+        $formattedday = $date->format('l');
 
-        return view('admin.report.cctv', ['cctvs' => $data, 'date' => $date]);
+        return view('admin.report.cctv', ['cctvs' => $data, 'date' => $formattedDate, 'day' => $formattedday]);
     }
     
     /**
