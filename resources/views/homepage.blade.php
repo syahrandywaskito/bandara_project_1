@@ -314,7 +314,8 @@
             <p class="pt-4">
               Jl. Komodor Udara Abdul Rahman Saleh,<br>
               Krajan, Bunut Wetan, Kec. Pakis Kabupaten Malang, <br>
-              Jawa Timur 65154 <br><br>
+              Jawa Timur 65154 
+              <br><br>
               Telp ( 0341 ) 2992700
 
             </p>
