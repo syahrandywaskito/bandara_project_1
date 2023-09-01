@@ -163,7 +163,7 @@
                 FIDS Checkup Report
               </h1>
               <p class="text-lg font-normal font-montserrat text-gray-500 mb-3">
-                Tabel laporan ini akan menampilkan hasil input pengecekan yang sudah dilakukan sebelumnya. Tabel dapat diganti sesuai tanggal data pengecekan.
+                This report table will display the input results of checks that have been carried out previously. The table can be changed according to the date of the checking data.
               </p>
 
               {{-- Menu opsi --}}
@@ -253,7 +253,7 @@
               <caption class="p-5 text-lg font-semibold text-left text-gray-900 font-montserrat">
                 <span class="uppercase">FIDS Checkup Table</span>
                   <p class=" font-normal mt-1 text-sm">
-                    {{$day}} ,{{ $date->format('d M Y ') }}
+                    {{$day}} ,{{$date}}
                   </p>
               </caption>
               <thead class="text-xs text-gray-100 uppercase bg-indigo-800 text-center font-roboto">

@@ -33,9 +33,10 @@ class FIDSController extends Controller
         }
         
         $date = Carbon::parse($selectedDate);
-        $day = $date->format('l');
+        $formattedDate = $date->format('d M Y');
+        $formattedday = $date->format('l');
 
-        return view('admin.report.fids', ['fids' => $data, 'date' => $date, 'day' => $day]);
+        return view('admin.report.fids', ['fids' => $data, 'date' => $formattedDate, 'day' => $formattedday]);
     }
 
     public function create() : View
