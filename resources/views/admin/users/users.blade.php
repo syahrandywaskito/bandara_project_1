@@ -44,6 +44,9 @@
                   <p class="text-sm font-medium text-gray-900 truncate" role="none">
                     {{auth()->user()->email}}
                   </p>
+                  <p class="text-sm text-gray-900" role="none">
+                    {{auth()->user()->position}}
+                  </p>
                 </div>
                 <ul class="py-1 font-roboto" role="none">
                   <li>
@@ -220,6 +223,9 @@
                           Email
                       </th>
                       <th scope="col" class="px-6 py-3">
+                          Position
+                      </th>
+                      <th scope="col" class="px-6 py-3">
                           Option
                       </th>
                   </tr>
@@ -232,6 +238,9 @@
                         </td>
                         <td class="px-6 py-4">
                           {{$user->email}}
+                        </td>
+                        <td class="px-6 py-4">
+                          {{$user->position}}
                         </td>
                         <td class="px-6 py-4">
                           <div class="inline-flex rounded-md shadow-md" role="group">

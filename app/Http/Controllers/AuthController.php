@@ -37,7 +37,7 @@ class AuthController extends Controller
         return back()->withErrors([
             'email' => 'Your provided credentials not match in our record',
             
-        ])->onlyInput('email');
+        ]);
     }
 
     public function Register() : View
@@ -51,12 +51,14 @@ class AuthController extends Controller
             'name' => 'required|string',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:8',
+            'position' => 'required|string'
         ]);
 
         User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'position' =>$request->position,
         ]);
 
         $credentials = $request->only('email', 'password');
@@ -73,7 +75,7 @@ class AuthController extends Controller
 
         return redirect()->route('login')->withErrors([
             'email' => 'Please login to access the dashboard'
-        ])->onlyInput('email');
+        ]);
     }
 
     public function Logout(Request $request)

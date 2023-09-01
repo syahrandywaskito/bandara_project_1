@@ -50,6 +50,19 @@
                       <label for="password" class="block mb-2 text-sm font-medium text-gray-900">Password</label>
                       <input type="password" name="password" id="password" class="bg-gray-50 border-2 border-gray-200 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5 focus:border-indigo-400 focus:outline-none" required="">
                     </div>
+                    <div>
+                      <label for="position" class="block mb-2 text-sm font-medium text-gray-900">Position</label>
+                      <select id="position" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg p-2.5 focus:border-indigo-400 focus:outline-none block w-full" name="position">
+                        <option selected>Choose a Position</option>
+                        <option value="Kepala Seksi Teknik">Kepala Seksi Teknik</option>
+                        <option value="Pemeriksa Sanitasi">Pemeriksa Sanitasi</option>
+                        <option value="Pengelola Terminal">Pengelola Terminal</option>
+                        <option value="Pengelola Retribusi Terminal">Pengelola Retribusi Terminal</option>
+                        <option value="Teknisi">Teknisi</option>
+                        <option value="Analisis Penerbangan">Analisis Penerbangan</option>
+                        <option value="Informasi">Informasi</option>
+                      </select>
+                    </div>
                     <button type="submit" class="w-full text-gray-100 font-montserrat bg-gradient-to-r from-indigo-600 to-blue-500 hover:-translate-y-1 hover:scale-105 transition duration-300 focus:ring-4 focus:outline-none font-semibold rounded-lg text-sm px-5 py-2.5 text-center shadow-md">
                       Create an account
                     </button>

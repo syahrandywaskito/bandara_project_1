@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('record_desc');
             $table->enum('clean_status', ['B', 'S', 'T']);
             $table->string('clean_desc');
+            $table->string('created_by');
+            $table->string('updated_by');
             $table->timestamps();
         });
     }
