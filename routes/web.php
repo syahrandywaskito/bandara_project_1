@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CCTVController;
+use App\Http\Controllers\CCTVListController;
 use App\Http\Controllers\FIDSController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -50,3 +51,13 @@ Route::resource('/dashboard/report/cctv', CCTVController::class);
 Route::resource('/dashboard/users/users', UsersController::class);
 
 Route::resource('/dashboard/report/fids', FIDSController::class);
+
+Route::resource('/dasboard/hardware/list/cctv-list', CCTVListController::class)->names([
+  'index' => 'list.cctv.index',
+  'create' => 'list.cctv.create',
+  'store' => 'list.cctv.store',
+  'edit' => 'list.cctv.edit',
+  'show' => 'list.cctv.show',
+  'update' => 'list.cctv.update',
+  'destroy' => 'list.cctv.destroy',
+]);

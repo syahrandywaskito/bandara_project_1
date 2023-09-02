@@ -200,7 +200,6 @@
               </button>
             </div>
           </div>
-
           @php
               $no = 1;
           @endphp
@@ -222,10 +221,14 @@
                     <label for="date" class="block mb-2 text-sm font-medium text-gray-900">Current Date</label>
                     <input type="date" class="bg-gray-100 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3"  required name="date" value="{{now()->format('Y-m-d')}}" readonly>
                   </div>
-                  {{-- <div class="block">
+                  <div class="hidden">
                     <label for="by" class="block mb-2 text-sm font-medium text-gray-900">Created By</label>
                     <input type="text" class="bg-gray-100 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="created_by" value="{{auth()->user()->name}}" readonly>
-                  </div> --}}
+                  </div>
+                  <div class="hidden">
+                    <label for="by" class="block mb-2 text-sm font-medium text-gray-900">Created By</label>
+                    <input type="text" class="bg-gray-100 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="updated_by" value="{{auth()->user()->name}}" readonly>
+                  </div>
                   <div>
                     <label for="hardware-name" class="block mb-2 text-sm font-medium text-gray-900">Hardware Name</label>
                     <input type="text" id="hardware-name" class="bg-gray-100 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required value="{{$item->name}}" readonly name="monitor_name">

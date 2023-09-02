@@ -5,10 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\fids;
 use App\Models\fidslist;
 use Carbon\Carbon;
-use carbon\Traits\Creator;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 
@@ -17,7 +15,7 @@ class FIDSController extends Controller
     public function index(Request $request) : View
     {
 
-        $fidss = fids::all();
+        $fidss = fids::all(['*']);
 
         $today = now()->format('Y-m-d');
 
@@ -58,6 +56,8 @@ class FIDSController extends Controller
             'view_desc' => 'required',
             'clean_condition' => 'required',
             'condition_desc' => 'required',
+            'created_by',
+            'updated_by',
         ]);
 
 
@@ -117,9 +117,11 @@ class FIDSController extends Controller
         return redirect()->route('fids.index')->with('success', 'you successfuly updated data');
     }
 
-    public function destroy(fids $fid)
+    public function destroy($id)
     {
-        $fid->delete();
+        $fids = fids::findOrFail($id);
+
+        $fids->delete();
 
         return redirect()->back()->with('success', 'you successfully delete data');
     }
