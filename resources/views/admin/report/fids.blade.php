@@ -101,6 +101,32 @@
               </ul>
             </div>
           </li>
+
+          <li>
+            <a id="dropdownDefaultButton2" data-dropdown-toggle="dropdown2" class="flex items-center p-2 text-gray-100 rounded-lg hover:bg-gray-100 hover:text-gray-900 group transition duration-150 cursor-pointer" type="button">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="flex-shrink-0 w-6 h-6 text-gray-100  group-hover:text-gray-900">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75" />
+              </svg>              
+              <span class="ml-3">Perangkat</span>
+              <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+              </svg>
+            </a>
+            <!-- Dropdown menu -->
+            <div id="dropdown2" class="z-10 hidden bg-gray-100 divide-y divide-gray-100 rounded-lg shadow-md w-44">
+              <ul class="py-2 text-sm text-gray-900" aria-labelledby="dropdownDefaultButton">
+                <li>
+                  <a href="{{route('list.cctv.index')}}" class="block px-4 py-2 hover:translate-x-1 transition duration-200">CCTV</a>
+                </li>
+                <li>
+                  <a href="" class="block px-4 py-2 hover:translate-x-1 transition duration-200">Komputer</a>
+                </li>
+                <li>
+                  <a href="{{route('list.fids.index')}}" class="block px-4 py-2 hover:translate-x-1 transition duration-200">FIDS</a>
+                </li>
+              </ul>
+            </div>
+          </li>
           
           @if (auth()->user()->position == 'Informasi' || auth()->user()->position == 'Kepala Seksi Teknik')
             <li>
@@ -296,7 +322,7 @@
                           {{$data->condition_desc}}
                         </td>
                         <td class="px-6 py-4">
-                          <form  action="{{route('fids.destroy', $data->id)}}" method="POST">
+                          <form onsubmit="return confirm('Apakah anda ingin menghapus data ini ?')" action="{{route('fids.destroy', $data->id)}}" method="POST">
                             @csrf
                             @method('DELETE')
                             <div class="inline-flex rounded-md shadow-md" role="group">
@@ -324,7 +350,7 @@
                           </form>
                         </td>
                       </tr>
-                  @endforeach
+                      @endforeach
               </tbody>
           </table>
         </div>
@@ -333,7 +359,7 @@
   </div>
 
   @if ($message = Session::get('success'))
-  <dir class="fixed top-28 right-10" data-aos="fade-left">
+  <div class="fixed top-28 right-10" data-aos="fade-left">
     <div id="alert-3" class="flex items-center shadow-md p-4 mb-4 text-green-800 rounded-lg bg-green-50 font-montserrat" role="alert">
       <svg class="flex-shrink-0 w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
         <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
@@ -348,7 +374,7 @@
         </svg>
       </button>
     </div>
-  </dir>
+  </div>
   @endif
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

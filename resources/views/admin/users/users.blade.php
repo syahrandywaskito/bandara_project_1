@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="shortcut icon" href="{{asset('img/logo.png')}}" type="image/x-icon">
-  <title>Admin - Dashboard</title>
+  <title>Admin - Pengguna</title>
 
    {{-- tailwind css using vite --}}
    @vite(['resources/css/app.css','resources/js/app.js'])
@@ -23,9 +23,9 @@
                 <path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
               </svg>
           </button>
-          <a href="{{route('dashboard')}}" class="flex ml-2 md:mr-24">
+          <a href="{{route('users.index')}}" class="flex ml-2 md:mr-24">
             <img src="{{asset('img/logo.png')}}" class="h-8 mr-3" alt="FlowBite Logo" />
-            <span class="self-center text-xl font-roboto font-semibold sm:text-2xl text-gray-100 whitespace-nowrap">Users Page</span>
+            <span class="self-center text-lg font-roboto uppercase font-semibold sm:text-xl text-gray-100 whitespace-nowrap">Halaman pengguna</span>
           </a>
         </div>
         <div class="flex items-center">
@@ -83,7 +83,7 @@
               <svg class="flex-shrink-0 w-5 h-5 text-gray-100  group-hover:text-gray-900" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
                 <path d="M6.143 0H1.857A1.857 1.857 0 0 0 0 1.857v4.286C0 7.169.831 8 1.857 8h4.286A1.857 1.857 0 0 0 8 6.143V1.857A1.857 1.857 0 0 0 6.143 0Zm10 0h-4.286A1.857 1.857 0 0 0 10 1.857v4.286C10 7.169 10.831 8 11.857 8h4.286A1.857 1.857 0 0 0 18 6.143V1.857A1.857 1.857 0 0 0 16.143 0Zm-10 10H1.857A1.857 1.857 0 0 0 0 11.857v4.286C0 17.169.831 18 1.857 18h4.286A1.857 1.857 0 0 0 8 16.143v-4.286A1.857 1.857 0 0 0 6.143 10Zm10 0h-4.286A1.857 1.857 0 0 0 10 11.857v4.286c0 1.026.831 1.857 1.857 1.857h4.286A1.857 1.857 0 0 0 18 16.143v-4.286A1.857 1.857 0 0 0 16.143 10Z"/>
               </svg>
-              <span class="ml-3">Report</span>
+              <span class="ml-3">Laporan</span>
               <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
               </svg>
@@ -103,6 +103,32 @@
               </ul>
             </div>
           </li>
+
+          <li>
+            <a id="dropdownDefaultButton2" data-dropdown-toggle="dropdown2" class="flex items-center p-2 text-gray-100 rounded-lg hover:bg-gray-100 hover:text-gray-900 group transition duration-150 cursor-pointer" type="button">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="flex-shrink-0 w-6 h-6 text-gray-100  group-hover:text-gray-900">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75" />
+              </svg>              
+              <span class="ml-3">Perangkat</span>
+              <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+              </svg>
+            </a>
+            <!-- Dropdown menu -->
+            <div id="dropdown2" class="z-10 hidden bg-gray-100 divide-y divide-gray-100 rounded-lg shadow-md w-44">
+              <ul class="py-2 text-sm text-gray-900" aria-labelledby="dropdownDefaultButton">
+                <li>
+                  <a href="{{route('list.cctv.index')}}" class="block px-4 py-2 hover:translate-x-1 transition duration-200">CCTV</a>
+                </li>
+                <li>
+                  <a href="" class="block px-4 py-2 hover:translate-x-1 transition duration-200">Komputer</a>
+                </li>
+                <li>
+                  <a href="{{route('list.fids.index')}}" class="block px-4 py-2 hover:translate-x-1 transition duration-200">FIDS</a>
+                </li>
+              </ul>
+            </div>
+          </li>
           
           <li>
               <a href="#" class="flex items-center p-2 text-gray-100 rounded-lg hover:text-gray-900 hover:bg-gray-100 group transition duration-150">
@@ -110,7 +136,7 @@
                   <path d="M12.75 12.75a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM7.5 15.75a.75.75 0 100-1.5.75.75 0 000 1.5zM8.25 17.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM9.75 15.75a.75.75 0 100-1.5.75.75 0 000 1.5zM10.5 17.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12 15.75a.75.75 0 100-1.5.75.75 0 000 1.5zM12.75 17.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM14.25 15.75a.75.75 0 100-1.5.75.75 0 000 1.5zM15 17.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM16.5 15.75a.75.75 0 100-1.5.75.75 0 000 1.5zM15 12.75a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM16.5 13.5a.75.75 0 100-1.5.75.75 0 000 1.5z" />
                   <path fill-rule="evenodd" d="M6.75 2.25A.75.75 0 017.5 3v1.5h9V3A.75.75 0 0118 3v1.5h.75a3 3 0 013 3v11.25a3 3 0 01-3 3H5.25a3 3 0 01-3-3V7.5a3 3 0 013-3H6V3a.75.75 0 01.75-.75zm13.5 9a1.5 1.5 0 00-1.5-1.5H5.25a1.5 1.5 0 00-1.5 1.5v7.5a1.5 1.5 0 001.5 1.5h13.5a1.5 1.5 0 001.5-1.5v-7.5z" clip-rule="evenodd" />
                 </svg> 
-                <span class="flex-1 ml-3 whitespace-nowrap">Schedule</span>
+                <span class="flex-1 ml-3 whitespace-nowrap">Jadwal</span>
               </a>
           </li>
           <li>
@@ -118,7 +144,7 @@
                 <svg class="flex-shrink-0 w-5 h-5 text-gray-100  group-hover:text-gray-900" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
                     <path d="M14 2a3.963 3.963 0 0 0-1.4.267 6.439 6.439 0 0 1-1.331 6.638A4 4 0 1 0 14 2Zm1 9h-1.264A6.957 6.957 0 0 1 15 15v2a2.97 2.97 0 0 1-.184 1H19a1 1 0 0 0 1-1v-1a5.006 5.006 0 0 0-5-5ZM6.5 9a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM8 10H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5Z"/>
                 </svg>
-                <span class="flex-1 ml-3 whitespace-nowrap">Users</span>
+                <span class="flex-1 ml-3 whitespace-nowrap">Pengguna</span>
               </a>
           </li>
           <li>
@@ -154,16 +180,16 @@
                       <svg class="w-3 h-3 mx-1 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
                       </svg>
-                      <span class="ml-1 text-sm font-medium text-gray-700 md:ml-2">User Page</span>
+                      <span class="ml-1 text-sm font-medium text-gray-700 md:ml-2">Halaman Pengguna</span>
                     </div>
                   </li>
                 </ol>
               </nav>
               <h1 class="text-gray-900 mt-8 text-xl md:text-2xl font-roboto font-bold mb-4 uppercase">
-                User Information Page
+                Halaman Informasi pengguna
               </h1>
               <p class="text-lg font-normal font-montserrat text-gray-500 mb-3">
-                This page contain table for users are sign up or register to become admin
+                Halaman ini berisi tabel untuk user yang melakukan sign up atau registrasi untuk menjadi admin
               </p>
 
               {{-- Menu opsi --}}
@@ -180,7 +206,7 @@
                           <div id="dropdown-search" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
                               <ul class="py-2 text-sm text-gray-700 font-montserrat" aria-labelledby="dropdown-button">
                                 <li>
-                                    <button type="button" class="inline-flex w-full px-4 py-2 hover:translate-x-1 transition duration-200">Full Name</button>
+                                    <button type="button" class="inline-flex w-full px-4 py-2 hover:translate-x-1 transition duration-200">Nama Lengkap</button>
                                 </li>
                                 <li>
                                     <button type="button" class="inline-flex w-full px-4 py-2 hover:translate-x-1 transition duration-200">Email</button>
@@ -208,7 +234,7 @@
         <div class="relative overflow-x-auto shadow-lg bg-gray-50 sm:rounded-lg p-4">
           <table class="w-full text-sm text-left">
               <caption class="p-5 text-lg font-semibold text-left text-gray-900 font-montserrat">
-                <span class="uppercase">Table Data</span>
+                <span class="uppercase">Tabel Data</span>
                   <p class=" font-normal mt-1 text-sm">
                     {{now()->format('l')}}, 
                     {{now()->format('d M Y')}}
@@ -217,16 +243,16 @@
               <thead class="text-xs text-gray-100 uppercase bg-indigo-800 text-center font-roboto">
                   <tr>
                       <th scope="col" class="px-6 py-3">
-                          Full Name
+                          Nama Lengkap
                       </th>
                       <th scope="col" class="px-6 py-3">
                           Email
                       </th>
                       <th scope="col" class="px-6 py-3">
-                          Position
+                          Jabatan
                       </th>
                       <th scope="col" class="px-6 py-3">
-                          Option
+                          Aksi
                       </th>
                   </tr>
               </thead>

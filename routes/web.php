@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CCTVController;
 use App\Http\Controllers\CCTVListController;
 use App\Http\Controllers\FIDSController;
+use App\Http\Controllers\FIDSListController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ReportController;
@@ -60,4 +61,14 @@ Route::resource('/dasboard/hardware/list/cctv-list', CCTVListController::class)-
   'show' => 'list.cctv.show',
   'update' => 'list.cctv.update',
   'destroy' => 'list.cctv.destroy',
+]);
+
+Route::resource('/dashboard/hardware/list/fids-list', FIDSListController::class)->names([
+  'index' => 'list.fids.index',
+  'create' => 'list.fids.create',
+  'store' => 'list.fids.store',
+  'show' => 'list.fids.show',
+  'edit' => 'list.fids.edit',
+  'update' => 'list.fids.update',
+  'destroy' => 'list.fids.destroy',
 ]);

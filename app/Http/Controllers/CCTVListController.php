@@ -11,7 +11,7 @@ class CCTVListController extends Controller
 {
     public function index() : View
     {
-        $list = CCTVList::all();
+        $list = CCTVList::all(['*']);
 
         return view('admin.hardware.cctv_list.index', compact('list'));
     }

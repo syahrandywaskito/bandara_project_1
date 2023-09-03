@@ -169,20 +169,20 @@
 
           <div class="text-center mt-8 font-montserrat">
             <h1 class="text-gray-900 lg:px-2 text-lg md:text-xl font-bold uppercase">
-              Show  
+              Lihat  
             </h1>
             <p class="text-sm uppercase">{{ $fid->monitor_name }}</p>
           </div>
 
           <div class="lg:px-2 font-montserrat mt-8 flex justify-between">
             <div>
-              <h3>Data Date</h3>
+              <h3>Tanggal data dibuat</h3>
               <p>
                 {{$day}}, {{$date}}
               </p>
             </div>
             <div class="text-end">
-              <h3>Actual Date</h3>
+              <h3>Tanggal sebenarnya</h3>
               <p>
                 {{now()->format('l')}}, {{now()->format('d M Y')}}
               </p>
@@ -192,43 +192,10 @@
           <hr class="h-px my-4 bg-gray-400 border-0">
 
           <div class="sm:text-center sm:flex sm:justify-center">
-            {{-- <div class="sm:flex sm:justify-between sm:w-3/4">
-              <div class="font-montserrat mt-6 lg:px-2">
-                <p class="text-sm uppercase font-semibold">Monitor View</p>
-                <p class="pt-2">
-                  <span
-                    @if ($fid->monitor_view == 'X')
-                      class="text-gray-50 bg-red-700 py-1 px-2 rounded-l-lg inline-block"
-                    @else
-                      class="text-gray-50 bg-green-700  py-1 px-2 rounded-l-lg inline-block"
-                    @endif
-                  >
-                    {{ $fid->monitor_view}}
-                  </span>
-                    : {{ $fid->view_desc}}
-                </p>
-              </div>
-              <div class="font-montserrat mt-6 lg:px-2">
-                <p class="text-sm uppercase font-semibold">Clean Condition</p>
-                <p class="pt-2">
-                  <span
-                    @if ($fid->clean_condition == 'X')
-                      class="text-gray-50 bg-red-700 py-1 px-2 rounded-l-lg inline-block"
-                    @else
-                      class="text-gray-50 bg-green-700  py-1 px-2 rounded-l-lg inline-block"
-                    @endif
-                  >
-                    {{ $fid->clean_condition}}
-                  </span>
-                    : {{ $fid->condition_desc}}
-                </p>
-              </div>
-            </div> --}}
-            
             <div class="grid grid-cols-1 lg:grid-cols-2 lg:gap-x-60 lg:gap-y-10">
               <div>
                 <div class="font-montserrat mt-6 lg:px-2">
-                  <p class="text-sm uppercase font-semibold">Monitor View</p>
+                  <p class="text-sm uppercase font-semibold">Tampilan Monitor</p>
                   <p class="pt-2">
                     <span
                       @if ($fid->monitor_view == 'X')
@@ -245,15 +212,14 @@
               </div>
               <div>
                 <div class="font-montserrat mt-6 lg:px-2">
-                  <p class="text-sm uppercase font-semibold">Clean Condition</p>
+                  <p class="text-sm uppercase font-semibold">Kondisi kebersihan</p>
                   <p class="pt-2">
                     <span
                       @if ($fid->clean_condition == 'X')
                         class="text-gray-50 bg-red-700 py-1 px-2 rounded-l-lg inline-block"
                       @else
                         class="text-gray-50 bg-green-700  py-1 px-2 rounded-l-lg inline-block"
-                      @endif
-                    >
+                      @endif>
                       {{ $fid->clean_condition}}
                     </span>
                       : {{ $fid->condition_desc}}
@@ -262,23 +228,36 @@
               </div>
               <div>
                 <div class="font-montserrat mt-6 lg:px-2">
-                  <p class="text-sm uppercase font-semibold">Created At</p>
+                  <p class="text-sm uppercase font-semibold">Ditambahkan pada</p>
                   <p class="pt-2">
-                    {{ $fid->created_at->format('d M Y')}}
+                    {{ $fid->created_at->format('d M Y | H:m:s')}}
                   </p>
                 </div>
               </div>
               <div>
                 <div class="font-montserrat mt-6 lg:px-2">
-                  <p class="text-sm uppercase font-semibold">Updated At</p>
+                  <p class="text-sm uppercase font-semibold">Diubah pada</p>
                   <p class="pt-2">
-                    {{ $fid->updated_at->format('d M Y')}}
+                    {{ $fid->updated_at->format('d M Y | H:m:s')}}
                   </p>
                 </div>
               </div>
-              {{-- <div>
-                  <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg" alt="">
-              </div> --}}
+              <div>
+                <div class="font-montserrat mt-6 lg:px-2">
+                  <p class="text-sm uppercase font-semibold">Ditambahkan Oleh</p>
+                  <p class="pt-2">
+                    {{ $fid->created_by}}
+                  </p>
+                </div>
+              </div>
+              <div>
+                <div class="font-montserrat mt-6 lg:px-2">
+                  <p class="text-sm uppercase font-semibold">Diubah Oleh</p>
+                  <p class="pt-2">
+                    {{ $fid->updated_by}}
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

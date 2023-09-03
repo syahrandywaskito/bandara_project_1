@@ -40,7 +40,7 @@ class FIDSController extends Controller
 
     public function create() : View
     {
-        $list = fidslist::all();
+        $list = fidslist::all(['*']);
 
         return view('admin.report.fids.create', compact('list'));
     }
