@@ -16,7 +16,7 @@ class CCTVController extends Controller
 {
     public function index(Request $request) : View
     {
-        $cctvs = CctvModel::all();
+        $cctvs = CctvModel::all(['*']);
 
         $today = now()->format('Y-m-d');
 
@@ -57,6 +57,9 @@ class CCTVController extends Controller
             'record_desc' => 'required',
             'clean_status' => 'required',
             'clean_desc' => 'required',
+            'created_by',
+            'updated_by',
+
         ]);
 
 
@@ -89,7 +92,7 @@ class CCTVController extends Controller
     public function create() : View
     {
 
-        $list = CCTVList::all();
+        $list = CCTVList::all(['*']);
 
         return view('admin.report.cctv.create', compact('list'));
     }

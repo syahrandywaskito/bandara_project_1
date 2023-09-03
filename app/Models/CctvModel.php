@@ -10,8 +10,17 @@ use Illuminate\Support\Facades\Schema;
 class CctvModel extends Model
 {
 
+    public $timestamps = true;
+
     protected $fillable = [
-        'date', 'hardware_name', 'record_status', 'record_desc', 'clean_status', 'clean_desc',
+        'date', 
+        'hardware_name', 
+        'record_status', 
+        'record_desc', 
+        'clean_status', 
+        'clean_desc',
+        'created_by',
+        'updated_by',
     ];
 
     use HasFactory;

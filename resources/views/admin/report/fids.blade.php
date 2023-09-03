@@ -209,7 +209,7 @@
                           <label for="search-dropdown" class="mb-2 text-sm font-medium text-gray-900 sr-only">
                             Search
                           </label>
-                          <button id="dropdown-button" data-dropdown-toggle="dropdown-search" class="flex-shrink-0 z-10 inline-flex items-center py-3 px-4 text-sm font-medium font-montserrat text-center text-gray-900 bg-gray-100 border-2 border-gray-300 rounded-l-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100" type="button">
+                          <button id="dropdown-button" data-dropdown-toggle="dropdown-search" class="flex-shrink-0 z-10 inline-flex items-center py-3 px-4 text-sm font-medium font-montserrat text-center text-gray-900 bg-gray-100 border-2 border-gray-400 rounded-l-lg hover:bg-gray-200 focus:border-indigo-800 outline-none dark:border-gray-100" type="button">
                             All categories 
                             <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
@@ -235,9 +235,9 @@
                               </ul>
                           </div>
                           <div class="relative w-full font-montserrat">
-                              <input type="search" id="search-dropdown" class="font-montserrat block p-3 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-r-lg border-l-gray-50 border-l-2 border-2 border-gray-300 focus:ring-blue-500" placeholder="search" required>
+                              <input type="search" id="search-dropdown" class="font-montserrat block p-3.5 w-full z-20 text-sm text-gray-900 bg-gray-50 border-2 border-gray-400 rounded-r-lg outline-none  focus:border-indigo-800 dark:border-gray-100" placeholder="search" required>
   
-                              <button type="submit" class="absolute top-0 right-0 p-2.5 text-sm font-medium h-full text-gray-50 bg-indigo-800 rounded-r-lg hover:bg-gray-100 hover:text-indigo-800 focus:z-10 focus:ring-2 focus:ring-indigo-800 transition duration-200">
+                              <button type="submit" class="absolute top-0 right-0 p-3 text-sm font-medium h-full text-gray-50 bg-indigo-800 rounded-r-lg hover:bg-gray-100 hover:text-indigo-800 focus:z-10 focus:ring-2 focus:ring-indigo-800 transition duration-200">
                                   <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                                       <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
                                   </svg>
@@ -258,7 +258,7 @@
                               <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm.75-13a.75.75 0 00-1.5 0v5c0 .414.336.75.75.75h4a.75.75 0 000-1.5h-3.25V5z" clip-rule="evenodd" />
                             </svg>                                         
                           </div>
-                          <input type="date" id="date" name="selected_date" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-3" required>
+                          <input type="date" id="date" name="selected_date" class="z-20 text-sm text-gray-900 bg-gray-50 border-2 border-gray-400 rounded-lg outline-none  focus:border-indigo-800 dark:border-gray-100 block w-full pl-10 p-3" required>
                       </div>
                       <button type="submit" class="p-4 ml-2 text-sm font-medium text-gray-50 bg-indigo-800 rounded-lg hover:bg-gray-100 hover:text-indigo-800 focus:z-10 focus:ring-2 focus:ring-indigo-800 transition duration-200">
                           <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">

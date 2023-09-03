@@ -226,7 +226,7 @@
                     <input type="text" class="bg-gray-100 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="created_by" value="{{auth()->user()->name}}" readonly>
                   </div>
                   <div class="hidden">
-                    <label for="by" class="block mb-2 text-sm font-medium text-gray-900">Created By</label>
+                    <label for="by" class="block mb-2 text-sm font-medium text-gray-900">Updated By</label>
                     <input type="text" class="bg-gray-100 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="updated_by" value="{{auth()->user()->name}}" readonly>
                   </div>
                   <div>
