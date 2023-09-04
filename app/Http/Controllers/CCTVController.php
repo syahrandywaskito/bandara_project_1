@@ -9,7 +9,6 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Validator;
 
 class CCTVController extends Controller
@@ -105,7 +104,12 @@ class CCTVController extends Controller
 
     public function show(CctvModel $cctv) : View
     {
-        return view('admin.report.cctv.show', compact('cctv'));
+        $date = Carbon::parse($cctv->date);
+
+        $formattedDate = $date->format('d M Y');
+        $formattedDay = $date->format('l');
+
+        return view('admin.report.cctv.show', ['cctv' => $cctv, 'date' => $formattedDate, 'day' => $formattedDay]);
     }
 
     /**
@@ -135,13 +139,14 @@ class CCTVController extends Controller
             'record_desc' => 'required',
             'clean_status' => 'required',
             'clean_desc' => 'required',
+            'updated_by',
         ]);
 
         $cctv = CctvModel::findOrFail($id);
         
-        $cctv->update($request->all());
+        $cctv->update($request->all(['hardware_name', 'record_status', 'record_desc', 'clean_status', 'clean_desc', 'updated_by']));
 
-        return redirect()->route('cctv.index')->withSuccess('You successfully edit data');
+        return redirect()->route('cctv.index')->with('success', 'Anda berhasil mengupdate data');
     }
 
     /**

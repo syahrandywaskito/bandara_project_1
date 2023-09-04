@@ -11,7 +11,7 @@ class UsersController extends Controller
     public function index() : View
     {
 
-        $users = User::all();
+        $users = User::all(['*']);
 
         return view('admin.users.users', compact('users'));
     }

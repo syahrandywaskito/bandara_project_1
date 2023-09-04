@@ -27,7 +27,7 @@
           </button>
           <a href="{{route('cctv.create')}}" class="flex ml-2 md:mr-24">
             <img src="{{asset('img/logo.png')}}" class="h-8 mr-3" alt="FlowBite Logo" />
-            <span class="self-center text-lg font-roboto uppercase font-semibold sm:text-xl text-gray-100 whitespace-nowrap">CCTV - Add Data</span>
+            <span class="self-center text-lg font-roboto uppercase font-semibold sm:text-xl text-gray-100 whitespace-nowrap">CCTV - Tambah Data</span>
           </a>
         </div>
         <div class="flex items-center">
@@ -152,7 +152,7 @@
             </li>
           @endif
           <li>
-              <a href="#" class="flex items-center p-2 text-gray-100 rounded-lg hover:bg-gray-100 hover:text-gray-900 group transition duration-150">
+              <a href="{{route('users.index')}}" class="flex items-center p-2 text-gray-100 rounded-lg hover:bg-gray-100 hover:text-gray-900 group transition duration-150">
                 <svg class="flex-shrink-0 w-5 h-5 text-gray-100  group-hover:text-gray-900" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
                     <path d="M14 2a3.963 3.963 0 0 0-1.4.267 6.439 6.439 0 0 1-1.331 6.638A4 4 0 1 0 14 2Zm1 9h-1.264A6.957 6.957 0 0 1 15 15v2a2.97 2.97 0 0 1-.184 1H19a1 1 0 0 0 1-1v-1a5.006 5.006 0 0 0-5-5ZM6.5 9a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM8 10H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5Z"/>
                 </svg>
@@ -192,7 +192,7 @@
                   <svg class="w-3 h-3 mx-1 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
                   </svg>
-                  <a href="{{route('cctv.index')}}" class="ml-1 text-sm font-medium text-gray-900 hover:text-indigo-600 md:ml-2">CCTV</a>
+                  <a href="{{URL::previous()}}" class="ml-1 text-sm font-medium text-gray-900 hover:text-indigo-600 md:ml-2">CCTV</a>
                 </div>
               </li>
               <li aria-current="page">
@@ -207,7 +207,7 @@
           </nav>
 
           <h1 class="text-gray-900 dark:text-gray-200 lg:px-2 mt-6 text-lg uppercase md:text-xl font-montserrat font-bold">
-            Add Data Page
+            Halaman Tambah Data
           </h1>
           <div class="lg:hidden font-montserrat pt-3 dark:text-gray-200">
             <h3>Current Date</h3>
@@ -255,7 +255,7 @@
                 @csrf
                 <div class="mb-3 lg:flex space-x-4 items-center justify-start space-y-4 lg:space-y-0 ">
                   <div class="hidden lg:block">
-                    <label for="date" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-200">Current Date</label>
+                    <label for="date" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-200">Tanggal Sekarang</label>
                     <input type="date" class=" text-sm text-gray-900 bg-gray-50 border-2 border-gray-400 rounded-lg outline-none  focus:border-indigo-800 dark:border-gray-300 dark:bg-gray-300 block w-full p-3"  required name="date" value="{{now()->format('Y-m-d')}}" readonly>
                   </div>
                   <div class="hidden">
@@ -267,12 +267,12 @@
                     <input type="text" class="bg-gray-100 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="updated_by" value="{{auth()->user()->name}}" readonly>
                   </div>
                   <div>
-                    <label for="hardware-name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-200">Hardware Name</label>
+                    <label for="hardware-name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-200">Nama Perangkat</label>
                     <input type="text" id="hardware-name" class="text-sm text-gray-900 bg-gray-50 border-2 border-gray-400 rounded-lg outline-none  focus:border-indigo-800 dark:border-gray-300 dark:bg-gray-300 block w-full p-3" required value="{{$item->name}}" readonly name="hardware_name">
                   </div>
                   <div>
-                    <label for="record-status" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-200">Record Status</label>
-                    <select id="record-status" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="record_status">
+                    <label for="record-status" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-200">Status Rekaman</label>
+                    <select id="record-status" class="text-sm text-gray-900 bg-gray-50 border-2 border-gray-400 rounded-lg outline-none  focus:border-indigo-800 dark:border-gray-100 w-full p-3" required name="record_status">
                       <option selected>Select Status</option>
                       <option value="B">B</option>
                       <option value="S">S</option>
@@ -280,12 +280,12 @@
                     </select>
                   </div>
                   <div>
-                    <label for="record-desc" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-200">Record Description</label>
-                    <input type="text" id="record-desc" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="record_desc">
+                    <label for="record-desc" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-200">Keterangan Rekaman</label>
+                    <input type="text" id="record-desc" class="text-sm text-gray-900 bg-gray-50 border-2 border-gray-400 rounded-lg outline-none  focus:border-indigo-800 dark:border-gray-100 w-full p-3" required name="record_desc">
                   </div>
                   <div>
-                    <label for="clean-status" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-200">Clean Status</label>
-                    <select id="clean-status" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="clean_status">
+                    <label for="clean-status" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-200">Status Kebersihan</label>
+                    <select id="clean-status" class="text-sm text-gray-900 bg-gray-50 border-2 border-gray-400 rounded-lg outline-none  focus:border-indigo-800 dark:border-gray-100 w-full p-3" required name="clean_status">
                       <option selected>Select Status</option>
                       <option value="B">B</option>
                       <option value="S">S</option>
@@ -293,27 +293,37 @@
                     </select>
                   </div>
                   <div>
-                    <label for="clean-desc" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-200">Clean Description</label>
-                    <input type="text" id="clean-desc" class="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="clean_desc">
+                    <label for="clean-desc" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-200">Keterangan Kebersihan</label>
+                    <input type="text" id="clean-desc" class="text-sm text-gray-900 bg-gray-50 border-2 border-gray-400 rounded-lg outline-none  focus:border-indigo-800 dark:border-gray-100 w-full p-3" required name="clean_desc">
                   </div>
                 </div>
                 
                 <div class="inline-flex rounded-md shadow-sm ml-4 lg:ml-0" role="group">
-                  <button type="submit" data-form="{{$dataForm}}" class="submitButton px-4 py-2 text-sm font-medium bg-gray-900 text-white border-2 border-gray-900 rounded-l-lg hover:bg-gray-500 hover:border-gray-500 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white">
+                  <button type="submit" data-form="{{$dataForm}}" class="submitButton inline-flex items-center px-4 py-2 text-sm font-medium bg-gray-900 text-white border-2 border-gray-900 rounded-l-lg hover:bg-gray-500 hover:border-gray-500 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:bg-indigo-900 dark:border-indigo-900 dark:hover:bg-indigo-950">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 mr-3 h-5">
+                      <path fill-rule="evenodd" d="M8 1a.75.75 0 01.75.75V6h-1.5V1.75A.75.75 0 018 1zm-.75 5v3.296l-.943-1.048a.75.75 0 10-1.114 1.004l2.25 2.5a.75.75 0 001.114 0l2.25-2.5a.75.75 0 00-1.114-1.004L8.75 9.296V6h2A2.25 2.25 0 0113 8.25v4.5A2.25 2.25 0 0110.75 15h-5.5A2.25 2.25 0 013 12.75v-4.5A2.25 2.25 0 015.25 6h2zM7 16.75v-.25h3.75a3.75 3.75 0 003.75-3.75V10h.25A2.25 2.25 0 0117 12.25v4.5A2.25 2.25 0 0114.75 19h-5.5A2.25 2.25 0 017 16.75z" clip-rule="evenodd" />
+                    </svg>  
                     Submit
                   </button>
-                  <button type="reset" class="px-4 py-2 text-sm font-medium text-white bg-gray-900 border-2 border-t border-b border-gray-900 hover:bg-gray-500 hover:border-gray-500 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white">
+                  <button type="reset" class=" inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-gray-900 border-2 border-t border-b border-gray-900 hover:bg-gray-500 hover:border-gray-500 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:bg-indigo-900 dark:border-indigo-900 dark:hover:bg-indigo-950">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 mr-3 h-5">
+                      <path fill-rule="evenodd" d="M10 4.5c1.215 0 2.417.055 3.604.162a.68.68 0 01.615.597c.124 1.038.208 2.088.25 3.15l-1.689-1.69a.75.75 0 00-1.06 1.061l2.999 3a.75.75 0 001.06 0l3.001-3a.75.75 0 10-1.06-1.06l-1.748 1.747a41.31 41.31 0 00-.264-3.386 2.18 2.18 0 00-1.97-1.913 41.512 41.512 0 00-7.477 0 2.18 2.18 0 00-1.969 1.913 41.16 41.16 0 00-.16 1.61.75.75 0 101.495.12c.041-.52.093-1.038.154-1.552a.68.68 0 01.615-.597A40.012 40.012 0 0110 4.5zM5.281 9.22a.75.75 0 00-1.06 0l-3.001 3a.75.75 0 101.06 1.06l1.748-1.747c.042 1.141.13 2.27.264 3.386a2.18 2.18 0 001.97 1.913 41.533 41.533 0 007.477 0 2.18 2.18 0 001.969-1.913c.064-.534.117-1.071.16-1.61a.75.75 0 10-1.495-.12c-.041.52-.093 1.037-.154 1.552a.68.68 0 01-.615.597 40.013 40.013 0 01-7.208 0 .68.68 0 01-.615-.597 39.785 39.785 0 01-.25-3.15l1.689 1.69a.75.75 0 001.06-1.061l-2.999-3z" clip-rule="evenodd" />
+                    </svg>
                     Reset
                   </button>
-                  <button type="button" data-target="{{$toHide}}" class="hideButton px-4 py-2 text-sm font-medium text-white bg-gray-900 border-2 border-gray-900 rounded-r-md hover:bg-gray-500 hover:border-gray-500 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white">
-                    Hide
+                  <button type="button" data-target="{{$toHide}}" class="hideButton inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-gray-900 border-2 border-gray-900 rounded-r-md hover:bg-gray-500 hover:border-gray-500 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:bg-indigo-900 dark:border-indigo-900 dark:hover:bg-indigo-950">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 mr-3 h-5">
+                      <path fill-rule="evenodd" d="M3.28 2.22a.75.75 0 00-1.06 1.06l14.5 14.5a.75.75 0 101.06-1.06l-1.745-1.745a10.029 10.029 0 003.3-4.38 1.651 1.651 0 000-1.185A10.004 10.004 0 009.999 3a9.956 9.956 0 00-4.744 1.194L3.28 2.22zM7.752 6.69l1.092 1.092a2.5 2.5 0 013.374 3.373l1.091 1.092a4 4 0 00-5.557-5.557z" clip-rule="evenodd" />
+                      <path d="M10.748 13.93l2.523 2.523a9.987 9.987 0 01-3.27.547c-4.258 0-7.894-2.66-9.337-6.41a1.651 1.651 0 010-1.186A10.007 10.007 0 012.839 6.02L6.07 9.252a4 4 0 004.678 4.678z" />
+                    </svg>
+                    Sembunyikan
                   </button>
                 </div>
 
               </form>
             </div>
               
-            <hr class="border-2 rounded-xl border-indigo-800 border-opacity-30 mt-5 lg:hidden">
+            <hr class="border-2 rounded-xl border-indigo-800 dark:border-gray-100 border-opacity-30 mt-5 lg:hidden">
           @endforeach
            
         </div>

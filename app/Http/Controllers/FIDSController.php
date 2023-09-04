@@ -108,11 +108,12 @@ class FIDSController extends Controller
             'view_desc' => 'required',
             'clean_condition' => 'required',
             'condition_desc' => 'required',
+            'updated_by',
         ]);
 
         $fids = fids::findOrFail($id);
 
-        $fids->update($request->all());
+        $fids->update($request->all(['monitor_name', 'monitor_view', 'view_desc', 'clean_condition', 'condition_desc', 'updated_by']));
 
         return redirect()->route('fids.index')->with('success', 'you successfuly updated data');
     }
