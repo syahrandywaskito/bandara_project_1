@@ -25,9 +25,9 @@
                 <path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
               </svg>
           </button>
-          <a href="{{route('cctv.index')}}" class="flex ml-2 md:mr-24">
+          <a href="{{route('fids.index')}}" class="flex ml-2 md:mr-24">
             <img src="{{asset('img/logo.png')}}" class="h-8 mr-3" alt="FlowBite Logo" />
-            <span class="self-center text-lg font-roboto font-semibold sm:text-xl uppercase text-gray-100 whitespace-nowrap">FIDS - Show</span>
+            <span class="self-center text-lg font-roboto font-semibold sm:text-xl uppercase text-gray-100 whitespace-nowrap">FIDS - lihat data</span>
           </a>
         </div>
         <div class="flex items-center">
@@ -73,7 +73,7 @@
                   <svg class="w-3 h-3 mx-1 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
                   </svg>
-                  <span class="ml-1 text-sm font-medium text-gray-700 md:ml-2">Show</span>
+                  <span class="ml-1 text-sm font-medium text-gray-700 md:ml-2">Lihat Data</span>
                 </div>
               </li>
             </ol>

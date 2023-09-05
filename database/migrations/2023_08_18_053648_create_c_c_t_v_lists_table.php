@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('cctvlists', function (Blueprint $table) {
+        Schema::create('c_c_t_v_lists', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->timestamps();

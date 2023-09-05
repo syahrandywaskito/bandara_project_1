@@ -80,7 +80,7 @@
           </nav>
 
           <h1 class="text-gray-900 dark:text-gray-200 lg:px-2 mt-6 text-lg md:text-xl uppercase font-montserrat font-bold">
-            Edit Page 
+            Halaman ubah data
           </h1>
           <div class="lg:hidden font-montserrat pt-3 dark:text-gray-200">
             <h3>Current Date</h3>

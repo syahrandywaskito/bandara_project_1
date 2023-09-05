@@ -169,7 +169,7 @@
   </header>
 
   {{-- report section --}}
-  <section id="report" class="h-[100vh]">
+  <section id="report" class="">
     <div class="py-3 px-4 mx-auto max-w-screen-xl">
       <div class="bg-white border border-gray-200 rounded-lg shadow-lg p-8 md:p-12"> 
         <div class="text-center pb-7 md:pb-10" data-aos="fade-up" data-aos-delay="300" data-aos-ease="ease-in-out">

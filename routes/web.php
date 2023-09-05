@@ -8,6 +8,7 @@ use App\Http\Controllers\FIDSListController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KomputerController;
+use App\Http\Controllers\KomputerListController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\UsersController;
 
@@ -74,4 +75,14 @@ Route::resource('/dashboard/hardware/list/fids-list', FIDSListController::class)
   'edit' => 'list.fids.edit',
   'update' => 'list.fids.update',
   'destroy' => 'list.fids.destroy',
+]);
+
+Route::resource('/dashboard/hardware/list/komputer-list', KomputerListController::class)->names([
+  'index' => 'list.komputer.index',
+  'create' => 'list.komputer.create',
+  'store' => 'list.komputer.store',
+  'show' => 'list.komputer.show',
+  'edit' => 'list.komputer.edit',
+  'update' => 'list.komputer.update',
+  'destroy' => 'list.komputer.destroy',
 ]);

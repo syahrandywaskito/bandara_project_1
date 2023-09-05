@@ -16,7 +16,7 @@ class KomputerController extends Controller
     {
         $komputer = Komputer::all(['*']);
 
-        $today = now()->format('d M Y');
+        $today = now()->format('Y-m-d');
 
         $selectedDate = $request->input('selected_date');
 
@@ -53,10 +53,10 @@ class KomputerController extends Controller
             'computer_name' => 'required',
             'on_off_condition' => 'required',
             'on_off_desc' => 'required',
-            'uninstalled_app' => 'required',
-            'uninstalled_app_desc' => 'required',
+            'uninstalled_app',
+            'uninstalled_app_desc',
             'clean_file_status' => 'required',
-            'clean_file_desc' => 'required',
+            'clean_file_desc',
             'created_by',
             'updated_by',
 
@@ -72,9 +72,9 @@ class KomputerController extends Controller
 
         $data::create($request->all()); 
 
-        $hardware_name = $request->input('computer_name');
+        $computer_name = $request->input('computer_name');
 
-        $successMessage = "Input {$hardware_name} success";
+        $successMessage = "Input {$computer_name} success";
 
         $response =[
             'message' => $successMessage,
@@ -102,9 +102,9 @@ class KomputerController extends Controller
             'updated_by',
         ]);
 
-        $komuter = Komputer::findOrFail($id);
+        $komputer = Komputer::findOrFail($id);
 
-        $komuter->update($request->all([
+        $komputer->update($request->all([
             'computer_name',
             'on_off_condition',
             'on_off_desc',
@@ -120,7 +120,12 @@ class KomputerController extends Controller
 
     public function show(Komputer $komputer) : View
     {
-        return view('admin.report.komputer.show');
+        $date = Carbon::parse($komputer->date);
+
+        $formattedDate = $date->format('d M Y');
+        $formattedDay = $date->format('l');
+
+        return view('admin.report.komputer.show', ['komputer' => $komputer, 'day' => $formattedDay, 'date' => $formattedDate]);
     }
 
     public function destroy(Komputer $komputer) : RedirectResponse
