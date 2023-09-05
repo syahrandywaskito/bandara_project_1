@@ -12,6 +12,9 @@ export default {
       fontFamily:{
         roboto: "Roboto",
         montserrat : "Montserrat",
+      },
+      backgroundImage:{
+        'login' : "url('/public/img/bg-image.png')",
       }
     },
   },

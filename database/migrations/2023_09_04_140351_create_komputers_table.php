@@ -13,6 +13,16 @@ return new class extends Migration
     {
         Schema::create('komputers', function (Blueprint $table) {
             $table->id();
+            $table->date('date');
+            $table->string('computer_name');
+            $table->enum('on_off_condition', ['menyala', 'mati']);
+            $table->string('on_off_desc');
+            $table->string('uninstalled_app');
+            $table->string('uninstalled_app_desc');
+            $table->enum('clean_file_status', ['hapus', 'tidak hapus']);
+            $table->string('clean_file_desc');
+            $table->string('created_by');
+            $table->string('updated_by');
             $table->timestamps();
         });
     }

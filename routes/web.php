@@ -7,6 +7,7 @@ use App\Http\Controllers\FIDSController;
 use App\Http\Controllers\FIDSListController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\KomputerController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\UsersController;
 
@@ -52,6 +53,8 @@ Route::resource('/dashboard/report/cctv', CCTVController::class);
 Route::resource('/dashboard/users/users', UsersController::class);
 
 Route::resource('/dashboard/report/fids', FIDSController::class);
+
+Route::resource('/dashboard/report/komputer', KomputerController::class);
 
 Route::resource('/dasboard/hardware/list/cctv-list', CCTVListController::class)->names([
   'index' => 'list.cctv.index',
