@@ -28,7 +28,7 @@
   {{-- Login Form --}}
   <section class=" mt-12 sm:my-0 h-screen">
     <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-        <a href="#" class="flex items-center mb-6 text-2xl font-bold font-montserrat text-gray-900 uppercase" data-aos="fade-down" data-aos-duration="500" data-aos-delay="100">
+        <a href="{{route('login')}}" class="flex items-center mb-6 text-2xl font-bold font-montserrat text-gray-900 uppercase" data-aos="fade-down" data-aos-duration="500" data-aos-delay="100">
             Login   
         </a>
         <div class="w-full bg-gray-50 bg-opacity-60 rounded-lg shadow-lg md:mt-0 sm:max-w-md xl:p-0" data-aos="fade-up" data-aos-duration="600" data-aos-delay="200">

@@ -26,12 +26,12 @@
   {{-- Login Form --}}
   <section class="h-screen mt-12 sm:my-0 sm:h-screen">
     <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-        <a href="#" class="flex items-center mb-6 text-2xl font-bold font-montserrat text-gray-900 uppercase " data-aos="fade-down" data-aos-duration="500" data-aos-delay="100">
+        <a href="{{route('register')}}" class="flex items-center mb-6 text-2xl font-bold font-montserrat text-gray-900 uppercase " data-aos="fade-down" data-aos-duration="500" data-aos-delay="100">
             Register   
         </a>
         <div class="w-full bg-gray-50 bg-opacity-60 rounded-lg shadow-lg md:mt-0 sm:max-w-md xl:p-0" data-aos="fade-up" data-aos-duration="600" data-aos-delay="200">
             <div class="p-6 space-y-4 md:space-y-6 sm:p-8 font-roboto" data-aos="fade-up" data-aos-duration="500" data-aos-delay="400">
-                <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
+                <h1 class="text-md uppercase font-bold leading-tight tracking-tight text-gray-900 md:text-lg">
                     Buat Akun
                 </h1>
                 <form class="space-y-4 md:space-y-6" action="{{route('store')}}" method="post">

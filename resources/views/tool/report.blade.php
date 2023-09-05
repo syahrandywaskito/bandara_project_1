@@ -176,6 +176,8 @@
           <h1 class="font-semibold font-montserrat text-lg md:text-2xl uppercase">Laporan</h1>
         </div>
         <div id="accordion-color" class="shadow-md rounded-lg" data-accordion="collapse" data-active-classes="bg-[#5e7c60] text-[#f9f5f2]">
+
+          {{-- accordion CCTV --}}
           <h2 id="accordion-color-heading-1">
             <button type="button" class="flex items-center justify-between w-full p-5 font-medium text-left text-[#5e7c60] rounded-t-xl focus:ring-2 focus:ring-[#5e7c60]" data-accordion-target="#accordion-color-body-1" aria-expanded="true" aria-controls="accordion-color-body-1">
               <span>Laporan CCTV</span>
@@ -241,6 +243,8 @@
               </div>
             </div>
           </div>
+
+          {{-- accordion Komputer --}}
           <h2 id="accordion-color-heading-2">
             <button type="button" class="flex items-center justify-between w-full p-5 font-medium text-left text-[#5e7c60] focus:ring-2 focus:ring-[#5e7c60]" data-accordion-target="#accordion-color-body-2" aria-expanded="false" aria-controls="accordion-color-body-2">
               <span>Laporan Komputer</span>
@@ -249,19 +253,77 @@
               </svg>
             </button>
           </h2>
-          <div id="accordion-color-body-2" class="hidden" aria-labelledby="accordion-color-heading-2">
-            <div class="p-5">
-              <p class="mb-2 text-gray-500">
-                Flowbite is first conceptualized and designed using the Figma software so everything you see in the library has a design equivalent in our Figma file.
-              </p>
-              <p class="text-gray-500">
-                Check out the 
-                <a href="https://flowbite.com/figma/" class="text-blue-600 hover:underline">
-                  Figma design system
-                </a> based on the utility classes from Tailwind CSS and components from Flowbite.
-              </p>
+          <div id="accordion-color-body-2" class="hidden" aria-labelledby="accordion-color-heading-1">
+            <div class="p-5 font-roboto bg-white">
+              <div class="p-5">
+                <p class="mb-2 font-semibold">
+                  Tabel Laporan
+                </p>
+                <p>
+                  {{now()->format('l')}}, 
+                  {{now()->format('d M Y')}}
+                </p>
+              </div>
+              <div class="relative overflow-x-auto rounded-md shadow-md">
+                <table class="w-full text-sm text-center">
+                    <thead class="text-xs uppercase bg-gray-50">
+                        <tr>
+                          <th scope="col" class="px-6 py-3">
+                              Nama Perangkat
+                          </th>
+                          <th scope="col" class="px-6 py-3">
+                              Kondisi Nyala/Mati
+                          </th>
+                          <th scope="col" class="px-6 py-3">
+                              Keterangan Nyala/Mati
+                          </th>
+                          <th scope="col" class="px-6 py-3">
+                              Aplikasi di Uninstall
+                          </th>
+                          <th scope="col" class="px-6 py-3">
+                              Keterangan Aplikasi di Uninstall
+                          </th>
+                          <th scope="col" class="px-6 py-3">
+                              Status pembersihan file
+                          </th>
+                          <th scope="col" class="px-6 py-3">
+                              Keterangan pembersihan file
+                          </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      @foreach ($komputer as $data)
+                        <tr class="bg-white border-b">
+                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                              {{$data->computer_name}}
+                            </th>
+                            <td class="px-6 py-4">
+                              {{$data->on_off_condition}}
+                            </td>
+                            <td class="px-6 py-4">
+                              {{$data->on_off_desc}}
+                            </td>
+                            <td class="px-6 py-4">
+                              {{$data->uninstalled_app}}
+                            </td>
+                            <td class="px-6 py-4">
+                              {{$data->uninstalled_app_desc}}
+                            </td>
+                            <td class="px-6 py-4">
+                              {{$data->clean_file_status}}
+                            </td>
+                            <td class="px-6 py-4">
+                              {{$data->clean_file_desc}}
+                            </td>
+                        </tr>
+                      @endforeach
+                    </tbody>
+                </table>
+              </div>
             </div>
           </div>
+
+          {{-- accordion FIDS --}}
           <h2 id="accordion-color-heading-3">
             <button type="button" class="flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 focus:ring-2 focus:ring-[#5e7c60]" data-accordion-target="#accordion-color-body-3" aria-expanded="false" aria-controls="accordion-color-body-3">
               <span>Laporan FIDS</span>
