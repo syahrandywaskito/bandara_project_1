@@ -17,3 +17,9 @@ section2Link.click(function(e) {
   e.preventDefault();
   smoothScroll('#report', 500); // ID dan durasi scroll
 });
+
+const section3Link = $('a[href="#navbar"]');
+section3Link.click(function(e) {
+  e.preventDefault();
+  smoothScroll('#navbar', 500); // ID dan durasi scroll
+});

@@ -15,7 +15,7 @@
 <body class=" bg-[#f9f5f2]">
 
   {{-- navbar --}}
-  <nav class=" bg-[#5e7c60] shadow-lg rounded-lg mx-10 mt-7">
+  <nav class=" bg-[#5e7c60] shadow-lg rounded-lg mx-10 mt-7" id="navbar">
     <section class=" mx-auto px-4 max-w-6xl">
       <section class=" flex justify-between">
 
@@ -394,48 +394,8 @@
     </div>
   </section>
 
-   {{-- footer --}}
-   <footer class="bg-white mt-6 shadow">
-    <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
-        <div class="sm:flex sm:items-center sm:mx-5 xl:mx-0 sm:justify-between font-roboto">
-          <div class="sm:w-1/2 text-center sm:text-start">
-            <a href="{{route('homepage')}}" class="flex items-center mb-4 mx-3 sm:mx-0 sm:mb-0">
-                <img src="{{asset('img/logo.png')}}" class="h-8 mr-3" alt="Flowbite Logo" />
-                <span class="self-center text-lg md:text-xl font-semibold whitespace-nowrap uppercase">Teknik Bandara Abdulrachman Saleh</span>
-            </a>
-            <p class="pt-4">
-              Jl. Komodor Udara Abdul Rahman Saleh,<br>
-              Krajan, Bunut Wetan, Kec. Pakis Kabupaten Malang, <br>
-              Jawa Timur 65154 <br><br>
-              Telp ( 0341 ) 2992700
-
-            </p>
-          </div>
-          <div>
-            <ul class="flex flex-wrap items-center my-7 justify-center sm:mt-0 text-sm font-medium text-gray-500 sm:mb-0">
-                <li>
-                    <a href="#" class="mr-4 hover:border-b-2 border-gray-500 transition duration-200 md:mr-6 ">Tool</a>
-                </li>
-                <li>
-                    <a href="#" class="mr-4 hover:border-b-2 border-gray-500 transition duration-200 md:mr-6">Service</a>
-                </li>
-                <li>
-                    <a href="#" class="mr-4 hover:border-b-2 border-gray-500 transition duration-200 md:mr-6 ">Contact Us</a>
-                </li>
-            </ul>
-          </div>
-        </div>
-        <div>
-          <hr class="h-px my-8 bg-gray-200 border-0">
-          <span class="block text-sm text-gray-500 text-center font-roboto">
-            © 2023 
-            <a href="" class="hover:border-b-2 border-gray-500 transition duration-200">
-            UPT Bandara Abdulrachman Saleh</a>
-            . All Rights Reserved.
-          </span>
-        </div>
-    </div>
-  </footer>
+  {{-- footer --}}
+  @include('components.home.footer')
 
   {{-- JS AOS --}}
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
