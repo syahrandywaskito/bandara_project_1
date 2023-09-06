@@ -15,6 +15,8 @@ export default {
       },
       backgroundImage:{
         'login' : "url('/public/img/bg-image.png')",
+        'edit-light' : "url('/public/img/gradient-image-light.png')",
+        'edit-dark' : "url('/public/img/gradient-image-dark.png')",
       }
     },
   },
