@@ -11,7 +11,7 @@
   {{-- tailwind css using vite --}}
   @vite(['resources/css/app.css','resources/js/app.js'])
 </head>
-<body class=" bg-login bg-cover bg-bottom">
+<body class=" bg-login bg-cover bg-bottom overflow-hidden">
 
   {{-- Back Button --}}
     <div class="md:fixed sm:left-8 top-10 max-w-screen-xl flex flex-wrap items-center justify-between mx-auto py-3 px-6 md:px-0">

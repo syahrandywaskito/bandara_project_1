@@ -46,12 +46,12 @@
         </a>
         <div class="w-full bg-gray-50 dark:bg-indigo-950 bg-opacity-60 rounded-lg shadow-lg md:mt-0 sm:max-w-md xl:p-0" data-aos="fade-up" data-aos-duration="300" data-aos-delay="100">
             <div class="p-6 space-y-4 md:space-y-6 sm:p-8 font-roboto" data-aos="fade-up" data-aos-duration="400" data-aos-delay="200">
-                <form class="space-y-4 md:space-y-6" action="{{route('list.cctv.update', $cctv_list->id)}}" method="POST">
+                <form class="space-y-4 md:space-y-6" action="{{route('list.komputer.update', $komputer_list->id)}}" method="POST">
                   @csrf
                   @method('PUT')
                     <div>
                         <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-100">Nama Perangkat</label>
-                        <input type="text" name="name" id="email" class="bg-gray-50 border-2 border-gray-100 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5 focus:ring-indigo-400 focus:ring-2 focus:outline-none" value="{{$cctv_list->name}}">
+                        <input type="text" name="name" id="email" class="bg-gray-50 border-2 border-gray-100 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5 focus:ring-indigo-400 focus:ring-2 focus:outline-none" value="{{$komputer_list->name}}">
                     </div>
                     <button type="submit" class="w-full text-gray-100 font-montserrat bg-gradient-to-r from-indigo-600 to-blue-500 hover:-translate-y-1 hover:scale-105 transition duration-300 focus:ring-4 focus:outline-none font-semibold rounded-lg text-sm px-5 py-2.5 text-center shadow-md dark:from-indigo-800 dark:to-indigo-900">
                       Ubah

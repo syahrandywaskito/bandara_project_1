@@ -11,7 +11,7 @@
   {{-- tailwind css using vite --}}
   @vite(['resources/css/app.css','resources/js/app.js'])
 </head>
-<body class="bg-login bg-cover bg-bottom">
+<body class="bg-login bg-cover bg-bottom overflow-hidden">
 
   {{-- Back Button --}}
 
