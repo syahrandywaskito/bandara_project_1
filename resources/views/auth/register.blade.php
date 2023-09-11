@@ -11,7 +11,7 @@
   {{-- tailwind css using vite --}}
   @vite(['resources/css/app.css','resources/js/app.js'])
 </head>
-<body class=" bg-login bg-cover bg-bottom overflow-hidden">
+<body class=" bg-login bg-cover bg-bottom sm:overflow-hidden">
 
   {{-- Back Button --}}
     <div class="md:fixed sm:left-8 top-10 max-w-screen-xl flex flex-wrap items-center justify-between mx-auto py-3 px-6 md:px-0">
@@ -45,9 +45,20 @@
                         <input type="email" name="email" id="email" class="bg-gray-50 border-2 border-gray-100 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5 focus:ring-indigo-400 focus:ring-2 focus:outline-none" required="">
                     </div>
                     <div>
-                      <label for="password" class="block mb-2 text-sm font-medium text-gray-900">Password</label>
-                      <input type="password" name="password" id="password" class="bg-gray-50 border-2 border-gray-100 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5 focus:ring-indigo-400 focus:ring-2 focus:outline-none" required="">
+                      <label for="passwordInput" class="block mb-2 text-sm font-medium text-gray-900">Password</label>
+                      <div class="relative">
+                        <input type="password" id="passwordInput" name="password" class="block w-full p-3 text-sm bg-gray-50 border-2 border-gray-100 text-gray-900 sm:text-sm rounded-lg  focus:ring-indigo-400 focus:ring-2 focus:outline-none" required>
+
+                        <button type="button" id="togglePassword" class="text-white absolute right-2.5 bottom-1.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-2 py-2">
+                          <div id="eyeIcon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                              <path fill-rule="evenodd" d="M3.28 2.22a.75.75 0 00-1.06 1.06l14.5 14.5a.75.75 0 101.06-1.06l-1.745-1.745a10.029 10.029 0 003.3-4.38 1.651 1.651 0 000-1.185A10.004 10.004 0 009.999 3a9.956 9.956 0 00-4.744 1.194L3.28 2.22zM7.752 6.69l1.092 1.092a2.5 2.5 0 013.374 3.373l1.091 1.092a4 4 0 00-5.557-5.557z" clip-rule="evenodd" />
+                              <path d="M10.748 13.93l2.523 2.523a9.987 9.987 0 01-3.27.547c-4.258 0-7.894-2.66-9.337-6.41a1.651 1.651 0 010-1.186A10.007 10.007 0 012.839 6.02L6.07 9.252a4 4 0 004.678 4.678z" />
+                            </svg>                              
+                          </div>
+                        </button>
                     </div>
+                  </div>
                     <div>
                       <label for="position" class="block mb-2 text-sm font-medium text-gray-900">Jabatan</label>
                       <select id="position" class="bg-gray-50 border-2 border-gray-100 text-gray-900 text-sm rounded-lg p-2.5 focus:ring-indigo-400 focus:ring-2 focus:outline-none block w-full" name="position">
@@ -73,6 +84,7 @@
     </div>
   </section>
 
+  <script src="{{asset('js/hide-password.js')}}"></script>
   
   {{-- js script --}}
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

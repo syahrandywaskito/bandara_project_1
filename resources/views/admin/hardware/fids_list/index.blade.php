@@ -160,7 +160,7 @@
   <div id="create-modal" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
     <div class="relative w-full max-w-md max-h-full">
         <!-- Modal content -->
-        <div class="relative bg-white dark:bg-indigo-950 rounded-lg shadow">
+        <div class="relative bg-white dark:bg-edit-dark bg-cover rounded-lg shadow">
             <div class="px-6 py-6 lg:px-8 font-montserrat">
                 <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-gray-200">Tambah Data</h3>
                 <form class="space-y-6" action="{{route('list.fids.store')}}" method="POST">
@@ -169,7 +169,7 @@
                         <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama Monitor FIDS</label>
                         <input type="text" name="name" class="text-sm text-gray-900 bg-gray-50 border-2 border-gray-400 rounded-lg outline-none  focus:border-indigo-800 dark:border-gray-100 w-full p-3 "required>
                     </div>
-                    <button type="submit" class="w-full text-gray-50 bg-indigo-800 rounded-lg hover:bg-gray-100 hover:text-green-700 focus:z-10 focus:ring-2 focus:ring-indigo-800 transition duration-200 text-sm px-5 py-2.5 text-center">Tambah</button>
+                    <button type="submit" class="w-full text-gray-50 bg-indigo-800 rounded-lg hover:bg-gray-100 hover:text-green-700 focus:z-10 focus:ring-2 focus:ring-indigo-800 transition duration-200 text-sm px-5 py-2.5 text-center dark:bg-indigo-600 dark:hover:bg-gray-100">Tambah</button>
                 </form>
             </div>
         </div>
