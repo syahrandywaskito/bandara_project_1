@@ -197,12 +197,12 @@
                   {{now()->format('d M Y')}}
                 </p>
                 <p>
-                  <a href="{{route('report.cctv.download')}}" target="_blank">Download</a>
+                  <a href="{{route('report.cctv.download')}}" target="_blank" class="hover:text-[#5e7c60] hover:border-b-2 border-[#5e7c60]">Simpan Tabel</a>
                 </p>
               </div>
               <div class="relative overflow-x-auto rounded-md shadow-md">
                 <table class="w-full text-sm text-center">
-                    <thead class="text-xs uppercase bg-gray-50">
+                    <thead class="text-xs uppercase bg-[#f9f5f2]">
                         <tr>
                             <th scope="col" class="px-6 py-3">
                                 Nama Perangkat
@@ -266,10 +266,13 @@
                   {{now()->format('l')}}, 
                   {{now()->format('d M Y')}}
                 </p>
+                <p>
+                  <a href="{{route('report.komputer.download')}}" target="_blank" class="hover:text-[#5e7c60] hover:border-b-2 border-[#5e7c60]">Simpan Tabel</a>
+                </p>
               </div>
               <div class="relative overflow-x-auto rounded-md shadow-md">
                 <table class="w-full text-sm text-center">
-                    <thead class="text-xs uppercase bg-gray-50">
+                    <thead class="text-xs uppercase bg-[#f9f5f2]">
                         <tr>
                           <th scope="col" class="px-6 py-3">
                               Nama Perangkat
@@ -345,10 +348,13 @@
                   {{now()->format('l')}}, 
                   {{now()->format('d M Y')}}
                 </p>
+                <p>
+                  <a href="{{route('report.fids.download')}}" target="_blank" class="hover:text-[#5e7c60] hover:border-b-2 border-[#5e7c60]">Simpan Tabel</a>
+                </p>
               </div>
               <div class="relative overflow-x-auto rounded-md shadow-md">
                 <table class="w-full text-sm text-center">
-                    <thead class="text-xs uppercase bg-gray-50">
+                    <thead class="text-xs uppercase bg-[#f9f5f2]">
                         <tr>
                             <th scope="col" class="px-6 py-3">
                                 Nama Perangkat
@@ -357,7 +363,7 @@
                                 kondisi tampilan 
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                ketengan tampilan
+                                keterangan tampilan
                             </th>
                             <th scope="col" class="px-6 py-3">
                                 kondisi kebersihan

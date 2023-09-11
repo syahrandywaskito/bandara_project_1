@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Laporan Pengecekan CCTV {{now()->format('d-m-Y')}}.pdf</title>
+  <title>Laporan Pengecekan Komputer {{now()->format('d-m-Y')}}.pdf</title>
   <link rel="shortcut icon" href="{{ asset('img/logo.png') }}" type="image/x-icon">
 
   @vite(['resources/css/app.css','resources/js/app.js'])
@@ -25,7 +25,7 @@
   <div>
     <div class="text-center">
       <h1 class="font-semibold uppercase text-sm">
-        Tabel Pengecekan CCTV <br>
+        Tabel Pengecekan Komputer <br>
        {{now()->format('d M Y')}}
       </h1>
     </div>
@@ -35,29 +35,38 @@
           <thead class="text-xs text-center text-gray-900 uppercase border-b-2 border-black">
               <tr class="">
                   <th scope="col" class="px-1 py-2">Nama Perangkat</th>
-                  <th scope="col" class="px-1 py-2">Status Rekaman</th>
-                  <th scope="col" class="px-1 py-2">Keterangan Rekaman</th>
-                  <th scope="col" class="px-1 py-2">Status Kebersihan</th>
-                  <th scope="col" class="px-1 py-2">Keterangan Kebersihan</th>  
+                  <th scope="col" class="px-1 py-2">Kondisi Nyala/Mati</th>
+                  <th scope="col" class="px-1 py-2">Keterangan Nyala/Mati</th>
+                  <th scope="col" class="px-1 py-2">                              Aplikasi di Uninstall
+                  </th>
+                  <th scope="col" class="px-1 py-2">Keterangan Aplikasi di Uninstall</th>  
+                  <th scope="col" class="px-1 py-2">Status pembersihan file</th>  
+                  <th scope="col" class="px-1 py-2">Keterangan pembersihan file</th>  
               </tr>
           </thead>
           <tbody class="text-center">
-            @foreach ($cctv as $data)
+            @foreach ($komputer as $data)
             <tr class="">
                 <td scope="row" class="px-1 py-3">
-                    {{$data->hardware_name}}
+                  {{$data->computer_name}}
                 </td>
                 <td scope="row" class="px-1 py-3">
-                    {{$data->record_status}}
+                  {{$data->on_off_condition}}
                 </td>
                 <td scope="row" class="px-1 py-3">
-                    {{$data->record_desc}}
+                  {{$data->on_off_desc}}
                 </td>
                 <td scope="row" class="px-1 py-3">
-                    {{$data->clean_status}}
+                  {{$data->uninstalled_app}}
                 </td>
                 <td scope="row" class="px-1 py-3">
-                    {{$data->clean_desc}}
+                  {{$data->uninstalled_app_desc}}
+                </td>
+                <td scope="row" class="px-1 py-3">
+                  {{$data->clean_file_status}}
+                </td>
+                <td scope="row" class="px-1 py-3">
+                  {{$data->clean_file_desc}}
                 </td>
             </tr>
             @endforeach
