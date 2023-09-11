@@ -26,7 +26,7 @@ class AuthController extends Controller
 
         $fullname = User::where('email', request()->input('email'))->value('name');
 
-        $successMessage = "Welcome $fullname, You are succesfully logged in";
+        $successMessage = "Selamat datang $fullname";
 
         if (Auth::attempt($credentials)) {
 
@@ -35,7 +35,7 @@ class AuthController extends Controller
         }
 
         return back()->withErrors([
-            'email' => 'Your provided credentials not match in our record',
+            'email' => 'Kredensial yang Anda berikan tidak cocok dengan catatan kami',
             
         ]);
     }
@@ -64,7 +64,7 @@ class AuthController extends Controller
         $credentials = $request->only('email', 'password');
         Auth::attempt($credentials);
         $request->session()->regenerate();
-        return redirect()->route('dashboard')->withSuccess('You are successfully registered and logged in');
+        return redirect()->route('dashboard')->withSuccess('Anda berhasil mendaftar dan login');
     }
 
     public function Dashboard()
@@ -84,7 +84,7 @@ class AuthController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect()->route('login')->with('success','You are logged out successfully');
+        return redirect()->route('login')->with('success','Anda berhasil logout');
     }
 }
 

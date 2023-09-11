@@ -146,7 +146,7 @@ class CCTVController extends Controller
         
         $cctv->update($request->all(['hardware_name', 'record_status', 'record_desc', 'clean_status', 'clean_desc', 'updated_by']));
 
-        return redirect()->route('cctv.index')->with('success', 'Anda berhasil mengupdate data');
+        return redirect()->route('cctv.index')->with('success', 'Anda berhasil merubah data');
     }
 
     /**
@@ -160,6 +160,6 @@ class CCTVController extends Controller
 
         $cctv->delete();
 
-        return redirect()->route('cctv.index')->withSuccess('You successfully deleted data');
+        return redirect()->route('cctv.index')->withSuccess('Anda berhasil menghapus data');
     }
 }

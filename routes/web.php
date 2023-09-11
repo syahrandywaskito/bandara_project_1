@@ -48,6 +48,7 @@ Route::controller(AuthController::class)->group(function(){
 });
 
 Route::get('/tool/report', [ReportController::class, 'index'])->name('report.index');
+Route::get('/tool/report/cctv-report' , [ReportController::class, 'createPDFCCTV'])->name('report.cctv.download');
 
 Route::resource('/dashboard/report/cctv', CCTVController::class);
 

@@ -115,7 +115,7 @@ class KomputerController extends Controller
             'updated_by',
         ]));
 
-        return redirect()->route('komputer.index')->with('success', 'Anda berhasil mengupdate data');
+        return redirect()->route('komputer.index')->with('success', 'Anda berhasil merubah data');
     }
 
     public function show(Komputer $komputer) : View

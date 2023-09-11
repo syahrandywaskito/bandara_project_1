@@ -196,6 +196,9 @@
                   {{now()->format('l')}}, 
                   {{now()->format('d M Y')}}
                 </p>
+                <p>
+                  <a href="{{route('report.cctv.download')}}" target="_blank">Download</a>
+                </p>
               </div>
               <div class="relative overflow-x-auto rounded-md shadow-md">
                 <table class="w-full text-sm text-center">

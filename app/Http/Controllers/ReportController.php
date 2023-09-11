@@ -7,15 +7,12 @@ use App\Models\fids;
 use App\Models\Komputer;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use PDF;
 
-class reportController extends Controller
+class ReportController extends Controller
 {
     public function index() : View  
     {
-
-      $cctv = CctvModel::all(['*']);
-      $fids = fids::all(['*']);
-      $komputer = Komputer::all(['*']);
 
       $today = now()->format('Y-m-d');
 
@@ -25,5 +22,27 @@ class reportController extends Controller
       $komputerDate = Komputer::whereDate('date', $today)->get();
 
       return view('tool.report', ['cctv' => $cctvDate, 'fids' => $fidsDate, 'komputer' => $komputerDate]);
+    }
+
+    public function createPDFCCTV()
+    {
+      $today = now()->format('Y-m-d');
+      $cctvDate = CctvModel::whereDate('date', $today)->get();
+
+      $pdf = \Barryvdh\DomPDF\Facade\Pdf::loadView('tool.report-download.pdf-cctv', ['cctv' => $cctvDate]);
+
+      return $pdf->stream("laporan_pengecekan_cctv_$today.pdf");
+
+    }
+    public function createPDFKomputer()
+    {
+      $today = now()->format('Y-m-d');
+      $komputerDate = Komputer::whereDate('date', $today)->get();
+
+    }
+    public function createPDFFIDS()
+    {
+      $fids = fids::all(['*']);
+
     }
 }

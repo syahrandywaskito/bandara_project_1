@@ -40,11 +40,20 @@
                   @csrf
                     <div>
                         <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Email</label>
-                        <input type="email" name="email" id="email" class="bg-gray-50 border-2 border-gray-100 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5 focus:ring-indigo-400 focus:ring-2 focus:outline-none" required="">
+                        <input type="email" name="email" id="email" class="bg-gray-50 border-2 border-gray-100 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5 focus:ring-indigo-400 focus:ring-2 focus:outline-none @error('email') is-invalid @enderror" required>
                     </div>
                     <div>
                         <label for="password" class="block mb-2 text-sm font-medium text-gray-900">Password</label>
-                        <input type="password" name="password" id="password" class="bg-gray-50 border-2 border-gray-100 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5 focus:ring-indigo-400 focus:ring-2 focus:outline-none" required="">
+                        <div class="relative">
+                          <input type="password" id="password" name="password" class="block w-full p-3 text-sm bg-gray-50 border-2 border-gray-100 text-gray-900 sm:text-sm rounded-lg  focus:ring-indigo-400 focus:ring-2 focus:outline-none" required>
+
+                          <button type="button" class="text-white absolute right-2.5 bottom-1.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-2 py-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                              <path d="M10 12.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z" />
+                              <path fill-rule="evenodd" d="M.664 10.59a1.651 1.651 0 010-1.186A10.004 10.004 0 0110 3c4.257 0 7.893 2.66 9.336 6.41.147.381.146.804 0 1.186A10.004 10.004 0 0110 17c-4.257 0-7.893-2.66-9.336-6.41zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd" />
+                            </svg>                            
+                          </button>
+                      </div>
                     </div>
                     <div class="flex items-center justify-end">
                         <a href="#" class="text-sm font-medium text-primary-600 hover:text-indigo-500">Forgot password?</a>
@@ -62,7 +71,7 @@
   </section>
 
   @if ($message = Session::get('success'))
-  <dir class="fixed right-10 top-0" data-aos="fade-left">
+  <dir class="fixed right-10 top-0" data-aos="fade-left" id="alert-box">
     <div id="alert-3" class="flex items-center shadow-md p-4 mb-4 text-green-800 rounded-lg bg-green-50 font-montserrat" role="alert">
       <svg class="flex-shrink-0 w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
         <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
@@ -79,6 +88,31 @@
     </div>
   </dir>
   @endif
+
+  @if ($errors->has('email'))
+     <div class="fixed right-10 top-5" data-aos="fade-left" id="alert-box">
+      <div id="alert-3" class="flex items-center shadow-md p-4 mb-4 text-red-800 rounded-lg bg-red-50 font-montserrat" role="alert">
+          <svg class="flex-shrink-0 w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+          </svg>
+        <div class="mx-4 text-sm font-medium">
+            {{ $errors->first('email') }}
+        </div>
+        <button type="button" class="ml-auto -mx-1.5 -my-1.5 bg-red-50 text-red-500 rounded-lg focus:ring-2 focus:ring-red-400 p-1.5 hover:bg-red-200 inline-flex items-center justify-center h-8 w-8" data-dismiss-target="#alert-3" aria-label="Close">
+          <span class="sr-only">Close</span>
+          <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  @endif
+
+  <script>
+    
+  </script>
+
+  <script src="{{asset('js/hide-alert.js')}}"></script>
 
   {{-- js script --}}
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

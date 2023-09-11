@@ -115,7 +115,7 @@ class FIDSController extends Controller
 
         $fids->update($request->all(['monitor_name', 'monitor_view', 'view_desc', 'clean_condition', 'condition_desc', 'updated_by']));
 
-        return redirect()->route('fids.index')->with('success', 'you successfuly updated data');
+        return redirect()->route('fids.index')->with('success', 'Anda berhasil merubah data');
     }
 
     public function destroy($id)
@@ -124,6 +124,6 @@ class FIDSController extends Controller
 
         $fids->delete();
 
-        return redirect()->back()->with('success', 'you successfully delete data');
+        return redirect()->back()->with('success', 'Anda berhasil menghapus data');
     }
 }
