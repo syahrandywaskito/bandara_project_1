@@ -242,6 +242,20 @@
         </div>
       </div>
     </div>
+
+    {{-- pagination --}}
+    <div class="px-4 py-4 mx-auto max-w-screen-xl">
+      <p class=" dark:text-gray-100 text-gray-700 font-roboto mb-3 sm:mb-0">
+
+        @if ($cctvs->total() >= 6)
+        
+        Halaman : {{$cctvs->currentPage()}}
+        
+        @endif
+      </p>
+      {{ $cctvs->links() }}
+    </div>
+
   </div>
 
 

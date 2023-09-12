@@ -200,7 +200,7 @@
                   <a href="{{route('report.cctv.download')}}" target="_blank" class="hover:text-[#5e7c60] hover:border-b-2 border-[#5e7c60]">Simpan Tabel</a>
                 </p>
               </div>
-              <div class="relative overflow-x-auto rounded-md shadow-md">
+              <div class="relative overflow-x-auto rounded-md">
                 <table class="w-full text-sm text-center">
                     <thead class="text-xs uppercase bg-[#f9f5f2]">
                         <tr>
@@ -223,7 +223,7 @@
                     </thead>
                     <tbody>
                       @foreach ($cctv as $data)
-                        <tr class="bg-white border-b">
+                        <tr class="bg-white">
                             <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                                 {{$data->hardware_name}}
                             </th>
@@ -270,7 +270,7 @@
                   <a href="{{route('report.komputer.download')}}" target="_blank" class="hover:text-[#5e7c60] hover:border-b-2 border-[#5e7c60]">Simpan Tabel</a>
                 </p>
               </div>
-              <div class="relative overflow-x-auto rounded-md shadow-md">
+              <div class="relative overflow-x-auto rounded-md">
                 <table class="w-full text-sm text-center">
                     <thead class="text-xs uppercase bg-[#f9f5f2]">
                         <tr>
@@ -299,7 +299,7 @@
                     </thead>
                     <tbody>
                       @foreach ($komputer as $data)
-                        <tr class="bg-white border-b">
+                        <tr class="bg-white">
                             <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                               {{$data->computer_name}}
                             </th>
@@ -352,7 +352,7 @@
                   <a href="{{route('report.fids.download')}}" target="_blank" class="hover:text-[#5e7c60] hover:border-b-2 border-[#5e7c60]">Simpan Tabel</a>
                 </p>
               </div>
-              <div class="relative overflow-x-auto rounded-md shadow-md">
+              <div class="relative overflow-x-auto rounded-md">
                 <table class="w-full text-sm text-center">
                     <thead class="text-xs uppercase bg-[#f9f5f2]">
                         <tr>
@@ -375,7 +375,7 @@
                     </thead>
                     <tbody>
                       @foreach ($fids as $data)
-                        <tr class="bg-white border-b">
+                        <tr class="bg-white">
                             <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                                 {{$data->monitor_name}}
                             </th>

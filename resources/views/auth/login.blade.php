@@ -58,7 +58,7 @@
                       </div>
                     </div>
                     <div class="flex items-center justify-end">
-                        <a href="#" class="text-sm font-medium text-primary-600 hover:text-indigo-500">Forgot password?</a>
+                        <a href="#" class="text-sm font-medium text-primary-600 hover:text-indigo-500">Lupa password?</a>
                     </div>
                     <button type="submit" class="w-full text-gray-100 font-montserrat bg-gradient-to-r from-indigo-600 to-blue-500 hover:-translate-y-1 hover:scale-105 transition duration-300 focus:ring-4 focus:outline-none font-semibold rounded-lg text-sm px-5 py-2.5 text-center shadow-md">
                       Submit

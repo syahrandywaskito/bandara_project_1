@@ -45,7 +45,7 @@
   @include('components.dashboard.sidebar')
 
   <div class="py-7 mt-6 sm:mt-4 px-5 sm:ml-64"> 
-    <section class="bg-white dark:bg-slate-900">
+    <div class="bg-white dark:bg-slate-900">
       <div class="pt-10 pb-6 px-4 mx-auto max-w-screen-xl lg:pt-16 lg:pb-0">
           <div class="bg-gray-50 border border-gray-100 dark:bg-indigo-950 dark:border-0 rounded-lg shadow-lg p-8 md:p-12 mb-8">
               <!-- Breadcrumb -->
@@ -240,7 +240,21 @@
           </table>
         </div>
       </div>
-    </section>
+    </div>
+
+    {{-- pagination --}}
+    <div class="px-4 py-4 mx-auto max-w-screen-xl">
+      <p class=" dark:text-gray-100 text-gray-700 font-roboto mb-3 sm:mb-0">
+
+        @if ($fids->total() >= 6)
+        
+        Halaman : {{$fids->currentPage()}}
+        
+        @endif
+      </p>
+      {{ $fids->links() }}
+    </div>
+
   </div>
 
   {{-- success notif --}}

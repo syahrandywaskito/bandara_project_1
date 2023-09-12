@@ -24,11 +24,11 @@ class CCTVController extends Controller
         
         if (isset($selectedDate)) {
             
-            $data = CctvModel::whereDate('date', $selectedDate)->get();
+            $data = CctvModel::whereDate('date', $selectedDate)->paginate(5);
         }
         else {
             
-            $data = CctvModel::whereDate('date', $today)->get();
+            $data = CctvModel::whereDate('date', $today)->paginate(5);
         }
         
         $date = Carbon::parse($selectedDate);

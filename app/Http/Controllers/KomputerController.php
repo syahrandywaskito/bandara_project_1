@@ -22,11 +22,11 @@ class KomputerController extends Controller
 
         if (isset($selectedDate)) {
             
-            $data = Komputer::whereDate('date', $selectedDate)->get();
+            $data = Komputer::whereDate('date', $selectedDate)->paginate(5);
         }
         else {
 
-            $data = Komputer::whereDate('date', $today)->get();
+            $data = Komputer::whereDate('date', $today)->paginate(5);
         }
 
         $date = Carbon::parse($selectedDate);

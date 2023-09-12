@@ -24,11 +24,11 @@ class FIDSController extends Controller
         
         if (isset($selectedDate)) {
             
-            $data = fids::whereDate('date', $selectedDate)->get();
+            $data = fids::whereDate('date', $selectedDate)->paginate(5);
         }
         else {
             
-            $data = fids::whereDate('date', $today)->get();
+            $data = fids::whereDate('date', $today)->paginate(5);
         }
         
         $date = Carbon::parse($selectedDate);
