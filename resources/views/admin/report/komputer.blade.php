@@ -90,38 +90,22 @@
                   </div>
                   {{-- Search --}}
                   <div>
-                    <form>
+                    <form action="{{route('komputer.index')}}" method="GET">
                       <div class="flex">
-                          <label for="search-dropdown" class="mb-2 text-sm font-medium text-gray-900 sr-only">
-                            Your Email
-                          </label>
-                          <button id="dropdown-button" data-dropdown-toggle="dropdown-search" class="flex-shrink-0 z-10 inline-flex items-center py-3 px-4 text-sm font-medium font-montserrat text-center text-gray-900 bg-gray-200 border-2 border-gray-200 rounded-l-lg hover:bg-gray-100 focus:border-indigo-800 outline-none dark:border-gray-50 dark:bg-gray-50 dark:hover:bg-gray-200" type="button">
-                            All categories 
-                            <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
-                            </svg>
-                          </button>
-                          <div id="dropdown-search" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
-                              <ul class="py-2 text-sm text-gray-700 font-montserrat" aria-labelledby="dropdown-button">
-                                <li>
-                                    <button type="button" class="inline-flex w-full px-4 py-2 hover:translate-x-1 transition duration-200">Hardware Name</button>
-                                </li>
-                                <li>
-                                    <button type="button" class="inline-flex w-full px-4 py-2 hover:translate-x-1 transition duration-200">Record Status</button>
-                                </li>
-                                <li>
-                                    <button type="button" class="inline-flex w-full px-4 py-2 hover:translate-x-1 transition duration-200">Record Description</button>
-                                </li>
-                                <li>
-                                    <button type="button" class="inline-flex w-full px-4 py-2 hover:translate-x-1 transition duration-200">Clean Status</button>
-                                </li>
-                                <li>
-                                    <button type="button" class="inline-flex w-full px-4 py-2 hover:translate-x-1 transition duration-200">Clean Description</button>
-                                </li>
-                              </ul>
-                          </div>
+
+                          <select id="kolom" class="block p-3.5 w-full z-20 text-sm text-gray-900 bg-gray-200 border-2 border-gray-200 rounded-l-lg outline-none  focus:border-indigo-800 dark:border-gray-50 dark:bg-gray-50 font-roboto" name="kolom">
+                            <option selected>Pilih Kolom</option>
+                            <option value="computer_name">Nama Perangkat</option>
+                            <option value="on_off_condition">Kondisi Nyala / Mati</option>
+                            <option value="on_off_desc">Keterangan Nyala / Mati</option>
+                            <option value="uninstalled_app">Aplikasi yang Diuninstall</option>
+                            <option value="uninstalled_app_desc">Keterangan Aplikasi yang Diuninstall</option>
+                            <option value="clean_file_status">Status Pembersihan File</option>
+                            <option value="clean_file_desc">Keterangan Pembersihan File</option>
+                          </select>
+
                           <div class="relative w-full font-montserrat">
-                              <input type="search" id="search-dropdown" class="block p-3.5 w-full z-20 text-sm text-gray-900 bg-gray-200 border-2 border-gray-200 rounded-r-lg outline-none  focus:border-indigo-800 dark:border-gray-50 dark:bg-gray-50" placeholder="search" required>
+                              <input type="text" class="block p-3.5 w-full z-20 text-sm text-gray-900 bg-gray-200 border-2 border-gray-200 rounded-r-lg outline-none  focus:border-indigo-800 dark:border-gray-50 dark:bg-gray-50" placeholder="Cari" name="cari" required>
   
                               <button type="submit" class="absolute top-0 right-0 p-3 text-sm font-medium h-full text-gray-50 bg-indigo-800 rounded-r-lg hover:bg-gray-100 hover:text-indigo-800 focus:z-10 focus:ring-2 focus:ring-indigo-800 focus:outline-none dark:bg-gray-50 dark:text-indigo-900 dark:hover:bg-indigo-900 dark:hover:text-gray-100 transition duration-200 dark:hover:ring-1 dark:hover:ring-indigo-900">
                                   <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
@@ -144,7 +128,7 @@
                               <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm.75-13a.75.75 0 00-1.5 0v5c0 .414.336.75.75.75h4a.75.75 0 000-1.5h-3.25V5z" clip-rule="evenodd" />
                             </svg>                                         
                           </div>
-                          <input type="date" id="date" name="selected_date" class="z-20 text-sm text-gray-900 bg-gray-200 border-2 border-gray-200 rounded-lg outline-none  focus:border-indigo-800 dark:bg-gray-50 dark:border-gray-50 block w-full pl-10 p-3" required>
+                          <input type="date" id="date" name="selected_date" class="font-roboto z-20 text-sm text-gray-900 bg-gray-200 border-2 border-gray-200 rounded-lg outline-none  focus:border-indigo-800 dark:bg-gray-50 dark:border-gray-50 block w-full pl-10 p-3" required>
                       </div>
                       <button type="submit" class="p-4 ml-2 text-sm font-medium text-gray-50 bg-indigo-800 rounded-lg hover:bg-gray-100 hover:text-indigo-800 focus:z-10 focus:ring-2 focus:ring-indigo-800 focus:outline-none dark:bg-gray-100 dark:text-indigo-900 dark:hover:bg-indigo-900 dark:hover:text-gray-100 dark:hover:border-indigo-900 dark:border-gray-100 transition duration-200">
                           <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
@@ -164,11 +148,16 @@
               <caption class="p-5 text-lg font-semibold text-left text-gray-900 dark:text-gray-200 font-montserrat">
                 <span class="uppercase">Tabel pengecekan</span>
                   <p class=" font-normal mt-1 text-sm">
-                     {{$day}}, {{ $date}}
+                     {{ $date }}
                   </p>
               </caption>
               <thead class="text-xs text-gray-100  uppercase bg-indigo-800 dark:bg-gray-100 dark:text-gray-900 text-center font-roboto">
                   <tr>
+                      @if (Session::has('cari'))
+                        <th scope="col" class="px-6 py-3">
+                            Tanggal
+                        </th>
+                      @endif
                       <th scope="col" class="px-6 py-3">
                           Nama Perangkat
                       </th>
@@ -198,6 +187,18 @@
               <tbody class=" font-roboto text-center dark:text-gray-200">
                   @foreach ($komputer as $data)
                       <tr>
+                        @if (Session::has('cari'))
+                        {{-- @php
+
+                            use Carbon\Carbon;
+
+                            $date = $data->date;
+                            $format = 
+                        @endphp --}}
+                          <td class="px-2 py-4">
+                            {{$data->date}}
+                          </td>
+                        @endif
                         <td class="px-6 py-4">
                           {{$data->computer_name}}
                         </td>

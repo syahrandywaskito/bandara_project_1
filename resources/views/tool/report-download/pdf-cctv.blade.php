@@ -32,7 +32,7 @@
 
     <div class="relative overflow-x-auto mt-8">
       <table class="w-full text-sm text-left">
-          <thead class="text-xs text-center text-gray-900 uppercase border-b-2 border-black">
+          <thead class="text-xs text-center text-gray-900 bg-gray-200 uppercase border-b-2 border-black">
               <tr>
                   <th scope="col" class="px-1 py-2 border-2">Nama Perangkat</th>
                   <th scope="col" class="px-1 py-2 border-2">Status Rekaman</th>

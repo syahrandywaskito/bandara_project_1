@@ -32,40 +32,39 @@
 
     <div class="relative overflow-x-auto mt-8">
       <table class="w-full text-sm text-left">
-          <thead class="text-xs text-center text-gray-900 uppercase border-b-2 border-black">
+          <thead class="text-xs text-center text-gray-900 bg-gray-200 uppercase border-b-2 border-black">
               <tr class="">
-                  <th scope="col" class="px-1 py-2">Nama Perangkat</th>
-                  <th scope="col" class="px-1 py-2">Kondisi Nyala/Mati</th>
-                  <th scope="col" class="px-1 py-2">Keterangan Nyala/Mati</th>
-                  <th scope="col" class="px-1 py-2">                              Aplikasi di Uninstall
-                  </th>
-                  <th scope="col" class="px-1 py-2">Keterangan Aplikasi di Uninstall</th>  
-                  <th scope="col" class="px-1 py-2">Status pembersihan file</th>  
-                  <th scope="col" class="px-1 py-2">Keterangan pembersihan file</th>  
+                  <th scope="col" class="px-1 py-2 border-2">Nama Perangkat</th>
+                  <th scope="col" class="px-1 py-2 border-2">Kondisi Nyala/Mati</th>
+                  <th scope="col" class="px-1 py-2 border-2">Keterangan Nyala/Mati</th>
+                  <th scope="col" class="px-1 py-2 border-2">Aplikasi di Uninstall</th>
+                  <th scope="col" class="px-1 py-2 border-2">Keterangan Aplikasi di Uninstall</th>  
+                  <th scope="col" class="px-1 py-2 border-2">Status pembersihan file</th>  
+                  <th scope="col" class="px-1 py-2 border-2">Keterangan pembersihan file</th>  
               </tr>
           </thead>
           <tbody class="text-center">
             @foreach ($komputer as $data)
             <tr class="">
-                <td scope="row" class="px-1 py-3">
+                <td scope="row" class="px-1 py-3 border-2">
                   {{$data->computer_name}}
                 </td>
-                <td scope="row" class="px-1 py-3">
+                <td scope="row" class="px-1 py-3 border-2">
                   {{$data->on_off_condition}}
                 </td>
-                <td scope="row" class="px-1 py-3">
+                <td scope="row" class="px-1 py-3 border-2">
                   {{$data->on_off_desc}}
                 </td>
-                <td scope="row" class="px-1 py-3">
+                <td scope="row" class="px-1 py-3 border-2">
                   {{$data->uninstalled_app}}
                 </td>
-                <td scope="row" class="px-1 py-3">
+                <td scope="row" class="px-1 py-3 border-2">
                   {{$data->uninstalled_app_desc}}
                 </td>
-                <td scope="row" class="px-1 py-3">
+                <td scope="row" class="px-1 py-3 border-2">
                   {{$data->clean_file_status}}
                 </td>
-                <td scope="row" class="px-1 py-3">
+                <td scope="row" class="px-1 py-3 border-2">
                   {{$data->clean_file_desc}}
                 </td>
             </tr>

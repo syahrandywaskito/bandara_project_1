@@ -113,7 +113,7 @@
                 </label>
                 <select id="on-off-condition" class="text-sm text-gray-900 bg-gray-50 border-2 border-gray-400 rounded-lg outline-none  focus:border-indigo-800 dark:border-gray-100 w-full p-3" required name="on_off_condition">
                   <option selected>Pilih Kondisi</option>
-                  <option value="menyala">nyala</option>
+                  <option value="menyala">menyala</option>
                   <option value="mati">mati</option>
                 </select>
               </div>

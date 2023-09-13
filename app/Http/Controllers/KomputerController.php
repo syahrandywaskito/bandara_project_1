@@ -8,33 +8,47 @@ use Carbon\Carbon;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 
 class KomputerController extends Controller
 {
     public function index(Request $request) : View
     {
-        $komputer = Komputer::all(['*']);
+        // $data = Komputer::all(['*']);
 
         $today = now()->format('Y-m-d');
 
+        $cari = $request->input('cari');
+
+        $namaKolom = $request->input('kolom');
+
         $selectedDate = $request->input('selected_date');
+
+        $date = Carbon::parse($selectedDate);
+
+        $formattedDate = $date->isoFormat('dddd, D MMMM Y');
 
         if (isset($selectedDate)) {
             
             $data = Komputer::whereDate('date', $selectedDate)->paginate(5);
+
+        }
+        elseif (isset($cari) && isset($namaKolom)){
+            
+            $data = Komputer::Where($namaKolom, 'like', "%$cari%")->latest()->paginate();
+
+            Session::flash('cari', 'Search was successful.');
+
+            return view('admin.report.komputer', ['komputer' => $data, 'date' => '']);
         }
         else {
 
             $data = Komputer::whereDate('date', $today)->paginate(5);
         }
 
-        $date = Carbon::parse($selectedDate);
-        $formattedDay = $date->format('l');
-        $formatteedDate = $date->format('d M Y');
-
-
-        return view('admin.report.komputer', ['komputer' => $data, 'day' => $formattedDay, 'date' => $formatteedDate]);
+        return view('admin.report.komputer', ['komputer' => $data, 'date' => $formattedDate]);
     }
 
     public function create() : View
@@ -122,8 +136,8 @@ class KomputerController extends Controller
     {
         $date = Carbon::parse($komputer->date);
 
-        $formattedDate = $date->format('d M Y');
-        $formattedDay = $date->format('l');
+        $formattedDate = $date->isoFormat('D MMMM Y');
+        $formattedDay = $date->isoFormat('dddd');
 
         return view('admin.report.komputer.show', ['komputer' => $komputer, 'day' => $formattedDay, 'date' => $formattedDate]);
     }

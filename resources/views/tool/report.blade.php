@@ -200,9 +200,9 @@
                   <a href="{{route('report.cctv.download')}}" target="_blank" class="hover:text-[#5e7c60] hover:border-b-2 border-[#5e7c60]">Simpan Tabel</a>
                 </p>
               </div>
-              <div class="relative overflow-x-auto rounded-md">
+              <div class="relative overflow-x-auto">
                 <table class="w-full text-sm text-center">
-                    <thead class="text-xs uppercase bg-[#f9f5f2]">
+                    <thead class="text-xs uppercase bg-[#5e7c60] text-[#f9f5f2] border border-[#5e7c60]">
                         <tr>
                             <th scope="col" class="px-6 py-3">
                                 Nama Perangkat
@@ -224,19 +224,19 @@
                     <tbody>
                       @foreach ($cctv as $data)
                         <tr class="bg-white">
-                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap border border-[#5e7c60]">
                                 {{$data->hardware_name}}
                             </th>
-                            <td class="px-6 py-4">
+                            <td class="px-6 py-4 border border-[#5e7c60]">
                                 {{$data->record_status}}
                             </td>
-                            <td class="px-6 py-4">
+                            <td class="px-6 py-4 border border-[#5e7c60]">
                                 {{$data->record_desc}}
                             </td>
-                            <td class="px-6 py-4">
+                            <td class="px-6 py-4 border border-[#5e7c60]">
                                 {{$data->clean_status}}
                             </td>
-                            <td class="px-6 py-4">
+                            <td class="px-6 py-4 border border-[#5e7c60]">
                                 {{$data->clean_desc}}
                             </td>
                         </tr>
@@ -270,9 +270,9 @@
                   <a href="{{route('report.komputer.download')}}" target="_blank" class="hover:text-[#5e7c60] hover:border-b-2 border-[#5e7c60]">Simpan Tabel</a>
                 </p>
               </div>
-              <div class="relative overflow-x-auto rounded-md">
+              <div class="relative overflow-x-auto">
                 <table class="w-full text-sm text-center">
-                    <thead class="text-xs uppercase bg-[#f9f5f2]">
+                    <thead class="text-xs uppercase bg-[#5e7c60] text-[#f9f5f2] border border-[#5e7c60]">
                         <tr>
                           <th scope="col" class="px-6 py-3">
                               Nama Perangkat
@@ -292,7 +292,7 @@
                           <th scope="col" class="px-6 py-3">
                               Status pembersihan file
                           </th>
-                          <th scope="col" class="px-6 py-3">
+                          <th scope="col" class="px-6 py-3 ">
                               Keterangan pembersihan file
                           </th>
                         </tr>
@@ -300,25 +300,25 @@
                     <tbody>
                       @foreach ($komputer as $data)
                         <tr class="bg-white">
-                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap border border-[#5e7c60]">
                               {{$data->computer_name}}
                             </th>
-                            <td class="px-6 py-4">
+                            <td class="px-6 py-4 border border-[#5e7c60]">
                               {{$data->on_off_condition}}
                             </td>
-                            <td class="px-6 py-4">
+                            <td class="px-6 py-4 border border-[#5e7c60]">
                               {{$data->on_off_desc}}
                             </td>
-                            <td class="px-6 py-4">
+                            <td class="px-6 py-4 border border-[#5e7c60]">
                               {{$data->uninstalled_app}}
                             </td>
-                            <td class="px-6 py-4">
+                            <td class="px-6 py-4 border border-[#5e7c60]">
                               {{$data->uninstalled_app_desc}}
                             </td>
-                            <td class="px-6 py-4">
+                            <td class="px-6 py-4 border border-[#5e7c60]">
                               {{$data->clean_file_status}}
                             </td>
-                            <td class="px-6 py-4">
+                            <td class="px-6 py-4 border border-[#5e7c60]">
                               {{$data->clean_file_desc}}
                             </td>
                         </tr>
@@ -352,9 +352,9 @@
                   <a href="{{route('report.fids.download')}}" target="_blank" class="hover:text-[#5e7c60] hover:border-b-2 border-[#5e7c60]">Simpan Tabel</a>
                 </p>
               </div>
-              <div class="relative overflow-x-auto rounded-md">
+              <div class="relative overflow-x-auto">
                 <table class="w-full text-sm text-center">
-                    <thead class="text-xs uppercase bg-[#f9f5f2]">
+                    <thead class="text-xs uppercase bg-[#5e7c60] text-[#f9f5f2] border border-[#5e7c60]">
                         <tr>
                             <th scope="col" class="px-6 py-3">
                                 Nama Perangkat
@@ -376,19 +376,19 @@
                     <tbody>
                       @foreach ($fids as $data)
                         <tr class="bg-white">
-                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap border border-[#5e7c60]">
                                 {{$data->monitor_name}}
                             </th>
-                            <td class="px-6 py-4">
+                            <td class="px-6 py-4 border border-[#5e7c60]">
                                 {{$data->monitor_view}}
                             </td>
-                            <td class="px-6 py-4">
+                            <td class="px-6 py-4 border border-[#5e7c60]">
                                 {{$data->view_desc}}
                             </td>
-                            <td class="px-6 py-4">
+                            <td class="px-6 py-4 border border-[#5e7c60]">
                                 {{$data->clean_condition}}
                             </td>
-                            <td class="px-6 py-4">
+                            <td class="px-6 py-4 border border-[#5e7c60]">
                                 {{$data->condition_desc}}
                             </td>
                         </tr>

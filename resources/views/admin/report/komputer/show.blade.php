@@ -94,9 +94,9 @@
               </p>
             </div>
             <div class="text-end">
-              <h3>Tanggal sebenarnya</h3>
+              <h3>Tanggal sekarang</h3>
               <p>
-                {{now()->format('l')}}, {{now()->format('d M Y')}}
+                {{now()->isoFormat('dddd')}}, {{now()->isoFormat('D MMMM Y')}}
               </p>
             </div>
           </div>
