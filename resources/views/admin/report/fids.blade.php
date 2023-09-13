@@ -89,38 +89,20 @@
                   </div>
                   {{-- Search --}}
                   <div>
-                    <form>
+                    <form action="{{route('fids.index')}}" method="GET">
                       <div class="flex">
-                          <label for="search-dropdown" class="mb-2 text-sm font-medium text-gray-900 sr-only">
-                            Search
-                          </label>
-                          <button id="dropdown-button" data-dropdown-toggle="dropdown-search" class="flex-shrink-0 z-10 inline-flex items-center py-3 px-4 text-sm font-medium font-montserrat text-center text-gray-900 bg-gray-200 border-2 border-gray-200 rounded-l-lg hover:bg-gray-100 focus:border-indigo-800 outline-none dark:border-gray-50 dark:bg-gray-50 dark:hover:bg-gray-200" type="button">
-                            All categories 
-                            <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
-                            </svg>
-                          </button>
-                          <div id="dropdown-search" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
-                              <ul class="py-2 text-sm text-gray-700 font-montserrat" aria-labelledby="dropdown-button">
-                                <li>
-                                    <button type="button" class="inline-flex w-full px-4 py-2 hover:translate-x-1 transition duration-200">Monitor Name</button>
-                                </li>
-                                <li>
-                                    <button type="button" class="inline-flex w-full px-4 py-2 hover:translate-x-1 transition duration-200">Monitor View</button>
-                                </li>
-                                <li>
-                                    <button type="button" class="inline-flex w-full px-4 py-2 hover:translate-x-1 transition duration-200">View Description</button>
-                                </li>
-                                <li>
-                                    <button type="button" class="inline-flex w-full px-4 py-2 hover:translate-x-1 transition duration-200">Clean Condition</button>
-                                </li>
-                                <li>
-                                    <button type="button" class="inline-flex w-full px-4 py-2 hover:translate-x-1 transition duration-200">Condition Description</button>
-                                </li>
-                              </ul>
-                          </div>
+
+                          <select id="kolom" class="block p-3.5 w-full z-20 text-sm text-gray-900 bg-gray-200 border-2 border-gray-200 rounded-l-lg outline-none  focus:border-indigo-800 dark:border-gray-50 dark:bg-gray-50 font-roboto" name="kolom">
+                            <option selected>Pilih Kolom</option>
+                            <option value="monitor_name">Nama Perangkat</option>
+                            <option value="monitor_view">Tampilan Monitor</option>
+                            <option value="view_desc">Keterangan Tampilan</option>
+                            <option value="clean_condition">Kondisi Kebersihan</option>
+                            <option value="condition_desc">Keterangan Kondisi</option>
+                          </select>
+
                           <div class="relative w-full font-montserrat">
-                              <input type="search" id="search-dropdown" class="block p-3.5 w-full z-20 text-sm text-gray-900 bg-gray-200 border-2 border-gray-200 rounded-r-lg outline-none  focus:border-indigo-800 dark:bg-gray-50 dark:border-gray-50" placeholder="search" required>
+                              <input type="text" name="cari" class="block p-3.5 w-full z-20 text-sm text-gray-900 bg-gray-200 border-2 border-gray-200 rounded-r-lg outline-none  focus:border-indigo-800 dark:border-gray-50 dark:bg-gray-50 font-roboto" placeholder="Cari" required>
   
                               <button type="submit" class="absolute top-0 right-0 p-3 text-sm font-medium h-full text-gray-50 bg-indigo-800 rounded-r-lg hover:bg-gray-100 hover:text-indigo-800 focus:z-10 focus:ring-2 focus:ring-indigo-800 focus:outline-none dark:bg-gray-50 dark:text-indigo-900 dark:hover:bg-indigo-900 dark:hover:text-gray-100 transition duration-200 dark:hover:ring-1 dark:hover:ring-indigo-900">
                                   <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
@@ -143,13 +125,25 @@
                               <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm.75-13a.75.75 0 00-1.5 0v5c0 .414.336.75.75.75h4a.75.75 0 000-1.5h-3.25V5z" clip-rule="evenodd" />
                             </svg>                                         
                           </div>
-                          <input type="date" id="date" name="selected_date" class="z-20 text-sm text-gray-900 bg-gray-200 border-2 border-gray-200 rounded-lg outline-none  focus:border-indigo-800 dark:bg-gray-50 dark:border-gray-50 block w-full pl-10 p-3" required>
+                          <input type="date" id="date" name="selected_date" class="z-20 text-sm text-gray-900 bg-gray-200 border-2 border-gray-200 rounded-lg outline-none  focus:border-indigo-800 dark:bg-gray-50 dark:border-gray-50 block w-full pl-10 p-3 font-roboto" required>
                       </div>
                       <button type="submit" class="p-4 ml-2 text-sm font-medium text-gray-50 bg-indigo-800 rounded-lg hover:bg-gray-100 hover:text-indigo-800 focus:z-10 focus:ring-2 focus:ring-indigo-800 focus:outline-none dark:bg-gray-100 dark:text-indigo-900 dark:hover:bg-indigo-900 dark:hover:text-gray-100 dark:hover:border-indigo-900 dark:border-gray-100 transition duration-200">
                           <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
                           </svg>
                           <span class="sr-only">Search</span>
+                      </button>
+                    </form>
+                  </div>
+                  {{-- show current data --}}
+                  <div>
+                    <form action="{{route('fids.index')}}" method="GET">
+                      <input type="text" name="all" class="hidden" readonly value="all">
+                      <button type="submit" class="p-3.5 text-base font-medium text-center inline-flex items-center text-gray-50 bg-indigo-800 rounded-lg hover:bg-gray-100 hover:text-indigo-800 focus:z-10 focus:ring-2 focus:ring-indigo-800 transition duration-200 dark:bg-gray-100 dark:text-indigo-800 dark:hover:bg-indigo-900 dark:hover:text-gray-100 dark:border-gray-100" title="tampilkan data sekarang">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                          <path fill-rule="evenodd" d="M3 3.5A1.5 1.5 0 014.5 2h6.879a1.5 1.5 0 011.06.44l4.122 4.12A1.5 1.5 0 0117 7.622V16.5a1.5 1.5 0 01-1.5 1.5h-11A1.5 1.5 0 013 16.5v-13zM13.25 9a.75.75 0 01.75.75v4.5a.75.75 0 01-1.5 0v-4.5a.75.75 0 01.75-.75zm-6.5 4a.75.75 0 01.75.75v.5a.75.75 0 01-1.5 0v-.5a.75.75 0 01.75-.75zm4-1.25a.75.75 0 00-1.5 0v2.5a.75.75 0 001.5 0v-2.5z" clip-rule="evenodd" />
+                        </svg>                                                               
+                        <span class=" sr-only">all</span>
                       </button>
                     </form>
                   </div>
@@ -163,11 +157,16 @@
               <caption class="p-5 text-lg font-semibold text-left text-gray-900 dark:text-gray-200 font-montserrat">
                 <span class="uppercase">Tabel pengecekan</span>
                   <p class=" font-normal mt-1 text-sm">
-                    {{$day}} ,{{$date}}
+                    {{$date}}
                   </p>
               </caption>
               <thead class="text-xs text-gray-100 uppercase bg-indigo-800 dark:bg-gray-100 dark:text-gray-900 text-center font-roboto">
                   <tr>
+                    @if (Session::has('cari'))
+                      <th scope="col" class="px-6 py-3">
+                          Tanggal
+                      </th>
+                    @endif
                       <th scope="col" class="px-6 py-3">
                           Nama perangkat 
                       </th>
@@ -191,6 +190,16 @@
               <tbody class=" font-roboto text-center dark:text-gray-200">
                   @foreach ($fids as $data)
                       <tr>
+                        @if (Session::has('cari'))
+                          @php
+                              $date = $data->date;
+                              $carbon = \Carbon\Carbon::parse($date);
+                              $formatted = $carbon->isoFormat('D MMMM Y');
+                          @endphp
+                          <td class="px-3 py-4">
+                            {{$formatted}}
+                          </td>
+                        @endif
                         <td class="px-6 py-4">
                           {{$data->monitor_name}}
                         </td>
@@ -246,10 +255,12 @@
     <div class="px-4 py-4 mx-auto max-w-screen-xl">
       <p class=" dark:text-gray-100 text-gray-700 font-roboto mb-3 sm:mb-0">
 
-        @if ($fids->total() >= 6)
-        
-        Halaman : {{$fids->currentPage()}}
-        
+        @if (!Session::has('cari'))
+          @if ($fids->total() >= 6)
+          
+            Halaman : {{$fids->currentPage()}}
+          
+          @endif
         @endif
       </p>
       {{ $fids->links() }}

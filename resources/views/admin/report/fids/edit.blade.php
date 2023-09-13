@@ -83,9 +83,9 @@
             Halaman ubah data
           </h1>
           <div class="lg:hidden font-montserrat pt-3 dark:text-gray-200">
-            <h3>Current Date</h3>
+            <h3>Tanggal sekarang</h3>
             <p>
-              {{now()->format('l')}}, {{now()->format('d M Y')}}
+              {{now()->isoFormat('dddd')}}, {{now()->isoFormat('D MMMM Y')}}
             </p>
           </div>
           <form class="font-montserrat lg:px-2 mt-6" action="{{route('fids.update', $fid->id)}}" method="POST">
@@ -95,7 +95,7 @@
             <div class="grid grid-cols-1 grid-flow-row-dense md:grid-cols-3 gap-4">
               <div class=" md:col-span-3">
                 <label for="hardware-name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-200">Monitor Name</label>
-                <input type="text" id="hardware-name" class="text-sm text-gray-900 bg-gray-50 border-2 border-gray-400 rounded-lg outline-none  focus:border-indigo-800 dark:border-gray-100 w-full p-3" required value="{{$fid->monitor_name}}" readonly name="monitor_name">
+                <input type="text" id="hardware-name" class="text-sm text-gray-900 bg-gray-50 border-2 border-gray-400 rounded-lg outline-none  focus:border-indigo-800 dark:border-gray-200 dark:bg-gray-200 w-full p-3" required value="{{$fid->monitor_name}}" readonly name="monitor_name">
               </div>
               <div class=" md:col-span-3 hidden">
                 <label for="hardware-name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-200">Diubah oleh</label>

@@ -8,34 +8,62 @@ use Carbon\Carbon;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 
 class CCTVController extends Controller
 {
     public function index(Request $request) : View
     {
-        $cctvs = CctvModel::all(['*']);
+        /**
+         * Semua variabel dari input yang dilakukan pada form di halaman index
+         */
 
         $today = now()->format('Y-m-d');
 
         $selectedDate = $request->input('selected_date');
 
+        $cari = $request->input('cari');
+
+        $namaKolom = $request->input('kolom');
+
+        $all = $request->input('all');
         
+        $date = Carbon::parse($selectedDate);
+
+        $formattedDate = $date->isoFormat('dddd, D MMMM Y');
+        
+        /**
+         * Kondisi untuk selected date dan search
+         */
+
         if (isset($selectedDate)) {
             
             $data = CctvModel::whereDate('date', $selectedDate)->paginate(5);
+        }
+        elseif (isset($cari) && isset($namaKolom)) {
+            
+            $data = DB::table('cctv_models')->where($namaKolom, 'like', "%$cari%")->latest()->paginate();
+
+            Session::flash('cari', 'search was successful');
+
+            return view('admin.report.cctv', ['cctvs' => $data, 'date' => '']);
+
+        }
+        elseif (isset($all)) {
+            
+            $data = CctvModel::whereDate('date', $today)->paginate(5);
+
+            Session::forget('cari');
         }
         else {
             
             $data = CctvModel::whereDate('date', $today)->paginate(5);
         }
-        
-        $date = Carbon::parse($selectedDate);
-        $formattedDate = $date->format('d M Y');
-        $formattedday = $date->format('l');
 
-        return view('admin.report.cctv', ['cctvs' => $data, 'date' => $formattedDate, 'day' => $formattedday]);
+        return view('admin.report.cctv', ['cctvs' => $data, 'date' => $formattedDate]);
     }
     
     /**
@@ -106,8 +134,8 @@ class CCTVController extends Controller
     {
         $date = Carbon::parse($cctv->date);
 
-        $formattedDate = $date->format('d M Y');
-        $formattedDay = $date->format('l');
+        $formattedDate = $date->isoFormat('D MMMM Y');
+        $formattedDay = $date->isoFormat('dddd');
 
         return view('admin.report.cctv.show', ['cctv' => $cctv, 'date' => $formattedDate, 'day' => $formattedDay]);
     }

@@ -9,33 +9,59 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class FIDSController extends Controller
 {
     public function index(Request $request) : View
     {
-
-        $fidss = fids::all(['*']);
+        /**
+         * variabel untuk menampung semua input dari cctv index
+         */
 
         $today = now()->format('Y-m-d');
-
+        
         $selectedDate = $request->input('selected_date');
 
+        $cari = $request->input('cari');
+        
+        $namaKolom = $request->input('kolom');
+        
+        $all = $request->input('all');
+        
+        $date = Carbon::parse($selectedDate);
+
+        $formattedDate = $date->isoFormat('dddd, D MMMM Y');
+
+        /**
+         * kondisi yang ditujukan untuk selected date dan search data
+         */
         
         if (isset($selectedDate)) {
             
             $data = fids::whereDate('date', $selectedDate)->paginate(5);
+        }
+        elseif (isset($cari) && isset($namaKolom)) {
+            
+            $data = fids::where($namaKolom, 'like', "%$cari%")->latest()->paginate();
+
+            Session::flash('cari', 'search was successful');
+
+            return view('admin.report.fids', ['fids' => $data, 'date' => '']);
+        }
+        elseif (isset($all)) {
+            
+            $data = fids::whereDate('date', $today)->paginate(5);
+
+            Session::forget('cari');
         }
         else {
             
             $data = fids::whereDate('date', $today)->paginate(5);
         }
         
-        $date = Carbon::parse($selectedDate);
-        $formattedDate = $date->format('d M Y');
-        $formattedday = $date->format('l');
 
-        return view('admin.report.fids', ['fids' => $data, 'date' => $formattedDate, 'day' => $formattedday]);
+        return view('admin.report.fids', ['fids' => $data, 'date' => $formattedDate]);
     }
 
     public function create() : View
@@ -87,8 +113,8 @@ class FIDSController extends Controller
         
         $date = Carbon::parse($fid->date);
 
-        $formattedDate = $date->format('d M Y');
-        $formattedDay = $date->format('l');
+        $formattedDate = $date->isoFormat('D MMMM Y');
+        $formattedDay = $date->isoFormat('dddd');
 
         return view('admin.report.fids.show', ['fid' => $fid, 'date' => $formattedDate, 'day' => $formattedDay]);
     }

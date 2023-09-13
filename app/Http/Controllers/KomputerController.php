@@ -16,7 +16,10 @@ class KomputerController extends Controller
 {
     public function index(Request $request) : View
     {
-        // $data = Komputer::all(['*']);
+
+        /**
+         * Semua variabel dari input yang dilakukan pada form di halaman index
+         */
 
         $today = now()->format('Y-m-d');
 
@@ -24,11 +27,17 @@ class KomputerController extends Controller
 
         $namaKolom = $request->input('kolom');
 
+        $all = $request->input('all');
+
         $selectedDate = $request->input('selected_date');
 
         $date = Carbon::parse($selectedDate);
 
         $formattedDate = $date->isoFormat('dddd, D MMMM Y');
+
+        /**
+         * Kondisi untuk selected date dan search
+         */
 
         if (isset($selectedDate)) {
             
@@ -42,6 +51,12 @@ class KomputerController extends Controller
             Session::flash('cari', 'Search was successful.');
 
             return view('admin.report.komputer', ['komputer' => $data, 'date' => '']);
+        }
+        elseif (isset($all)) {
+
+            $data = Komputer::whereDate('date', $today)->paginate(5);
+
+            Session::forget('cari');   
         }
         else {
 

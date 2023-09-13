@@ -81,13 +81,14 @@
               <div class="pt-3 lg:flex items-center flex-row space-y-7 lg:space-x-4 lg:space-y-0">
                   {{-- add data --}}
                   <div>
-                    <a href="{{route('komputer.create')}}" class="px-5 py-3.5 text-base font-medium text-center inline-flex items-center text-gray-50 bg-indigo-800 rounded-lg hover:bg-gray-100 hover:text-green-700 focus:z-10 focus:ring-2 focus:ring-indigo-800 transition duration-200 dark:bg-gray-100 dark:text-green-700 dark:hover:bg-indigo-900 dark:hover:text-gray-100 dark:border-gray-100">
+                    <a href="{{route('komputer.create')}}" class="px-5 py-3.5 text-base font-medium text-center inline-flex items-center text-gray-50 bg-indigo-800 rounded-lg hover:bg-gray-100 hover:text-green-700 focus:z-10 focus:ring-2 focus:ring-indigo-800 transition duration-200 dark:bg-gray-100 dark:text-green-700 dark:hover:bg-indigo-900 dark:hover:text-gray-100 dark:border-gray-100" title="Tambah data baru">
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 mr-2 h-5">
                         <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm.75-11.25a.75.75 0 00-1.5 0v2.5h-2.5a.75.75 0 000 1.5h2.5v2.5a.75.75 0 001.5 0v-2.5h2.5a.75.75 0 000-1.5h-2.5v-2.5z" clip-rule="evenodd" />
                       </svg>                                          
                       Tambah 
                     </a>
                   </div>
+                  
                   {{-- Search --}}
                   <div>
                     <form action="{{route('komputer.index')}}" method="GET">
@@ -107,7 +108,7 @@
                           <div class="relative w-full font-montserrat">
                               <input type="text" class="block p-3.5 w-full z-20 text-sm text-gray-900 bg-gray-200 border-2 border-gray-200 rounded-r-lg outline-none  focus:border-indigo-800 dark:border-gray-50 dark:bg-gray-50" placeholder="Cari" name="cari" required>
   
-                              <button type="submit" class="absolute top-0 right-0 p-3 text-sm font-medium h-full text-gray-50 bg-indigo-800 rounded-r-lg hover:bg-gray-100 hover:text-indigo-800 focus:z-10 focus:ring-2 focus:ring-indigo-800 focus:outline-none dark:bg-gray-50 dark:text-indigo-900 dark:hover:bg-indigo-900 dark:hover:text-gray-100 transition duration-200 dark:hover:ring-1 dark:hover:ring-indigo-900">
+                              <button type="submit" class="absolute top-0 right-0 p-3 text-sm font-medium h-full text-gray-50 bg-indigo-800 rounded-r-lg hover:bg-gray-100 hover:text-indigo-800 focus:z-10 focus:ring-2 focus:ring-indigo-800 focus:outline-none dark:bg-gray-50 dark:text-indigo-900 dark:hover:bg-indigo-900 dark:hover:text-gray-100 transition duration-200 dark:hover:ring-1 dark:hover:ring-indigo-900" title="Cari data">
                                   <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                                       <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
                                   </svg>
@@ -117,6 +118,8 @@
                       </div>
                     </form>
                   </div>
+
+                  
                   {{-- Select date --}}
                   <div class=" flex-initial w-60">
                     <form class="flex items-center" method="get" action="{{route('komputer.index')}}"> 
@@ -129,26 +132,39 @@
                             </svg>                                         
                           </div>
                           <input type="date" id="date" name="selected_date" class="font-roboto z-20 text-sm text-gray-900 bg-gray-200 border-2 border-gray-200 rounded-lg outline-none  focus:border-indigo-800 dark:bg-gray-50 dark:border-gray-50 block w-full pl-10 p-3" required>
-                      </div>
-                      <button type="submit" class="p-4 ml-2 text-sm font-medium text-gray-50 bg-indigo-800 rounded-lg hover:bg-gray-100 hover:text-indigo-800 focus:z-10 focus:ring-2 focus:ring-indigo-800 focus:outline-none dark:bg-gray-100 dark:text-indigo-900 dark:hover:bg-indigo-900 dark:hover:text-gray-100 dark:hover:border-indigo-900 dark:border-gray-100 transition duration-200">
+                        </div>
+                        <button type="submit" class="p-4 ml-2 text-sm font-medium text-gray-50 bg-indigo-800 rounded-lg hover:bg-gray-100 hover:text-indigo-800 focus:z-10 focus:ring-2 focus:ring-indigo-800 focus:outline-none dark:bg-gray-100 dark:text-indigo-900 dark:hover:bg-indigo-900 dark:hover:text-gray-100 dark:hover:border-indigo-900 dark:border-gray-100 transition duration-200" title="Cari sesuai tanggal">
                           <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
                           </svg>
                           <span class="sr-only">Search</span>
+                        </button>
+                    </form>
+                  </div>
+
+                  {{-- show all data or current data --}}
+                  <div>
+                    <form action="{{route('komputer.index')}}" method="GET">
+                      <input type="text" name="all" class="hidden" readonly value="all">
+                      <button type="submit" class="p-3.5 text-base font-medium text-center inline-flex items-center text-gray-50 bg-indigo-800 rounded-lg hover:bg-gray-100 hover:text-indigo-800 focus:z-10 focus:ring-2 focus:ring-indigo-800 transition duration-200 dark:bg-gray-100 dark:text-indigo-800 dark:hover:bg-indigo-900 dark:hover:text-gray-100 dark:border-gray-100" title="tampilkan data sekarang">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                          <path fill-rule="evenodd" d="M3 3.5A1.5 1.5 0 014.5 2h6.879a1.5 1.5 0 011.06.44l4.122 4.12A1.5 1.5 0 0117 7.622V16.5a1.5 1.5 0 01-1.5 1.5h-11A1.5 1.5 0 013 16.5v-13zM13.25 9a.75.75 0 01.75.75v4.5a.75.75 0 01-1.5 0v-4.5a.75.75 0 01.75-.75zm-6.5 4a.75.75 0 01.75.75v.5a.75.75 0 01-1.5 0v-.5a.75.75 0 01.75-.75zm4-1.25a.75.75 0 00-1.5 0v2.5a.75.75 0 001.5 0v-2.5z" clip-rule="evenodd" />
+                        </svg>                                                               
+                        <span class=" sr-only">all</span>
                       </button>
                     </form>
                   </div>
-              </div>
 
+                </div>
+            </div>
           </div>
-      </div>
-      <div class="px-4 py-4 mx-auto max-w-screen-xl">
-        <div class="relative overflow-x-auto shadow-lg bg-gray-50 dark:bg-indigo-950 sm:rounded-lg p-4">
-          <table class="w-full text-sm text-left">
-              <caption class="p-5 text-lg font-semibold text-left text-gray-900 dark:text-gray-200 font-montserrat">
-                <span class="uppercase">Tabel pengecekan</span>
+          <div class="px-4 py-4 mx-auto max-w-screen-xl">
+            <div class="relative overflow-x-auto shadow-lg bg-gray-50 dark:bg-indigo-950 sm:rounded-lg p-4">
+              <table class="w-full text-sm text-left">
+                <caption class="p-5 text-lg font-semibold text-left text-gray-900 dark:text-gray-200 font-montserrat">
+                  <span class="uppercase">Tabel pengecekan</span>
                   <p class=" font-normal mt-1 text-sm">
-                     {{ $date }}
+                    {{ $date }}
                   </p>
               </caption>
               <thead class="text-xs text-gray-100  uppercase bg-indigo-800 dark:bg-gray-100 dark:text-gray-900 text-center font-roboto">
@@ -188,16 +204,18 @@
                   @foreach ($komputer as $data)
                       <tr>
                         @if (Session::has('cari'))
-                        {{-- @php
+                          @php
 
-                            use Carbon\Carbon;
+                              $date = $data->date;
+                              $carbon = \Carbon\Carbon::parse($date);
+                              $formatted = $carbon->isoFormat('D MMMM Y'); 
 
-                            $date = $data->date;
-                            $format = 
-                        @endphp --}}
+                          @endphp
+
                           <td class="px-2 py-4">
-                            {{$data->date}}
+                            {{$formatted}}
                           </td>
+
                         @endif
                         <td class="px-6 py-4">
                           {{$data->computer_name}}
@@ -205,7 +223,7 @@
                         <td class="px-6 py-4">
                           {{$data->on_off_condition}}
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-1 py-4">
                           {{$data->on_off_desc}}
                         </td>
                         <td class="px-6 py-4">
@@ -260,9 +278,13 @@
       <div class="px-4 py-4 mx-auto max-w-screen-xl">
         <p class=" dark:text-gray-100 text-gray-700 font-roboto mb-3 sm:mb-0">
   
-          @if ($komputer->total() >= 6)
-          
-          Halaman : {{$komputer->currentPage()}}
+          @if (!Session::has('cari'))
+              
+            @if ($komputer->total() >= 6)
+            
+            Halaman : {{$komputer->currentPage()}}
+                
+            @endif
           
           @endif
         </p>
