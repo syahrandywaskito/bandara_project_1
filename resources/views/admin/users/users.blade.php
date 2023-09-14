@@ -47,7 +47,7 @@
 
   {{-- content --}}
   <div class="py-7 mt-6 sm:mt-4 px-5 sm:ml-64"> 
-    <section class="bg-white dark:bg-slate-900">
+    <div class="bg-white dark:bg-slate-900">
       <div class="pt-10 pb-6 px-4 mx-auto max-w-screen-xl lg:pt-16 lg:pb-0">
           <div class="bg-gray-50 border border-gray-100 dark:bg-indigo-950 dark:border-0 rounded-lg shadow-lg p-8 md:p-12 mb-8">
               <!-- Breadcrumb -->
@@ -80,39 +80,20 @@
 
               {{-- Menu opsi --}}
               <div class="pt-3 lg:flex items-center flex-row space-y-7 lg:space-x-4 lg:space-y-0">
+                {{-- Search --}}
                 <div>
-                  <form>
+                  <form action="{{route('users.index')}}" method="GET">
                     <div class="flex">
-                        <label for="search-dropdown" class="mb-2 text-sm font-medium text-gray-900 sr-only">
-                          Your Email
-                        </label>
-                        <button id="dropdown-button" data-dropdown-toggle="dropdown-search" class="flex-shrink-0 z-10 inline-flex items-center py-3 px-4 text-sm font-medium font-montserrat text-center text-gray-900 bg-gray-100 border-2 border-gray-400 rounded-l-lg hover:bg-gray-200 focus:border-indigo-800 outline-none dark:border-gray-100" type="button">
-                          All categories 
-                          <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
-                          </svg>
-                        </button>
-                        <div id="dropdown-search" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
-                            <ul class="py-2 text-sm text-gray-700 font-montserrat" aria-labelledby="dropdown-button">
-                              <li>
-                                  <button type="button" class="inline-flex w-full px-4 py-2 hover:translate-x-1 transition duration-200">Hardware Name</button>
-                              </li>
-                              <li>
-                                  <button type="button" class="inline-flex w-full px-4 py-2 hover:translate-x-1 transition duration-200">Record Status</button>
-                              </li>
-                              <li>
-                                  <button type="button" class="inline-flex w-full px-4 py-2 hover:translate-x-1 transition duration-200">Record Description</button>
-                              </li>
-                              <li>
-                                  <button type="button" class="inline-flex w-full px-4 py-2 hover:translate-x-1 transition duration-200">Clean Status</button>
-                              </li>
-                              <li>
-                                  <button type="button" class="inline-flex w-full px-4 py-2 hover:translate-x-1 transition duration-200">Clean Description</button>
-                              </li>
-                            </ul>
-                        </div>
+
+                        <select id="kolom" class="block p-3.5 w-full z-20 text-sm text-gray-900 bg-gray-200 border-2 border-gray-200 rounded-l-lg outline-none  focus:border-indigo-800 dark:border-gray-50 dark:bg-gray-50 font-roboto" name="kolom">
+                          <option selected>Pilih Kolom</option>
+                          <option value="name">Nama Lengkap</option>
+                          <option value="email">Email</option>
+                          <option value="position">Jabatan</option>
+                        </select>
+
                         <div class="relative w-full font-montserrat">
-                            <input type="search" id="search-dropdown" class="block p-3.5 w-full z-20 text-sm text-gray-900 bg-gray-50 border-2 border-gray-400 rounded-r-lg outline-none  focus:border-indigo-800 dark:border-gray-100" placeholder="search" required>
+                            <input type="text" name="cari" class="block p-3.5 w-full z-20 text-sm text-gray-900 bg-gray-200 border-2 border-gray-200 rounded-r-lg outline-none  focus:border-indigo-800 dark:border-gray-50 dark:bg-gray-50 font-roboto" placeholder="Cari" required>
 
                             <button type="submit" class="absolute top-0 right-0 p-3 text-sm font-medium h-full text-gray-50 bg-indigo-800 rounded-r-lg hover:bg-gray-100 hover:text-indigo-800 focus:z-10 focus:ring-2 focus:ring-indigo-800 focus:outline-none dark:bg-gray-50 dark:text-indigo-900 dark:hover:bg-indigo-900 dark:hover:text-gray-100 transition duration-200 dark:hover:ring-1 dark:hover:ring-indigo-900">
                                 <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
@@ -122,6 +103,19 @@
                             </button>
                         </div>
                     </div>
+                  </form>
+                </div>
+
+                 {{-- show current data --}}
+                <div>
+                  <form action="{{route('users.index')}}" method="GET">
+                    <input type="text" name="all" class="hidden" readonly value="all">
+                    <button type="submit" class="p-3.5 text-base font-medium text-center inline-flex items-center text-gray-50 bg-indigo-800 rounded-lg hover:bg-gray-100 hover:text-indigo-800 focus:z-10 focus:ring-2 focus:ring-indigo-800 transition duration-200 dark:bg-gray-100 dark:text-indigo-800 dark:hover:bg-indigo-900 dark:hover:text-gray-100 dark:border-gray-100" title="tampilkan data sekarang">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                        <path fill-rule="evenodd" d="M3 3.5A1.5 1.5 0 014.5 2h6.879a1.5 1.5 0 011.06.44l4.122 4.12A1.5 1.5 0 0117 7.622V16.5a1.5 1.5 0 01-1.5 1.5h-11A1.5 1.5 0 013 16.5v-13zM13.25 9a.75.75 0 01.75.75v4.5a.75.75 0 01-1.5 0v-4.5a.75.75 0 01.75-.75zm-6.5 4a.75.75 0 01.75.75v.5a.75.75 0 01-1.5 0v-.5a.75.75 0 01.75-.75zm4-1.25a.75.75 0 00-1.5 0v2.5a.75.75 0 001.5 0v-2.5z" clip-rule="evenodd" />
+                      </svg>                                                               
+                      <span class=" sr-only">all</span>
+                    </button>
                   </form>
                 </div>
               </div>
@@ -134,8 +128,7 @@
               <caption class="p-5 text-lg font-semibold text-left text-gray-900 dark:text-gray-200 font-montserrat">
                 <span class="uppercase">Tabel Data</span>
                   <p class=" font-normal mt-1 text-sm">
-                    {{now()->format('l')}}, 
-                    {{now()->format('d M Y')}}
+                    {{now()->isoFormat('dddd, D MMMM Y')}}
                   </p>
               </caption>
               <thead class="text-xs text-gray-100 uppercase bg-indigo-800 dark:bg-gray-100 dark:text-gray-900 text-center font-roboto">
@@ -193,7 +186,7 @@
           </table>
         </div>
       </div>
-    </section>
+    </div>
   </div>
 
     {{-- success notif --}}

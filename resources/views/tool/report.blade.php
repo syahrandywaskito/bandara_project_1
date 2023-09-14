@@ -193,8 +193,7 @@
                   Tabel Laporan
                 </p>
                 <p>
-                  {{now()->format('l')}}, 
-                  {{now()->format('d M Y')}}
+                  {{now()->isoFormat('dddd, D MMMM Y')}}
                 </p>
                 <p>
                   <a href="{{route('report.cctv.download')}}" target="_blank" class="hover:text-[#5e7c60] hover:border-b-2 border-[#5e7c60]">Simpan Tabel</a>
@@ -263,8 +262,7 @@
                   Tabel Laporan
                 </p>
                 <p>
-                  {{now()->format('l')}}, 
-                  {{now()->format('d M Y')}}
+                  {{now()->isoFormat('dddd, D MMMM Y')}}
                 </p>
                 <p>
                   <a href="{{route('report.komputer.download')}}" target="_blank" class="hover:text-[#5e7c60] hover:border-b-2 border-[#5e7c60]">Simpan Tabel</a>
@@ -345,8 +343,7 @@
                   Tabel Laporan
                 </p>
                 <p>
-                  {{now()->format('l')}}, 
-                  {{now()->format('d M Y')}}
+                  {{now()->isoFormat('dddd, D MMMM Y')}}}
                 </p>
                 <p>
                   <a href="{{route('report.fids.download')}}" target="_blank" class="hover:text-[#5e7c60] hover:border-b-2 border-[#5e7c60]">Simpan Tabel</a>

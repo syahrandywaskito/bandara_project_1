@@ -41,7 +41,7 @@ class CCTVController extends Controller
 
         if (isset($selectedDate)) {
             
-            $data = CctvModel::whereDate('date', $selectedDate)->paginate(5);
+            $data = CctvModel::whereDate('date', $selectedDate)->paginate();
         }
         elseif (isset($cari) && isset($namaKolom)) {
             
@@ -158,7 +158,7 @@ class CCTVController extends Controller
      *
      */
 
-    public function update(Request $request, $id) : RedirectResponse
+    public function update(Request $request, CctvModel $cctv) : RedirectResponse
     {
 
         $request->validate([
@@ -170,11 +170,13 @@ class CCTVController extends Controller
             'updated_by',
         ]);
 
-        $cctv = CctvModel::findOrFail($id);
+        $cctv = CctvModel::findOrFail($cctv->id);
         
         $cctv->update($request->all(['hardware_name', 'record_status', 'record_desc', 'clean_status', 'clean_desc', 'updated_by']));
 
-        return redirect()->route('cctv.index')->with('success', 'Anda berhasil merubah data');
+        $name = $cctv->hardware_name;
+
+        return redirect()->route('cctv.index')->with('success', "Berhasil merubah data $name");
     }
 
     /**
@@ -185,9 +187,10 @@ class CCTVController extends Controller
 
     public function destroy(CctvModel $cctv) : RedirectResponse
     {
+        $name = $cctv->hardware_name;
 
         $cctv->delete();
 
-        return redirect()->route('cctv.index')->withSuccess('Anda berhasil menghapus data');
+        return redirect()->route('cctv.index')->with('success',"Berhasil menghapus data $name");
     }
 }

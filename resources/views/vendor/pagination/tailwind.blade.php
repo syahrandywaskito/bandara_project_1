@@ -25,6 +25,7 @@
         <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between font-roboto">
             <div>
                 <p class="text-sm text-gray-700 dark:text-gray-100 leading-5">
+                    Halaman : {{ $paginator->currentPage() }} <br>
                     {!! __('Showing') !!}
                     @if ($paginator->firstItem())
                         <span class="font-medium">{{ $paginator->firstItem() }}</span>

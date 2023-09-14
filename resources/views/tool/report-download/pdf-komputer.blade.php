@@ -26,7 +26,7 @@
     <div class="text-center">
       <h1 class="font-semibold uppercase text-sm">
         Tabel Pengecekan Komputer <br>
-       {{now()->format('d M Y')}}
+       {{now()->isoFormat('dddd, D MMMM Y')}}
       </h1>
     </div>
 

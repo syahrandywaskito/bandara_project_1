@@ -41,7 +41,7 @@ class KomputerController extends Controller
 
         if (isset($selectedDate)) {
             
-            $data = Komputer::whereDate('date', $selectedDate)->paginate(5);
+            $data = Komputer::whereDate('date', $selectedDate)->paginate();
 
         }
         elseif (isset($cari) && isset($namaKolom)){
@@ -117,7 +117,7 @@ class KomputerController extends Controller
         return view('admin.report.komputer.edit', compact('komputer'));
     }
 
-    public function update(Request $request, $id) : RedirectResponse
+    public function update(Request $request, Komputer $komputer) : RedirectResponse
     {   
 
         $request->validate([
@@ -131,7 +131,7 @@ class KomputerController extends Controller
             'updated_by',
         ]);
 
-        $komputer = Komputer::findOrFail($id);
+        $komputer = Komputer::findOrFail($komputer->id);
 
         $komputer->update($request->all([
             'computer_name',
@@ -144,7 +144,9 @@ class KomputerController extends Controller
             'updated_by',
         ]));
 
-        return redirect()->route('komputer.index')->with('success', 'Anda berhasil merubah data');
+        $name = $komputer->computer_name;
+
+        return redirect()->route('komputer.index')->with('success', "Berhasil merubah data $name");
     }
 
     public function show(Komputer $komputer) : View
@@ -159,9 +161,11 @@ class KomputerController extends Controller
 
     public function destroy(Komputer $komputer) : RedirectResponse
     {
+        $name = $komputer->computer_name;
+
         $komputer->delete();
 
-        return redirect()->route('komputer.index')->with('success', 'Anda berhasil menghapus data');
+        return redirect()->route('komputer.index')->with('success', "Berhasil menghapus data $name");
     }
 
 }

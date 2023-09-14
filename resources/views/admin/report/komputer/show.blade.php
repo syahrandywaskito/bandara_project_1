@@ -151,7 +151,7 @@
                 <div class="font-montserrat mt-6 lg:px-2">
                   <p class="text-sm uppercase font-semibold">Ditambahkan pada</p>
                   <p class="pt-2">
-                    {{ $komputer->created_at->format('d M Y | H:m:s')}}
+                    {{ $komputer->created_at->isoFormat('D MMMM Y | H:m:s')}}
                   </p>
                 </div>
               </div>
@@ -159,7 +159,7 @@
                 <div class="font-montserrat mt-6 lg:px-2">
                   <p class="text-sm uppercase font-semibold">Diubah pada</p>
                   <p class="pt-2">
-                    {{ $komputer->updated_at->format('d M Y | H:m:s')}}
+                    {{ $komputer->updated_at->isoFormat('D MMMM Y | H:m:s')}}
                   </p>
                 </div>
               </div>

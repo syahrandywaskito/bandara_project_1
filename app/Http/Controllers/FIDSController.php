@@ -39,7 +39,7 @@ class FIDSController extends Controller
         
         if (isset($selectedDate)) {
             
-            $data = fids::whereDate('date', $selectedDate)->paginate(5);
+            $data = fids::whereDate('date', $selectedDate)->paginate();
         }
         elseif (isset($cari) && isset($namaKolom)) {
             
@@ -125,7 +125,7 @@ class FIDSController extends Controller
         return view('admin.report.fids.edit', compact('fid'));
     }
 
-    public function update(Request $request, $id) : RedirectResponse
+    public function update(Request $request, fids $fid) : RedirectResponse
     {
 
         $request->validate([
@@ -137,19 +137,23 @@ class FIDSController extends Controller
             'updated_by',
         ]);
 
-        $fids = fids::findOrFail($id);
+        $fids = fids::findOrFail($fid->id);
 
         $fids->update($request->all(['monitor_name', 'monitor_view', 'view_desc', 'clean_condition', 'condition_desc', 'updated_by']));
 
-        return redirect()->route('fids.index')->with('success', 'Anda berhasil merubah data');
+        $name = $fids->monitor_name;
+
+        return redirect()->route('fids.index')->with('success', "Berhasil merubah data $name");
     }
 
-    public function destroy($id)
+    public function destroy(fids $fid)
     {
-        $fids = fids::findOrFail($id);
+        $fids = fids::findOrFail($fid->id);
+
+        $name = $fid->monitor_name;
 
         $fids->delete();
 
-        return redirect()->back()->with('success', 'Anda berhasil menghapus data');
+        return redirect()->back()->with('success', "Berhasil menghapus data $name");
     }
 }
