@@ -27,7 +27,7 @@
           </button>
           <a href="{{route('dashboard')}}" class="flex ml-2 md:mr-24">
             <img src="{{asset('img/logo.png')}}" class="h-8 mr-3" alt="FlowBite Logo" />
-            <span class="self-center text-lg uppercase font-roboto font-semibold hidden sm:block sm:text-xl text-gray-100 whitespace-nowrap">Dashboard</span>
+            <span class="self-center uppercase font-roboto font-semibold hidden sm:block sm:text-base md:text-lg lg:text-xl text-gray-100 whitespace-nowrap">Dashboard</span>
           </a>
         </div>
         
@@ -48,40 +48,40 @@
 
   <div class="py-7 md:px-5 lg:ml-64">
     <section class="bg-white dark:bg-slate-900">
-      <div class="py-7 px-4 mx-auto max-w-screen-xl lg:pt-16 lg:pb-0">
-          <div class="bg-gray-50 border border-gray-100 dark:border-0 dark:bg-indigo-950 rounded-lg shadow-lg p-8 md:p-12 lg:mb-8">
-              <h1 class="text-gray-900 dark:text-gray-200 text-3xl md:text-4xl font-roboto font-bold mb-4">
+      <div class="pt-16 pb-5 px-4 mx-auto max-w-screen-xl">
+          <div class="bg-gray-50 border border-gray-100 dark:border-0 dark:bg-indigo-950 rounded-lg shadow-lg px-5 py-8 sm:px-8  md:p-12 lg:mb-8">
+              <h1 class="text-gray-900 dark:text-gray-200 text-base text-center uppercase md:text-lg xl:text-2xl font-roboto font-bold mb-4">
                 Selamat Datang di Admin Page
               </h1>
-              <p class="text-lg font-normal font-montserrat text-gray-500 dark:text-gray-200 mb-3">
+              <p class="text-sm lg:text-base xl:text-lg text-center font-normal font-montserrat text-gray-500 dark:text-gray-200 mb-3">
                 <strong>Admin Page</strong> atau <strong>Halaman Admin</strong> adalah halaman yang berfungsi agar admin dapat menambahkan, menghapus, dan mengedit data-data yang ditampilkan pada halaman non-admin atau yang biasa disebut <em>Guest User</em>. Jika anda sudah masuk ke halaman Dashboard Admin maka anda sudah mendaftar dan mendapat izin dari pihak yang mengelola website ini.
               </p>
           </div>
       </div>
       <div class="px-4 mx-auto max-w-screen-xl">
-            <div class="bg-gray-50 border border-gray-100 dark:border-0 dark:bg-indigo-950 rounded-lg shadow-lg p-8 md:p-12">
-                <h2 class="text-gray-900 dark:text-gray-200 text-3xl font-roboto font-bold mb-2">
+            <div class="bg-gray-50 border border-gray-100 dark:border-0 dark:bg-indigo-950 rounded-lg shadow-lg px-5 py-8 sm:px-8 md:p-12">
+                <h2 class="text-gray-900 dark:text-gray-200 text-base uppercase md:text-lg xl:text-2xl font-roboto font-bold mb-6">
                   Panduan dalam menggunakan Admin Page
                 </h2>
-                <p class="text-lg font-normal text-gray-500 dark:text-gray-200 mb-4">
+                <p class="text-sm lg:text-base xl:text-lg font-normal text-gray-500 dark:text-gray-200 mb-4">
                   Selamat datang di <strong>Admin Page</strong>. Panduan ini akan membantu Anda memahami langkah-langkah yang diperlukan untuk menginput data laporan dengan benar dan efisien.
                 </p>
-                <h3 class="text-lg font-normal text-gray-500 dark:text-gray-200 mb-4"><strong>Input data baru</strong></h3>
-                <ol class="text-lg font-normal text-gray-500 dark:text-gray-200 mb-4 list-decimal ml-4">
+                <h3 class="text-sm lg:text-base xl:text-lg font-normal text-gray-500 dark:text-gray-200 mb-4"><strong>Input data baru</strong></h3>
+                <ol class="text-sm lg:text-base xl:text-lg font-normal text-gray-500 dark:text-gray-200 mb-4 list-decimal ml-4">
                   <li>Pilih menu untuk menginput data</li>
                   <li>Tekan tombol Add untuk menambahkan data baru</li>
                   <li>Masukkan data sesuai dengan format yang sudah tersedia</li>
                   <li>Setelah selesai, tekan tombol submit</li>
                   <li>Jika ingin mengulang input, tekan tombol reset</li>
                 </ol>
-                <h3 class="text-lg font-normal text-gray-500 dark:text-gray-200 mb-4"><strong>Edit data yang sudah ada</strong></h3>
-                <ol class="text-lg font-normal text-gray-500 mb-4 dark:text-gray-200 list-decimal ml-4">
+                <h3 class="text-sm lg:text-base xl:text-lg font-normal text-gray-500 dark:text-gray-200 mb-4"><strong>Edit data yang sudah ada</strong></h3>
+                <ol class="text-sm lg:text-base xl:text-lg font-normal text-gray-500 mb-4 dark:text-gray-200 list-decimal ml-4">
                   <li>Tekan tombol Edit sesuai dengan data yang ingin diedit</li>
                   <li>Ganti data yang sudah ada dengan data yang baru</li>
                   <li>Setelah selesai, tekan tombol Submit</li>
                 </ol>
-                <h3 class="text-lg font-normal text-gray-500 dark:text-gray-200 mb-4"><strong>Hapus data</strong></h3>
-                <ol class="text-lg font-normal text-gray-500 dark:text-gray-200 mb-4 list-decimal ml-4">
+                <h3 class="text-sm lg:text-base xl:text-lg font-normal text-gray-500 dark:text-gray-200 mb-4"><strong>Hapus data</strong></h3>
+                <ol class="text-sm lg:text-base xl:text-lg font-normal text-gray-500 dark:text-gray-200 mb-4 list-decimal ml-4">
                   <li>Tekan tombol Delete sesuai dengan data yang ingin di delete</li>
                   <li>Untuk memastikan apakah data benar-benar akan dihapus, tekan Yes untuk mengkonfirmasi</li>
                 </ol>

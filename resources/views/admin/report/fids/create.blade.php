@@ -13,14 +13,14 @@
    {{-- tailwind css using vite --}}
    @vite(['resources/css/app.css','resources/js/app.js'])
 </head>
-<body class="dark:bg-slate-900">
+<body class="dark:bg-slate-900 bg-white">
   
   {{-- sidebar & navbar --}}
   <nav class="fixed top-0 z-50 w-full bg-indigo-800 border-b-4 border-indigo-900 dark:bg-indigo-950 dark:border-slate-900">
     <div class="px-3 py-3 lg:px-5 lg:pl-3">
       <div class="flex items-center justify-between">
         <div class="flex items-center justify-start">
-          <button data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar" aria-controls="logo-sidebar" type="button" class="inline-flex items-center p-2 text-sm text-gray-100 rounded-lg sm:hidden hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200">
+          <button data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar" aria-controls="logo-sidebar" type="button" class="inline-flex items-center p-2 text-sm text-gray-100 rounded-lg lg:hidden hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200">
               <span class="sr-only">Open sidebar</span>
               <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                 <path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
@@ -28,7 +28,7 @@
           </button>
           <a href="{{route('dashboard')}}" class="flex ml-2 md:mr-24">
             <img src="{{asset('img/logo.png')}}" class="h-8 mr-3" alt="FlowBite Logo" />
-            <span class="self-center text-lg font-roboto font-semibold uppercase sm:text-xl text-gray-100 whitespace-nowrap">FIDS - Tambah Data</span>
+            <span class="self-center font-roboto font-semibold hidden sm:block sm:text-base md:text-lg lg:text-xl text-gray-100 whitespace-nowrap">FIDS - Tambah Data</span>
           </a>
         </div>
         <div class="flex items-center">
@@ -45,16 +45,16 @@
 
   @include('components.dashboard.sidebar')
   
-  <div class="py-7 px-5 sm:ml-64">  
+  <div class="py-7 md:px-5 lg:ml-64">  
     <section class="bg-white dark:bg-slate-900">
       <div class="py-16 px-4 mx-auto max-w-screen-xl text-start lg:py-16">
-        <div class="bg-gray-50 border border-gray-100 dark:bg-indigo-950 dark:border-0 rounded-lg shadow-md p-8 md:p-8 mb-8"> 
+        <div class="bg-gray-50 border border-gray-100 dark:bg-indigo-950 dark:border-0 rounded-lg shadow-md px-5 py-8 sm:px-8 md:p-12 lg:mb-8"> 
 
           <!-- Breadcrumb -->
           <nav class="flex px-5 py-3 text-gray-900 border-2 border-gray-200 rounded-lg bg-gray-200 dark:bg-gray-100 shadow-sm" aria-label="Breadcrumb">
             <ol class="inline-flex items-center space-x-1 md:space-x-3 font-montserrat">
               <li class="inline-flex items-center">
-                <a href="{{route('dashboard')}}" class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-indigo-600">
+                <a href="{{route('dashboard')}}" class="inline-flex items-center text-xs md:text-sm font-medium text-gray-700 hover:text-indigo-600">
                   <svg class="w-3 h-3 mr-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                     <path d="m19.707 9.293-2-2-7-7a1 1 0 0 0-1.414 0l-7 7-2 2a1 1 0 0 0 1.414 1.414L2 10.414V18a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2v-7.586l.293.293a1 1 0 0 0 1.414-1.414Z"/>
                   </svg>
@@ -66,7 +66,7 @@
                   <svg class="w-3 h-3 mx-1 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
                   </svg>
-                  <a href="{{URL::previous()}}" class="ml-1 text-sm font-medium text-gray-900 hover:text-indigo-600 md:ml-2">FIDS</a>
+                  <a href="{{URL::previous()}}" class="ml-1 text-xs md:text-sm font-medium text-gray-900 hover:text-indigo-600 md:ml-2">FIDS</a>
                 </div>
               </li>
               <li aria-current="page">
@@ -74,16 +74,16 @@
                   <svg class="w-3 h-3 mx-1 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
                   </svg>
-                  <span class="ml-1 text-sm font-medium text-gray-700 md:ml-2">Add Data</span>
+                  <span class="ml-1 text-xs md:text-sm font-medium text-gray-700 md:ml-2">Add Data</span>
                 </div>
               </li>
             </ol>
           </nav>
 
-          <h1 class="text-gray-900 dark:text-gray-200 lg:px-2 mt-6 text-lg uppercase md:text-xl font-montserrat font-bold">
+          <h1 class="text-gray-900 dark:text-gray-200 lg:px-2 mt-6 text-base md:text-lg xl:text-xl uppercase font-montserrat font-bold">
             Halaman Tambah Data
           </h1>
-          <div class="lg:hidden font-montserrat pt-3 dark:text-gray-200">
+          <div class="lg:hidden text-xs md:text-sm font-montserrat pt-3 dark:text-gray-200">
             <h3>Current Date</h3>
             <p>
               {{now()->format('l')}}, {{now()->format('d M Y')}}
@@ -94,8 +94,8 @@
         <div class="font-roboto flex-row items-center ">
           
 
-          <div data-dial-init class="ml-2 lg:ml-0">
-            <div id="alert-3" class="flex items-center p-4 mb-4 text-green-800 rounded-lg bg-green-50 z-30" role="alert">
+          <div data-dial-init class="ml-0">
+            <div id="alert-3" class="flex items-center p-4 my-4 text-green-800 rounded-lg bg-green-50 z-30" role="alert">
               <svg class="flex-shrink-0 w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
               </svg>
@@ -126,7 +126,7 @@
             <div id="{{$hideElement}}" class="mt-5">
               <form id="{{$dataForm}}" enctype="multipart/form-data" class="">
                 @csrf
-                <div class="mb-3 lg:flex space-x-4 items-center justify-start space-y-4 lg:space-y-0">
+                <div class="mb-3 xl:flex xl:space-x-4 items-center justify-start space-y-4 xl:space-y-0">
                   <div class="hidden lg:block">
                     <label for="date" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-200">Tanggal Sekarang</label>
                     <input type="date" class="text-sm text-gray-900 bg-gray-50 border-2 border-gray-400 rounded-lg outline-none  focus:border-indigo-800 dark:border-gray-300 dark:bg-gray-300 block w-full p-3"  required name="date" value="{{now()->format('Y-m-d')}}" readonly>
