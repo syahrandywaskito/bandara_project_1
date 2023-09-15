@@ -24,14 +24,14 @@
 
           {{-- Navbar Logo --}}
             <section>
-              <a href="" class=" flex items-center py-4 px-2">
+              <a href="{{route('homepage')}}" class=" flex items-center py-4 px-2">
                 <img src="{{ asset('img/logo.png') }}" class=" h-11 w-10 mr-3" alt="logo">
-                <span class=" font-semibold text-gray-100 text-xs sm:text-base lg:text-lg uppercase">Teknik dan <br>pelayanan jasa</span>
+                <span class=" font-semibold text-gray-100 text-xs sm:text-base xl:text-lg uppercase">Teknik dan <br>pelayanan jasa</span>
               </a>
             </section>
             
             <section class=" hidden md:flex items-center space-x-4 lg:space-x-2">
-              <a href=""
+              <a href="{{route('homepage')}}"
                 class=" py-4 px-2 flex text-gray-100 border-b-2 border-gray-100 font-semibold">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 xl:hidden h-5">
                   <path fill-rule="evenodd" d="M9.293 2.293a1 1 0 011.414 0l7 7A1 1 0 0117 11h-1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-3a1 1 0 00-1-1H9a1 1 0 00-1 1v3a1 1 0 01-1 1H5a1 1 0 01-1-1v-6H3a1 1 0 01-.707-1.707l7-7z" clip-rule="evenodd"/>
@@ -50,7 +50,7 @@
                 <span class="hidden xl:block">
                   Alat 
                 </span>
-                <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                <svg class="w-2.5 h-2.5 ml-2.5 hidden xl:block" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
                 </svg>
               </a>
@@ -101,11 +101,7 @@
         {{-- Secondary Navbar Item --}}
         <section class="hidden md:flex items-center space-x-3">
           <a href="{{route('login')}}"
-             class="flex items-center py-4 px-2 text-gray-100 font-medium hover:-translate-y-1 transition duration-200">
-             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 xl:hidden h-5">
-              <path fill-rule="evenodd" d="M3 4.25A2.25 2.25 0 015.25 2h5.5A2.25 2.25 0 0113 4.25v2a.75.75 0 01-1.5 0v-2a.75.75 0 00-.75-.75h-5.5a.75.75 0 00-.75.75v11.5c0 .414.336.75.75.75h5.5a.75.75 0 00.75-.75v-2a.75.75 0 011.5 0v2A2.25 2.25 0 0110.75 18h-5.5A2.25 2.25 0 013 15.75V4.25z" clip-rule="evenodd" />
-              <path fill-rule="evenodd" d="M19 10a.75.75 0 00-.75-.75H8.704l1.048-.943a.75.75 0 10-1.004-1.114l-2.5 2.25a.75.75 0 000 1.114l2.5 2.25a.75.75 0 101.004-1.114l-1.048-.943h9.546A.75.75 0 0019 10z" clip-rule="evenodd" />
-            </svg>
+             class="hidden xl:block items-center py-4 px-2 text-gray-100 font-medium hover:-translate-y-1 transition duration-200">           
             <span class="hidden xl:block">
               Login
             </span>
@@ -114,8 +110,8 @@
           <a href="{{route('register')}}"
              class="flex items-center py-3 px-4 bg-white text-indigo-500 rounded-lg shadow-md font-medium hover:bg-opacity-75 transition duration-200">
              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 xl:hidden h-5">
-              <path d="M2.695 14.763l-1.262 3.154a.5.5 0 00.65.65l3.155-1.262a4 4 0 001.343-.885L17.5 5.5a2.121 2.121 0 00-3-3L3.58 13.42a4 4 0 00-.885 1.343z" />
-            </svg>
+              <path d="M11 5a3 3 0 11-6 0 3 3 0 016 0zM2.615 16.428a1.224 1.224 0 01-.569-1.175 6.002 6.002 0 0111.908 0c.058.467-.172.92-.57 1.174A9.953 9.953 0 018 18a9.953 9.953 0 01-5.385-1.572zM16.25 5.75a.75.75 0 00-1.5 0v2h-2a.75.75 0 000 1.5h2v2a.75.75 0 001.5 0v-2h2a.75.75 0 000-1.5h-2v-2z" />
+            </svg>            
             <span class="hidden xl:block">
               Register
             </span>
@@ -134,9 +130,9 @@
 
       {{-- Mobile Menu --}}
       <section class="hidden pb-3" id="mobile-menu">
-        <ul>
+        <ul class="text-sm">
           <li class="active">
-            <a href="" class="block text-md text-gray-100 py-4 px-2 font-bold">Beranda</a>
+            <a href="{{route('homepage')}}" class="block text-gray-100 py-4 px-2 font-bold">Beranda</a>
           </li>
           <li>
             <a id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="text-gray-100 hover: focus:ring-4 focus:outline-none px-2 py-2.5 cursor-pointer inline-flex items-center" type="button">
@@ -147,7 +143,7 @@
             </a>
             <!-- Dropdown menu -->
             <div id="dropdown" class="z-10 hidden bg-gray-100 divide-y divide-gray-100 rounded-lg shadow w-44">
-              <ul class="py-2 text-sm text-gray-700 font-montserrat" aria-labelledby="dropdownHoverButton">
+              <ul class="py-2 text-gray-700 font-montserrat text-sm" aria-labelledby="dropdownHoverButton">
                 <li>
                   <a href="/tool/cctv" class="block px-4 py-2 hover:translate-x-1 transition duration-200">CCTV</a>
                 </li>
@@ -183,15 +179,15 @@
   </nav>
 
   {{-- Header --}}
-  <header class=" mx-10 mt-3 mb-5 flex items-center  h-[75vh] md:h-[65vh] lg:h-[85vh] xl:h-[90vh]">
+  <header class=" mx-10 mt-3 mb-5 flex items-center  h-[75vh] md:h-[65vh] lg:h-[70vh] xl:h-[90vh]">
 
     {{-- Text --}}
-    <section class="py-5 px-4 mx-auto max-w-screen-xl text-center lg:py-10 md:w-[60%]">
-      <h1 class=" uppercase mb-4 font-semibold tracking-tight leading-none text-gray-950 text-base md:text-lg lg:text-xl xl:text-3xl font-montserrat" data-aos="fade-up" data-aos-delay="100">
+    <section class="py-4 px-4 mx-auto max-w-screen-xl text-center sm:py-5 md:py-6 lg:py-8 xl:py-10 sm:w-[70%] md:w-[60%]">
+      <h1 class=" uppercase mb-4 font-semibold tracking-tight leading-none text-gray-950 text-base lg:text-lg xl:text-2xl font-montserrat" data-aos="fade-up" data-aos-delay="100">
         Teknik dan Pelayanan Jasa <br>
         Bandar Udara Abdulrachman Saleh
       </h1>
-      <p class="mb-8 pt-3 text-sm font-normal text-gray-800 sm:text-base md:text-lg lg:text-xl font-montserrat" data-aos="fade-up" data-aos-delay="200">
+      <p class="mb-8 pt-3 text-sm font-normal text-gray-800 sm:text-base lg:text-lg xl:text-xl font-montserrat" data-aos="fade-up" data-aos-delay="200">
         Selamat datang di Website Teknik dan Pelayanan Jasa <strong>Bandar Udara Abdulrachman Saleh</strong>. 
       </p>
       <a href="#about" class="text-gray-900 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center hover:translate-y-3 transition duration-200">
@@ -202,36 +198,143 @@
     </section>
   </header>
 
-  {{-- About --}}
+  {{-- Carousel dan jadwal penerbangan --}}
   <section id="about">
-    {{-- carousel --}}
-    <div class="py-3 px-4 mx-auto max-w-screen-xl">
-        <div class="bg-white border border-gray-200 rounded-lg shadow-lg py-5 px-4 md:py-8 md:px-8  md:p-12 mb-8"> 
+    {{-- card if viewport under md --}}
+    <div class="grid grid-cols-1 px-4 mx-auto xl:hidden gap-4">
+      {{-- header card --}}
+      <div class="text-center " data-aos="fade-up" data-aos-delay="300" data-aos-ease="ease-in-out">
+        <h1 class="font-semibold font-montserrat text-sm md:text-base lg:text-xl uppercase">
+          Berita
+        </h1>
+      </div>
+      {{-- grid item yang ditampilkan dengan foreach --}}
+      <div>
+        <div class=" bg-white border border-gray-200 rounded-lg shadow" data-aos="fade-up" data-aos-delay="600"  data-aos-ease="ease-in-out" data-aos-duration="400">
+          <a href="#">
+              <img class="rounded-t-lg" src="{{asset('img/time.jpg')}}" alt="" />
+          </a>
+          <div class="p-5 font-montserrat">
+              <a href="#">
+                  <h5 class="mb-2 text-base md:text-lg font-bold tracking-tight text-gray-900">
+                    Noteworthy technology acquisitions 2021
+                  </h5>
+              </a>
+              <p class="mb-3 font-normal text-gray-700 text-sm md:text-base">
+                Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
+              </p>
+              <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">
+                  Read more
+                   <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                  </svg>
+              </a>
+          </div>
+        </div>
+
+      </div>
+
+      <div>
+        <div class=" bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700" data-aos="fade-up" data-aos-delay="600"  data-aos-ease="ease-in-out" data-aos-duration="400">
+          <a href="#">
+              <img class="rounded-t-lg" src="{{asset('img/time.jpg')}}" alt="" />
+          </a>
+          <div class="p-5">
+              <a href="#">
+                  <h5 class="mb-2 text-base md:text-lg font-bold tracking-tight text-gray-900 dark:text-white">
+                    Noteworthy technology acquisitions 2021
+                  </h5>
+              </a>
+              <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 text-sm md:text-base">
+                Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
+              </p>
+              <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">
+                  Read more
+                   <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                  </svg>
+              </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    {{-- carousel if viewport md above it--}}
+    <div class="px-4 mx-auto max-w-screen-xl hidden xl:block">
+        {{-- header text --}}
           <div class="text-center pb-7 md:pb-10" data-aos="fade-up" data-aos-delay="300" data-aos-ease="ease-in-out">
             <h1 class="font-semibold font-montserrat text-sm md:text-base lg:text-xl uppercase">
-              Tool Overview
+              Berita
             </h1>
           </div>
-          <div id="controls-carousel" class="relative w-full shadow-lg" data-carousel="static">
+        {{-- carousel part --}}
+          <div id="controls-carousel" class="relative w-full" data-carousel="static">
             <!-- Carousel wrapper -->
-            <div class="relative h-32 overflow-hidden rounded-lg sm:h-[60vh] md:h-[40vh] lg:h-[70vh]" data-aos="fade-right" data-aos-delay="600"  data-aos-ease="ease-in-out" data-aos-duration="400">
-                <!-- Item 1 -->
+            <div class="relative h-[40vh] overflow-hidden rounded-lg xl:h-[70vh]" data-aos="fade-up" data-aos-delay="600"  data-aos-ease="ease-in-out" data-aos-duration="400">
+                {{-- gambar carousel yang akan ditampilkan dengan foreach --}}
                 <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                    <a href="/tool/cctv">
-                      <img src="{{asset('img/cctv.jpg')}}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 grayscale bg-top hover:grayscale-0 transition duration-200" alt="...">
-                    </a>
+                  <div>
+                    <img src="{{asset('img/cctv.jpg')}}" class="absolute block -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 transition duration-200" alt="">
+
+                    <div class="absolute bottom-0 w-full">
+                      <div class=" bg-opacity-80 font-montserrat bg-indigo-600 text-white shadow-lg mx-6 mb-4 px-4 py-3 rounded-lg" data-aos="fade-up" data-aos-duration="500" data-aos-delay="700" data-aos-ease="ease-in-out">
+                        <h3 class="text-center uppercase">Pemberitahuan </h3>
+                        <p class="pt-4 text-xs md:text-sm lg:text-base text-ellipsis truncate">
+                          Ada perbaikan pada Elkalator Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero aliquam quod similique error ad hic, quasi molestiae, nihil quae officia placeat quam quaerata 
+                        </p>
+                        <button class="flex items-center px-4 py-2 bg-gray-50 text-indigo-800 rounded-lg my-3 hover:bg-gray-200 duration-150 transition">
+                          Baca lagi
+                          <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
                 </div>
                 <!-- Item 2 -->
-                <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
-                  <a href="/tool/fids">
-                    <img src="{{asset('img/time.jpg')}}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 grayscale hover:grayscale-0 transition duration-200" alt="...">
-                  </a>
+                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                  <div>
+                    <img src="{{asset('img/time.jpg')}}" class="absolute block -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 transition duration-200" alt="">
+
+                    <div class="absolute bottom-0 w-full">
+                      <div class=" bg-opacity-80 font-montserrat bg-indigo-600 text-white shadow-lg mx-6 mb-4 px-4 py-3 rounded-lg" data-aos="fade-up" data-aos-duration="500" data-aos-delay="700" data-aos-ease="ease-in-out">
+                        <h3 class="text-center uppercase">Pemberitahuan </h3>
+                        <p class="pt-4 text-xs md:text-sm lg:text-base text-ellipsis truncate">
+                          Ada perbaikan pada Elkalator Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero aliquam quod similique error ad hic, quasi molestiae, nihil quae officia placeat quam quaerata 
+                        </p>
+                        <button class="flex items-center px-4 py-2 bg-gray-50 text-indigo-800 rounded-lg my-3 hover:bg-gray-200 duration-150 transition">
+                          Baca 
+                          <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
                 </div>
                 <!-- Item 3 -->
                 <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                  <a href="/tool/komputer">
-                    <img src="{{asset('img/laptop.jpg')}}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 grayscale hover:grayscale-0 transition duration-200" alt="">
-                  </a>
+                  <div>
+                    <img src="{{asset('img/laptop.jpg')}}" class="absolute block -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 transition duration-200" alt="">
+
+                    <div class="absolute bottom-0 w-full">
+                      <div class=" bg-opacity-80 font-montserrat bg-indigo-600 text-white shadow-lg mx-6 mb-4 px-4 py-3 rounded-lg" data-aos="fade-up" data-aos-duration="500" data-aos-delay="700" data-aos-ease="ease-in-out">
+                        <h3 class="text-center uppercase">Pemberitahuan </h3>
+                        <p class="pt-4 text-xs md:text-sm lg:text-base text-ellipsis truncate">
+                          Ada perbaikan pada Elkalator Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero aliquam quod similique error ad hic, quasi molestiae, nihil quae officia placeat quam quaerata 
+                        </p>
+                        <button class="flex items-center px-4 py-2 bg-gray-50 text-indigo-800 rounded-lg my-3 hover:bg-gray-200 duration-150 transition">
+                          Baca lagi
+                          <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
                 </div>
             </div>
             <!-- Slider controls -->
@@ -252,11 +355,11 @@
                 </span>
             </button>
           </div>
-        </div>
     </div>
+
     {{-- Fligth Schedule --}}
-    <div class="py-3 px-4 mx-auto max-w-screen-xl">
-          <div class="bg-white border border-gray-200 rounded-lg shadow-lg py-6 sm:py-8 sm:px-8 px-4 md:py-10 md:px-12" data-aos="fade-left" data-aos-delay="300" data-aos-duration="500" data-aos-ease="ease-in-out"> 
+    <div class="py-3 px-4 mt-10 mx-auto max-w-screen-xl">
+          <div class="bg-white border border-gray-200 rounded-lg shadow-lg py-6 sm:py-8 sm:px-8 px-4 md:py-10 md:px-12" data-aos="fade-up" data-aos-delay="300" data-aos-duration="500" data-aos-ease="ease-in-out"> 
             <div class="pb-6 px-3 flex justify-between items-center">
               <div class="text-sm md:text-base">
                 <h2 class="font-montserrat font-semibold uppercase">Jadwal Penerbangan</h2>
@@ -272,7 +375,7 @@
             <div class="relative overflow-x-auto rounded-lg shadow-md">
               <div class="relative overflow-x-auto">
                 <table class="w-full text-sm text-left">
-                  <thead class="text-xs sm:text-sm text-center text-gray-50 uppercase bg-gradient-to-r from-indigo-600 to-blue-500">
+                  <thead class="text-xs font-montserrat sm:text-sm text-center text-gray-50 uppercase bg-gradient-to-r from-indigo-600 to-blue-500">
                     <tr>
                       <th scope="col" class="px-6 py-3">
                         maskapai
@@ -387,7 +490,7 @@
     }); 
   </script>
 
-  <script src="{{asset('js/clock.js')}}"></script>
+  <script src="{{asset('js/navbar.js')}}"></script>
   <script src="{{asset('js/smoothScroll.js')}}"></script>
 
 </body>
