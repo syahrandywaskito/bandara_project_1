@@ -30,6 +30,8 @@
             <span class="self-center font-roboto font-semibold hidden sm:block sm:text-base md:text-lg lg:text-xl text-gray-100 whitespace-nowrap">CCTV - Ubah Data</span>
           </a>
         </div>
+
+        {{-- contain menu navbar --}}
         <div class="flex items-center">
 
             {{-- Dark toggle --}}
@@ -42,12 +44,14 @@
     </div>
   </nav>
 
+  {{-- include sidebar from /components/dashboard/sidebar --}}
   @include('components.dashboard.sidebar')
 
+  {{-- Header content, contain breadcrump and header text, if sm date are visible --}}
   <div class="py-7 md:px-5 lg:ml-64">  
     <section class="bg-white dark:bg-slate-900">
       <div class="py-16 px-4 mx-auto max-w-screen-xl text-start">
-        <div class="bg-gray-50 border border-gray-100 dark:bg-indigo-950 dark:border-0 rounded-lg shadow-md px-5 py-8 md:px-8 md:p-12 md:mb-8"> 
+        <div class="bg-gray-50 border border-gray-100 dark:bg-indigo-950 dark:border-0 rounded-lg shadow-md px-5 py-8 sm:px-8 md:p-12 md:mb-8"> 
 
           <!-- Breadcrumb -->
           <nav class="flex px-5 py-3 text-gray-900 border-2 border-gray-200 rounded-lg bg-gray-200 shadow-sm" aria-label="Breadcrumb">
@@ -83,8 +87,8 @@
           <h1 class="text-gray-900 dark:text-gray-200 lg:px-2 mt-6 text-base md:text-lg xl:text-xl uppercase font-montserrat font-bold">
             Halaman Ubah data
           </h1>
-          {{-- tanggal --}}
-          <div class="lg:hidden text-xs md:text-sm font-montserrat pt-3 dark:text-gray-100">
+          {{-- tanggal  hidden if lg --}}
+          <div class="lg:hidden text-xs md:text-sm font-montserrat pt-3 dark:text-gray-200">
             <h3>Tanggal sekarang</h3>
             <p>
               {{now()->isoFormat('dddd')}}, {{now()->isoFormat('D MMMM Y')}}
@@ -95,11 +99,13 @@
             @method('PUT')
             
             <div class="grid grid-cols-1 grid-flow-row-dense md:grid-cols-3 gap-4">
+
+              {{-- hardware name --}}
               <div class=" md:col-span-3">
-                {{-- hardware name --}}
                 <label for="hardware-name" class="block mb-2 text-xs md:text-sm font-medium text-gray-900 dark:text-gray-200">Nama Perangkat</label>
                 <input type="text" id="hardware-name" class="text-xs md:text-sm text-gray-900 bg-gray-50 border-2 border-gray-400 rounded-lg outline-none  focus:border-indigo-800 dark:border-gray-200 dark:bg-gray-200 w-full p-3" required value="{{$cctv->hardware_name}}" readonly name="hardware_name">
               </div>
+
               {{-- updated by default hidden --}}
               <div class=" md:col-span-3 hidden">
                 <label for="hardware-name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-200">Diubah oleh</label>

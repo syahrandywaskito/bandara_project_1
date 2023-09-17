@@ -14,7 +14,7 @@
 </head>
 <body class="dark:bg-slate-900 bg-white">
   
-  {{-- sidebar & navbar --}}
+  {{-- Navbar Part --}}
   <nav class="fixed top-0 z-50 w-full bg-indigo-800 border-b-4 border-indigo-900 dark:bg-indigo-950 dark:border-slate-900">
     <div class="px-3 py-3 lg:px-5 lg:pl-3">
       <div class="flex items-center justify-between">
@@ -42,11 +42,19 @@
     </div>
   </nav>
 
+  {{-- Sidebar Part --}}
   @include('components.dashboard.sidebar')
 
-  <div class="py-7 md:px-5 lg:ml-64"> 
+  {{-- Content Part --}}
+  <div class="py-7 md:px-5 lg:ml-64">
+
+    {{-- Header and Table --}}
     <div class="bg-white dark:bg-slate-900">
+
+      {{-- Header --}}
       <div class="pt-16 pb-5 px-4 mx-auto max-w-screen-xl">
+
+        {{-- contain breadcrump, header text, sub-header text, and option menu --}}
           <div class="bg-gray-50 border border-gray-100 dark:bg-indigo-950 dark:border-0 rounded-lg shadow-lg px-5 py-8 sm:px-8 md:p-12 lg:mb-8">
               <!-- Breadcrumb -->
               <nav class="flex px-5 py-3 text-gray-900 border-2 border-gray-200 rounded-lg bg-gray-200 dark:bg-gray-100 shadow-sm" aria-label="Breadcrumb">
@@ -70,15 +78,19 @@
                 </ol>
               </nav>
 
+              {{-- header text --}}
               <h1 class="text-gray-900 dark:text-gray-200 mt-8 text-base md:text-lg xl:text-xl uppercase font-roboto font-bold mb-4">
                 Laporan pengecekan CCTV
               </h1>
+
+              {{-- sub header text --}}
               <p class="text-sm lg:text-base xl:text-lg font-normal font-montserrat text-gray-500 dark:text-gray-200 mb-3">
                 Tabel laporan ini akan menampilkan hasil input dari pengecekan yang telah dilakukan sebelumnya. Tabel ini dapat diubah sesuai dengan tanggal data pengecekan
               </p>
 
               {{-- Menu opsi --}}
               <div class="pt-3 lg:flex items-center flex-row space-y-7 lg:space-x-4 lg:space-y-0">
+
                   {{-- add data --}}
                   <div>
                     <a href="{{route('cctv.create')}}" title="Tambah data baru" class="px-5 py-3.5 font-medium text-center inline-flex items-center text-gray-50 bg-indigo-800 rounded-lg hover:bg-gray-100 hover:text-green-700 focus:z-10 focus:ring-2 focus:ring-indigo-800 transition duration-200 dark:bg-gray-50 dark:text-green-700 dark:hover:bg-indigo-900 dark:hover:text-gray-100 dark:border-gray-100 text-xs sm:text-sm md:text-base">
@@ -88,6 +100,7 @@
                       Tambah 
                     </a>
                   </div>
+
                   {{-- Search --}}
                   <div>
                     <form action="{{route('cctv.index')}}" method="GET">
@@ -152,9 +165,14 @@
                       </button>
                     </form>
                   </div>
+
               </div>
+
           </div>
+
       </div>
+
+      {{-- Table --}}
       <div class="px-4 mx-auto max-w-screen-xl">
         <div class="relative overflow-x-auto shadow-lg bg-gray-50 dark:bg-indigo-950 sm:rounded-lg p-4">
           <table class="w-full text-sm text-left">
@@ -255,6 +273,7 @@
           </table>
         </div>
       </div>
+
     </div>
 
     {{-- pagination --}}
@@ -263,7 +282,6 @@
     </div>
 
   </div>
-
 
   {{-- success notif --}}
   @include('components.dashboard.successnotif')

@@ -14,7 +14,7 @@
 </head>
 <body class=" dark:bg-slate-900 bg-white">
   
-  {{-- sidebar & navbar --}}
+  {{-- Navbar Part --}}
   <nav class="fixed top-0 z-50 w-full bg-indigo-800 border-b-4 border-indigo-900 dark:bg-indigo-950 dark:border-slate-900">
     <div class="px-3 py-3 lg:px-5 lg:pl-3">
       <div class="flex items-center justify-between">
@@ -42,12 +42,14 @@
     </div>
   </nav>
 
+  {{-- Sidebar Part --}}
   @include('components.dashboard.sidebar')
   
+  {{-- Content Part --}}
   <div class="py-7 md:px-5 lg:ml-64">  
     <section class="bg-white dark:bg-slate-900">
       <div class="py-16 px-4 mx-auto max-w-screen-xl text-start">
-        <div class="bg-gray-50 border border-gray-100 dark:border-0 dark:bg-indigo-950 rounded-lg shadow-lg px-5 py-8 sm:px-8 md:p-12 lg:mb-8"> 
+        <div class="bg-gray-50 border border-gray-100 dark:border-0 dark:bg-indigo-950 rounded-lg shadow-lg px-5 py-8 sm:px-8 md:p-12"> 
 
           <!-- Breadcrumb -->
           <nav class="flex px-5 py-3 text-gray-900 border-2 border-gray-200 rounded-lg bg-gray-200 dark:bg-gray-100 shadow-sm" aria-label="Breadcrumb">
@@ -83,7 +85,7 @@
             Halaman Tambah Data
           </h1>
           <div class="lg:hidden text-xs md:text-sm font-montserrat pt-3 dark:text-gray-200">
-            <h3>Current Date</h3>
+            <h3>Tanggal hari ini</h3>
             <p>
               {{now()->format('l')}}, {{now()->format('d M Y')}}
             </p>
@@ -93,13 +95,13 @@
         <div class="font-roboto flex-row items-center ">
           
 
-          <div data-dial-init class="ml-0">
+          <div data-dial-init>
             <div id="alert-3" class="flex items-center p-4 my-4 text-green-800 rounded-lg bg-green-50 z-30" role="alert">
               <svg class="flex-shrink-0 w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
               </svg>
               <span class="sr-only">Info</span>
-              <div class="ml-3 text-sm font-medium alert-message">
+              <div class="ml-3 text-xs md:text-sm font-medium alert-message">
               </div>
               <button type="hide" class="ml-auto -mx-1.5 -my-1.5 bg-green-50 text-green-500 rounded-lg focus:ring-2 focus:ring-green-400 p-1.5 hover:bg-green-200 inline-flex items-center justify-center h-8 w-8" data-dismiss-target="#alert-3" aria-label="Close">
                 <span class="sr-only">Close</span>
@@ -127,26 +129,31 @@
               <form id="{{$dataForm}}" enctype="multipart/form-data" class="">
                 @csrf
                 <div class="mb-3 xl:flex xl:space-x-4 items-center justify-start space-y-4 xl:space-y-0 ">
+
                   {{-- date if sm is hidden and lg is block --}}
                   <div class="hidden xl:block">
                     <label for="date" class="block mb-2 text-xs md:text-sm font-medium text-gray-900 dark:text-gray-200">Tanggal Sekarang</label>
                     <input type="date" class=" text-sm text-gray-900 bg-gray-50 border-2 border-gray-400 rounded-lg outline-none  focus:border-indigo-800 dark:border-gray-300 dark:bg-gray-300 block w-full p-3"  required name="date" value="{{now()->format('Y-m-d')}}" readonly>
                   </div>
+
                   {{-- Created by is hidden --}}
                   <div class="hidden">
                     <label for="by" class="block mb-2 text-sm font-medium text-gray-900">Created By</label>
                     <input type="text" class="bg-gray-100 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="created_by" value="{{auth()->user()->name}}" readonly>
                   </div>
+
                   {{-- Updated by is hidden --}}
                   <div class="hidden">
                     <label for="by" class="block mb-2 text-sm font-medium text-gray-900">Updated By</label>
                     <input type="text" class="bg-gray-100 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" required name="updated_by" value="{{auth()->user()->name}}" readonly>
                   </div>
+
                   {{-- hardware name visible and get data from list --}}
                   <div>
                     <label for="hardware-name" class="block mb-2 text-xs md:text-sm font-medium text-gray-900 dark:text-gray-200">Nama Perangkat</label>
                     <input type="text" id="hardware-name" class="text-xs md:text-sm text-gray-900 bg-gray-50 border-2 border-gray-400 rounded-lg outline-none  focus:border-indigo-800 dark:border-gray-300 dark:bg-gray-300 block w-full p-3" required value="{{$item->name}}" readonly name="hardware_name">
                   </div>
+
                   {{-- Select status for record  --}}
                   <div>
                     <label for="record-status" class="block mb-2 text-xs md:text-sm font-medium text-gray-900 dark:text-gray-200">Status Rekaman</label>
@@ -157,11 +164,13 @@
                       <option value="T">T</option>
                     </select>
                   </div>
+
                   {{-- Write description of record based on status --}}
                   <div>
                     <label for="record-desc" class="block mb-2 text-xs md:text-sm font-medium text-gray-900 dark:text-gray-200">Keterangan Rekaman</label>
                     <input type="text" id="record-desc" class="text-xs md:text-sm text-gray-900 bg-gray-50 border-2 border-gray-400 rounded-lg outline-none  focus:border-indigo-800 dark:border-gray-100 w-full p-3" required name="record_desc">
                   </div>
+
                   {{-- Select status for clean --}}
                   <div>
                     <label for="clean-status" class="block mb-2 text-xs md:text-sm font-medium text-gray-900 dark:text-gray-200">Status Kebersihan</label>
@@ -172,12 +181,14 @@
                       <option value="T">T</option>
                     </select>
                   </div>
+
                   {{-- Write desc of clean based on status --}}
                   <div>
                     <label for="clean-desc" class="block mb-2 text-xs md:text-sm font-medium text-gray-900 dark:text-gray-200">Keterangan Kebersihan</label>
                     <input type="text" id="clean-desc" class="text-xs md:text-sm text-gray-900 bg-gray-50 border-2 border-gray-400 rounded-lg outline-none  focus:border-indigo-800 dark:border-gray-100 w-full p-3" required name="clean_desc">
                   </div>
                 </div>
+                
                 {{-- group of button --}}
                 <div class="inline-flex rounded-md shadow-sm ml-0" role="group">
                   <button type="submit" data-form="{{$dataForm}}" class="submitButton inline-flex items-center px-4 py-2 text-sm font-medium bg-gray-900 text-white border-2 border-gray-900 rounded-l-lg hover:bg-gray-500 hover:border-gray-500 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:bg-indigo-900 dark:border-indigo-900 dark:hover:bg-indigo-950" title="Submit data">

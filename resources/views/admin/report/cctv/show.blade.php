@@ -47,7 +47,7 @@
   <div class="py-7 md:px-5 lg:ml-64">  
     <div class="bg-white dark:bg-slate-900">
       <div class="py-16 px-4 mx-auto max-w-screen-xl text-start lg:py-16">
-        <div class="bg-gray-50 border border-gray-100 dark:bg-indigo-950 dark:border-0 rounded-lg shadow-md px-5 py-8 md:px-8 md:p-12 md:mb-8"> 
+        <div class="bg-gray-50 border border-gray-100 dark:bg-indigo-950 dark:border-0 rounded-lg shadow-md px-5 py-8 sm:px-8 md:p-12 md:mb-8"> 
 
           <!-- Breadcrumb -->
           <nav class="flex px-5 py-3 text-gray-900 border-2 border-gray-200 rounded-lg bg-gray-200 dark:bg-gray-100 shadow-sm" aria-label="Breadcrumb">
@@ -103,54 +103,50 @@
 
           <hr class="h-px my-4 bg-gray-400 border-0">
 
-          <div class="sm:text-center sm:flex sm:justify-center">
+          <div class="lg:text-center lg:flex lg:justify-center">
             <div class="grid grid-cols-1 lg:grid-cols-2 lg:gap-x-60 lg:gap-y-10 dark:text-gray-200">
               <div>
                 <div class="font-montserrat mt-6 lg:px-2 ">
                   <p class="text-xs md:text-sm uppercase font-semibold">Kondisi Rekaman</p>
-                  <p class="pt-2">
+                  <p class="pt-2 text-xs sm:text-sm md:text-base">
                     <span
                       @if ($cctv->record_status == 'T')
-                        class="text-gray-50 bg-black py-1 px-2 rounded-l-lg inline-block text-xs md:text-sm"
+                        class="text-gray-50 bg-black py-1 px-2 rounded-l-lg inline-block"
                       @elseif($cctv->record_status == 'S')
-                        class="text-gray-50 bg-red-700 py-1 px-2 rounded-l-lg inline-block text-xs md:text-sm"
+                        class="text-gray-50 bg-red-700 py-1 px-2 rounded-l-lg inline-block"
                       @else
-                        class="text-gray-50 bg-green-700  py-1 px-2 rounded-l-lg inline-block text-xs md:text-sm"
+                        class="text-gray-50 bg-green-700  py-1 px-2 rounded-l-lg inline-block"
                       @endif
                     >
                       {{ $cctv->record_status}}
                     </span>
-                    <span class="text-xs md:text-sm">
                       : {{ $cctv->record_desc}}
-                    </span>
                   </p>
                 </div>
               </div>
               <div>
                 <div class="font-montserrat mt-6 lg:px-2">
                   <p class="text-xs md:text-sm uppercase font-semibold">Kondisi kebersihan</p>
-                  <p class="pt-2">
+                  <p class="pt-2 text-xs sm:text-sm md:text-base">
                     <span
                     @if ($cctv->clean_status == 'T')
-                      class="text-gray-50 bg-black py-1 px-2 rounded-l-lg inline-block text-xs md:text-sm"
+                      class="text-gray-50 bg-black py-1 px-2 rounded-l-lg inline-block"
                     @elseif($cctv->clean_status == 'S')
-                      class="text-gray-50 bg-red-700 py-1 px-2 rounded-l-lg inline-block text-xs md:text-sm"
+                      class="text-gray-50 bg-red-700 py-1 px-2 rounded-l-lg inline-block"
                     @else
-                      class="text-gray-50 bg-green-700  py-1 px-2 rounded-l-lg inline-block text-xs md:text-sm"
+                      class="text-gray-50 bg-green-700  py-1 px-2 rounded-l-lg inline-block"
                     @endif
                     >
                       {{ $cctv->clean_status}}
                     </span>
-                    <span class="text-xs md:text-sm">
                       : {{ $cctv->clean_desc}}
-                    </span>
                   </p>
                 </div>
               </div>
               <div>
                 <div class="font-montserrat mt-6 lg:px-2">
                   <p class="text-xs md:text-sm uppercase font-semibold">Ditambahkan pada</p>
-                  <p class="pt-2 text-xs md:text-sm">
+                  <p class="pt-2 text-xs sm:text-sm md:text-base">
                     {{ $cctv->created_at->isoFormat('D MMMM Y | H:m:s')}}
                   </p>
                 </div>
@@ -158,7 +154,7 @@
               <div>
                 <div class="font-montserrat mt-6 lg:px-2">
                   <p class="text-xs md:text-sm uppercase font-semibold">Diubah pada</p>
-                  <p class="pt-2 text-xs md:text-sm">
+                  <p class="pt-2 text-xs sm:text-sm md:text-base">
                     {{ $cctv->updated_at->isoFormat('D MMMM Y | H:m:s')}}
                   </p>
                 </div>
@@ -166,7 +162,7 @@
               <div>
                 <div class="font-montserrat mt-6 lg:px-2">
                   <p class="text-xs md:text-sm uppercase font-semibold">Ditambahkan Oleh</p>
-                  <p class="pt-2 text-xs md:text-sm">
+                  <p class="pt-2 text-xs sm:text-sm md:text-base">
                     {{ $cctv->created_by}}
                   </p>
                 </div>
@@ -174,7 +170,7 @@
               <div>
                 <div class="font-montserrat mt-6 lg:px-2">
                   <p class="text-xs md:text-sm uppercase font-semibold">Diubah Oleh</p>
-                  <p class="pt-2 text-xs md:text-sm">
+                  <p class="pt-2 text-xs sm:text-sm md:text-base">
                     {{ $cctv->updated_by}}
                   </p>
                 </div>

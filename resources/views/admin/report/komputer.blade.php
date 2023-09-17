@@ -14,7 +14,7 @@
 </head>
 <body class="dark:bg-slate-900 bg-white">
   
-  {{-- sidebar & navbar --}}
+  {{-- Navbar Part --}}
   <nav class="fixed top-0 z-50 w-full bg-indigo-800 border-b-4 border-indigo-900 dark:bg-indigo-950 dark:border-slate-900">
     <div class="px-3 py-3 lg:px-5 lg:pl-3">
       <div class="flex items-center justify-between">
@@ -42,11 +42,18 @@
     </div>
   </nav>
 
-  @include('components.dashboard.sidebar');
+  {{-- Sidebar Part --}}
+  @include('components.dashboard.sidebar')
 
+  {{-- Content Part --}}
   <div class="py-7 md:px-5 lg:ml-64"> 
+
+    {{-- Header and table --}}
     <div class="bg-white dark:bg-slate-900">
+
+      {{-- header --}}
       <div class="pt-16 pb-5 px-4 mx-auto max-w-screen-xl">
+        {{-- contain breadcrump, header text, sub-header text, and option menu --}}
           <div class="bg-gray-50 border border-gray-100 dark:bg-indigo-950 dark:border-0 rounded-lg shadow-lg px-5 py-8 sm:px-8 md:p-12 lg:mb-8">
               <!-- Breadcrumb -->
               <nav class="flex px-5 py-3 text-gray-900 border-2 border-gray-200 rounded-lg bg-gray-200 dark:bg-gray-100 shadow-sm" aria-label="Breadcrumb">
@@ -70,15 +77,19 @@
                 </ol>
               </nav>
 
+              {{-- header text --}}
               <h1 class="text-gray-900 dark:text-gray-200 mt-8 text-base md:text-lg xl:text-xl uppercase font-roboto font-bold mb-4">
                 Laporan pengecekan Komputer
               </h1>
+
+              {{-- sub header text --}}
               <p class="text-sm lg:text-base xl:text-lg font-normal font-montserrat text-gray-500 dark:text-gray-200 mb-3">
                 Tabel laporan ini akan menampilkan hasil input dari pengecekan yang telah dilakukan sebelumnya. Tabel ini dapat diubah sesuai dengan tanggal data pengecekan
               </p>
 
               {{-- Menu opsi --}}
               <div class="pt-3 lg:flex items-center flex-row space-y-7 lg:space-x-4 lg:space-y-0">
+
                   {{-- add data --}}
                   <div>
                     <a href="{{route('komputer.create')}}" class="px-5 py-3.5 text-xs sm:text-sm md:text-base font-medium text-center inline-flex items-center text-gray-50 bg-indigo-800 rounded-lg hover:bg-gray-100 hover:text-green-700 focus:z-10 focus:ring-2 focus:ring-indigo-800 transition duration-200 dark:bg-gray-50 dark:text-green-700 dark:hover:bg-indigo-900 dark:hover:text-gray-100 dark:border-gray-100" title="Tambah data baru">
@@ -119,7 +130,6 @@
                     </form>
                   </div>
 
-                  
                   {{-- Select date --}}
                   <div class=" flex-initial w-60">
                     <form class="flex items-center" method="get" action="{{route('komputer.index')}}"> 
@@ -155,130 +165,135 @@
                     </form>
                   </div>
 
-                </div>
+              </div>
+
             </div>
-          </div>
-          
-          <div class="px-4 mx-auto max-w-screen-xl">
-            <div class="relative overflow-x-auto shadow-lg bg-gray-50 dark:bg-indigo-950 sm:rounded-lg p-4">
-              <table class="w-full text-sm text-left">
-                  <caption class="p-5 text-sm lg:text-base font-semibold text-left text-gray-900 dark:text-gray-200 font-montserrat">
-                    <span class="uppercase">Tabel pengecekan</span>
-                    <p class=" font-normal mt-1 text-xs md:text-sm">
-                      {{ $date }}
-                    </p>
-                  </caption>
-                <thead class="text-xs text-gray-100  uppercase bg-indigo-800 dark:bg-gray-100 dark:text-gray-900 text-center font-roboto">
-                    <tr>
+          </div>  
+      </div>
+      
+      {{-- Table --}}
+      <div class="px-4 mx-auto max-w-screen-xl">
+          <div class="relative overflow-x-auto shadow-lg bg-gray-50 dark:bg-indigo-950 sm:rounded-lg p-4">
+            <table class="w-full text-sm text-left">
+                <caption class="p-5 text-sm lg:text-base font-semibold text-left text-gray-900 dark:text-gray-200 font-montserrat">
+                  <span class="uppercase">Tabel pengecekan</span>
+                  <p class=" font-normal mt-1 text-xs md:text-sm">
+                    {{ $date }}
+                  </p>
+                </caption>
+              <thead class="text-xs text-gray-100  uppercase bg-indigo-800 dark:bg-gray-100 dark:text-gray-900 text-center font-roboto">
+                  <tr>
+                      @if (Session::has('cari'))
+                        <th scope="col" class="px-6 py-3">
+                            Tanggal
+                        </th>
+                      @endif
+                      <th scope="col" class="px-6 py-3">
+                          Nama Perangkat
+                      </th>
+                      <th scope="col" class="px-6 py-3">
+                          Kondisi Nyala/Mati
+                      </th>
+                      <th scope="col" class="px-6 py-3">
+                          Keterangan Nyala/Mati
+                      </th>
+                      <th scope="col" class="px-6 py-3">
+                          Aplikasi di Uninstall
+                      </th>
+                      <th scope="col" class="px-6 py-3">
+                          Keterangan Aplikasi di Uninstall
+                      </th>
+                      <th scope="col" class="px-6 py-3">
+                          Status pembersihan file
+                      </th>
+                      <th scope="col" class="px-6 py-3">
+                          Keterangan pembersihan file
+                      </th>
+                      <th scope="col" class="px-6 py-3">
+                          Aksi
+                      </th>
+                  </tr>
+              </thead>
+              <tbody class=" font-roboto text-center text-xs sm:text-sm dark:text-gray-200">
+                  @foreach ($komputer as $data)
+                      <tr>
                         @if (Session::has('cari'))
-                          <th scope="col" class="px-6 py-3">
-                              Tanggal
-                          </th>
+                          @php
+
+                              $date = $data->date;
+                              $carbon = \Carbon\Carbon::parse($date);
+                              $formatted = $carbon->isoFormat('D MMMM Y'); 
+
+                          @endphp
+
+                          <td class="px-2 py-4">
+                            {{$formatted}}
+                          </td>
+
                         @endif
-                        <th scope="col" class="px-6 py-3">
-                            Nama Perangkat
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            Kondisi Nyala/Mati
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            Keterangan Nyala/Mati
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            Aplikasi di Uninstall
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            Keterangan Aplikasi di Uninstall
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            Status pembersihan file
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            Keterangan pembersihan file
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            Aksi
-                        </th>
-                    </tr>
-                </thead>
-                <tbody class=" font-roboto text-center text-xs sm:text-sm dark:text-gray-200">
-                    @foreach ($komputer as $data)
-                        <tr>
-                          @if (Session::has('cari'))
-                            @php
-
-                                $date = $data->date;
-                                $carbon = \Carbon\Carbon::parse($date);
-                                $formatted = $carbon->isoFormat('D MMMM Y'); 
-
-                            @endphp
-
-                            <td class="px-2 py-4">
-                              {{$formatted}}
-                            </td>
-
-                          @endif
-                          <td class="px-6 py-4">
-                            {{$data->computer_name}}
-                          </td>
-                          <td class="px-6 py-4">
-                            {{$data->on_off_condition}}
-                          </td>
-                          <td class="px-1 py-4">
-                            {{$data->on_off_desc}}
-                          </td>
-                          <td class="px-6 py-4">
-                            {{$data->uninstalled_app}}
-                          </td>
-                          <td class="px-6 py-4">
-                            {{$data->uninstalled_app_desc}}
-                          </td>
-                          <td class="px-6 py-4">
-                            {{$data->clean_file_status}}
-                          </td>
-                          <td class="px-6 py-4">
-                            {{$data->clean_file_desc}}
-                          </td>
-                          <td class="px-6 py-4">
-                            <form onsubmit="return confirm('Anda yakin ingin menghapus data ini ?')" action="{{route('komputer.destroy', $data->id)}}" method="POST">
-                              @csrf
-                              @method('DELETE')
-                              <div class="inline-flex rounded-md shadow-md" role="group">
-                                <a href="{{route('komputer.edit', $data->id)}}" title="Edit data" class=" inline-flex items-center px-4 py-2 text-sm font-medium text-gray-50 bg-indigo-800 rounded-l-lg hover:bg-gray-100 hover:text-indigo-800 focus:z-10 focus:ring-2 focus:ring-indigo-800 dark:bg-gray-100 dark:text-indigo-800 dark:hover:bg-indigo-900 dark:hover:text-gray-100 transition duration-200">
-                                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 mr-2 h-5">
-                                    <path d="M5.433 13.917l1.262-3.155A4 4 0 017.58 9.42l6.92-6.918a2.121 2.121 0 013 3l-6.92 6.918c-.383.383-.84.685-1.343.886l-3.154 1.262a.5.5 0 01-.65-.65z" />
-                                    <path d="M3.5 5.75c0-.69.56-1.25 1.25-1.25H10A.75.75 0 0010 3H4.75A2.75 2.75 0 002 5.75v9.5A2.75 2.75 0 004.75 18h9.5A2.75 2.75 0 0017 15.25V10a.75.75 0 00-1.5 0v5.25c0 .69-.56 1.25-1.25 1.25h-9.5c-.69 0-1.25-.56-1.25-1.25v-9.5z" />
-                                  </svg>                                                          
-                                  Edit
-                                </a>
-                                <a href="{{route('komputer.show', $data->id)}}" title="Lihat data" class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-50 bg-indigo-800 hover:bg-gray-100 hover:text-indigo-800 focus:z-10 focus:ring-2 focus:ring-indigo-800 dark:bg-gray-100 dark:text-indigo-800 dark:hover:bg-indigo-900 dark:hover:text-gray-100 transition duration-200">
-                                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 mr-2 h-5">
-                                    <path d="M10 12.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z" />
-                                    <path fill-rule="evenodd" d="M.664 10.59a1.651 1.651 0 010-1.186A10.004 10.004 0 0110 3c4.257 0 7.893 2.66 9.336 6.41.147.381.146.804 0 1.186A10.004 10.004 0 0110 17c-4.257 0-7.893-2.66-9.336-6.41zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd" />
-                                  </svg>                              
-                                  Lihat
-                                </a>
-                                <button type="submit" title="Hapus data" class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-50 bg-indigo-800 rounded-r-md hover:bg-gray-100 hover:text-red-800 focus:z-10 focus:ring-2 focus:ring-red-800 focus:bg-gray-100 focus:text-red-800 dark:bg-gray-100 dark:text-red-800 dark:hover:bg-indigo-900 dark:hover:text-gray-100 transition duration-200">
-                                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 mr-1 h-5">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z" clip-rule="evenodd" />
-                                  </svg>                                                                                        
-                                  Delete
-                                </button>
-                              </div>
-                            </form>
-                          </td>
-                        </tr>
-                    @endforeach
-                </tbody>
-              </table>
-            </div>
+                        <td class="px-6 py-4">
+                          {{$data->computer_name}}
+                        </td>
+                        <td class="px-6 py-4">
+                          {{$data->on_off_condition}}
+                        </td>
+                        <td class="px-1 py-4">
+                          {{$data->on_off_desc}}
+                        </td>
+                        <td class="px-6 py-4">
+                          {{$data->uninstalled_app}}
+                        </td>
+                        <td class="px-6 py-4">
+                          {{$data->uninstalled_app_desc}}
+                        </td>
+                        <td class="px-6 py-4">
+                          {{$data->clean_file_status}}
+                        </td>
+                        <td class="px-6 py-4">
+                          {{$data->clean_file_desc}}
+                        </td>
+                        <td class="px-6 py-4">
+                          <form onsubmit="return confirm('Anda yakin ingin menghapus data ini ?')" action="{{route('komputer.destroy', $data->id)}}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <div class="inline-flex rounded-md shadow-md" role="group">
+                              <a href="{{route('komputer.edit', $data->id)}}" title="Edit data" class=" inline-flex items-center px-4 py-2 text-sm font-medium text-gray-50 bg-indigo-800 rounded-l-lg hover:bg-gray-100 hover:text-indigo-800 focus:z-10 focus:ring-2 focus:ring-indigo-800 dark:bg-gray-100 dark:text-indigo-800 dark:hover:bg-indigo-900 dark:hover:text-gray-100 transition duration-200">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 mr-2 h-5">
+                                  <path d="M5.433 13.917l1.262-3.155A4 4 0 017.58 9.42l6.92-6.918a2.121 2.121 0 013 3l-6.92 6.918c-.383.383-.84.685-1.343.886l-3.154 1.262a.5.5 0 01-.65-.65z" />
+                                  <path d="M3.5 5.75c0-.69.56-1.25 1.25-1.25H10A.75.75 0 0010 3H4.75A2.75 2.75 0 002 5.75v9.5A2.75 2.75 0 004.75 18h9.5A2.75 2.75 0 0017 15.25V10a.75.75 0 00-1.5 0v5.25c0 .69-.56 1.25-1.25 1.25h-9.5c-.69 0-1.25-.56-1.25-1.25v-9.5z" />
+                                </svg>                                                          
+                                Edit
+                              </a>
+                              <a href="{{route('komputer.show', $data->id)}}" title="Lihat data" class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-50 bg-indigo-800 hover:bg-gray-100 hover:text-indigo-800 focus:z-10 focus:ring-2 focus:ring-indigo-800 dark:bg-gray-100 dark:text-indigo-800 dark:hover:bg-indigo-900 dark:hover:text-gray-100 transition duration-200">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 mr-2 h-5">
+                                  <path d="M10 12.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z" />
+                                  <path fill-rule="evenodd" d="M.664 10.59a1.651 1.651 0 010-1.186A10.004 10.004 0 0110 3c4.257 0 7.893 2.66 9.336 6.41.147.381.146.804 0 1.186A10.004 10.004 0 0110 17c-4.257 0-7.893-2.66-9.336-6.41zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd" />
+                                </svg>                              
+                                Lihat
+                              </a>
+                              <button type="submit" title="Hapus data" class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-50 bg-indigo-800 rounded-r-md hover:bg-gray-100 hover:text-red-800 focus:z-10 focus:ring-2 focus:ring-red-800 focus:bg-gray-100 focus:text-red-800 dark:bg-gray-100 dark:text-red-800 dark:hover:bg-indigo-900 dark:hover:text-gray-100 transition duration-200">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 mr-1 h-5">
+                                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z" clip-rule="evenodd" />
+                                </svg>                                                                                        
+                                Delete
+                              </button>
+                            </div>
+                          </form>
+                        </td>
+                      </tr>
+                  @endforeach
+              </tbody>
+            </table>
           </div>
       </div>
 
-      {{-- pagination --}}
-      <div class="px-4 py-4 mx-auto max-w-screen-xl">
-        {{ $komputer->links() }}
-      </div>
+    </div>
+
+    {{-- pagination --}}
+    <div class="px-4 py-4 mx-auto max-w-screen-xl">
+      {{ $komputer->links() }}
+    </div>
+
   </div>
 
   {{-- success notif --}}
