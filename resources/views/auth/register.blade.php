@@ -8,6 +8,14 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <title>Teknik - Register</title>
 
+  <style>
+    @media only screen and (max-width: 768px){
+      [data-aos] {
+            opacity: 1 !important;
+            transform: none !important;
+      }
+    }
+  </style>
   {{-- tailwind css using vite --}}
   @vite(['resources/css/app.css','resources/js/app.js'])
 </head>

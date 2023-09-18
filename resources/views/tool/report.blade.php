@@ -7,6 +7,14 @@
   <title>Laporan</title> 
   <link rel="shortcut icon" href="{{ asset('img/logo.png') }}" type="image/x-icon">
 
+  <style>
+    @media only screen and (max-width: 768px){
+      [data-aos] {
+            opacity: 1 !important;
+            transform: none !important;
+      }
+    }
+  </style>
   {{-- AOS --}}
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   {{-- tailwind css using vite --}}

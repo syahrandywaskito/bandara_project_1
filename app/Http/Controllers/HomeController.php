@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Berita;
 use illuminate\Contracts\Foundation\Application;
 use illuminate\Contracts\View\Factory;
 use illuminate\Contracts\View\View;
@@ -19,8 +20,17 @@ class HomeController extends Controller
 
     public function Index(Request $request) : Factory|View|Application
     {
+
+        # data berita dari model Berita
+        $berita = Berita::latest()->get();
+
+        # data berita yang dipaginate
+        $paginate = Berita::latest()->paginate(2);
+
         return view('homepage', [
-            'message' => 'Homepage for Airport'
+            'berita' => $berita,
+            'beritaPaginate' => $paginate,
+            'message' => 'Homepage for Airport',
         ]);
 
     }

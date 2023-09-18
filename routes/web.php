@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\CCTVController;
 use App\Http\Controllers\CCTVListController;
 use App\Http\Controllers\FIDSController;
@@ -24,7 +25,7 @@ use App\Http\Controllers\UsersController;
 */
 
 Route::get('/', [HomeController::class, 'Index'])->name('homepage');
-Route::view('/', 'homepage')->name('homepage');
+// Route::view('/', 'homepage')->name('homepage');
 
 Route::get('/tool/cctv', function (){
   return view('tool.cctv');
@@ -59,6 +60,8 @@ Route::resource('/dashboard/users/users', UsersController::class);
 Route::resource('/dashboard/report/fids', FIDSController::class);
 
 Route::resource('/dashboard/report/komputer', KomputerController::class);
+
+Route::resource('/dashboard/berita/beritas', BeritaController::class);
 
 Route::resource('/dasboard/hardware/list/cctv-list', CCTVListController::class)->names([
   'index' => 'list.cctv.index',
