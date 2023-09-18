@@ -22,7 +22,7 @@
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
           <path fill-rule="evenodd" d="M7.72 12.53a.75.75 0 010-1.06l7.5-7.5a.75.75 0 111.06 1.06L9.31 12l6.97 6.97a.75.75 0 11-1.06 1.06l-7.5-7.5z" clip-rule="evenodd" stroke-width="10" />
         </svg>                    
-        <span class="self-center text-md md:text-md font-roboto uppercase whitespace-nowrap pl-2 pr-3 py-2">Kembali</span>
+        <span class="self-center text-sm md:text-base font-roboto uppercase whitespace-nowrap pl-2 pr-3 py-2">Kembali</span>
       </a>
     </div>
 
@@ -41,7 +41,7 @@
   {{-- Login Form --}}
   <section class=" mt-12 sm:my-0 h-screen">
     <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-        <a href="{{URL::previous()}}" class="flex items-center mb-6 text-2xl font-bold font-montserrat text-gray-100 uppercase" data-aos="fade-up" data-aos-duration="200" data-aos-delay="50">
+        <a href="{{URL::previous()}}" class="flex items-center mb-6 text-base md:text-lg lg:text-xl font-bold font-montserrat text-gray-100 uppercase" data-aos="fade-up" data-aos-duration="200" data-aos-delay="50">
             Ubah Data   
         </a>
         <div class="w-full bg-gray-50 dark:bg-indigo-950 bg-opacity-60 rounded-lg shadow-lg md:mt-0 sm:max-w-md xl:p-0" data-aos="fade-up" data-aos-duration="300" data-aos-delay="100">
@@ -50,10 +50,10 @@
                   @csrf
                   @method('PUT')
                     <div>
-                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-100">Nama Perangkat</label>
-                        <input type="text" name="name" id="email" class="bg-gray-50 border-2 border-gray-100 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5 focus:ring-indigo-400 focus:ring-2 focus:outline-none" value="{{$fids_list->name}}">
+                        <label for="email" class="block mb-2 text-xs md:text-sm font-medium text-gray-900 dark:text-gray-100">Nama Perangkat</label>
+                        <input type="text" name="name" id="email" class="bg-gray-50 border-2 border-gray-100 text-gray-900 text-xs md:text-sm rounded-lg block w-full p-2.5 focus:ring-indigo-400 focus:ring-2 focus:outline-none" value="{{$fids_list->name}}">
                     </div>
-                    <button type="submit" class="w-full text-gray-100 font-montserrat bg-gradient-to-r from-indigo-600 to-blue-500 hover:-translate-y-1 hover:scale-105 transition duration-300 focus:ring-4 focus:outline-none font-semibold rounded-lg text-sm px-5 py-2.5 text-center shadow-md dark:from-indigo-800 dark:to-indigo-900">
+                    <button type="submit" class="w-full text-gray-100 font-montserrat bg-gradient-to-r from-indigo-600 to-blue-500 hover:-translate-y-1 hover:scale-105 transition duration-300 focus:ring-4 focus:outline-none font-semibold rounded-lg text-xs md:text-sm px-5 py-2.5 text-center shadow-md dark:from-indigo-800 dark:to-indigo-900">
                       Ubah
                     </button>
                 </form>

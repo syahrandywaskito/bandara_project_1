@@ -7,29 +7,29 @@
     </button>
   </div>
   <div class="z-50 hidden my-4 text-base list-none bg-gray-100 divide-y divide-gray-100 rounded shadow-md" id="dropdown-user">
-    <div class="px-4 py-3 font-roboto" role="none">
-      <p class="text-sm text-gray-900 font-semibold" role="none">
+    <div class="px-4 py-3 font-roboto text-xs md:text-sm" role="none">
+      <p class=" text-gray-900 font-semibold" role="none">
         {{auth()->user()->name}}
       </p>
-      <p class="text-sm font-medium text-gray-900 truncate pt-1" role="none">
+      <p class=" font-medium text-gray-900 truncate pt-1" role="none">
         {{auth()->user()->email}}
       </p>
-      <p class="text-sm font-medium text-gray-900 truncate pt-1" role="none">
+      <p class=" font-medium text-gray-900 truncate pt-1" role="none">
         {{auth()->user()->position}}
       </p>
     </div>
 
     <hr class="border-0 bg-gray-300 h-1 ">
 
-    <ul class="py-1 font-roboto" role="none">
+    <ul class="py-1 font-roboto text-xs md:text-sm" role="none">
       <li>
-        <a href="{{route('dashboard')}}" class="block px-4 py-2 text-sm text-gray-700 hover:translate-x-1 transition duration-200" role="menuitem">Dashboard</a>
+        <a href="{{route('dashboard')}}" class="block px-4 py-2 text-gray-700 hover:translate-x-1 transition duration-200" role="menuitem">Dashboard</a>
       </li>
       <li>
-        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:translate-x-1 transition duration-200" role="menuitem">Settings</a>
+        <a href="#" class="block px-4 py-2 text-gray-700 hover:translate-x-1 transition duration-200" role="menuitem">Settings</a>
       </li>
       <li>
-        <a href="{{route('logout')}}" class="block px-4 py-2 text-sm text-gray-700 hover:translate-x-1 transition duration-200" role="menuitem">Logout</a>
+        <a href="{{route('logout')}}" class="block px-4 py-2 text-gray-700 hover:translate-x-1 transition duration-200" role="menuitem">Logout</a>
       </li>
     </ul>
   </div>
