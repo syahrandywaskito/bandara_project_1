@@ -35,13 +35,13 @@
             </button>
             <a href="{{route('cctv.create')}}" class="flex ml-2 md:mr-24">
               <img src="{{asset('img/logo.png')}}" class="h-8 mr-3" alt="FlowBite Logo" />
-              <span class="self-center font-roboto uppercase font-semibold hidden sm:block sm:text-base md:text-lg lg:text-xl text-gray-100 whitespace-nowrap">Berita - Tambah Data</span>
+              <span class="self-center font-roboto uppercase font-semibold hidden sm:block sm:text-base md:text-lg lg:text-xl text-gray-100 whitespace-nowrap">Berita - Ubah Data</span>
             </a>
           </div>
           <div class="flex items-center">
             {{-- Dark toggle --}} 
             @include('components.dashboard.darktoggle') 
-            {{-- User Profile Menu --}} 
+            {{-- User Profile Menu --}} \
             @include('components.dashboard.userprofile')
           </div>
         </div>
@@ -50,6 +50,7 @@
 
     {{-- Sidebar Part --}} 
     @include('components.dashboard.sidebar') 
+
     {{-- Content Part --}}
     <div class="py-7 md:px-5 lg:ml-64">
       <div class="bg-white dark:bg-slate-900">
@@ -81,21 +82,22 @@
                     <svg class="w-3 h-3 mx-1 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                       <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
                     </svg>
-                    <span class="ml-1 text-xs md:text-sm font-medium text-gray-700 md:ml-2">Tambah Data</span>
+                    <span class="ml-1 text-xs md:text-sm font-medium text-gray-700 md:ml-2">Ubah Data</span>
                   </div>
                 </li>
               </ol>
             </nav>
 
+            {{-- Header text --}}
             <h1 class="text-gray-900 dark:text-gray-200 lg:px-2 mt-6 text-base md:text-lg xl:text-xl uppercase font-montserrat font-bold">
-              Halaman Tambah Data
+              Halaman Ubah Data
             </h1>
 
-            {{-- input form --}}
+            {{-- Input form --}}
             <div class="font-roboto flex-row items-center">
               <div class="mt-4">
-                <form action="{{route('beritas.store')}}" method="POST" enctype="multipart/form-data" class="">
-                  @csrf
+                <form action="{{route('beritas.update', $berita->id)}}" method="POST" enctype="multipart/form-data" class="">
+                  @csrf @method('PUT')
                   <div class="grid grid-cols-1 grid-flow-row-dense gap-4">
                     {{-- gambar visible and get data from file --}}
                     <div>
@@ -108,6 +110,7 @@
                         class="text-xs md:text-sm text-gray-900 bg-gray-50 border-2 border-gray-400 rounded-lg outline-none focus:border-indigo-800 dark:border-gray-100 dark:bg-gray-100 block w-full p-3"
                         required
                         name="gambar"
+                        value="{{old($berita->gambar)}}"
                       />
                     </div>
   
@@ -122,6 +125,7 @@
                         class="text-xs md:text-sm text-gray-900 bg-gray-50 border-2 border-gray-400 rounded-lg outline-none focus:border-indigo-800 dark:border-gray-100 dark:bg-gray-100 block w-full p-3"
                         required
                         name="judul"
+                        value="{{$berita->judul}}"
                       />
                     </div>
   
@@ -130,7 +134,9 @@
                       <label for="isi" class="block mb-2 text-xs md:text-sm font-medium text-gray-900 dark:text-gray-200">
                         Keterangan Rekaman
                       </label>
-                      <textarea name="isi" id="" cols="30" rows="10" class="text-xs md:text-sm text-gray-900 bg-gray-50 border-2 border-gray-400 rounded-lg outline-none focus:border-indigo-800 dark:border-gray-100 w-full p-3"> </textarea>
+                      <textarea name="isi" id="" cols="30" rows="10" class="text-xs md:text-sm text-gray-900 bg-gray-50 border-2 border-gray-400 rounded-lg outline-none focus:border-indigo-800 dark:border-gray-100 w-full p-3">
+                        {{$berita->isi}}
+                      </textarea>
                     </div>
   
                     {{-- group of button --}}

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 // use Illuminate\Support\Facades\DB;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class UsersController extends Controller
@@ -33,6 +34,20 @@ class UsersController extends Controller
         
         return view('admin.users.users', ['users' => $data]);
     }
+
+    /**
+     * Delete pengguna dari database
+     * 
+     * @return RedirectResponse
+     */
     
+    public function destroy(User $user) : RedirectResponse
+    {
+        $nama = $user->name;
+
+        $user->delete();
+
+        return redirect()->back()->with('success', "Berhasil menghapus pengguna $nama");
+    }
 
 }

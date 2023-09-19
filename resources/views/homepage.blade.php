@@ -231,6 +231,7 @@
             Berita
           </h1>
         </div>
+
         {{-- grid item yang ditampilkan dengan foreach --}} 
         @foreach ($beritaPaginate as $data)
         <div>
@@ -247,7 +248,7 @@
               <div class=" truncate">
                 {!! Str::limit(strip_tags($data->isi), $limit = 100, $end = '...') !!}
               </div>
-              <a href="" class="inline-flex items-center mt-2 px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">
+              <a href="" class="inline-flex items-center mt-2 px-3 py-2 text-sm font-medium text-center text-white bg-gradient-to-r from-indigo-600 to-blue-500 rounded-lg hover:translate-x-1 transition duration-200 focus:ring-4 focus:outline-none">
                 Read more
                 <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
@@ -269,7 +270,7 @@
           </h1>
         </div>
         {{-- carousel part --}}
-        <div id="controls-carousel" class="relative w-full" data-carousel="static">
+        <div id="controls-carousel" class="relative w-full" data-carousel="slide">
           <!-- Carousel wrapper -->
           <div class="relative h-[40vh] overflow-hidden rounded-lg xl:h-[70vh]" data-aos="fade-up" data-aos-delay="600" data-aos-ease="ease-in-out" data-aos-duration="400">
             {{-- gambar carousel yang akan ditampilkan dengan foreach --}} 
@@ -286,7 +287,7 @@
                     <p class="pt-4 text-xs md:text-sm lg:text-base text-ellipsis truncate">
                       {!! Str::limit(strip_tags($data->isi), $limit = 150, $end = '...') !!}
                     </p>
-                    <a class="w-fit flex items-center px-4 py-2 bg-gray-50 text-indigo-800 rounded-lg my-3 hover:bg-gray-200 duration-150 transition">
+                    <a href="" class="w-fit flex items-center px-4 py-2 bg-gray-50 text-indigo-800 rounded-lg my-3 hover:bg-gray-200 duration-150 transition">
                       Baca lagi
                       <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
@@ -355,8 +356,8 @@
                   </tr>
                 </thead>
                 <tbody id="scheduleData" class="text-center font-roboto">
-                  {{--
-                  <script type="module">
+                  
+                  {{-- <script type="module">
                     const apiUrl = 'https://airlabs.co/api/v9/schedules?dep_iata=MLG&api_key=f145dc59-33ef-4bc7-b015-6f45e4f9785d';
                     const scheduleDataElement = document.getElementById('scheduleData');
 
@@ -402,8 +403,8 @@
                     .catch(error => {
                         console.error('An error occurred:', error);
                     });
-                  </script>
-                  --}}
+                  </script> --}}
+                 
                 </tbody>
               </table>
             </div>
