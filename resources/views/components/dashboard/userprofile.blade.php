@@ -3,23 +3,23 @@
   <div>
     <button type="button" class="flex text-sm bg-white rounded-full focus:ring-4 focus:ring-gray-300" aria-expanded="false" data-dropdown-toggle="dropdown-user">
       <span class="sr-only">Open user menu</span>
-      <img class="w-8 h-8 p-1 rounded-full" src="{{asset('img/user.png')}}" alt="user photo">
+      <img class="w-8 h-8 p-1 rounded-full" src="{{asset('img/user.png')}}" alt="user photo" />
     </button>
   </div>
   <div class="z-50 hidden my-4 text-base list-none bg-gray-100 divide-y divide-gray-100 rounded shadow-md" id="dropdown-user">
     <div class="px-4 py-3 font-roboto text-xs md:text-sm" role="none">
-      <p class=" text-gray-900 font-semibold" role="none">
+      <p class="text-gray-900 font-semibold" role="none">
         {{auth()->user()->name}}
       </p>
-      <p class=" font-medium text-gray-900 truncate pt-1" role="none">
+      <p class="font-medium text-gray-900 truncate pt-1" role="none">
         {{auth()->user()->email}}
       </p>
-      <p class=" font-medium text-gray-900 truncate pt-1" role="none">
+      <p class="font-medium text-gray-900 truncate pt-1" role="none">
         {{auth()->user()->position}}
       </p>
     </div>
 
-    <hr class="border-0 bg-gray-300 h-1 ">
+    <hr class="border-0 bg-gray-300 h-1" />
 
     <ul class="py-1 font-roboto text-xs md:text-sm" role="none">
       <li>
