@@ -49,6 +49,11 @@ Route::controller(AuthController::class)->group(function(){
   Route::get('/logout', 'Logout')->name('logout');
 });
 
+# Route tool cctv report [ReportController]
+Route::get('/tool/cctv', [ReportController::class, 'cctvIndex'])->name('tool.cctv.index');
+Route::get('/tool/komputer', [ReportController::class, 'komputerIndex'])->name('tool.komputer.index');
+Route::get('/tool/fids', [ReportController::class, 'fidsIndex'])->name('tool.fids.index');
+
 Route::get('/tool/report', [ReportController::class, 'index'])->name('report.index');
 Route::get('/tool/report/cctv-report' , [ReportController::class, 'createPDFCCTV'])->name('report.cctv.download');
 Route::get('/tool/report/komputer-report' , [ReportController::class, 'createPDFKomputer'])->name('report.komputer.download');

@@ -10,6 +10,20 @@ use Illuminate\Http\Request;
 
 class ReportController extends Controller
 {
+
+    public function cctvIndex() : View
+    {
+      return view('tool.cctv');
+    }
+    public function komputerIndex() : View
+    {
+      return view('tool.komputer');
+    }
+    public function fidsIndex() : View
+    {
+      return view('tool.fids');
+    }
+
     public function index() : View  
     {
 
@@ -25,24 +39,25 @@ class ReportController extends Controller
 
     public function createPDFCCTV()
     {
-      $today = now()->format('Y-m-d');
-      $cctvDate = CctvModel::whereDate('date', $today)->get();
+      $month = now()->format('m');
+      $cctvMonth = CctvModel::orderBy('date', 'asc')->whereMonth('date', $month)->get();
 
-      return view('tool.report-download.pdf-cctv', ['cctv' => $cctvDate]);
+      return view('tool.report-download.pdf-cctv', ['cctv' => $cctvMonth]);
 
     }
     public function createPDFKomputer()
     {
-      $today = now()->format('Y-m-d');
-      $komputerDate = Komputer::whereDate('date', $today)->get();
+      
+      $month = now()->format('m');
+      $komputerMonth = Komputer::orderBy('date', 'asc')->whereMonth('date', $month)->get();
 
-      return view('tool.report-download.pdf-komputer', ['komputer' => $komputerDate]);
+      return view('tool.report-download.pdf-komputer', ['komputer' => $komputerMonth]);
 
     }
     public function createPDFFIDS()
     {
-      $today = now()->format('Y-m-d');
-      $fidsDate = fids::whereDate('date', $today)->get();
+      $month = now()->format('m');
+      $fidsDate = fids::orderBy('date', 'asc')->whereMonth('date', $month)->get();
 
       return view('tool.report-download.pdf-fids', ['fids' => $fidsDate]);
     }
