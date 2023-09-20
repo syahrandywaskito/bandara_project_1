@@ -6,6 +6,7 @@ use App\Models\Berita;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
@@ -17,11 +18,29 @@ class BeritaController extends Controller
      * 
      * @return View
      */
-    public function index() : View
+    public function index(Request $request) : View
     {
-        $berita = Berita::latest()->get();
+        $namaKolom = $request->kolom;
 
-        return view('admin.berita.index', ['berita' => $berita]);
+        $cari = $request->cari;
+
+        $all = $request->all;
+
+        if (isset($cari) && isset($namaKolom)) {
+            
+            $data = DB::table('beritas')->where($namaKolom, 'like', "%$cari%")->latest()->get();
+        }
+        elseif (isset($all)) {
+
+            $data = Berita::latest()->get();
+        }
+        else {
+            
+            $data = Berita::latest()->get();
+        }
+
+
+        return view('admin.berita.index', ['berita' => $data]);
     }
 
     /**

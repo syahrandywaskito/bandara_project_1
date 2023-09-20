@@ -35,4 +35,9 @@ class HomeController extends Controller
 
     }
 
+    public function show(Berita $berita) : View
+    {
+        return view('berita', compact('berita'));
+    }
+
 }

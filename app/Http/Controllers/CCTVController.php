@@ -101,7 +101,13 @@ class CCTVController extends Controller
 
         $hardware_name = $request->input('hardware_name');
 
-        $successMessage = "Input {$hardware_name} success";
+        $inputDate = $request->input('date');
+
+        $formattedDate = Carbon::parse($inputDate);
+
+        $date = $formattedDate->isoFormat('D MMMM Y');
+
+        $successMessage = "Input {$hardware_name} success tanggal $date";
 
         $response =[
             'message' => $successMessage,
@@ -116,12 +122,36 @@ class CCTVController extends Controller
      * @return View
      */
     
-    public function create() : View
+    public function create(Request $request) : View
     {
+        $today = now()->format('Y-m-d');
+
+        $selectedDate = $request->input('selected_date');
+
+        $all = $request->input('all');
+        
+        $dataDate = Carbon::parse($selectedDate);
+
+        $formattedDate = $dataDate->isoFormat('dddd, D MMMM Y');
+
+        if (isset($selectedDate)) {
+            
+            $date = $selectedDate;
+        }
+
+        elseif (isset($all)) {
+            
+            $date = $today;
+        }
+
+        else {
+
+            $date = $today;
+        }
 
         $list = CCTVList::all(['*']);
 
-        return view('admin.report.cctv.create', compact('list'));
+        return view('admin.report.cctv.create', ['list' => $list, 'date' => $date, 'formattedDate' => $formattedDate]);
     }
 
     /**
@@ -148,7 +178,13 @@ class CCTVController extends Controller
 
     public function edit(CctvModel $cctv) : View
     {
-        return view('admin.report.cctv.edit', compact('cctv'));
+        $dataDate = $cctv->date;
+
+        $formattedDate = Carbon::parse($dataDate);
+
+        $date = $formattedDate->isoFormat('dddd, D MMMM Y');
+
+        return view('admin.report.cctv.edit', ['cctv' => $cctv, 'date' => $date]);
     }
 
     /**

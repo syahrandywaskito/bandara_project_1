@@ -66,12 +66,38 @@ class KomputerController extends Controller
         return view('admin.report.komputer', ['komputer' => $data, 'date' => $formattedDate]);
     }
 
-    public function create() : View
+    public function create(Request $request) : View
     {
+
+        
+        $today = now()->format('Y-m-d');
+
+        $selectedDate = $request->input('selected_date');
+
+        $all = $request->input('all');
+        
+        $dataDate = Carbon::parse($selectedDate);
+
+        $formattedDate = $dataDate->isoFormat('dddd, D MMMM Y');
+
+        if (isset($selectedDate)) {
+            
+            $date = $selectedDate;
+        }
+
+        elseif (isset($all)) {
+            
+            $date = $today;
+        }
+
+        else {
+
+            $date = $today;
+        }
 
         $list = KomputerList::all(['*']);
 
-        return view('admin.report.komputer.create', compact('list'));
+        return view('admin.report.komputer.create', ['list' => $list, 'date' => $date, 'formattedDate' => $formattedDate]);
     }
 
     public function store(Request $request)
@@ -103,7 +129,13 @@ class KomputerController extends Controller
 
         $computer_name = $request->input('computer_name');
 
-        $successMessage = "Input {$computer_name} success";
+        $inputDate = $request->input('date');
+
+        $formattedDate = Carbon::parse($inputDate);
+
+        $date = $formattedDate->isoFormat('D MMMM Y');
+
+        $successMessage = "Input {$computer_name} success tanggal $date";
 
         $response =[
             'message' => $successMessage,
@@ -114,7 +146,13 @@ class KomputerController extends Controller
 
     public function edit(Komputer $komputer) : View
     {
-        return view('admin.report.komputer.edit', compact('komputer'));
+        $dataDate = $komputer->date;
+
+        $formattedDate = Carbon::parse($dataDate);
+
+        $date = $formattedDate->isoFormat('dddd, D MMMM Y');
+
+        return view('admin.report.komputer.edit', ['komputer' => $komputer, 'date' => $date]);
     }
 
     public function update(Request $request, Komputer $komputer) : RedirectResponse

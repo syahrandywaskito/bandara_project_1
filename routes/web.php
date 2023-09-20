@@ -26,6 +26,7 @@ use App\Http\Controllers\UsersController;
 
 Route::get('/', [HomeController::class, 'Index'])->name('homepage');
 // Route::view('/', 'homepage')->name('homepage');
+Route::get('/berita{berita}', [HomeController::class, 'show'])->name('berita');
 
 Route::get('/tool/cctv', function (){
   return view('tool.cctv');

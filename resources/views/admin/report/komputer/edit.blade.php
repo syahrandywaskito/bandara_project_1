@@ -85,10 +85,10 @@
             <h1 class="text-gray-900 dark:text-gray-200 lg:px-2 mt-6 text-base md:text-lg lg:text-xl uppercase font-montserrat font-bold">
               Halaman ubah data
             </h1>
-            <div class="lg:hidden text-xs md:text-sm font-montserrat pt-3 dark:text-gray-200">
-              <h3>Tanggal sekarang</h3>
+            <div class="text-xs md:text-sm font-montserrat lg:px-2 pt-3 dark:text-gray-200">
+              <h3>Tanggal data</h3>
               <p>
-                {{now()->isoFormat('dddd')}}, {{now()->isoFormat('D MMMM Y')}}
+                {{$date}}
               </p>
             </div>
             <form class="font-montserrat lg:px-2 mt-6" action="{{route('komputer.update', $komputer->id)}}" method="POST">

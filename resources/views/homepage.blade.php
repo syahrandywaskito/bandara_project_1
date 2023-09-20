@@ -248,7 +248,7 @@
               <div class=" truncate">
                 {!! Str::limit(strip_tags($data->isi), $limit = 100, $end = '...') !!}
               </div>
-              <a href="" class="inline-flex items-center mt-2 px-3 py-2 text-sm font-medium text-center text-white bg-gradient-to-r from-indigo-600 to-blue-500 rounded-lg hover:translate-x-1 transition duration-200 focus:ring-4 focus:outline-none">
+              <a href="{{route('berita', $data->id)}}" class="inline-flex items-center mt-2 px-3 py-2 text-sm font-medium text-center text-white bg-gradient-to-r from-indigo-600 to-blue-500 rounded-lg hover:translate-x-1 transition duration-200 focus:ring-4 focus:outline-none">
                 Read more
                 <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
@@ -287,7 +287,7 @@
                     <p class="pt-4 text-xs md:text-sm lg:text-base text-ellipsis truncate">
                       {!! Str::limit(strip_tags($data->isi), $limit = 150, $end = '...') !!}
                     </p>
-                    <a href="" class="w-fit flex items-center px-4 py-2 bg-gray-50 text-indigo-800 rounded-lg my-3 hover:bg-gray-200 duration-150 transition">
+                    <a href="{{route('berita', $data->id)}}" class="w-fit flex items-center px-4 py-2 bg-gray-50 text-indigo-800 rounded-lg my-3 hover:bg-gray-200 duration-150 transition">
                       Baca lagi
                       <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />

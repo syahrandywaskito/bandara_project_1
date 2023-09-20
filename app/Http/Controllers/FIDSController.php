@@ -64,11 +64,34 @@ class FIDSController extends Controller
         return view('admin.report.fids', ['fids' => $data, 'date' => $formattedDate]);
     }
 
-    public function create() : View
+    public function create(Request $request) : View
     {
+        $today = now()->format('Y-m-d');
+
+        $selectedDate = $request->input('selected_date');
+
+        $all = $request->input('all');
+        
+        $dataDate = Carbon::parse($selectedDate);
+
+        $formattedDate = $dataDate->isoFormat('dddd, D MMMM Y');
+
+        if (isset($selectedDate)) {
+            
+            $date = $selectedDate;
+        }
+        elseif (isset($all)) {
+            
+            $date = $today;
+        }
+        else{
+            
+            $date = $today;
+        }
+
         $list = fidslist::all(['*']);
 
-        return view('admin.report.fids.create', compact('list'));
+        return view('admin.report.fids.create', ['list' => $list, 'date' => $date, 'formattedDate' => $formattedDate]);
     }
 
     public function store(Request $request) 
@@ -98,7 +121,13 @@ class FIDSController extends Controller
 
         $monitor_name = $request->input('monitor_name');
 
-        $successMessage = "Input {$monitor_name} success";
+        $inputDate = $request->input('date');
+
+        $formattedDate = Carbon::parse($inputDate);
+
+        $date = $formattedDate->isoFormat('D MMMM Y');
+
+        $successMessage = "Input {$monitor_name} success tanggal $date";
 
         $response =[
             'message' => $successMessage,
@@ -121,8 +150,13 @@ class FIDSController extends Controller
 
     public function edit(fids $fid) : View
     {
+        $dataDate = $fid->date;
 
-        return view('admin.report.fids.edit', compact('fid'));
+        $formattedDate = Carbon::parse($dataDate);
+
+        $date = $formattedDate->isoFormat('dddd, D MMMM Y');
+
+        return view('admin.report.fids.edit', ['fid' => $fid, 'date' => $date]);
     }
 
     public function update(Request $request, fids $fid) : RedirectResponse
