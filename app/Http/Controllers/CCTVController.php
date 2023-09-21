@@ -45,7 +45,7 @@ class CCTVController extends Controller
         }
         elseif (isset($cari) && isset($namaKolom)) {
             
-            $data = DB::table('cctv_models')->where($namaKolom, 'like', "%$cari%")->latest()->paginate();
+            $data = DB::table('cctv_models')->orderBy('date', 'asc' )->where($namaKolom, 'like', "%$cari%")->latest()->paginate();
 
             Session::flash('cari', 'search was successful');
 

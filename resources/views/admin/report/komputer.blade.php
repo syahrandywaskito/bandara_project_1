@@ -206,7 +206,7 @@
       {{-- Table --}}
       <div class="px-4 mx-auto max-w-screen-xl">
         <div class="relative overflow-x-auto shadow-lg bg-gray-50 dark:bg-indigo-950 sm:rounded-lg p-4">
-          <table class="w-full text-sm text-left">
+          <table class="w-full text-sm text-left" id="dataTabel">
             <caption class="p-5 text-sm lg:text-base font-semibold text-left text-gray-900 dark:text-gray-200 font-montserrat">
               <span class="uppercase">Tabel pengecekan</span>
               <p class="font-normal mt-1 text-xs md:text-sm">
@@ -221,25 +221,74 @@
                 </th>
                 @endif
                 <th scope="col" class="px-6 py-3">
-                  Nama Perangkat
+                  <div class="flex items-center">
+                    <span>
+                      Nama Perangkat 
+                    </span>
+                    <a href="javascript:void(0);" onclick="toggleSortDirectionNamaPerangkat('namaPerangkat')" class="ml-2">
+                      <span id="sortIconNamaPerangkat">&#x25B2;</span>
+                    </a>
+                  </div>
                 </th>
                 <th scope="col" class="px-6 py-3">
-                  Kondisi Nyala/Mati
+                  <div class="flex items-center">
+                    <span>
+                      Kondisi Nyala/Mati
+                    </span>
+                    <a href="javascript:void(0);" onclick="toggleSortDirectionKondisiNyalaMati('kondisiNyalaMati')" class="ml-2">
+                      <span id="sortIconKondisiNyalaMati">&#x25B2;</span>
+                    </a>
+                  </div>
                 </th>
                 <th scope="col" class="px-6 py-3">
-                  Keterangan Nyala/Mati
+                  <div class="flex items-center">
+                    <span>
+                      Keterangan Nyala/Mati
+                    </span>
+                    <a href="javascript:void(0);" onclick="toggleSortDirectionKeteranganNyalaMati('keteranganNyalaMati')" class="ml-2">
+                      <span id="sortIconKeteranganNyalaMati">&#x25B2;</span>
+                    </a>
+                  </div>
                 </th>
                 <th scope="col" class="px-6 py-3">
-                  Aplikasi di Uninstall
+                  <div class="flex items-center">
+                    <span>
+                      Aplikasi di Uninstall
+                    </span>
+                    <a href="javascript:void(0);" onclick="toggleSortDirectionAplikasiDiUninstall('aplikasiDiUninstall')" class="ml-2">
+                      <span id="sortIconAplikasiDiUninstall">&#x25B2;</span>
+                    </a>
+                  </div>
                 </th>
                 <th scope="col" class="px-6 py-3">
-                  Keterangan Aplikasi di Uninstall
+                  <div class="flex items-center">
+                    <span>
+                      Keterangan Aplikasi di Uninstall
+                    </span>
+                    <a href="javascript:void(0);" onclick="toggleSortDirectionKeteranganUninstall('keteranganUninstall')" class="ml-2">
+                      <span id="sortIconKeteranganUninstall">&#x25B2;</span>
+                    </a>
+                  </div>
                 </th>
                 <th scope="col" class="px-6 py-3">
-                  Status pembersihan file
+                  <div class="flex items-center">
+                    <span>
+                      Status Pembersihan File
+                    </span>
+                    <a href="javascript:void(0);" onclick="toggleSortDirectionStatusPembersihanFile('statusPembersihanFile')" class="ml-2">
+                      <span id="sortIconStatusPembersihanFile">&#x25B2;</span>
+                    </a>
+                  </div>
                 </th>
                 <th scope="col" class="px-6 py-3">
-                  Keterangan pembersihan file
+                  <div class="flex items-center">
+                    <span>
+                      Keterangan Pembersihan File
+                    </span>
+                    <a href="javascript:void(0);" onclick="toggleSortDirectionKeteranganPembersihanFile('keteranganPembersihanFile')" class="ml-2">
+                      <span id="sortIconKeteranganPembersihanFile">&#x25B2;</span>
+                    </a>
+                  </div>
                 </th>
                 <th scope="col" class="px-6 py-3">
                   Aksi
@@ -340,6 +389,69 @@
     </div>
 
     {{-- success notif --}} @include('components.dashboard.successnotif')
+
+    <script>
+      var sortDirection = 'asc';
+      var dataDokumen = $dokumen;
+      
+      function toggleSortDirectionNamaPerangkat(column) {
+          toggleSortDirection(column, 'sortIconNamaPerangkat', 0);
+      }
+  
+      function toggleSortDirectionKondisiNyalaMati(column) {
+          toggleSortDirection(column, 'sortIconKondisiNyalaMati', 1);
+      }
+  
+      function toggleSortDirectionKeteranganNyalaMati(column) {
+          toggleSortDirection(column, 'sortIconKeteranganNyalaMati', 2);
+      }
+  
+      function toggleSortDirectionAplikasiDiUninstall(column) {
+          toggleSortDirection(column, 'sortIconAplikasiDiUninstall', 3);
+      }
+  
+      function toggleSortDirectionKeteranganUninstall(column) {
+          toggleSortDirection(column, 'sortIconKeteranganUninstall', 4);
+      }
+
+      function toggleSortDirectionStatusPembersihanFile(column) {
+          toggleSortDirection(column, 'sortIconStatusPembersihanFile', 5);
+      }
+
+      function toggleSortDirectionKeteranganPembersihanFile(column) {
+          toggleSortDirection(column, 'sortIconKeteranganPembersihanFile', 6);
+      }
+  
+      function toggleSortDirection(column, sortIconId, columnIndex) {
+          var sortIcon = document.getElementById(sortIconId);
+          var dataTabel = document.getElementById('dataTabel');
+          var rows = Array.from(dataTabel.getElementsByTagName('tr')).slice(1);
+  
+          if (sortDirection === 'asc') {
+              sortDirection = 'desc';
+              sortIcon.innerHTML = '&#x25BC;';
+          } else {
+              sortDirection = 'asc';
+              sortIcon.innerHTML = '&#x25B2;';
+          }
+  
+          rows.sort(function(a, b) {
+              var aText = a.getElementsByTagName('td')[columnIndex].textContent;
+              var bText = b.getElementsByTagName('td')[columnIndex].textContent;
+              console.log(aText);
+              console.log(bText);
+              if (sortDirection === 'asc') {
+                  return aText.localeCompare(bText);
+              } else {
+                  return bText.localeCompare(aText);
+              }
+          });
+  
+          for (var i = 0; i < rows.length; i++) {
+              dataTabel.tBodies[0].appendChild(rows[i]);
+          }
+      }
+    </script>
 
     <script src="{{asset('js/hide-alert.js')}}"></script>
 

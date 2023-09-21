@@ -43,7 +43,7 @@ class FIDSController extends Controller
         }
         elseif (isset($cari) && isset($namaKolom)) {
             
-            $data = fids::where($namaKolom, 'like', "%$cari%")->latest()->paginate();
+            $data = fids::where($namaKolom, 'like', "%$cari%")->orderBy('date', 'asc' )->latest()->paginate();
 
             Session::flash('cari', 'search was successful');
 

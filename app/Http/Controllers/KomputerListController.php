@@ -13,11 +13,30 @@ use Illuminate\Support\Facades\Validator;
 
 class KomputerListController extends Controller
 {
-    public function index() : View
+    public function index(Request $request) : View
     {
-        $list = KomputerList::all(['*']);
+        $cari = $request->cari;
 
-        return view('admin.hardware.komputer_list.index', compact('list'));
+        $namaKolom = $request->kolom;
+
+        $all = $request->all;
+
+        if (isset($cari) && isset($namaKolom)) {
+            
+            $list = KomputerList::where($namaKolom, 'like', "%$cari%")->get();
+        }
+
+        elseif (isset($all)) {
+            
+            $list = KomputerList::all(['*']);
+        }
+
+        else{
+            
+            $list = KomputerList::all(['*']);
+        }
+
+        return view('admin.hardware.komputer_list.index', ['list' => $list]);
     }
 
     public function store(Request $request) : RedirectResponse

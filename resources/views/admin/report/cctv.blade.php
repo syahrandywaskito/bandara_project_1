@@ -205,7 +205,7 @@
         {{-- Table --}}
         <div class="px-4 mx-auto max-w-screen-xl">
           <div class="relative overflow-x-auto shadow-lg bg-gray-50 dark:bg-indigo-950 sm:rounded-lg p-4">
-            <table class="w-full text-sm text-left">
+            <table class="w-full text-sm text-left" id="dataTabel">
               <caption class="p-5 text-sm lg:text-base font-semibold text-left text-gray-900 dark:text-gray-200 font-montserrat">
                 <span class="uppercase">Tabel pengecekan</span>
                 <p class="font-normal mt-1 text-xs md:text-sm">
@@ -220,19 +220,54 @@
                   </th>
                   @endif
                   <th scope="col" class="px-6 py-3">
-                    Nama Perangkat
+                    <div class="flex items-center">
+                      <span>
+                        Nama Perangkat 
+                      </span>
+                      <a href="javascript:void(0);" onclick="toggleSortDirectionNamaPerangkat('namaPerangkat')" class="ml-2">
+                        <span id="sortIconNamaPerangkat">&#x25B2;</span>
+                      </a>
+                    </div>
                   </th>
                   <th scope="col" class="px-6 py-3">
-                    Status Rekaman
+                    <div class="flex items-center">
+                      <span>
+                        Status Rekaman
+                      </span>
+                      <a href="javascript:void(0);" onclick="toggleSortDirectionStatusRekaman('statusRekaman')" class="ml-2">
+                        <span id="sortIconStatusRekaman">&#x25B2;</span>
+                      </a>
+                    </div>
                   </th>
                   <th scope="col" class="px-6 py-3">
-                    Keterangan Rekaman
+                    <div class="flex items-center">
+                      <span>
+                        Keterangan Rekaman
+                      </span>
+                      <a href="javascript:void(0);" onclick="toggleSortDirectionKeteranganRekaman('keteranganRekaman')" class="ml-2">
+                        <span id="sortIconKeteranganRekaman">&#x25B2;</span>
+                      </a>
+                    </div>
                   </th>
                   <th scope="col" class="px-6 py-3">
-                    Status Kebersihan
+                    <div class="flex items-center">
+                      <span>
+                        Status Kebersihan
+                      </span>
+                      <a href="javascript:void(0);" onclick="toggleSortDirectionStatusKebersihan('statusKebersihan')" class="ml-2">
+                        <span id="sortIconStatusKebersihan">&#x25B2;</span>
+                      </a>
+                    </div>
                   </th>
                   <th scope="col" class="px-6 py-3">
-                    Kondisi Kebersihan
+                    <div class="flex items-center">
+                      <span>
+                        Kondisi Kebersihan
+                      </span>
+                      <a href="javascript:void(0);" onclick="toggleSortDirectionKondisiKebersihan('kondisiKebersihan')" class="ml-2">
+                        <span id="sortIconKondisiKebersihan">&#x25B2;</span>
+                      </a>
+                    </div>
                   </th>
                   <th scope="col" class="px-6 py-3">
                     Aksi
@@ -329,6 +364,61 @@
     </div>
 
     {{-- success notif --}} @include('components.dashboard.successnotif')
+
+    <script>
+      var sortDirection = 'asc';
+      var dataDokumen = $dokumen;
+      
+      function toggleSortDirectionNamaPerangkat(column) {
+          toggleSortDirection(column, 'sortIconNamaPerangkat', 0);
+      }
+  
+      function toggleSortDirectionStatusRekaman(column) {
+          toggleSortDirection(column, 'sortIconStatusRekaman', 1);
+      }
+  
+      function toggleSortDirectionKeteranganRekaman(column) {
+          toggleSortDirection(column, 'sortIconKeteranganRekaman', 2);
+      }
+  
+      function toggleSortDirectionStatusKebersihan(column) {
+          toggleSortDirection(column, 'sortIconStatusKebersihan', 3);
+      }
+  
+      function toggleSortDirectionKondisiKebersihan(column) {
+          toggleSortDirection(column, 'sortIconKondisiKebersihan', 4);
+      }
+  
+      function toggleSortDirection(column, sortIconId, columnIndex) {
+          var sortIcon = document.getElementById(sortIconId);
+          var dataTabel = document.getElementById('dataTabel');
+          var rows = Array.from(dataTabel.getElementsByTagName('tr')).slice(1);
+  
+          if (sortDirection === 'asc') {
+              sortDirection = 'desc';
+              sortIcon.innerHTML = '&#x25BC;';
+          } else {
+              sortDirection = 'asc';
+              sortIcon.innerHTML = '&#x25B2;';
+          }
+  
+          rows.sort(function(a, b) {
+              var aText = a.getElementsByTagName('td')[columnIndex].textContent;
+              var bText = b.getElementsByTagName('td')[columnIndex].textContent;
+              console.log(aText);
+              console.log(bText);
+              if (sortDirection === 'asc') {
+                  return aText.localeCompare(bText);
+              } else {
+                  return bText.localeCompare(aText);
+              }
+          });
+  
+          for (var i = 0; i < rows.length; i++) {
+              dataTabel.tBodies[0].appendChild(rows[i]);
+          }
+      }
+    </script>
 
     <script src="{{asset('js/hide-alert.js')}}"></script>
 

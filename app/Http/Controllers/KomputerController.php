@@ -46,7 +46,7 @@ class KomputerController extends Controller
         }
         elseif (isset($cari) && isset($namaKolom)){
             
-            $data = Komputer::Where($namaKolom, 'like', "%$cari%")->latest()->paginate();
+            $data = Komputer::Where($namaKolom, 'like', "%$cari%")->orderBy('date', 'asc' )->latest()->paginate();
 
             Session::flash('cari', 'Search was successful.');
 

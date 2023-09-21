@@ -107,7 +107,7 @@
                     >
                       <option selected>Pilih Kolom</option>
                       <option value="monitor_name">Nama Perangkat</option>
-                      <option value="monitor_view">Tampilan Monitor</option>
+                      <option value="monitor_view">Kondisi Tampilan</option>
                       <option value="view_desc">Keterangan Tampilan</option>
                       <option value="clean_condition">Kondisi Kebersihan</option>
                       <option value="condition_desc">Keterangan Kondisi</option>
@@ -192,7 +192,7 @@
         </div>
         <div class="px-4 mx-auto max-w-screen-xl">
           <div class="relative overflow-x-auto shadow-lg bg-gray-50 dark:bg-indigo-950 sm:rounded-lg p-4">
-            <table class="w-full text-sm text-left">
+            <table class="w-full text-sm text-left" id="dataTabel">
               <caption class="p-5 text-sm lg:text-base font-semibold text-left text-gray-900 dark:text-gray-200 font-montserrat">
                 <span class="uppercase">Tabel pengecekan</span>
                 <p class="font-normal mt-1 text-xs md:text-sm">
@@ -207,19 +207,54 @@
                   </th>
                   @endif
                   <th scope="col" class="px-6 py-3">
-                    Nama perangkat
+                    <div class="flex items-center">
+                      <span>
+                        Nama Perangkat 
+                      </span>
+                      <a href="javascript:void(0);" onclick="toggleSortDirectionNamaPerangkat('namaPerangkat')" class="ml-2">
+                        <span id="sortIconNamaPerangkat">&#x25B2;</span>
+                      </a>
+                    </div>
                   </th>
                   <th scope="col" class="px-6 py-3">
-                    kondisi tampilan
+                    <div class="flex items-center">
+                      <span>
+                        Kondisi Tampilan
+                      </span>
+                      <a href="javascript:void(0);" onclick="toggleSortDirectionKondisiTampilan('kondisiTampilan')" class="ml-2">
+                        <span id="sortIconKondisiTampilan">&#x25B2;</span>
+                      </a>
+                    </div>
                   </th>
                   <th scope="col" class="px-6 py-3">
-                    keterangan tampilan
+                    <div class="flex items-center">
+                      <span>
+                        Keterangan Tampilan
+                      </span>
+                      <a href="javascript:void(0);" onclick="toggleSortDirectionKeteranganTampilan('keteranganTampilan')" class="ml-2">
+                        <span id="sortIconKeteranganTampilan">&#x25B2;</span>
+                      </a>
+                    </div>
                   </th>
                   <th scope="col" class="px-6 py-3">
-                    kondisi kebersihan
+                    <div class="flex items-center">
+                      <span>
+                        Kondisi Kebersihan
+                      </span>
+                      <a href="javascript:void(0);" onclick="toggleSortDirectionKondisiKebersihan('kondisiKebersihan')" class="ml-2">
+                        <span id="sortIconKondisiKebersihan">&#x25B2;</span>
+                      </a>
+                    </div>
                   </th>
                   <th scope="col" class="px-6 py-3">
-                    keterangan kebersihan
+                    <div class="flex items-center">
+                      <span>
+                        Keterangan Kebersihan
+                      </span>
+                      <a href="javascript:void(0);" onclick="toggleSortDirectionKeteranganKebersihan('keteranganKebersihan')" class="ml-2">
+                        <span id="sortIconKeteranganKebersihan">&#x25B2;</span>
+                      </a>
+                    </div>
                   </th>
                   <th scope="col" class="px-6 py-3">
                     Aksi
@@ -315,6 +350,61 @@
     </div>
 
     {{-- success notif --}} @include('components.dashboard.successnotif')
+
+    <script>
+      var sortDirection = 'asc';
+      var dataDokumen = $dokumen;
+      
+      function toggleSortDirectionNamaPerangkat(column) {
+          toggleSortDirection(column, 'sortIconNamaPerangkat', 0);
+      }
+  
+      function toggleSortDirectionKondisiTampilan(column) {
+          toggleSortDirection(column, 'sortIconKondisiTampilan', 1);
+      }
+  
+      function toggleSortDirectionKeteranganTampilan(column) {
+          toggleSortDirection(column, 'sortIconKeteranganTampilan', 2);
+      }
+  
+      function toggleSortDirectionKeteranganKebersihan(column) {
+          toggleSortDirection(column, 'sortIconKeteranganKebersihan', 3);
+      }
+  
+      function toggleSortDirectionKondisiKebersihan(column) {
+          toggleSortDirection(column, 'sortIconKondisiKebersihan', 4);
+      }
+  
+      function toggleSortDirection(column, sortIconId, columnIndex) {
+          var sortIcon = document.getElementById(sortIconId);
+          var dataTabel = document.getElementById('dataTabel');
+          var rows = Array.from(dataTabel.getElementsByTagName('tr')).slice(1);
+  
+          if (sortDirection === 'asc') {
+              sortDirection = 'desc';
+              sortIcon.innerHTML = '&#x25BC;';
+          } else {
+              sortDirection = 'asc';
+              sortIcon.innerHTML = '&#x25B2;';
+          }
+  
+          rows.sort(function(a, b) {
+              var aText = a.getElementsByTagName('td')[columnIndex].textContent;
+              var bText = b.getElementsByTagName('td')[columnIndex].textContent;
+              console.log(aText);
+              console.log(bText);
+              if (sortDirection === 'asc') {
+                  return aText.localeCompare(bText);
+              } else {
+                  return bText.localeCompare(aText);
+              }
+          });
+  
+          for (var i = 0; i < rows.length; i++) {
+              dataTabel.tBodies[0].appendChild(rows[i]);
+          }
+      }
+    </script>
 
     <script src="{{asset('js/hide-alert.js')}}"></script>
 

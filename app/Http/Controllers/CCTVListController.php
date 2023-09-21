@@ -10,11 +10,30 @@ use Illuminate\Support\Facades\Validator;
 
 class CCTVListController extends Controller
 {
-    public function index() : View
+    public function index(Request $request) : View
     {
-        $list = CCTVList::all(['*']);
+        $cari = $request->cari;
 
-        return view('admin.hardware.cctv_list.index', compact('list'));
+        $namaKolom = $request->kolom;
+
+        $all = $request->all;
+
+        if (isset($cari) && isset($namaKolom)) {
+            
+            $list = CCTVList::where($namaKolom, 'like', "%$cari%")->get();
+        }
+
+        elseif (isset($all)) {
+            
+            $list = CCTVList::all(['*']);
+        }
+
+        else{
+
+            $list = CCTVList::all(['*']);
+        }
+
+        return view('admin.hardware.cctv_list.index', ['list' => $list]);
     }
 
     public function store(Request $request) : RedirectResponse
