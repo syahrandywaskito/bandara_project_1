@@ -105,10 +105,10 @@
                     <a href="/tool/fids" class="block px-4 py-2 hover:translate-x-1 transition duration-200">FIDS</a>
                   </li>
                 </ul>
-                <hr class="border-0 bg-orange-600 h-1" />
+                {{-- <hr class="border-0 bg-orange-600 h-1" />
                 <div class="py-2">
                   <a href="{{route('report.index')}}" class="block px-4 py-2 hover:translate-x-1 transition duration-200">Laporan</a>
-                </div>
+                </div> --}}
               </div>
 
               <a href="" class="flex py-4 px-2 text-gray-900 font-semibold hover:-translate-y-1 transition duration-200">
@@ -195,10 +195,10 @@
                     <a href="/tool/fids" class="block px-4 py-2 hover:translate-x-1 transition duration-200">FIDS</a>
                   </li>
                 </ul>
-                <hr class="border-0 bg-gray-900 h-1" />
+                {{-- <hr class="border-0 bg-gray-900 h-1" />
                 <div class="py-2">
                   <a href="{{route('report.index')}}" class="block px-4 py-2 hover:translate-x-1 transition duration-200">Laporan</a>
-                </div>
+                </div> --}}
               </div>
             </li>
             <li>

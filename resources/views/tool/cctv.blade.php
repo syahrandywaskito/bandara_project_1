@@ -81,7 +81,7 @@
 
               <!-- Dropdown menu -->
               <div id="dropdownHover" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-md w-44">
-                <ul class="py-2 text-sm text-gray-700 font-montserrat" aria-labelledby="dropdownHoverButton">
+                <ul class="py-2 text-sm text-gray-700 font-montserrat " aria-labelledby="dropdownHoverButton">
                   <li>
                     <a href="{{route('tool.cctv.index')}}" class="block px-4 py-2 hover:translate-x-1 transition duration-200">CCTV</a>
                   </li>
@@ -92,10 +92,10 @@
                     <a href="{{route('tool.fids.index')}}" class="block px-4 py-2 hover:translate-x-1 transition duration-200">FIDS</a>
                   </li>
                 </ul>
-                <hr class="border-0 bg-red-700 h-1" />
+                {{-- <hr class="border-0 bg-red-700 h-1" />
                 <div class="py-2">
                   <a href="{{route('report.index')}}" class="block px-4 py-2 hover:translate-x-1 transition duration-200">Laporan</a>
-                </div>
+                </div> --}}
               </div>
 
               <a href="" class="flex py-4 px-2 text-gray-900 font-semibold hover:-translate-y-1 transition duration-200">
@@ -167,7 +167,7 @@
                 </svg>
               </a>
               <!-- Dropdown menu -->
-              <div id="dropdown" class="z-10 hidden bg-gray-100 divide-y divide-gray-100 rounded-lg shadow w-44">
+              <div id="dropdown" class="z-10 hidden bg-gray-100 divide-y divide-gray-100 rounded-lg shadow w-44 ">
                 <ul class="py-2 text-gray-700 font-montserrat text-xs md:text-sm" aria-labelledby="dropdownHoverButton">
                   <li>
                     <a href="/tool/cctv" class="block px-4 py-2 hover:translate-x-1 transition duration-200">CCTV</a>
@@ -179,10 +179,10 @@
                     <a href="/tool/fids" class="block px-4 py-2 hover:translate-x-1 transition duration-200">FIDS</a>
                   </li>
                 </ul>
-                <hr class="border-0 bg-red-700 h-1" />
+                {{-- <hr class="border-0 bg-red-700 h-1" />
                 <div class="py-2">
                   <a href="{{route('report.index')}}" class="block px-4 py-2 hover:translate-x-1 transition duration-200">Laporan</a>
-                </div>
+                </div> --}}
               </div>
             </li>
             <li>
@@ -209,12 +209,12 @@
         <section class="bg-white shadow-lg rounded-lg">
           <div class="py-8 px-4 mx-auto lg:py-16">
             <div class="font-montserrat p-2 md:p-12 mb-8">
-              <h1 class="text-gray-900 uppercase text-sm sm:text-base md:text-lg lg:text-2xl font-bold mb-2 text-start md:text-center">Laporan Pengecekan CCTV selama satu bulan</h1>
-              <p class="text-xs sm:text-sm md:text-base font-normal text-gray-700 mt-5 mb-6 text-start">
+              <h1 class="text-gray-900 uppercase text-sm sm:text-base md:text-lg lg:text-2xl font-bold mb-2 text-start md:text-center" data-aos="fade-up" data-aos-delay="100">Laporan Pengecekan CCTV selama satu bulan</h1>
+              <p class="text-xs sm:text-sm md:text-base font-normal text-gray-700 mt-5 mb-6 text-start" data-aos="fade-up" data-aos-delay="200">
                 Laporan pengecekan yang direkap sebulan sekali. Untuk mendownload data laporan, silahkan masukkan dulu bulan yang ingin di download laporannya
               </p>
 
-              <form method="GET" action="{{route('report.cctv.download')}}">
+              <form method="GET" action="{{route('report.cctv.download')}}" target="_blank" data-aos="fade-up" data-aos-delay="300">
                 <div class="text-start text-xs md:text-sm my-3 font-semibold uppercase ml-1">
                   <label for="">Pilih Bulan</label>
                 </div>
@@ -241,8 +241,6 @@
                 </div>
               </form>
             </div>
-
-            {{-- table --}} @isset($month) @endisset
           </div>
         </section>
       </section>

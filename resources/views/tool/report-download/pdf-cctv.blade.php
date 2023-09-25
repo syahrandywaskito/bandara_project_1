@@ -21,7 +21,7 @@
       <div class="text-center">
         <h1 class="font-semibold uppercase text-sm">
           Tabel Pengecekan CCTV <br>
-          {{now()->isoFormat(' MMMM Y')}}
+          {{$monthYear}}
         </h1>
       </div>
       @php

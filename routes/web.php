@@ -54,7 +54,7 @@ Route::get('/tool/cctv', [ReportController::class, 'cctvIndex'])->name('tool.cct
 Route::get('/tool/komputer', [ReportController::class, 'komputerIndex'])->name('tool.komputer.index');
 Route::get('/tool/fids', [ReportController::class, 'fidsIndex'])->name('tool.fids.index');
 
-Route::get('/tool/report', [ReportController::class, 'index'])->name('report.index');
+// Route::get('/tool/report', [ReportController::class, 'index'])->name('report.index');
 
 # PDF data download
 Route::get('/tool/report/cctv-report' , [ReportController::class, 'createPDFCCTV'])->name('report.cctv.download');

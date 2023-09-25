@@ -40,31 +40,62 @@ class ReportController extends Controller
 
     public function createPDFCCTV(Request $request)
     {
-      $inputBulan = $request->bulan;
+      $inputBulanTahun = $request->bulan;
 
-      $parse = Carbon::parse($inputBulan);
+      $parse = Carbon::parse($inputBulanTahun);
 
       $bulan = $parse->format('m');
 
-      $cctvMonth = CctvModel::orderBy('date', 'asc')->whereMonth('date', $bulan)->get();
+      $tahun = $parse->format('Y');
 
-      return view('tool.report-download.pdf-cctv', ['cctv' => $cctvMonth]);
+      $formatted = $parse->isoFormat('MMMM Y');
 
-    }
-    public function createPDFKomputer()
-    {
-      
-      $month = now()->format('m');
-      $komputerMonth = Komputer::orderBy('date', 'asc')->whereMonth('date', $month)->get();
+      $cctvMonth = CctvModel::orderBy('date', 'asc')
+                              ->whereMonth('date', $bulan)
+                              ->whereYear('date', '=', $tahun)
+                              ->get();
 
-      return view('tool.report-download.pdf-komputer', ['komputer' => $komputerMonth]);
+      return view('tool.report-download.pdf-cctv', ['cctv' => $cctvMonth, 'monthYear'=> $formatted]);
 
     }
-    public function createPDFFIDS()
+    public function createPDFKomputer(Request $request)
     {
-      $month = now()->format('m');
-      $fidsDate = fids::orderBy('date', 'asc')->whereMonth('date', $month)->get();
 
-      return view('tool.report-download.pdf-fids', ['fids' => $fidsDate]);
+      $inputBulanTahun = $request->bulan;
+
+      $parse = Carbon::parse($inputBulanTahun);
+
+      $bulan = $parse->format('m');
+
+      $tahun = $parse->format('Y');
+
+      $formatted = $parse->isoFormat('MMMM Y');
+
+      $komputerMonth = Komputer::orderBy('date', 'asc')
+                                  ->whereMonth('date', $bulan)
+                                  ->whereYear('date', '=', $tahun)
+                                  ->get();
+
+      return view('tool.report-download.pdf-komputer', ['komputer' => $komputerMonth, 'monthYear' => $formatted]);
+
+    }
+    public function createPDFFIDS(Request $request)
+    {
+      $inputBulanTahun = $request->bulan;
+
+      $parse = Carbon::parse($inputBulanTahun);
+
+      $bulan = $parse->format('m');
+
+      $tahun = $parse->format('Y');
+
+      $formatted = $parse->isoFormat('MMMM Y');
+
+      $fidsDate = fids::orderBy('date', 'asc')
+                        ->whereMonth('date', $bulan)
+                        ->whereYear('date', '=', $tahun)
+                        ->get();
+
+      return view('tool.report-download.pdf-fids', ['fids' => $fidsDate, 'monthYear' => $formatted]);
     }
 }
