@@ -99,18 +99,25 @@
                   <div class="grid grid-cols-1 grid-flow-row-dense gap-4">
                     {{-- gambar visible and get data from file --}}
                     <div>
-                      <label for="gambar" class="block mb-2 text-xs md:text-sm font-medium text-gray-900 dark:text-gray-200">
+                      <label for="image-input" class="block mb-2 text-xs md:text-sm font-medium text-gray-900 dark:text-gray-200">
                         Input Gambar
                       </label>
                       <input
+                        multiple
                         type="file"
-                        id="gambar"
-                        class="text-xs md:text-sm text-gray-900 bg-gray-50 border-2 border-gray-400 rounded-lg outline-none focus:border-indigo-800 dark:border-gray-100 dark:bg-gray-100 block w-full p-3"
+                        id="image-input"
+                        class="image-field text-xs md:text-sm text-gray-900 bg-gray-50 border-2 border-gray-400 rounded-lg outline-none focus:border-indigo-800 dark:border-gray-100 dark:bg-gray-100 block w-full p-3"
                         required
                         name="gambar"
                       />
+                      {{-- text kompresi --}}
+                      <div class="mt-2">
+                        <p class="flex space-x-4 text-xs md:text-sm dark:text-gray-200 text-gray-900">
+                          <span id="original-size"></span>
+                          <span id="compressed-size"></span>
+                        </p>
+                      </div>
                     </div>
-  
                     {{-- judul untuk header berita --}}
                     <div>
                       <label for="judul" class="block mb-2 text-xs md:text-sm font-medium text-gray-900 dark:text-gray-200">
@@ -176,7 +183,8 @@
         </div>
       </div>
     </div>
-
+  
+    <script src="{{asset('js/compress-image.js')}}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.ckeditor.com/4.13.1/standard/ckeditor.js"></script>
     <script>

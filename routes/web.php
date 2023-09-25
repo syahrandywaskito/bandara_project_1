@@ -55,6 +55,8 @@ Route::get('/tool/komputer', [ReportController::class, 'komputerIndex'])->name('
 Route::get('/tool/fids', [ReportController::class, 'fidsIndex'])->name('tool.fids.index');
 
 Route::get('/tool/report', [ReportController::class, 'index'])->name('report.index');
+
+# PDF data download
 Route::get('/tool/report/cctv-report' , [ReportController::class, 'createPDFCCTV'])->name('report.cctv.download');
 Route::get('/tool/report/komputer-report' , [ReportController::class, 'createPDFKomputer'])->name('report.komputer.download');
 Route::get('/tool/report/fids-report' , [ReportController::class, 'createPDFFIDS'])->name('report.fids.download');

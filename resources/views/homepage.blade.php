@@ -241,14 +241,14 @@
             </a>
             <div class="p-5 font-montserrat">
               <a href="#">
-                <h5 class="mb-1 text-base md:text-lg font-bold tracking-tight text-gray-900">
+                <h5 class="mb-1 text-sm sm:text-base md:text-lg font-bold tracking-tight text-gray-900">
                   {{$data->judul}}
                 </h5>
               </a>
-              <div class=" truncate">
+              <div class=" truncate text-xs sm:text-sm md:text-base">
                 {!! Str::limit(strip_tags($data->isi), $limit = 100, $end = '...') !!}
               </div>
-              <a href="{{route('berita', $data->id)}}" class="inline-flex items-center mt-2 px-3 py-2 text-sm font-medium text-center text-white bg-gradient-to-r from-indigo-600 to-blue-500 rounded-lg hover:translate-x-1 transition duration-200 focus:ring-4 focus:outline-none">
+              <a href="{{route('berita', $data->id)}}" class="inline-flex items-center mt-2 px-3 py-2 text-xs md:text-sm font-medium text-center text-white bg-gradient-to-r from-indigo-600 to-blue-500 rounded-lg hover:translate-x-1 transition duration-200 focus:ring-4 focus:outline-none">
                 Read more
                 <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />

@@ -169,11 +169,14 @@
         {{-- Mobile Menu --}}
         <section class="hidden pb-3" id="mobile-menu">
           <ul class="text-sm">
+            <li>
+              <a href="{{route('homepage')}}" class="block text-gray-900 py-4 px-2 hover:translate-x-1 transition duration-200">Beranda</a>
+            </li>
             <li class="active">
-              <a href="{{route('homepage')}}" class="block text-gray-100 py-4 px-2 font-bold">Beranda</a>
+              <a href="" class="block text-gray-900 py-4 px-2 font-bold">Berita</a>
             </li>
             <li>
-              <a id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="text-gray-100 hover: focus:ring-4 focus:outline-none px-2 py-2.5 cursor-pointer inline-flex items-center" type="button">
+              <a id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="text-gray-900 hover: focus:ring-4 focus:outline-none px-2 py-2.5 cursor-pointer inline-flex items-center" type="button">
                 Alat
                 <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
@@ -181,7 +184,7 @@
               </a>
               <!-- Dropdown menu -->
               <div id="dropdown" class="z-10 hidden bg-gray-100 divide-y divide-gray-100 rounded-lg shadow w-44">
-                <ul class="py-2 text-gray-700 font-montserrat text-sm" aria-labelledby="dropdownHoverButton">
+                <ul class="py-2 text-gray-700 font-montserrat text-xs md:text-sm" aria-labelledby="dropdownHoverButton">
                   <li>
                     <a href="/tool/cctv" class="block px-4 py-2 hover:translate-x-1 transition duration-200">CCTV</a>
                   </li>
@@ -199,16 +202,16 @@
               </div>
             </li>
             <li>
-              <a href="" class="block text-md text-gray-100 py-4 px-2 hover:translate-x-1 transition duration-200">Services</a>
+              <a href="" class="block text-md text-gray-900 py-4 px-2 hover:translate-x-1 transition duration-200">Services</a>
             </li>
             <li>
-              <a href="" class="block text-md text-gray-100 py-4 px-2 hover:translate-x-1 transition duration-200">Contact Us</a>
+              <a href="" class="block text-md text-gray-900 py-4 px-2 hover:translate-x-1 transition duration-200">Contact Us</a>
             </li>
             <li>
-              <a href="{{route('login')}}" class="block text-md text-gray-100 py-4 px-2 hover:translate-x-1 transition duration-200">Login</a>
+              <a href="{{route('login')}}" class="block text-md text-gray-900 py-4 px-2 hover:translate-x-1 transition duration-200">Login</a>
             </li>
             <li>
-              <a href="{{route('register')}}" class="block text-md bg-white text-indigo-500 rounded-lg shadow-md py-3 px-4 hover:bg-opacity-75 transition duration-200 text-center">Register</a>
+              <a href="{{route('register')}}" class="block text-md bg-orange-600 text-white rounded-lg shadow-md py-3 px-4 hover:bg-opacity-75 transition duration-200 text-center">Register</a>
             </li>
           </ul>
         </section>
@@ -220,15 +223,17 @@
       {{-- Text --}}
       <section class="py-4 px-4 mx-auto max-w-screen-xl text-center sm:py-5 md:py-6 lg:py-8 xl:py-10 lg:w-[80%]">
         <div class="w-full p-4 text-center bg-white rounded-lg shadow-lg sm:p-8">
-          <h5 class="mb-2 md:mb-4 text-sm sm:text-base lg:text-xl uppercase font-bold font-montserrat text-gray-900">
+          <h5 class="mb-2 md:mb-4 text-sm sm:text-base lg:text-xl uppercase font-bold font-montserrat text-gray-900" data-aos="fade-up" data-aos-delay="100">
             {{$berita->judul}}
           </h5>
-          <div class="flex justify-center">
+          <div class="flex justify-center" data-aos="fade-up" data-aos-delay="200">
             <img src="{{asset('storage/berita/'.$berita->gambar)}}" alt="" style="width: 650px;" class="rounded-lg my-2" />
           </div>
-          <p class="my-5 text-gray-700">
-            {!!str_replace('<p>', '<p class="text-xs sm:text-sm md:text-base font-montserrat">', $berita->isi)!!}
-          </p>
+          <div data-aos="fade-up" data-aos-delay="300" data-aos-ease="ease-in-out">
+            <p class="my-5 text-gray-700">
+              {!!str_replace('<p>', '<p class="text-xs sm:text-sm md:text-base font-montserrat">', $berita->isi)!!}
+            </p>
+          </div>
         </div>
       </section>
     </header>
@@ -240,33 +245,6 @@
     </script>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-    <script>
-      $(document).ready(function () {
-        // Function to update the clock display
-        function updateClock() {
-          const now = new Date();
-          const hours = now.getHours();
-          const minutes = now.getMinutes();
-          const seconds = now.getSeconds();
-
-          const formattedTime = `${formatNumber(hours)} : ${formatNumber(minutes)} : ${formatNumber(seconds)}`;
-
-          $(".clock").html(formattedTime); // Update the clock element's contents
-        }
-
-        // Helper function to format numbers with leading zeros
-        function formatNumber(number) {
-          return (number < 10 ? "0" : "") + number;
-        }
-
-        // Update the clock every second
-        setInterval(updateClock, 1000);
-
-        // Initial clock update
-        updateClock();
-      });
-    </script>
 
     <script src="{{asset('js/navbar.js')}}"></script>
     <script src="{{asset('js/smoothScroll.js')}}"></script>

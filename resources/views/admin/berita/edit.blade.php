@@ -107,11 +107,18 @@
                       <input
                         type="file"
                         id="gambar"
-                        class="text-xs md:text-sm text-gray-900 bg-gray-50 border-2 border-gray-400 rounded-lg outline-none focus:border-indigo-800 dark:border-gray-100 dark:bg-gray-100 block w-full p-3"
+                        class="image-field text-xs md:text-sm text-gray-900 bg-gray-50 border-2 border-gray-400 rounded-lg outline-none focus:border-indigo-800 dark:border-gray-100 dark:bg-gray-100 block w-full p-3"
                         required
                         name="gambar"
                         value="{{old($berita->gambar)}}"
                       />
+                      {{-- text kompresi --}}
+                      <div class="mt-2">
+                        <p class="flex space-x-4 text-xs md:text-sm dark:text-gray-200 text-gray-900">
+                          <span id="original-size"></span>
+                          <span id="compressed-size"></span>
+                        </p>
+                      </div>
                     </div>
   
                     {{-- judul untuk header berita --}}
@@ -183,6 +190,7 @@
       </div>
     </div>
 
+    <script src="{{asset('js/compress-image.js')}}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.ckeditor.com/4.13.1/standard/ckeditor.js"></script>
     <script>

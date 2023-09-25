@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\CctvModel;
 use App\Models\fids;
 use App\Models\Komputer;
+use Carbon\Carbon;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
@@ -37,10 +38,15 @@ class ReportController extends Controller
       return view('tool.report', ['cctv' => $cctvDate, 'fids' => $fidsDate, 'komputer' => $komputerDate]);
     }
 
-    public function createPDFCCTV()
+    public function createPDFCCTV(Request $request)
     {
-      $month = now()->format('m');
-      $cctvMonth = CctvModel::orderBy('date', 'asc')->whereMonth('date', $month)->get();
+      $inputBulan = $request->bulan;
+
+      $parse = Carbon::parse($inputBulan);
+
+      $bulan = $parse->format('m');
+
+      $cctvMonth = CctvModel::orderBy('date', 'asc')->whereMonth('date', $bulan)->get();
 
       return view('tool.report-download.pdf-cctv', ['cctv' => $cctvMonth]);
 
