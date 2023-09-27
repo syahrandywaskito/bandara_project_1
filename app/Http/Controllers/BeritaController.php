@@ -70,9 +70,9 @@ class BeritaController extends Controller
         ]);
         
 
-        # masukkan gambar ke public/berita dalam bentuk hash
+        # masukkan gambar ke public/berita/ dalam bentuk hash
         $gambar = $request->file('gambar');
-        $gambar->storeAs('public/berita', $gambar->hashName());
+        $gambar->storeAs('public/berita/', $gambar->hashName());
         
         # buat data menggunakan method create pada Model Berita
         Berita::create([
@@ -119,7 +119,7 @@ class BeritaController extends Controller
         if($request->hasFile('gambar')){
 
             $gambar = $request->file('gambar');
-            $gambar->storeAs('public/berita/'.$gambar->hashName());
+            $gambar->storeAs('public/berita/', $gambar->hashName());
 
             Storage::delete('public/berita/'.$berita->gambar);
 

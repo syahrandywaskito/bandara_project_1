@@ -15,7 +15,7 @@
 
   <nav class="">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-      <a href="{{route('report.index')}}" class=" flex items-center py-4 px-2">
+      <a href="{{route('tool.komputer.index')}}" class=" flex items-center py-4 px-2">
         <img src="{{ asset('img/logo.png') }}" class=" h-11 w-10 mr-3" alt="logo">
         <span class=" font-semibold uppercase text-md">teknik dan pelayanan jasa</span>
       </a>

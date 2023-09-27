@@ -8,6 +8,7 @@ use App\Http\Controllers\FIDSController;
 use App\Http\Controllers\FIDSListController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\JadwalController;
 use App\Http\Controllers\KomputerController;
 use App\Http\Controllers\KomputerListController;
 use App\Http\Controllers\ReportController;
@@ -70,6 +71,8 @@ Route::resource('/dashboard/report/fids', FIDSController::class);
 Route::resource('/dashboard/report/komputer', KomputerController::class);
 
 Route::resource('/dashboard/berita/beritas', BeritaController::class);
+
+Route::resource('/dashboard/jadwal/jadwal', JadwalController::class);
 
 Route::resource('/dasboard/hardware/list/cctv-list', CCTVListController::class)->names([
   'index' => 'list.cctv.index',
