@@ -21,8 +21,12 @@ class AuthController extends Controller
     {
         $credentials = $request->validate([
             'email' => 'required|email',
-            'password' => 'required',
-        ]);
+            'password' => 'required|regex:/^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/',
+        ],
+        [
+            'password.regex' => 'Password tidak cocok dan harus mengandung setidaknya satu huruf kapital, satu angka, dan memiliki panjang minimal 8 karakter.',
+        ]
+        );
 
         $fullname = User::where('email', request()->input('email'))->value('name');
 
@@ -48,10 +52,15 @@ class AuthController extends Controller
     public function Store(Request $request)
     {
         $request->validate([
-            'name' => 'required|string',
+            'name' => 'required|string|min:2',
             'email' => 'required|email|unique:users',
-            'password' => 'required|min:8',
-            'position' => 'required|string'
+            'password' => 'required|regex:/^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/',
+            'position' => 'required|string|not_in:Pilih Jabatan'
+        ],
+        [
+            'password.regex' => 'Password harus mengandung setidaknya satu huruf kapital, satu angka, dan memiliki panjang minimal 8 karakter.',
+            'position.not_in' => 'Pilih jabatan yang sesuai',
+            'name.min' => 'Tuliskan nama lengkap lebih dari satu huruf',
         ]);
 
         User::create([
@@ -64,7 +73,7 @@ class AuthController extends Controller
         $credentials = $request->only('email', 'password');
         Auth::attempt($credentials);
         $request->session()->regenerate();
-        return redirect()->route('dashboard')->withSuccess('Anda berhasil mendaftar dan login');
+        return redirect()->route('dashboard')->with('success', 'berhasil mendadtar dan login');
     }
 
     public function Dashboard()

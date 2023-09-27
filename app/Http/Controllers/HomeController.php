@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Berita;
+use App\Models\Jadwal;
 use illuminate\Contracts\Foundation\Application;
 use illuminate\Contracts\View\Factory;
 use illuminate\Contracts\View\View;
@@ -20,6 +21,11 @@ class HomeController extends Controller
 
     public function Index(Request $request) : Factory|View|Application
     {
+        # data jadwal penerbangan keberangkatan 
+        $keberangkatan = Jadwal::where('jenis_penerbangan', 'keberangkatan')->orderBy('jam', 'asc')->get();
+
+        # data jadwal penerbangan kedatangan
+        $kedatangan = Jadwal::where('jenis_penerbangan', 'kedatangan')->orderBy('jam', 'asc')->get();
 
         # data berita dari model Berita
         $berita = Berita::latest()->get();
@@ -30,6 +36,8 @@ class HomeController extends Controller
         return view('homepage', [
             'berita' => $berita,
             'beritaPaginate' => $paginate,
+            'keberangkatan' => $keberangkatan,
+            'kedatangan' => $kedatangan,
             'message' => 'Homepage for Airport',
         ]);
 

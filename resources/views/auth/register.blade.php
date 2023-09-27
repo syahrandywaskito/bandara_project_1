@@ -21,7 +21,7 @@
   <body class="bg-[#94c5fd] sm:bg-login bg-cover bg-bottom sm:overflow-hidden">
     {{-- Back Button --}}
     <div class="md:fixed sm:left-8 top-10 max-w-screen-xl flex flex-wrap items-center justify-between mx-auto py-3 px-6 md:px-0">
-      <a href="{{URL::previous()}}" class="flex items-center hover:bg-indigo-600 hover:shadow-md hover:text-gray-50 rounded-lg transition duration-300 font-semibold">
+      <a href="{{route('homepage')}}" class="flex items-center hover:bg-indigo-600 hover:shadow-md hover:text-gray-50 rounded-lg transition duration-300 font-semibold">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-6 pl-2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
         </svg>
@@ -41,30 +41,81 @@
               Buat Akun
             </h1>
             <form class="space-y-4 md:space-y-6" action="{{route('store')}}" method="post">
-              @csrf
+              @csrf {{-- Nama lengkap --}}
               <div>
+                {{-- label --}}
                 <label for="name" class="block mb-2 text-xs md:text-sm font-medium text-gray-900">Nama Lengkap</label>
-                <input type="text" name="name" id="name" class="bg-gray-50 border-2 border-gray-100 text-gray-900 text-xs md:text-sm rounded-lg block w-full p-2.5 focus:ring-indigo-400 focus:ring-2 focus:outline-none" required="" />
+
+                {{-- input --}}
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  class="bg-gray-50 border-2 border-gray-100 text-gray-900 text-xs md:text-sm rounded-lg block w-full p-2.5 focus:ring-indigo-400 focus:ring-2 focus:outline-none @error('name') is-invalid @enderror"
+                  value="{{old('name')}}"
+                  required=""
+                  autofocus
+                />
+
+                {{-- error notif jika input salah --}} @error('name')
+                <div class="mt-3">
+                  @include('components.dashboard.input-error-notif')
+                </div>
+                @enderror
               </div>
+
+              {{-- email --}}
               <div>
+                {{-- label --}}
                 <label for="email" class="block mb-2 text-xs md:text-sm font-medium text-gray-900">Email</label>
-                <input type="email" name="email" id="email" class="bg-gray-50 border-2 border-gray-100 text-gray-900 text-xs md:text-sm rounded-lg block w-full p-2.5 focus:ring-indigo-400 focus:ring-2 focus:outline-none" required="" />
+
+                {{-- input --}}
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  class="bg-gray-50 border-2 border-gray-100 text-gray-900 text-xs md:text-sm rounded-lg block w-full p-2.5 focus:ring-indigo-400 focus:ring-2 focus:outline-none @error('email') is-invalid @enderror"
+                  value="{{old('email')}}"
+                  required=""
+                />
+
+                {{-- error notif --}} @error('email')
+                <div class="mt-3">
+                  @include('components.dashboard.input-error-notif')
+                </div>
+                @enderror
               </div>
+
+              {{-- password --}}
               <div>
-                <label for="passwordInput" class="block mb-2 text-xs md:text-sm font-medium text-gray-900">Password</label>
-                <div class="relative">
+                {{-- label --}}
+                <label for="passwordInput" class="mb-2 text-xs md:text-sm font-medium text-gray-900 flex" title="Password harus memuat 1 Kapital, minimal 8 karakter, dan minimal 1 angka">
+                  Password
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 ml-1 h-5">
+                    <path
+                      fill-rule="evenodd"
+                      d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a.75.75 0 000 1.5h.253a.25.25 0 01.244.304l-.459 2.066A1.75 1.75 0 0010.747 15H11a.75.75 0 000-1.5h-.253a.25.25 0 01-.244-.304l.459-2.066A1.75 1.75 0 009.253 9H9z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                </label>
+
+                {{-- input --}}
+                <div class="flex">
                   <input
                     type="password"
                     id="passwordInput"
                     name="password"
-                    class="block w-full p-3 bg-gray-50 border-2 border-gray-100 text-gray-900 text-xs md:text-sm rounded-lg focus:ring-indigo-400 focus:ring-2 focus:outline-none"
+                    class="bg-gray-50 border-2 border-gray-100 text-gray-900 text-xs md:text-sm rounded-lg block w-full p-2.5 focus:ring-indigo-400 focus:ring-2 focus:outline-none @error('password') is-invalid @enderror"
                     required
+                    value="{{old('password')}}"
                   />
 
+                  {{-- show hide password --}}
                   <button
                     type="button"
                     id="togglePassword"
-                    class="text-white absolute right-2.5 bottom-1.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xs md:text-sm sm:px-2 sm:py-2 py-1 px-1"
+                    class="p-2.5 ml-2 text-sm font-medium text-white bg-blue-700 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
                   >
                     <div id="eyeIcon">
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
@@ -78,10 +129,27 @@
                     </div>
                   </button>
                 </div>
+
+                {{-- error notif --}} @error('password')
+                <div class="mt-3">
+                  @include('components.dashboard.input-error-notif')
+                </div>
+                @enderror
               </div>
+
+              {{-- pilih jabatan --}}
               <div>
+                {{-- label --}}
                 <label for="position" class="block mb-2 text-xs md:text-sm font-medium text-gray-900">Jabatan</label>
-                <select id="position" class="bg-gray-50 border-2 border-gray-100 text-gray-900 text-xs md:text-sm rounded-lg p-2.5 focus:ring-indigo-400 focus:ring-2 focus:outline-none block w-full" name="position">
+
+                {{-- input --}}
+                <select
+                  id="position"
+                  class="bg-gray-50 border-2 border-gray-100 text-gray-900 text-xs md:text-sm rounded-lg p-2.5 focus:ring-indigo-400 focus:ring-2 focus:outline-none block w-full @error('position') is-invalid @enderror"
+                  name="position"
+                  value="{{old('position')}}"
+                  required
+                >
                   <option selected class="bg-gray-300">Pilih Jabatan</option>
                   <option value="Kepala Seksi Teknik">Kepala Seksi Teknik</option>
                   <option value="Pemeriksa Sanitasi">Pemeriksa Sanitasi</option>
@@ -91,7 +159,15 @@
                   <option value="Analisis Penerbangan">Analisis Penerbangan</option>
                   <option value="Informasi">Informasi</option>
                 </select>
+
+                {{-- error notif --}} @error('position')
+                <div class="mt-3">
+                  @include('components.dashboard.input-error-notif')
+                </div>
+                @enderror
               </div>
+
+              {{-- button --}}
               <button
                 type="submit"
                 class="w-full text-gray-100 font-montserrat bg-gradient-to-r from-indigo-600 to-blue-500 hover:-translate-y-1 hover:scale-105 transition duration-300 focus:ring-4 focus:outline-none font-semibold rounded-lg text-xs md:text-sm px-5 py-2.5 text-center shadow-md"
@@ -106,6 +182,17 @@
     </section>
 
     <script src="{{asset('js/hide-password.js')}}"></script>
+
+    <script>
+      const passwordInput = document.getElementById("passwordInput");
+      const passwordMessage = document.getElementById("passwordMessage");
+      const passwordRegex = /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
+
+      passwordInput.addEventListener("input", function () {
+        const password = passwordInput.value;
+        const isValid = passwordRegex.test(password);
+      });
+    </script>
 
     {{-- js script --}}
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
