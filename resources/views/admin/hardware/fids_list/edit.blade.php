@@ -8,6 +8,15 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <title>Admin - Perangkat</title>
 
+    {{-- off animation on mobile view --}}
+    <style>
+      @media only screen and (max-width: 768px) {
+        [data-aos] {
+          opacity: 1 !important;
+          transform: none !important;
+        }
+      }
+    </style>
     {{-- tailwind css using vite --}}
     <script src="{{asset('js/onPageLoad.js')}}"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />

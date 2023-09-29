@@ -55,6 +55,8 @@
                   value="{{old('name')}}"
                   required=""
                   autofocus
+                  title="Nama tidak boleh mengandung angka"
+                  pattern="[a-zA-Z]+"
                 />
 
                 {{-- error notif jika input salah --}} @error('name')
@@ -109,6 +111,13 @@
                     class="bg-gray-50 border-2 border-gray-100 text-gray-900 text-xs md:text-sm rounded-lg block w-full p-2.5 focus:ring-indigo-400 focus:ring-2 focus:outline-none @error('password') is-invalid @enderror"
                     required
                     value="{{old('password')}}"
+                    id="password"
+                    title="Kata sandi harus memiliki panjang minimal 8 karakter dan mengandung setidaknya satu huruf kapital, huruf kecil, dan angka."
+                    maxlength="15"
+                    minlength="8"
+                    aria-label="Password"
+                    aria-describedby="password-addon"
+                    pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$"
                   />
 
                   {{-- show hide password --}}
@@ -158,7 +167,18 @@
                   <option value="Teknisi">Teknisi</option>
                   <option value="Analisis Penerbangan">Analisis Penerbangan</option>
                   <option value="Informasi">Informasi</option>
+                  <option value="input">Jabatan lain</option>
                 </select>
+
+                <div id="inputField" style="display: none;" class="mt-3">
+                  <input
+                    type="text"
+                    id="otherPosition"
+                    name="position"
+                    placeholder="Masukkan Jabatan Lainnya"
+                    class="bg-gray-50 border-2 border-gray-100 text-gray-900 text-xs md:text-sm rounded-lg p-2.5 focus:ring-indigo-400 focus:ring-2 focus:outline-none block w-full"
+                  >
+                </div>                
 
                 {{-- error notif --}} @error('position')
                 <div class="mt-3">
@@ -182,6 +202,23 @@
     </section>
 
     <script src="{{asset('js/hide-password.js')}}"></script>
+
+
+    <script>
+      const positionSelect = document.getElementById('position');
+      const inputField = document.getElementById('inputField');
+      const otherPositionInput = document.getElementById('otherPosition');
+    
+      positionSelect.addEventListener('change', function () {
+        if (positionSelect.value === 'input') {
+          inputField.style.display = 'block';
+          otherPositionInput.required = true;
+        } else {
+          inputField.style.display = 'none';
+          otherPositionInput.required = false;
+        }
+      });
+    </script>
 
     <script>
       const passwordInput = document.getElementById("passwordInput");

@@ -92,7 +92,7 @@
 
             <div class="lg:px-2 text-xs sm:text-sm md:text-base font-montserrat mt-8 md:flex dark:text-gray-200 md:justify-between flex-row">
               <div>
-                <h3>Tanggal data dibuat</h3>
+                <h3>Tanggal data seharusnya</h3>
                 <p>
                   {{$day}}, {{$date}}
                 </p>

@@ -108,7 +108,6 @@
                         type="file"
                         id="gambar"
                         class="image-field text-xs md:text-sm text-gray-900 bg-gray-50 border-2 border-gray-400 rounded-lg outline-none focus:border-indigo-800 dark:border-gray-100 dark:bg-gray-100 block w-full p-3"
-                        required
                         name="gambar"
                         value="{{old($berita->gambar)}}"
                       />

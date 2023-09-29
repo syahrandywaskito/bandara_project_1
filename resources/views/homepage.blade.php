@@ -319,236 +319,166 @@
         </div>
       </div>
 
-      {{-- Fligth Schedule --}}
-      <div class="py-3 px-4 mt-10 mx-auto max-w-screen-xl">
-        <div class="bg-white border border-gray-200 rounded-lg shadow-lg py-6 sm:py-8 sm:px-8 px-4 md:py-10 md:px-12" data-aos="fade-up" data-aos-delay="300" data-aos-duration="500" data-aos-ease="ease-in-out">
-          <div class="pb-6 px-3 flex justify-between items-center">
-            <div class="text-sm md:text-base">
-              <h2 class="font-montserrat font-semibold uppercase">Jadwal Penerbangan Keberangkatan</h2>
+      {{-- header text --}}
+      <div class="text-center pb-7 md:pb-10" data-aos="fade-up" data-aos-delay="100" data-aos-duration="400" data-aos-ease="ease-in-out">
+        <h1 class="font-semibold font-montserrat text-sm md:text-base lg:text-xl uppercase">
+          Jadwal
+        </h1>
+        {{-- button --}}
+        <div class="flex justify-evenly mt-7">
+          <button id="showNormalTable">Jadwal Normal</button>
+          <button id="showApiTable">Jadwal API</button>
+        </div>
+      </div>
+
+      {{-- jadwal penerbangan normal --}}
+      <div>
+        {{-- Fligth Depart --}}
+        <div class=" py-3 px-4 mt-5 mx-auto max-w-screen-xl">
+          <div class="bg-white border border-gray-200 rounded-lg shadow-lg py-6 sm:py-8 sm:px-8 px-4 md:py-10 md:px-12" data-aos="fade-up" data-aos-delay="300" data-aos-duration="500" data-aos-ease="ease-in-out">
+            <div class="pb-6 px-3 flex justify-between items-center">
+              <div class="text-sm md:text-base" >
+                <h2 class="font-montserrat font-semibold uppercase" id="tableCaption"></h2>
+              </div>
+              <div class="text-sm md:text-base">
+                <p class="font-montserrat hidden sm:block">
+                  {{now()->isoFormat('dddd, D MMMM Y')}}
+                </p>
+                <p class="font-montserrat clock hidden sm:block"></p>
+              </div>
             </div>
-            <div class="text-sm md:text-base">
-              <p class="font-montserrat hidden sm:block">
-                {{now()->isoFormat('dddd, D MMMM Y')}}
-              </p>
-              <p class="font-montserrat clock hidden sm:block"></p>
+            <div class="relative overflow-x-auto rounded-lg shadow-md">
+              <div class="relative overflow-x-auto">
+                <table class="normal-table w-full text-sm text-left" id="normalTable1">
+                  <thead class="text-xs font-montserrat sm:text-sm text-center text-gray-50 uppercase bg-gradient-to-r from-indigo-600 to-blue-500">
+                    <tr>
+                      <th scope="col" class="px-6 py-3">
+                        maskapai
+                      </th>
+                      <th scope="col" class="px-6 py-3">
+                        id Penerbangan
+                      </th>
+                      <th scope="col" class="px-6 py-3">
+                        tujuan
+                      </th>
+                      <th scope="col" class="px-6 py-3">
+                        Jam Penerbangan
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody id="scheduleData" class="text-center font-roboto">
+                    @foreach ($keberangkatan as $data)
+                      @php
+                      $hari = now()->isoFormat('dddd'); // Mengambil nama hari
+                      @endphp
+            
+                      @if ($data->maskapai != 'Garuda Indonesia' || in_array($hari, ['Senin', 'Rabu', 'Jumat', 'Sabtu', 'Minggu']))  
+                      <tr>
+                        <td class="px-4 lg:px-0 py-2 text-center hidden md:block">
+                          <img src="{{asset('/storage/logo/'.$data->logo_maskapai)}}" style="width: 120px" alt="{{$data->maskapai}}" class="mx-auto">
+                        </td>
+                        <td class="px-6 py-6 text-xs md:text-sm block md:hidden">
+                          {{ $data->maskapai }}
+                        </td>
+                        <td class="px-6 py-4 text-xs md:text-sm">
+                          {{ $data->id_penerbangan }}
+                        </td>
+                        <td class="px-6 py-4 text-xs md:text-sm">
+                          {{ $data->tujuan }}
+                        </td>
+                        <td class="px-6 py-4 text-xs md:text-sm">
+                          @php 
+                            $jam = $data->jam; 
+                            $carbon = \Carbon\Carbon::parse($jam); 
+                            $formatted = $carbon->isoFormat('HH:m');
+                          @endphp
+                            {{$formatted }}
+                        </td>
+                      </tr>
+                      @endif
+                    @endforeach
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
-          <div class="relative overflow-x-auto rounded-lg shadow-md">
-            <div class="relative overflow-x-auto">
-              <table class="w-full text-sm text-left">
-                <thead class="text-xs font-montserrat sm:text-sm text-center text-gray-50 uppercase bg-gradient-to-r from-indigo-600 to-blue-500">
-                  <tr>
-                    <th scope="col" class="px-6 py-3">
-                      maskapai
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                      id Penerbangan
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                      tujuan
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                      Jam Penerbangan
-                    </th>
-                  </tr>
-                </thead>
-                <tbody id="scheduleData" class="text-center font-roboto">
-                  @foreach ($keberangkatan as $data)
-                    @php
-                    $hari = now()->isoFormat('dddd'); // Mengambil nama hari
-                    @endphp
-          
-                    @if ($data->maskapai != 'Garuda Indonesia' || in_array($hari, ['Senin', 'Rabu', 'Jumat', 'Sabtu', 'Minggu']))  
+        </div>
+  
+        {{-- Fligth Arrive --}}
+        <div class="py-3 px-4 mt-10 mx-auto max-w-screen-xl">
+          <div class="bg-white border border-gray-200 rounded-lg shadow-lg py-6 sm:py-8 sm:px-8 px-4 md:py-10 md:px-12" data-aos="fade-up" data-aos-delay="300" data-aos-duration="500" data-aos-ease="ease-in-out">
+            <div class="pb-6 px-3 flex justify-between items-center">
+              <div class="text-sm md:text-base">
+                <h2 class="font-montserrat font-semibold uppercase">Jadwal Kedatangan</h2>
+              </div>
+              <div class="text-sm md:text-base">
+                <p class="font-montserrat hidden sm:block">
+                  {{now()->isoFormat('dddd, D MMMM Y')}}
+                </p>
+                <p class="font-montserrat clock hidden sm:block"></p>
+              </div>
+            </div>
+            <div class="relative overflow-x-auto rounded-lg shadow-md">
+              <div class="relative overflow-x-auto">
+                <table class="normal-table w-full text-sm text-left" id="normalTable2">
+                  <thead class="text-xs font-montserrat sm:text-sm text-center text-gray-50 uppercase bg-gradient-to-r from-indigo-600 to-blue-500">
                     <tr>
-                      <td class="px-4 lg:px-0 py-2 text-center">
-                        <img src="{{asset('/storage/logo/'.$data->logo_maskapai)}}" style="width: 120px" alt="{{$data->maskapai}}" class="mx-auto">
-                      </td>
-                      <td class="px-6 py-4 text-xs md:text-sm">
-                        {{ $data->id_penerbangan }}
-                      </td>
-                      <td class="px-6 py-4 text-xs md:text-sm">
-                        {{ $data->tujuan }}
-                      </td>
-                      <td class="px-6 py-4 text-xs md:text-sm">
-                        @php 
-                          $jam = $data->jam; 
-                          $carbon = \Carbon\Carbon::parse($jam); 
-                          $formatted = $carbon->isoFormat('HH:m');
-                        @endphp
-                          {{$formatted }}
-                      </td>
+                      <th scope="col" class="px-6 py-3">
+                        maskapai
+                      </th>
+                      <th scope="col" class="px-6 py-3">
+                        id Penerbangan
+                      </th>
+                      <th scope="col" class="px-6 py-3">
+                        Dari
+                      </th>
+                      <th scope="col" class="px-6 py-3">
+                        Jam Penerbangan
+                      </th>
                     </tr>
-                    @endif
-                  @endforeach
-                  {{-- <script type="module">
-                    const apiUrl = 'https://airlabs.co/api/v9/schedules?dep_iata=MLG&api_key=f145dc59-33ef-4bc7-b015-6f45e4f9785d';
-                    const scheduleDataElement = document.getElementById('scheduleData');
-
-                    fetch(apiUrl)
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.response) {
-                            const today = new Date().toISOString().split('T')[0]; // Get today's date in YYYY-MM-DD format
-                            const todaySchedules = data.response.filter(schedule => {
-                                // Exclude schedules with flight_iata ID7109 and QG161
-                                return !['ID7109', 'QG161'].includes(schedule.flight_iata) && schedule.dep_time_utc.includes(today);
-                            });
-
-                            todaySchedules.forEach(schedule => {
-                                const row = document.createElement('tr');
-                                const airlineName = schedule.airline_icao === 'BTK' ? '<img src="{{asset('img/ID.png')}}" width="120">' : (schedule.airline_icao === 'GIA' ? '<img src="{{asset('img/GA.png')}}" width="120">' : (schedule.airline_icao === 'CTV' ? '<img src="{{asset('img/QG.png')}}" width="120">' : 'N/A'));
-                                const airportName = schedule.arr_iata === 'HLP' ? 'Halim Perdana Kusuma' : (schedule.arr_iata === 'CGK' ? 'Soekarno-Hatta' : 'N/A');
-
-                                const originalDepTime = new Date(schedule.dep_time);
-                                if (originalDepTime.getHours() === 11 && originalDepTime.getMinutes() === 15) {
-                                    originalDepTime.setMinutes(originalDepTime.getMinutes() + 5);
-                                }
-                                const year = originalDepTime.getFullYear();
-                                const month = (originalDepTime.getMonth() + 1).toString().padStart(2, '0'); // Month is 0-based, so we add 1
-                                const day = originalDepTime.getDate().toString().padStart(2, '0');
-                                const hours = originalDepTime.getHours().toString().padStart(2, '0');
-                                const minutes = originalDepTime.getMinutes().toString().padStart(2, '0');
-                                const modifiedDepTime = `${year}-${month}-${day} ${hours}:${minutes}`;
-
-                                row.innerHTML = `
-                                <td class="px-6 py-2 text-center">${airlineName || 'N/A'}</td>
-                                <td class="px-6 py-4 text-sm sm:text-base">${schedule.flight_iata || 'N/A'}</td>
-                                <td class="px-6 py-4 text-sm sm:text-base">${modifiedDepTime || 'N/A'}</td>
-                                <td class="px-6 py-4 text-sm sm:text-base">${airportName || 'N/A'}</td>
-                                <td class="px-6 py-4 text-sm sm:text-base">${schedule.arr_time || 'N/A'}</td>
-                                `;
-                                scheduleDataElement.appendChild(row);
-                            });
-                        } else {
-                            console.error('No schedules found in the response.');
-                        }
-                    })
-                    .catch(error => {
-                        console.error('An error occurred:', error);
-                    });
-                  </script> --}}
-                 
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody id="scheduleData" class="text-center font-roboto">
+                    @foreach ($kedatangan as $data)
+                      @php
+                      $hari = now()->isoFormat('dddd'); // Mengambil nama hari
+                      @endphp
+            
+                      @if ($data->maskapai != 'Garuda Indonesia' || in_array($hari, ['Senin', 'Rabu', 'Jumat', 'Sabtu', 'Minggu']))  
+                      <tr>
+                        <td class="px-4 lg:px-0 py-2 text-center hidden md:block">
+                          <img src="{{asset('/storage/logo/'.$data->logo_maskapai)}}" style="width: 120px" alt="{{$data->maskapai}}" class="mx-auto">
+                        </td>
+                        <td class="px-6 py-6 text-xs md:text-sm block md:hidden">
+                          {{ $data->maskapai }}
+                        </td>
+                        <td class="px-6 py-4 text-xs md:text-sm">
+                          {{ $data->id_penerbangan }}
+                        </td>
+                        <td class="px-6 py-4 text-xs md:text-sm">
+                          {{ $data->tujuan }}
+                        </td>
+                        <td class="px-6 py-4 text-xs md:text-sm">
+                          @php 
+                            $jam = $data->jam; 
+                            $carbon = \Carbon\Carbon::parse($jam); 
+                            $formatted = $carbon->isoFormat('HH:m');
+                          @endphp
+                          {{$formatted }}
+                        </td>
+                      </tr>
+                      @endif
+                    @endforeach
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>
       </div>
+      
+      {{-- jadwal penerbangan API --}}
+      <div id="apiTable" style="display: none">
 
-      {{-- Fligth Schedule --}}
-      <div class="py-3 px-4 mt-10 mx-auto max-w-screen-xl">
-        <div class="bg-white border border-gray-200 rounded-lg shadow-lg py-6 sm:py-8 sm:px-8 px-4 md:py-10 md:px-12" data-aos="fade-up" data-aos-delay="300" data-aos-duration="500" data-aos-ease="ease-in-out">
-          <div class="pb-6 px-3 flex justify-between items-center">
-            <div class="text-sm md:text-base">
-              <h2 class="font-montserrat font-semibold uppercase">Jadwal Penerbangan Kedatangan</h2>
-            </div>
-            <div class="text-sm md:text-base">
-              <p class="font-montserrat hidden sm:block">
-                {{now()->isoFormat('dddd, D MMMM Y')}}
-              </p>
-              <p class="font-montserrat clock hidden sm:block"></p>
-            </div>
-          </div>
-          <div class="relative overflow-x-auto rounded-lg shadow-md">
-            <div class="relative overflow-x-auto">
-              <table class="w-full text-sm text-left">
-                <thead class="text-xs font-montserrat sm:text-sm text-center text-gray-50 uppercase bg-gradient-to-r from-indigo-600 to-blue-500">
-                  <tr>
-                    <th scope="col" class="px-6 py-3">
-                      maskapai
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                      id Penerbangan
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                      Dari
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                      Jam Penerbangan
-                    </th>
-                  </tr>
-                </thead>
-                <tbody id="scheduleData" class="text-center font-roboto">
-                  @foreach ($kedatangan as $data)
-                    @php
-                    $hari = now()->isoFormat('dddd'); // Mengambil nama hari
-                    @endphp
-          
-                    @if ($data->maskapai != 'Garuda Indonesia' || in_array($hari, ['Senin', 'Rabu', 'Jumat', 'Sabtu', 'Minggu']))  
-                    <tr>
-                      <td class="px-4 lg:px-0 py-2 text-center">
-                        <img src="{{asset('/storage/logo/'.$data->logo_maskapai)}}" style="width: 120px" alt="{{$data->maskapai}}" class="mx-auto">
-                      </td>
-                      <td class="px-6 py-4 text-xs md:text-sm">
-                        {{ $data->id_penerbangan }}
-                      </td>
-                      <td class="px-6 py-4 text-xs md:text-sm">
-                        {{ $data->tujuan }}
-                      </td>
-                      <td class="px-6 py-4 text-xs md:text-sm">
-                        @php 
-                          $jam = $data->jam; 
-                          $carbon = \Carbon\Carbon::parse($jam); 
-                          $formatted = $carbon->isoFormat('HH:m');
-                        @endphp
-                        {{$formatted }}
-                      </td>
-                    </tr>
-                    @endif
-                  @endforeach
-                  {{-- <script type="module">
-                    const apiUrl = 'https://airlabs.co/api/v9/schedules?dep_iata=MLG&api_key=f145dc59-33ef-4bc7-b015-6f45e4f9785d';
-                    const scheduleDataElement = document.getElementById('scheduleData');
-
-                    fetch(apiUrl)
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.response) {
-                            const today = new Date().toISOString().split('T')[0]; // Get today's date in YYYY-MM-DD format
-                            const todaySchedules = data.response.filter(schedule => {
-                                // Exclude schedules with flight_iata ID7109 and QG161
-                                return !['ID7109', 'QG161'].includes(schedule.flight_iata) && schedule.dep_time_utc.includes(today);
-                            });
-
-                            todaySchedules.forEach(schedule => {
-                                const row = document.createElement('tr');
-                                const airlineName = schedule.airline_icao === 'BTK' ? '<img src="{{asset('img/ID.png')}}" width="120">' : (schedule.airline_icao === 'GIA' ? '<img src="{{asset('img/GA.png')}}" width="120">' : (schedule.airline_icao === 'CTV' ? '<img src="{{asset('img/QG.png')}}" width="120">' : 'N/A'));
-                                const airportName = schedule.arr_iata === 'HLP' ? 'Halim Perdana Kusuma' : (schedule.arr_iata === 'CGK' ? 'Soekarno-Hatta' : 'N/A');
-
-                                const originalDepTime = new Date(schedule.dep_time);
-                                if (originalDepTime.getHours() === 11 && originalDepTime.getMinutes() === 15) {
-                                    originalDepTime.setMinutes(originalDepTime.getMinutes() + 5);
-                                }
-                                const year = originalDepTime.getFullYear();
-                                const month = (originalDepTime.getMonth() + 1).toString().padStart(2, '0'); // Month is 0-based, so we add 1
-                                const day = originalDepTime.getDate().toString().padStart(2, '0');
-                                const hours = originalDepTime.getHours().toString().padStart(2, '0');
-                                const minutes = originalDepTime.getMinutes().toString().padStart(2, '0');
-                                const modifiedDepTime = `${year}-${month}-${day} ${hours}:${minutes}`;
-
-                                row.innerHTML = `
-                                <td class="px-6 py-2 text-center">${airlineName || 'N/A'}</td>
-                                <td class="px-6 py-4 text-sm sm:text-base">${schedule.flight_iata || 'N/A'}</td>
-                                <td class="px-6 py-4 text-sm sm:text-base">${modifiedDepTime || 'N/A'}</td>
-                                <td class="px-6 py-4 text-sm sm:text-base">${airportName || 'N/A'}</td>
-                                <td class="px-6 py-4 text-sm sm:text-base">${schedule.arr_time || 'N/A'}</td>
-                                `;
-                                scheduleDataElement.appendChild(row);
-                            });
-                        } else {
-                            console.error('No schedules found in the response.');
-                        }
-                    })
-                    .catch(error => {
-                        console.error('An error occurred:', error);
-                    });
-                  </script> --}}
-                 
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -556,6 +486,42 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
       AOS.init();
+    </script>
+
+    <script>
+
+      // Mendapatkan elemen tombol dan tabel
+      const showNormalTableButton = document.getElementById('showNormalTable');
+      const showApiTableButton = document.getElementById('showApiTable');
+      const normalTables = document.querySelectorAll('.normal-table');
+      const apiTable = document.getElementById('apiTable');
+      const tableCaption = document.getElementById('tableCaption');
+
+      // Fungsi untuk menampilkan tabel normal dan menyembunyikan tabel API
+      function showNormalTables() {
+        normalTables.forEach(table => {
+          table.style.display = 'table';
+        });
+        apiTable.style.display = 'none';
+        tableCaption.textContent = 'Jadwal Keberangkatan'
+      }
+
+      // Fungsi untuk menampilkan tabel API dan menyembunyikan tabel normal
+      function showApiTable() {
+        normalTables.forEach(table => {
+          table.style.display = 'none';
+        });
+        apiTable.style.display = 'table';
+        tableCaption.textContent = 'Jadwal Penerbangan';
+      }
+
+      // Tambahkan event listener pada tombol
+      showNormalTableButton.addEventListener('click', showNormalTables);
+      showApiTableButton.addEventListener('click', showApiTable);
+
+      // Secara default, tampilkan tabel normal saat halaman dimuat
+      showNormalTables();
+
     </script>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

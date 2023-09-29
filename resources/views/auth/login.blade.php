@@ -89,6 +89,12 @@
                     class="block w-full p-3 bg-gray-50 border-2 border-gray-100 text-gray-900 sm:text-sm rounded-lg focus:ring-indigo-400 focus:ring-2 focus:outline-none text-xs md:text-sm @error('password') is-invalid @enderror"
                     required
                     value="{{old('password')}}"
+                    title="Kata sandi harus memiliki panjang minimal 8 karakter dan mengandung setidaknya satu huruf kapital, huruf kecil, dan angka."
+                    maxlength="15"
+                    minlength="8"
+                    aria-label="Password"
+                    aria-describedby="password-addon"
+                    pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$"
                   />
 
                   <button
