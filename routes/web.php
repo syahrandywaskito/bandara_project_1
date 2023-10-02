@@ -11,6 +11,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JadwalController;
 use App\Http\Controllers\KomputerController;
 use App\Http\Controllers\KomputerListController;
+use App\Http\Controllers\KontakController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\UsersController;
 
@@ -103,3 +104,15 @@ Route::resource('/dashboard/hardware/list/komputer-list', KomputerListController
   'update' => 'list.komputer.update',
   'destroy' => 'list.komputer.destroy',
 ]);
+
+# kontak dan seran route dalam admin
+Route::controller(KontakController::class)->group(function(){
+  # for admin page
+  Route::get('/dashboard/kontak/index', 'indexAdmin')->name('kontak.admin.index');
+  Route::get('/dashboard/kontak/edit_kontak/', 'editKontak')->name('kontak.admin.edit');
+  Route::put('/dashboard/kontak/update_kontak/{kontak}', 'updateKontak')->name('kontak.admin.update');
+
+  # for public page
+  Route::get('/hubungi_kami', 'indexUser')->name('kontak.user.index');
+  Route::post('/hubungi_kami/saran', 'storeSaran')->name('saran.user.store');
+});

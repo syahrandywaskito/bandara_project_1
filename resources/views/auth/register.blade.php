@@ -176,7 +176,7 @@
                     id="otherPosition"
                     name="position"
                     placeholder="Masukkan Jabatan Lainnya"
-                    class="bg-gray-50 border-2 border-gray-100 text-gray-900 text-xs md:text-sm rounded-lg p-2.5 focus:ring-indigo-400 focus:ring-2 focus:outline-none block w-full"
+                    class="bg-gray-50 border-2 border-gray-100 text-gray-900 text-xs md:text-sm rounded-lg p-2.5 focus:ring-indigo-400 focus:ring-2 focus:outline-none block w-full capitalize"
                   >
                 </div>                
 

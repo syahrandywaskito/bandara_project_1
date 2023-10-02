@@ -23,7 +23,7 @@
   </head>
   <body class="bg-gray-100">
     {{-- navbar --}}
-    <nav class="bg-white shadow-lg rounded-lg mx-10 mt-7" id="navbar">
+    <nav class="bg-white shadow-lg rounded-lg mx-5 lg:mx-10 mt-7" id="navbar">
       <section class="mx-auto px-4 max-w-6xl">
         <section class="flex justify-between">
           {{-- Logo And Primary Menu --}}
@@ -96,19 +96,15 @@
               <div id="dropdownHover" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-md w-44">
                 <ul class="py-2 text-sm text-gray-700 font-montserrat" aria-labelledby="dropdownHoverButton">
                   <li>
-                    <a href="/tool/cctv" class="block px-4 py-2 hover:translate-x-1 transition duration-200">CCTV</a>
+                    <a href="{{route('tool.cctv.index')}}" class="block px-4 py-2 hover:translate-x-1 transition duration-200">CCTV</a>
                   </li>
                   <li>
-                    <a href="/tool/komputer" class="block px-4 py-2 hover:translate-x-1 transition duration-200">Komputer</a>
+                    <a href="{{route('tool.komputer.index')}}" class="block px-4 py-2 hover:translate-x-1 transition duration-200">Komputer</a>
                   </li>
                   <li>
-                    <a href="/tool/fids" class="block px-4 py-2 hover:translate-x-1 transition duration-200">FIDS</a>
+                    <a href="{{route('tool.fids.index')}}" class="block px-4 py-2 hover:translate-x-1 transition duration-200">FIDS</a>
                   </li>
                 </ul>
-                {{-- <hr class="border-0 bg-orange-600 h-1" />
-                <div class="py-2">
-                  <a href="{{route('report.index')}}" class="block px-4 py-2 hover:translate-x-1 transition duration-200">Laporan</a>
-                </div> --}}
               </div>
 
               <a href="" class="flex py-4 px-2 text-gray-900 font-semibold hover:-translate-y-1 transition duration-200">
@@ -120,7 +116,7 @@
                 </span>
               </a>
 
-              <a href="" class="flex py-4 px-2 text-gray-900 font-semibold hover:-translate-y-1 transition duration-200">
+              <a href="{{route('kontak.user.index')}}" class="flex py-4 px-2 text-gray-900 font-semibold hover:-translate-y-1 transition duration-200">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 xl:hidden h-5">
                   <path
                     fill-rule="evenodd"
@@ -186,26 +182,22 @@
               <div id="dropdown" class="z-10 hidden bg-gray-100 divide-y divide-gray-100 rounded-lg shadow w-44">
                 <ul class="py-2 text-gray-700 font-montserrat text-xs md:text-sm" aria-labelledby="dropdownHoverButton">
                   <li>
-                    <a href="/tool/cctv" class="block px-4 py-2 hover:translate-x-1 transition duration-200">CCTV</a>
+                    <a href="{{route('tool.cctv.index')}}" class="block px-4 py-2 hover:translate-x-1 transition duration-200">CCTV</a>
                   </li>
                   <li>
-                    <a href="/tool/cctv" class="block px-4 py-2 hover:translate-x-1 transition duration-200">Komputer</a>
+                    <a href="{{route('tool.komputer.index')}}" class="block px-4 py-2 hover:translate-x-1 transition duration-200">Komputer</a>
                   </li>
                   <li>
-                    <a href="/tool/fids" class="block px-4 py-2 hover:translate-x-1 transition duration-200">FIDS</a>
+                    <a href="{{route('tool.fids.index')}}" class="block px-4 py-2 hover:translate-x-1 transition duration-200">FIDS</a>
                   </li>
                 </ul>
-                {{-- <hr class="border-0 bg-gray-900 h-1" />
-                <div class="py-2">
-                  <a href="{{route('report.index')}}" class="block px-4 py-2 hover:translate-x-1 transition duration-200">Laporan</a>
-                </div> --}}
               </div>
             </li>
             <li>
-              <a href="" class="block text-md text-gray-900 py-4 px-2 hover:translate-x-1 transition duration-200">Services</a>
+              <a href="" class="block text-md text-gray-900 py-4 px-2 hover:translate-x-1 transition duration-200">Layanan</a>
             </li>
             <li>
-              <a href="" class="block text-md text-gray-900 py-4 px-2 hover:translate-x-1 transition duration-200">Contact Us</a>
+              <a href="{{route('kontak.user.index')}}" class="block text-md text-gray-900 py-4 px-2 hover:translate-x-1 transition duration-200">Hubungi Kami</a>
             </li>
             <li>
               <a href="{{route('login')}}" class="block text-md text-gray-900 py-4 px-2 hover:translate-x-1 transition duration-200">Login</a>
