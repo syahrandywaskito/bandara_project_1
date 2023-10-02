@@ -31,7 +31,7 @@ class HomeController extends Controller
         $berita = Berita::latest()->get();
 
         # data berita yang dipaginate
-        $paginate = Berita::latest()->paginate(2);
+        $paginate = Berita::latest()->paginate(3);
 
         return view('homepage', [
             'berita' => $berita,

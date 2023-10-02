@@ -236,29 +236,24 @@
         @foreach ($beritaPaginate as $data)
         <div>
           <div class="bg-white border border-gray-200 rounded-lg shadow" data-aos="fade-up" data-aos-delay="600" data-aos-ease="ease-in-out" data-aos-duration="400">
-            <a href="#">
-              <img class="rounded-t-lg" src="{{asset('/storage/berita/'.$data->gambar)}}" alt="" />
-            </a>
-            <div class="p-5 font-montserrat">
-              <a href="#">
-                <h5 class="mb-1 text-sm sm:text-base md:text-lg font-bold tracking-tight text-gray-900">
-                  {{$data->judul}}
-                </h5>
-              </a>
-              <div class=" truncate text-xs sm:text-sm md:text-base">
-                {!! Str::limit(strip_tags($data->isi), $limit = 100, $end = '...') !!}
+            <a href="{{route('berita', $data->id)}}">
+              <div href="#">
+                <img class="rounded-t-lg" src="{{asset('/storage/berita/'.$data->gambar)}}" alt="" />
               </div>
-              <a href="{{route('berita', $data->id)}}" class="inline-flex items-center mt-2 px-3 py-2 text-xs md:text-sm font-medium text-center text-white bg-gradient-to-r from-indigo-600 to-blue-500 rounded-lg hover:translate-x-1 transition duration-200 focus:ring-4 focus:outline-none">
-                Read more
-                <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
-                </svg>
-              </a>
-            </div>
+              <div class="p-5 font-montserrat">
+                <div href="#">
+                  <h5 class="mb-1 text-sm sm:text-base md:text-lg font-bold tracking-tight text-gray-900">
+                    {{$data->judul}}
+                  </h5>
+                </div>
+                <div class=" truncate text-xs sm:text-sm md:text-base">
+                  {!! Str::limit(strip_tags($data->isi), $limit = 100, $end = '...') !!}
+                </div>
+              </div>
+            </a>
           </div>
         </div>
         @endforeach
-        {{ $beritaPaginate->links() }}
       </div>
 
       {{-- carousel if viewport md above it--}}
@@ -270,13 +265,13 @@
           </h1>
         </div>
         {{-- carousel part --}}
-        <div id="controls-carousel" class="relative w-full" data-carousel="slide">
+        <div id="controls-carousel" class="relative w-full" data-carousel="static">
           <!-- Carousel wrapper -->
           <div class="relative h-[40vh] overflow-hidden rounded-lg xl:h-[70vh]" data-aos="fade-up" data-aos-delay="600" data-aos-ease="ease-in-out" data-aos-duration="400">
             {{-- gambar carousel yang akan ditampilkan dengan foreach --}} 
             @foreach ($berita as $data)
             <div class="hidden duration-700 ease-in-out" data-carousel-item>
-              <div>
+              <a  href="{{route('berita', $data->id)}}">
                 <img src="{{asset('/storage/berita/'.$data->gambar)}}" class="absolute block -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 transition duration-200" alt="" />
 
                 <div class="absolute bottom-0 w-full">
@@ -287,15 +282,9 @@
                     <p class="pt-4 text-xs md:text-sm lg:text-base text-ellipsis truncate">
                       {!! Str::limit(strip_tags($data->isi), $limit = 150, $end = '...') !!}
                     </p>
-                    <a href="{{route('berita', $data->id)}}" class="w-fit flex items-center px-4 py-2 bg-gray-50 text-indigo-800 rounded-lg my-3 hover:bg-gray-200 duration-150 transition">
-                      Baca lagi
-                      <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
-                      </svg>
-                    </a>
                   </div>
                 </div>
-              </div>
+              </a>
             </div>
             @endforeach
           </div>
@@ -320,36 +309,35 @@
       </div>
 
       {{-- header text --}}
-      <div class="text-center pb-7 md:pb-10" data-aos="fade-up" data-aos-delay="100" data-aos-duration="400" data-aos-ease="ease-in-out">
+      <div class="text-center pb-8 md:pb-3 mt-20" data-aos="fade-up" data-aos-delay="100" data-aos-duration="400" data-aos-ease="ease-in-out">
         <h1 class="font-semibold font-montserrat text-sm md:text-base lg:text-xl uppercase">
-          Jadwal
+          Jadwal Penerbangan
         </h1>
-        {{-- button --}}
-        <div class="flex justify-evenly mt-7">
-          <button id="showNormalTable">Jadwal Normal</button>
-          <button id="showApiTable">Jadwal API</button>
-        </div>
       </div>
 
       {{-- jadwal penerbangan normal --}}
-      <div>
-        {{-- Fligth Depart --}}
-        <div class=" py-3 px-4 mt-5 mx-auto max-w-screen-xl">
-          <div class="bg-white border border-gray-200 rounded-lg shadow-lg py-6 sm:py-8 sm:px-8 px-4 md:py-10 md:px-12" data-aos="fade-up" data-aos-delay="300" data-aos-duration="500" data-aos-ease="ease-in-out">
-            <div class="pb-6 px-3 flex justify-between items-center">
-              <div class="text-sm md:text-base" >
-                <h2 class="font-montserrat font-semibold uppercase" id="tableCaption"></h2>
-              </div>
-              <div class="text-sm md:text-base">
-                <p class="font-montserrat hidden sm:block">
-                  {{now()->isoFormat('dddd, D MMMM Y')}}
-                </p>
-                <p class="font-montserrat clock hidden sm:block"></p>
-              </div>
-            </div>
-            <div class="relative overflow-x-auto rounded-lg shadow-md">
-              <div class="relative overflow-x-auto">
-                <table class="normal-table w-full text-sm text-left" id="normalTable1">
+      <div class="">
+        <div class=" py-3 px-4 mx-auto max-w-screen-xl">
+            <div class="relative">
+              <div class="relative overflow-hidden">
+
+                {{-- jadwal keberangkatan --}}
+                <table class=" w-full text-sm text-left bg-white rounded-lg" data-aos="fade-up" data-aos-delay="300" data-aos-duration="500" data-aos-ease="ease-in-out">
+                  {{-- caption --}}
+                  <caption class="pt-2 text-right">
+                    <div class="pb-6 flex justify-between items-center">
+                      <div class="text-sm md:text-base">
+                        <h2 class="font-montserrat font-semibold uppercase">Jadwal keberangkatan</h2>
+                      </div>
+                      <div class="text-sm md:text-base">
+                        <p class="font-montserrat hidden sm:block">
+                          {{now()->isoFormat('dddd, D MMMM Y')}}
+                        </p>
+                        <p class="font-montserrat clock hidden sm:block"></p>
+                      </div>
+                    </div>
+                  </caption>
+                  {{-- table head --}}
                   <thead class="text-xs font-montserrat sm:text-sm text-center text-gray-50 uppercase bg-gradient-to-r from-indigo-600 to-blue-500">
                     <tr>
                       <th scope="col" class="px-6 py-3">
@@ -377,7 +365,7 @@
                         <td class="px-4 lg:px-0 py-2 text-center hidden md:block">
                           <img src="{{asset('/storage/logo/'.$data->logo_maskapai)}}" style="width: 120px" alt="{{$data->maskapai}}" class="mx-auto">
                         </td>
-                        <td class="px-6 py-6 text-xs md:text-sm block md:hidden">
+                        <td class="px-4 py-6 text-xs md:text-sm block md:hidden">
                           {{ $data->maskapai }}
                         </td>
                         <td class="px-6 py-4 text-xs md:text-sm">
@@ -399,28 +387,24 @@
                     @endforeach
                   </tbody>
                 </table>
-              </div>
-            </div>
-          </div>
-        </div>
-  
-        {{-- Fligth Arrive --}}
-        <div class="py-3 px-4 mt-10 mx-auto max-w-screen-xl">
-          <div class="bg-white border border-gray-200 rounded-lg shadow-lg py-6 sm:py-8 sm:px-8 px-4 md:py-10 md:px-12" data-aos="fade-up" data-aos-delay="300" data-aos-duration="500" data-aos-ease="ease-in-out">
-            <div class="pb-6 px-3 flex justify-between items-center">
-              <div class="text-sm md:text-base">
-                <h2 class="font-montserrat font-semibold uppercase">Jadwal Kedatangan</h2>
-              </div>
-              <div class="text-sm md:text-base">
-                <p class="font-montserrat hidden sm:block">
-                  {{now()->isoFormat('dddd, D MMMM Y')}}
-                </p>
-                <p class="font-montserrat clock hidden sm:block"></p>
-              </div>
-            </div>
-            <div class="relative overflow-x-auto rounded-lg shadow-md">
-              <div class="relative overflow-x-auto">
-                <table class="normal-table w-full text-sm text-left" id="normalTable2">
+
+                {{-- jadwal kedatangan --}}
+                <table class=" w-full mt-14 text-sm text-left bg-white rounded-lg" data-aos="fade-up" data-aos-delay="300" data-aos-duration="500" data-aos-ease="ease-in-out">
+                  {{-- caption --}}
+                  <caption class="pt-2 text-right">
+                    <div class="pb-6 flex justify-between items-center">
+                      <div class="text-sm md:text-base">
+                        <h2 class="font-montserrat font-semibold uppercase">Jadwal Kedatangan</h2>
+                      </div>
+                      <div class="text-sm md:text-base">
+                        <p class="font-montserrat hidden sm:block">
+                          {{now()->isoFormat('dddd, D MMMM Y')}}
+                        </p>
+                        <p class="font-montserrat clock hidden sm:block"></p>
+                      </div>
+                    </div>
+                  </caption>
+                  {{-- table head --}}
                   <thead class="text-xs font-montserrat sm:text-sm text-center text-gray-50 uppercase bg-gradient-to-r from-indigo-600 to-blue-500">
                     <tr>
                       <th scope="col" class="px-6 py-3">
@@ -448,7 +432,7 @@
                         <td class="px-4 lg:px-0 py-2 text-center hidden md:block">
                           <img src="{{asset('/storage/logo/'.$data->logo_maskapai)}}" style="width: 120px" alt="{{$data->maskapai}}" class="mx-auto">
                         </td>
-                        <td class="px-6 py-6 text-xs md:text-sm block md:hidden">
+                        <td class="px-4 py-6 text-xs md:text-sm block md:hidden">
                           {{ $data->maskapai }}
                         </td>
                         <td class="px-6 py-4 text-xs md:text-sm">
@@ -470,58 +454,17 @@
                     @endforeach
                   </tbody>
                 </table>
+
               </div>
             </div>
-          </div>
         </div>
-      </div>
-      
-      {{-- jadwal penerbangan API --}}
-      <div id="apiTable" style="display: none">
-
-      </div>
+      </div>  
     </section>
 
     {{-- footer --}} @include('components.home.footer') {{-- JS AOS --}}
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
       AOS.init();
-    </script>
-
-    <script>
-
-      // Mendapatkan elemen tombol dan tabel
-      const showNormalTableButton = document.getElementById('showNormalTable');
-      const showApiTableButton = document.getElementById('showApiTable');
-      const normalTables = document.querySelectorAll('.normal-table');
-      const apiTable = document.getElementById('apiTable');
-      const tableCaption = document.getElementById('tableCaption');
-
-      // Fungsi untuk menampilkan tabel normal dan menyembunyikan tabel API
-      function showNormalTables() {
-        normalTables.forEach(table => {
-          table.style.display = 'table';
-        });
-        apiTable.style.display = 'none';
-        tableCaption.textContent = 'Jadwal Keberangkatan'
-      }
-
-      // Fungsi untuk menampilkan tabel API dan menyembunyikan tabel normal
-      function showApiTable() {
-        normalTables.forEach(table => {
-          table.style.display = 'none';
-        });
-        apiTable.style.display = 'table';
-        tableCaption.textContent = 'Jadwal Penerbangan';
-      }
-
-      // Tambahkan event listener pada tombol
-      showNormalTableButton.addEventListener('click', showNormalTables);
-      showApiTableButton.addEventListener('click', showApiTable);
-
-      // Secara default, tampilkan tabel normal saat halaman dimuat
-      showNormalTables();
-
     </script>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
