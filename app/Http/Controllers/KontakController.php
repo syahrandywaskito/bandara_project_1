@@ -16,11 +16,9 @@ class KontakController extends Controller
     {
         $kontak = Kontak::all();
 
-        $email = $kontak->pluck('email_admin');
+        $data = $kontak->first();
 
-        $noTlp = $kontak->pluck('no_tlp');
-
-        return view('kontak', ['email' => $email, 'noTlp' => $noTlp ]);
+        return view('kontak', ['kontak' => $data]);
     }
 
     public function indexAdmin() : View
@@ -74,6 +72,34 @@ class KontakController extends Controller
 
         return view('admin.kontak.edit', ['kontak' => $kontak]);
     }
+
+    /**
+     * 
+     * Tambah kontak jika belum ada
+     * 
+     */
+
+    public function createKontak() : View
+    {
+        return view('admin.kontak.edit');
+    }
+
+    /**
+     *  masukan data create kontak ke database
+     * 
+     */
+
+    public function storeKontak(Request $request) : RedirectResponse
+    {
+        $request->validate([
+            'email_admin',
+            'no_tlp'
+        ]);
+
+        Kontak::create($request->all());
+
+        return redirect()->route('kontak.admin.index')->with('success', 'Berhasil menambah data kontak');
+    } 
 
     /**
      * 

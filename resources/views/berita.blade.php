@@ -21,7 +21,7 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     {{-- tailwind css using vite --}} @vite(['resources/css/app.css','resources/js/app.js'])
   </head>
-  <body class="bg-gray-100">
+  <body class="bg-[#dbe4f5]">
     {{-- navbar --}}
     <nav class="bg-white shadow-lg rounded-lg mx-5 lg:mx-10 mt-7" id="navbar">
       <section class="mx-auto px-4 max-w-6xl">
@@ -32,7 +32,7 @@
             <section>
               <a href="#" class="flex items-center py-4 px-2">
                 <img src="{{ asset('img/logo.png') }}" class="h-11 w-10 mr-3" alt="logo" />
-                <span class="font-semibold text-gray-900 text-xs sm:text-base xl:text-lg uppercase">
+                <span class="font-semibold text-[#010101] text-xs sm:text-base xl:text-lg uppercase">
                   Teknik dan <br />
                   pelayanan jasa
                 </span>
@@ -40,7 +40,7 @@
             </section>
 
             <section class="hidden md:flex items-center space-x-4 lg:space-x-2 ">
-              <a href="{{route('homepage')}}" class="py-4 px-2 flex text-gray-900 font-semibold transition duration-200 hover:-translate-y-1">
+              <a href="{{route('homepage')}}" class="py-4 px-2 flex text-[#010101] font-semibold transition duration-200 hover:-translate-y-1">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 xl:hidden h-5">
                   <path
                     fill-rule="evenodd"
@@ -53,7 +53,7 @@
                 </span>
               </a>
 
-              <a href="{{route('homepage')}}" class="py-4 px-2 flex text-gray-900 border-b-2 border-orange-600 font-semibold">
+              <a href="{{route('homepage')}}" class="py-4 px-2 flex text-[#010101] border-b-2 border-[#5e6f83] font-semibold">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 xl:hidden h-5">
                   <path
                     stroke-linecap="round"
@@ -70,7 +70,7 @@
                 id="dropdownHoverButton"
                 data-dropdown-toggle="dropdownHover"
                 data-dropdown-trigger="hover"
-                class="text-gray-900 hover:-translate-y-1 font-semibold rounded-lg text-sm pl-3 lg:px-5 py-2.5 text-center inline-flex items-center transition duration-200 cursor-pointer"
+                class="text-[#010101] hover:-translate-y-1 font-semibold rounded-lg text-sm pl-3 lg:px-5 py-2.5 text-center inline-flex items-center transition duration-200 cursor-pointer"
                 type="button"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 xl:hidden h-5">
@@ -107,7 +107,7 @@
                 </ul>
               </div>
 
-              <a href="" class="flex py-4 px-2 text-gray-900 font-semibold hover:-translate-y-1 transition duration-200">
+              <a href="" class="flex py-4 px-2 text-[#010101] font-semibold hover:-translate-y-1 transition duration-200">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 xl:hidden h-5">
                   <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.784 6.131-2.1.43-.333.604-.903.408-1.41a7.002 7.002 0 00-13.074.003z" />
                 </svg>
@@ -116,7 +116,7 @@
                 </span>
               </a>
 
-              <a href="{{route('kontak.user.index')}}" class="flex py-4 px-2 text-gray-900 font-semibold hover:-translate-y-1 transition duration-200">
+              <a href="{{route('kontak.user.index')}}" class="flex py-4 px-2 text-[#010101] font-semibold hover:-translate-y-1 transition duration-200">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 xl:hidden h-5">
                   <path
                     fill-rule="evenodd"
@@ -134,13 +134,13 @@
 
           {{-- Secondary Navbar Item --}}
           <section class="hidden md:flex items-center space-x-3">
-            <a href="{{route('login')}}" class="hidden xl:block items-center py-4 px-2 text-gray-900 font-medium hover:-translate-y-1 transition duration-200">
+            <a href="{{route('login')}}" class="hidden xl:block items-center py-4 px-2 text-[#010101] font-medium hover:-translate-y-1 transition duration-200">
               <span class="hidden xl:block">
                 Login
               </span>
             </a>
 
-            <a href="{{route('register')}}" class="flex items-center py-3 px-4 bg-orange-600 text-white rounded-lg shadow-md font-medium hover:bg-opacity-75 transition duration-200">
+            <a href="{{route('register')}}" class="flex items-center py-3 px-4 bg-[#5e6f83] text-white rounded-lg shadow-md font-medium hover:bg-opacity-75 transition duration-200">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 xl:hidden h-5">
                 <path
                   d="M11 5a3 3 0 11-6 0 3 3 0 016 0zM2.615 16.428a1.224 1.224 0 01-.569-1.175 6.002 6.002 0 0111.908 0c.058.467-.172.92-.57 1.174A9.953 9.953 0 018 18a9.953 9.953 0 01-5.385-1.572zM16.25 5.75a.75.75 0 00-1.5 0v2h-2a.75.75 0 000 1.5h2v2a.75.75 0 001.5 0v-2h2a.75.75 0 000-1.5h-2v-2z"
@@ -155,7 +155,7 @@
           {{-- Mobile Button --}}
           <section class="md:hidden flex items-center">
             <button class="outline-none" id="mobile-menu-button">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-gray-900 md:hidden block">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-[#010101] md:hidden block">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25" />
               </svg>
             </button>
@@ -166,13 +166,13 @@
         <section class="hidden pb-3" id="mobile-menu">
           <ul class="text-sm">
             <li>
-              <a href="{{route('homepage')}}" class="block text-gray-900 py-4 px-2 hover:translate-x-1 transition duration-200">Beranda</a>
+              <a href="{{route('homepage')}}" class="block text-[#010101] py-4 px-2 hover:translate-x-1 transition duration-200">Beranda</a>
             </li>
             <li class="active">
-              <a href="" class="block text-gray-900 py-4 px-2 font-bold">Berita</a>
+              <a href="" class="block text-[#010101] py-4 px-2 font-bold">Berita</a>
             </li>
             <li>
-              <a id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="text-gray-900 hover: focus:ring-4 focus:outline-none px-2 py-2.5 cursor-pointer inline-flex items-center" type="button">
+              <a id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="text-[#010101] hover: focus:ring-4 focus:outline-none px-2 py-2.5 cursor-pointer inline-flex items-center" type="button">
                 Alat
                 <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
@@ -194,16 +194,16 @@
               </div>
             </li>
             <li>
-              <a href="" class="block text-md text-gray-900 py-4 px-2 hover:translate-x-1 transition duration-200">Layanan</a>
+              <a href="" class="block text-md text-[#010101] py-4 px-2 hover:translate-x-1 transition duration-200">Layanan</a>
             </li>
             <li>
-              <a href="{{route('kontak.user.index')}}" class="block text-md text-gray-900 py-4 px-2 hover:translate-x-1 transition duration-200">Hubungi Kami</a>
+              <a href="{{route('kontak.user.index')}}" class="block text-md text-[#010101] py-4 px-2 hover:translate-x-1 transition duration-200">Hubungi Kami</a>
             </li>
             <li>
-              <a href="{{route('login')}}" class="block text-md text-gray-900 py-4 px-2 hover:translate-x-1 transition duration-200">Login</a>
+              <a href="{{route('login')}}" class="block text-md text-[#010101] py-4 px-2 hover:translate-x-1 transition duration-200">Login</a>
             </li>
             <li>
-              <a href="{{route('register')}}" class="block text-md bg-orange-600 text-white rounded-lg shadow-md py-3 px-4 hover:bg-opacity-75 transition duration-200 text-center">Register</a>
+              <a href="{{route('register')}}" class="block text-md bg-[#5e6f83] text-white rounded-lg shadow-md py-3 px-4 hover:bg-opacity-75 transition duration-200 text-center">Register</a>
             </li>
           </ul>
         </section>
@@ -215,7 +215,7 @@
       {{-- Text --}}
       <section class="py-4 px-4 mx-auto max-w-screen-xl text-center sm:py-5 md:py-6 lg:py-8 xl:py-10 lg:w-[80%]">
         <div class="w-full p-4 text-center bg-white rounded-lg shadow-lg sm:p-8">
-          <h5 class="mb-2 md:mb-4 text-sm sm:text-base lg:text-xl uppercase font-bold font-montserrat text-gray-900" data-aos="fade-up" data-aos-delay="100">
+          <h5 class="mb-2 md:mb-4 text-sm sm:text-base lg:text-xl uppercase font-bold font-montserrat text-[#010101]" data-aos="fade-up" data-aos-delay="100">
             {{$berita->judul}}
           </h5>
           <div class="flex justify-center" data-aos="fade-up" data-aos-delay="200">

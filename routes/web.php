@@ -109,6 +109,8 @@ Route::controller(KontakController::class)->group(function(){
   # for admin page
   Route::get('/dashboard/kontak/index', 'indexAdmin')->name('kontak.admin.index');
   Route::get('/dashboard/kontak/edit_kontak/{kontak}/edit', 'editKontak')->name('kontak.admin.edit');
+  Route::get('/dashboard/kontak/tambah_kontak', 'createKontak')->name('kontak.admin.create');
+  Route::post('/dashboard/kontak/tambah_kontak/tambah', 'storeKontak')->name('kontak.admin.store');
   Route::put('/dashboard/kontak/update_kontak/{kontak}', 'updateKontak')->name('kontak.admin.update');
   Route::get('/dashboard/kontak/lihat_saran/{saran}', 'showSaran')->name('saran.admin.show');
   Route::delete('/dashboard/kontak/hapus_saran/{saran}', 'destroySaran')->name('saran.admin.destroy');
