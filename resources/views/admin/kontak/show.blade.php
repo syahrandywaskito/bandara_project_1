@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="shortcut icon" href="{{asset('img/logo.png')}}" type="image/x-icon" />
-    <title>Admin - Laporan</title>
+    <title>Admin - Kontak & Saran</title>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="{{asset('js/onPageLoad.js')}}"></script>
@@ -33,9 +33,9 @@
                 ></path>
               </svg>
             </button>
-            <a href="{{route('cctv.index')}}" class="flex ml-2 md:mr-24">
+            <a href="{{route('kontak.admin.index')}}" class="flex ml-2 md:mr-24">
               <img src="{{asset('img/logo.png')}}" class="h-8 mr-3" alt="FlowBite Logo" />
-              <span class="self-center font-roboto font-semibold hidden sm:block sm:text-base md:text-lg lg:text-xl text-gray-100 uppercase whitespace-nowrap">CCTV - Lihat data</span>
+              <span class="self-center font-roboto font-semibold hidden sm:block sm:text-base md:text-lg lg:text-xl text-gray-100 uppercase whitespace-nowrap">Kontak & Saran - Lihat Saran</span>
             </a>
           </div>
           <div class="flex items-center">
@@ -69,7 +69,7 @@
                     <svg class="w-3 h-3 mx-1 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                       <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
                     </svg>
-                    <a href="{{URL::previous()}}" class="ml-1 text-xs md:text-sm font-medium text-gray-900 hover:text-indigo-600 md:ml-2">CCTV</a>
+                    <a href="{{URL::previous()}}" class="ml-1 text-xs md:text-sm font-medium text-gray-900 hover:text-indigo-600 md:ml-2">Kontak & Saran</a>
                   </div>
                 </li>
                 <li aria-current="page">
@@ -77,92 +77,44 @@
                     <svg class="w-3 h-3 mx-1 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                       <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
                     </svg>
-                    <span class="ml-1 text-xs md:text-sm font-medium text-gray-700 md:ml-2">Lihat Data</span>
+                    <span class="ml-1 text-xs md:text-sm font-medium text-gray-700 md:ml-2">Lihat Saran</span>
                   </div>
                 </li>
               </ol>
             </nav>
 
-            <div class="text-center mt-8 font-montserrat">
+            <div class="text-start mt-8 font-montserrat">
               <h1 class="text-gray-900 dark:text-gray-200 text-base md:text-lg xl:text-xl uppercase font-bold">
-                Lihat
+                Lihat Saran
               </h1>
-              <p class="text-xs md:text-sm uppercase dark:text-gray-200">{{ $cctv->hardware_name }}</p>
+              <p class="text-xs md:text-sm capitalize dark:text-gray-200 pt-3">
+                Dari : <br>
+                {{$saran->nama}}
+              </p>
+              <p class="text-xs md:text-sm  dark:text-gray-200 pt-3">
+                Alamat Email : <br>
+                <a href="mailto:{{$saran->email}}" class="text-indigo-700 hover:border-b border-indigo-700 transition duration-150 dark:text-indigo-100 dark:border-indigo-100">
+                  {{$saran->email}}
+                </a>
+              </p>
             </div>
 
-            <div class="lg:px-2 text-xs sm:text-sm md:text-base dark:text-gray-200 font-montserrat mt-8 md:flex md:justify-between flex-row">
+            <hr class="h-px my-7 bg-gray-400 border-0" />
+
+            <div class="font-montserrat dark:text-gray-200">
+              {{-- subjek --}}
               <div>
-                <h3>Tanggal data seharusnya</h3>
-                <p>
-                  {{$day}}, {{$date}}
+                <h2 class="uppercase font-semibold text-sm md:text-base">Subjek</h2>
+                <p class="pt-3 text-xs sm:text-sm md:text-base">
+                  {{$saran->subjek}}
                 </p>
               </div>
-              <div class="md:text-end text-start mt-3 md:mt-0">
-                <h3>Tanggal sekarang</h3>
-                <p>
-                  {{now()->isoFormat('dddd')}}, {{now()->isoFormat('D MMMM Y')}}
+              {{-- Pesan --}}
+              <div class="mt-8">
+                <h2 class="uppercase font-semibold">Pesan</h2>
+                <p class="pt-3 text-xs sm:text-sm md:text-base">
+                  {{$saran->pesan}}
                 </p>
-              </div>
-            </div>
-
-            <hr class="h-px my-4 bg-gray-400 border-0" />
-
-            <div class="lg:text-center lg:flex lg:justify-center">
-              <div class="grid grid-cols-1 lg:grid-cols-2 lg:gap-x-60 lg:gap-y-10 dark:text-gray-200">
-                <div>
-                  <div class="font-montserrat mt-6 lg:px-2">
-                    <p class="text-xs md:text-sm uppercase font-semibold">Kondisi Rekaman</p>
-                    <p class="pt-2 text-xs sm:text-sm md:text-base">
-                      <span @if ($cctv->record_status == 'T') class="text-gray-50 bg-black py-1 px-2 rounded-l-lg inline-block" @elseif($cctv->record_status == 'S') class="text-gray-50 bg-red-700 py-1 px-2 rounded-l-lg inline-block" @else
-                        class="text-gray-50 bg-green-700 py-1 px-2 rounded-l-lg inline-block" @endif > {{ $cctv->record_status}}
-                      </span>
-                      : {{ $cctv->record_desc}}
-                    </p>
-                  </div>
-                </div>
-                <div>
-                  <div class="font-montserrat mt-6 lg:px-2">
-                    <p class="text-xs md:text-sm uppercase font-semibold">Kondisi kebersihan</p>
-                    <p class="pt-2 text-xs sm:text-sm md:text-base">
-                      <span @if ($cctv->clean_status == 'T') class="text-gray-50 bg-black py-1 px-2 rounded-l-lg inline-block" @elseif($cctv->clean_status == 'S') class="text-gray-50 bg-red-700 py-1 px-2 rounded-l-lg inline-block" @else class="text-gray-50
-                        bg-green-700 py-1 px-2 rounded-l-lg inline-block" @endif > {{ $cctv->clean_status}}
-                      </span>
-                      : {{ $cctv->clean_desc}}
-                    </p>
-                  </div>
-                </div>
-                <div>
-                  <div class="font-montserrat mt-6 lg:px-2">
-                    <p class="text-xs md:text-sm uppercase font-semibold">Ditambahkan pada</p>
-                    <p class="pt-2 text-xs sm:text-sm md:text-base">
-                      {{ $cctv->created_at->isoFormat('D MMMM Y | H:m:s')}}
-                    </p>
-                  </div>
-                </div>
-                <div>
-                  <div class="font-montserrat mt-6 lg:px-2">
-                    <p class="text-xs md:text-sm uppercase font-semibold">Diubah pada</p>
-                    <p class="pt-2 text-xs sm:text-sm md:text-base">
-                      {{ $cctv->updated_at->isoFormat('D MMMM Y | H:m:s')}}
-                    </p>
-                  </div>
-                </div>
-                <div>
-                  <div class="font-montserrat mt-6 lg:px-2">
-                    <p class="text-xs md:text-sm uppercase font-semibold">Ditambahkan Oleh</p>
-                    <p class="pt-2 text-xs sm:text-sm md:text-base">
-                      {{ $cctv->created_by}}
-                    </p>
-                  </div>
-                </div>
-                <div>
-                  <div class="font-montserrat mt-6 lg:px-2">
-                    <p class="text-xs md:text-sm uppercase font-semibold">Diubah Oleh</p>
-                    <p class="pt-2 text-xs sm:text-sm md:text-base">
-                      {{ $cctv->updated_by}}
-                    </p>
-                  </div>
-                </div>
               </div>
             </div>
           </div>

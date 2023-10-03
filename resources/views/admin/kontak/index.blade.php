@@ -35,7 +35,7 @@
             </button>
             <a href="{{route('kontak.admin.index')}}" class="flex ml-2 md:mr-24">
               <img src="{{asset('img/logo.png')}}" class="h-8 mr-3" alt="FlowBite Logo" />
-              <span class="self-center text-lg font-roboto uppercase font-semibold hidden sm:block sm:text-base md:text-lg lg:text-xl text-gray-100 whitespace-nowrap">Halaman Kontak & Saran</span>
+              <span class="self-center text-lg font-roboto uppercase font-semibold hidden sm:block sm:text-base md:text-lg lg:text-xl text-gray-100 whitespace-nowrap">Kontak & Saran</span>
             </a>
           </div>
           <div class="flex items-center">
@@ -77,7 +77,7 @@
               Halaman Kontak & Saran
             </h1>
             <p class="text-sm lg:text-base xl:text-lg font-normal font-montserrat text-gray-500 dark:text-gray-200 mb-3">
-              Halaman ini berisi input untuk memasukan kontak berupa nomer telepon dan email. Halaman ini juga akan menampilkan saran dari pengunjunng yang mengunjungi website, nantinya saran tersebut dapat didownload menjadi bentuk PDF
+              Halaman ini berisi input untuk memasukan kontak berupa nomer telepon dan email. Halaman ini juga akan menampilkan saran dari pengunjunng yang mengunjungi website.
             </p>
 
             {{-- Menu opsi --}}
@@ -86,7 +86,7 @@
                {{-- add data --}}
                <div>
                 <a
-                  href="{{route('kontak.admin.edit')}}"
+                  href="{{route('kontak.admin.edit', $kontak->id)}}"
                   title="Tambah data baru"
                   class="px-5 py-3.5 font-medium text-center inline-flex items-center text-gray-50 bg-indigo-800 rounded-lg hover:bg-gray-100 hover:text-green-700 focus:z-10 focus:ring-2 focus:ring-indigo-800 transition duration-200 dark:bg-gray-50 dark:text-green-700 dark:hover:bg-indigo-900 dark:hover:text-gray-100 dark:border-gray-100 text-xs sm:text-sm md:text-base"
                 >
@@ -106,8 +106,8 @@
         <div class="px-4 mx-auto max-w-screen-xl">
           <div class="relative overflow-x-auto shadow-lg bg-gray-50 dark:bg-indigo-950 dark:border-0 sm:rounded-lg p-4">
             <table class="w-full text-sm text-left">
-              <caption class="p-5 text-sm lg:text-base xl:text-lg font-semibold text-left text-gray-900 dark:text-gray-200 font-montserrat">
-                <span class="uppercase">Tabel Data</span>
+              <caption class="p-5 text-sm lg:text-base font-semibold text-left text-gray-900 dark:text-gray-200 font-montserrat">
+                <span class="uppercase">Tabel Saran</span>
               </caption>
               <thead class="text-xs text-gray-100 uppercase bg-indigo-800 dark:bg-gray-100 dark:text-gray-900 text-center font-roboto">
                 <tr>
@@ -140,13 +140,28 @@
                   <td class="px-6 py-4">
                     {{$data->subjek}}
                   </td>
-                  <td class="px-6 py-4">
+                  <td class="px-6 py-4 truncate">
                     {{$data->pesan}}
                   </td>
                   <td class="px-6 py-4">
-                    <form onsubmit="return confirm('Anda ingin mengahapus user ini ?')" action="" method="POST">
+                    <form onsubmit="return confirm('Anda ingin mengahapus user ini ?')" action="{{route('saran.admin.destroy', $data->id)}}" method="POST">
                       @csrf @method('DELETE')
                       <div class="inline-flex rounded-md shadow-md" role="group">
+                        <a
+                            href="{{route('saran.admin.show', $data->id)}}"
+                            title="Edit data"
+                            class="inline-flex items-center px-4 py-2 text-xs md:text-sm font-medium text-gray-50 bg-indigo-800 rounded-l-lg hover:bg-gray-100 hover:text-indigo-800 focus:z-10 focus:ring-2 focus:ring-indigo-800 dark:bg-gray-100 dark:text-indigo-800 dark:hover:bg-indigo-900 dark:hover:text-gray-100 transition duration-200"
+                          >
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 mr-2 h-5">
+                              <path d="M10 12.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z" />
+                              <path
+                                fill-rule="evenodd"
+                                d="M.664 10.59a1.651 1.651 0 010-1.186A10.004 10.004 0 0110 3c4.257 0 7.893 2.66 9.336 6.41.147.381.146.804 0 1.186A10.004 10.004 0 0110 17c-4.257 0-7.893-2.66-9.336-6.41zM14 10a4 4 0 11-8 0 4 4 0 018 0z"
+                                clip-rule="evenodd"
+                              />
+                            </svg>
+                            Lihat
+                          </a>
                         <button
                           type="submit"
                           class="inline-flex items-center px-4 py-2 text-xs md:text-sm font-medium text-gray-50 bg-indigo-800 rounded-r-md hover:bg-gray-100 hover:text-red-800 focus:z-10 focus:ring-2 focus:ring-red-800 focus:bg-gray-100 focus:text-red-800 dark:bg-gray-100 dark:text-red-800 dark:hover:bg-indigo-900 dark:hover:text-gray-100 transition duration-200"

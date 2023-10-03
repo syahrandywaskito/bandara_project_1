@@ -147,8 +147,8 @@
         <div class="px-4 mx-auto max-w-screen-xl">
           <div class="relative overflow-x-auto shadow-lg bg-gray-50 dark:bg-indigo-950 dark:border-0 sm:rounded-lg p-4">
             <table class="w-full text-sm text-left">
-              <caption class="p-5 text-sm lg:text-base xl:text-lg font-semibold text-left text-gray-900 dark:text-gray-200 font-montserrat">
-                <span class="uppercase">Tabel Data</span>
+              <caption class="p-5 text-sm lg:text-base font-semibold text-left text-gray-900 dark:text-gray-200 font-montserrat">
+                <span class="uppercase">Tabel Data Pengguna</span>
               </caption>
               <thead class="text-xs text-gray-100 uppercase bg-indigo-800 dark:bg-gray-100 dark:text-gray-900 text-center font-roboto">
                 <tr>

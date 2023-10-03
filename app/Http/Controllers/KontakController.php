@@ -26,9 +26,10 @@ class KontakController extends Controller
     public function indexAdmin() : View
     {
         $saran = Saran::latest()->get();
+
         $kontak = Kontak::all();
 
-        return view('admin.kontak.index', ['saran' => $saran, 'kontak' => $kontak]);
+        return view('admin.kontak.index', ['saran' => $saran, 'kontak' => $kontak->first()]);
     }
 
 
@@ -54,12 +55,22 @@ class KontakController extends Controller
 
     /**
      * 
+     * Lihat Saran di halaman lain
+     * 
+     */
+
+    public function showSaran(Saran $saran) : View
+    {
+        return view('admin.kontak.show', ['saran' => $saran]);
+    }
+
+    /**
+     * 
      * Halamn untuk mengedit kontak berupa no tlp dan alamat email
      */
 
-    public function editKontak() : View
+    public function editKontak(Kontak $kontak) : View
     {
-        $kontak = Kontak::all();
 
         return view('admin.kontak.edit', ['kontak' => $kontak]);
     }
@@ -77,12 +88,22 @@ class KontakController extends Controller
             'no_tlp'
         ]);
 
-        $kontak->update([
-            'email_admin',
-            'no_tlp'
-        ]);
+        $kontak->update($request->all());
 
-        return redirect()->back()->with('success', 'Berhasil merubah email');
+        return redirect()->route('kontak.admin.index')->with('success', 'Berhasil merubah kontak');
+    }
+
+    /**
+     * 
+     * Hapus saran yang sudah tidak perlu
+     * 
+     */
+
+    public function destroySaran(Saran $saran) : RedirectResponse
+    {
+        $saran->delete();
+
+        return redirect()->back()->with('success', 'Berhasil menghapus saran');
     }
 
 }

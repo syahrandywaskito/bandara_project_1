@@ -113,8 +113,7 @@
                   <div class="font-montserrat mt-6 lg:px-2">
                     <p class="text-xs md:text-sm uppercase font-semibold">Kondisi Menyala / Mati</p>
                     <p class="pt-2 text-xs sm:text-sm md:text-base">
-                      <span @if ($komputer->
-                        on_off_condition == 'mati') class="text-gray-50 bg-red-700 py-1 px-2 rounded-l-lg inline-block" @else class="text-gray-50 bg-green-700 py-1 px-2 rounded-l-lg inline-block" @endif > {{ $komputer->on_off_condition}}
+                      <span @if ($komputer->on_off_condition == 'mati') class="text-gray-50 bg-red-700 py-1 px-2 rounded-l-lg inline-block" @else class="text-gray-50 bg-green-700 py-1 px-2 rounded-l-lg inline-block" @endif > {{ $komputer->on_off_condition}}
                       </span>
                       : {{ $komputer->on_off_desc}}
                     </p>
@@ -124,8 +123,7 @@
                   <div class="font-montserrat mt-6 lg:px-2">
                     <p class="text-xs md:text-sm uppercase font-semibold">Pembersihan File</p>
                     <p class="pt-2 text-xs sm:text-sm md:text-base">
-                      <span @if ($komputer->
-                        clean_file_status == 'tidak hapus') class="text-gray-50 bg-gray-700 py-1 px-2 rounded-l-lg inline-block" @else class="text-gray-50 bg-green-700 py-1 px-2 rounded-l-lg inline-block" @endif > {{
+                      <span @if ($komputer->clean_file_status == 'tidak hapus') class="text-gray-50 bg-gray-700 py-1 px-2 rounded-l-lg inline-block" @else class="text-gray-50 bg-green-700 py-1 px-2 rounded-l-lg inline-block" @endif > {{
                         $komputer->clean_file_status}}
                       </span>
                       : {{ $komputer->clean_file_desc}}

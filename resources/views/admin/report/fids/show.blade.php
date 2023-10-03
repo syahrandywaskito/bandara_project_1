@@ -113,8 +113,7 @@
                   <div class="font-montserrat mt-6 lg:px-2">
                     <p class="text-xs md:text-sm uppercase font-semibold">Tampilan Monitor</p>
                     <p class="pt-2 text-xs sm:text-sm md:text-base">
-                      <span @if ($fid->
-                        monitor_view == 'X') class="text-gray-50 bg-red-700 py-1 px-2 rounded-l-lg inline-block text-xs" @else class="text-gray-50 bg-green-700 py-1 px-2 rounded-l-lg inline-block text-xs" @endif > {{ $fid->monitor_view}}
+                      <span @if ($fid->monitor_view == 'X') class="text-gray-50 bg-red-700 py-1 px-2 rounded-l-lg inline-block text-xs" @else class="text-gray-50 bg-green-700 py-1 px-2 rounded-l-lg inline-block text-xs" @endif > {{ $fid->monitor_view}}
                       </span>
                       : {{ $fid->view_desc}}
                     </p>
@@ -124,8 +123,7 @@
                   <div class="font-montserrat mt-6 lg:px-2">
                     <p class="text-xs md:text-sm uppercase font-semibold">Kondisi kebersihan</p>
                     <p class="pt-2 text-xs sm:text-sm md:text-base">
-                      <span @if ($fid->
-                        clean_condition == 'X') class="text-gray-50 bg-red-700 py-1 px-2 rounded-l-lg inline-block" @else class="text-gray-50 bg-green-700 py-1 px-2 rounded-l-lg inline-block" @endif> {{ $fid->clean_condition}}
+                      <span @if ($fid->clean_condition == 'X') class="text-gray-50 bg-red-700 py-1 px-2 rounded-l-lg inline-block" @else class="text-gray-50 bg-green-700 py-1 px-2 rounded-l-lg inline-block" @endif> {{ $fid->clean_condition}}
                       </span>
                       : {{ $fid->condition_desc}}
                     </p>

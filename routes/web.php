@@ -56,7 +56,6 @@ Route::get('/tool/cctv', [ReportController::class, 'cctvIndex'])->name('tool.cct
 Route::get('/tool/komputer', [ReportController::class, 'komputerIndex'])->name('tool.komputer.index');
 Route::get('/tool/fids', [ReportController::class, 'fidsIndex'])->name('tool.fids.index');
 
-// Route::get('/tool/report', [ReportController::class, 'index'])->name('report.index');
 
 # PDF data download
 Route::get('/tool/report/cctv-report' , [ReportController::class, 'createPDFCCTV'])->name('report.cctv.download');
@@ -109,8 +108,10 @@ Route::resource('/dashboard/hardware/list/komputer-list', KomputerListController
 Route::controller(KontakController::class)->group(function(){
   # for admin page
   Route::get('/dashboard/kontak/index', 'indexAdmin')->name('kontak.admin.index');
-  Route::get('/dashboard/kontak/edit_kontak/', 'editKontak')->name('kontak.admin.edit');
+  Route::get('/dashboard/kontak/edit_kontak/{kontak}/edit', 'editKontak')->name('kontak.admin.edit');
   Route::put('/dashboard/kontak/update_kontak/{kontak}', 'updateKontak')->name('kontak.admin.update');
+  Route::get('/dashboard/kontak/lihat_saran/{saran}', 'showSaran')->name('saran.admin.show');
+  Route::delete('/dashboard/kontak/hapus_saran/{saran}', 'destroySaran')->name('saran.admin.destroy');
 
   # for public page
   Route::get('/hubungi_kami', 'indexUser')->name('kontak.user.index');
