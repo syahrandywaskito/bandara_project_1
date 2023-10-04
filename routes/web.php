@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\CCTVController;
 use App\Http\Controllers\CCTVListController;
+use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\FIDSController;
 use App\Http\Controllers\FIDSListController;
 use Illuminate\Support\Facades\Route;
@@ -13,6 +14,7 @@ use App\Http\Controllers\KomputerController;
 use App\Http\Controllers\KomputerListController;
 use App\Http\Controllers\KontakController;
 use App\Http\Controllers\ReportController;
+use App\Http\Controllers\ResetController;
 use App\Http\Controllers\UsersController;
 
 /*
@@ -119,3 +121,9 @@ Route::controller(KontakController::class)->group(function(){
   Route::get('/hubungi_kami', 'indexUser')->name('kontak.user.index');
   Route::post('/hubungi_kami/saran', 'storeSaran')->name('saran.user.store');
 });
+
+# Reset password
+Route::get('/send-email', [ResetController::class, 'create'])->name('send-email.index');
+Route::post('/send-email/send', [ResetController::class, 'sendEmail'])->name('send-email.send');
+Route::get('/reset-password/{token}', [ResetController::class, 'resetPass'])->name('password.reset');
+Route::post('/reset-password/change', [ChangePasswordController::class, 'ChangePassword'])->name('password.change');
