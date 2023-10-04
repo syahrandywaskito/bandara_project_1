@@ -126,4 +126,4 @@ Route::controller(KontakController::class)->group(function(){
 Route::get('/send-email', [ResetController::class, 'create'])->name('send-email.index');
 Route::post('/send-email/send', [ResetController::class, 'sendEmail'])->name('send-email.send');
 Route::get('/reset-password/{token}', [ResetController::class, 'resetPass'])->name('password.reset');
-Route::post('/reset-password/change', [ChangePasswordController::class, 'ChangePassword'])->name('password.change');
+Route::post('/reset-password/change', [ChangePasswordController::class, 'changePassword'])->name('password.change');

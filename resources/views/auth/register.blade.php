@@ -203,34 +203,6 @@
 
     <script src="{{asset('js/hide-password.js')}}"></script>
 
-
-    <script>
-      const positionSelect = document.getElementById('position');
-      const inputField = document.getElementById('inputField');
-      const otherPositionInput = document.getElementById('otherPosition');
-    
-      positionSelect.addEventListener('change', function () {
-        if (positionSelect.value === 'input') {
-          inputField.style.display = 'block';
-          otherPositionInput.required = true;
-        } else {
-          inputField.style.display = 'none';
-          otherPositionInput.required = false;
-        }
-      });
-    </script>
-
-    <script>
-      const passwordInput = document.getElementById("passwordInput");
-      const passwordMessage = document.getElementById("passwordMessage");
-      const passwordRegex = /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
-
-      passwordInput.addEventListener("input", function () {
-        const password = passwordInput.value;
-        const isValid = passwordRegex.test(password);
-      });
-    </script>
-
     {{-- js script --}}
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
