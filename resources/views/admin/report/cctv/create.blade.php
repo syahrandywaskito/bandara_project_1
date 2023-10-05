@@ -179,7 +179,9 @@
                   <div class="mb-3 xl:flex xl:space-x-4 items-center justify-start space-y-4 xl:space-y-0">
                     {{-- date if sm is hidden and lg is block --}}
                     <div class="hidden xl:block">
-                      <label for="date" class="block mb-2 text-xs md:text-sm font-medium text-gray-900 dark:text-gray-200">Tanggal Sekarang</label>
+                      <label for="date" class="block mb-2 text-xs md:text-sm font-medium text-gray-900 dark:text-gray-200">
+                        Tanggal Data
+                      </label>
                       <input
                         type="date"
                         class="text-sm text-gray-900 bg-gray-50 border-2 border-gray-400 rounded-lg outline-none focus:border-indigo-800 dark:border-gray-300 dark:bg-gray-300 block w-full p-3"
@@ -318,7 +320,7 @@
                       class="hideButton inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-gray-900 border-2 border-gray-900 rounded-r-md hover:bg-gray-500 hover:border-gray-500 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:bg-indigo-900 dark:border-indigo-900 dark:hover:bg-indigo-950"
                       title="sembunyikan form"
                     >
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 mb:mr-3 h-5">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 md:mr-3 h-5">
                         <path
                           fill-rule="evenodd"
                           d="M3.28 2.22a.75.75 0 00-1.06 1.06l14.5 14.5a.75.75 0 101.06-1.06l-1.745-1.745a10.029 10.029 0 003.3-4.38 1.651 1.651 0 000-1.185A10.004 10.004 0 009.999 3a9.956 9.956 0 00-4.744 1.194L3.28 2.22zM7.752 6.69l1.092 1.092a2.5 2.5 0 013.374 3.373l1.091 1.092a4 4 0 00-5.557-5.557z"

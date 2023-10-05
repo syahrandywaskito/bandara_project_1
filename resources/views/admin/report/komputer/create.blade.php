@@ -87,7 +87,7 @@
             </h1>
 
             <div class="font-montserrat text-xs md:text-sm pt-3 dark:text-gray-200">
-              <h3>Tanggal hari ini</h3>
+              <h3>Hari dan Tanggal</h3>
               <p>
                 {{$formattedDate}}
               </p>
@@ -180,7 +180,9 @@
                   <div class="grid grid-cols-1 grid-flow-row-dense md:grid-cols-3 gap-4">
                     {{-- Date if sm, md is Hidden --}}
                     <div class="hidden lg:block lg:col-span-3">
-                      <label for="date" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-200">Tanggal Sekarang</label>
+                      <label for="date" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-200">
+                        Tanggal Data
+                      </label>
                       <input
                         type="date"
                         class="text-sm text-gray-900 bg-gray-50 border-2 border-gray-400 rounded-lg outline-none focus:border-indigo-800 dark:border-gray-300 dark:bg-gray-300 block w-full p-3"

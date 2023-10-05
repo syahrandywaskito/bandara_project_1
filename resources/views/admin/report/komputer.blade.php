@@ -295,7 +295,7 @@
                 </th>
               </tr>
             </thead>
-            <tbody class="font-roboto text-center text-xs sm:text-sm dark:text-gray-200">
+            <tbody class="font-roboto text-center text-xs sm:text-sm dark:text-gray-200 capitalize">
               @foreach ($komputer as $data)
               <tr>
                 @if (Session::has('cari')) @php $date = $data->date; $carbon = \Carbon\Carbon::parse($date); $formatted = $carbon->isoFormat('D MMMM Y'); @endphp

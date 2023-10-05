@@ -56,7 +56,6 @@
                   required=""
                   autofocus
                   title="Nama tidak boleh mengandung angka"
-                  pattern="[a-zA-Z]+"
                 />
 
                 {{-- error notif jika input salah --}} @error('name')
@@ -202,6 +201,23 @@
     </section>
 
     <script src="{{asset('js/hide-password.js')}}"></script>
+
+
+    <script>
+      const positionSelect = document.getElementById('position');
+      const inputField = document.getElementById('inputField');
+      const otherPositionInput = document.getElementById('otherPosition');
+    
+      positionSelect.addEventListener('change', function () {
+        if (positionSelect.value === 'input') {
+          inputField.style.display = 'block';
+          otherPositionInput.required = true;
+        } else {
+          inputField.style.display = 'none';
+          otherPositionInput.required = false;
+        }
+      });
+    </script>
 
     {{-- js script --}}
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

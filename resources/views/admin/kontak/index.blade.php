@@ -77,7 +77,7 @@
               Halaman Kontak & Saran
             </h1>
             <p class="text-sm lg:text-base xl:text-lg font-normal font-montserrat text-gray-500 dark:text-gray-200 mb-3">
-              Halaman ini berisi input untuk memasukan kontak berupa nomer telepon dan email. Halaman ini juga akan menampilkan saran dari pengunjunng yang mengunjungi website.
+              Halaman ini berisi input untuk memasukan kontak berupa nomer telepon dan email. Halaman ini juga akan menampilkan saran dari pengunjung yang mengunjungi website.
             </p>
 
             {{-- Menu opsi --}}

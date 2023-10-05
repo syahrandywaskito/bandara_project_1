@@ -126,9 +126,9 @@
                     <div>
                       <label for="jenis-penerbangan" class="block mb-2 text-xs md:text-sm font-medium text-gray-900 dark:text-gray-200">Jenis Penerbangan</label>
                       <select id="jenis-penerbangan" class="text-xs md:text-sm text-gray-900 bg-gray-50 border-2 border-gray-400 rounded-lg outline-none focus:border-indigo-800 dark:border-gray-100 w-full p-3" required name="jenis_penerbangan">
-                        <option selected>Jenis Penerbangan</option>
-                        <option value="keberangkatan">Keberangkatan</option>
-                        <option value="kedatangan">Kedatangan</option>
+                        <option>Jenis Penerbangan</option>
+                        <option value="keberangkatan" {{$jadwal->jenis_penerbangan == 'keberangkatan' ? 'selected' : ''}}>Keberangkatan</option>
+                        <option value="kedatangan" {{$jadwal->jenis_penerbangan == 'kedatangan' ? 'selected' : ''}}>Kedatangan</option>
                       </select>
                     </div>
                     {{-- id penerbangan --}}

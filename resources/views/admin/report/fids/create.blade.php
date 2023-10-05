@@ -88,7 +88,7 @@
               Halaman Tambah Data
             </h1>
             <div class=" text-xs md:text-sm font-montserrat pt-3 dark:text-gray-200">
-              <h3>Tanggal hari ini</h3>
+              <h3>Hari dan Tanggal</h3>
               <p>
                 {{$formattedDate}}
               </p>
@@ -179,7 +179,9 @@
                   <div class="mb-3 xl:flex xl:space-x-4 items-center justify-start space-y-4 xl:space-y-0">
                     {{-- Date if sm, md is hidden --}}
                     <div class="hidden lg:block">
-                      <label for="date" class="block mb-2 text-xs md:text-sm font-medium text-gray-900 dark:text-gray-200">Tanggal Sekarang</label>
+                      <label for="date" class="block mb-2 text-xs md:text-sm font-medium text-gray-900 dark:text-gray-200">
+                        Tanggal Data
+                      </label>
                       <input
                         type="date"
                         class="text-xs md:text-sm text-gray-900 bg-gray-50 border-2 border-gray-400 rounded-lg outline-none focus:border-indigo-800 dark:border-gray-300 dark:bg-gray-300 block w-full p-3"
@@ -322,7 +324,7 @@
                         <path d="M10.748 13.93l2.523 2.523a9.987 9.987 0 01-3.27.547c-4.258 0-7.894-2.66-9.337-6.41a1.651 1.651 0 010-1.186A10.007 10.007 0 012.839 6.02L6.07 9.252a4 4 0 004.678 4.678z" />
                       </svg>
                       <span class="hidden md:block">
-                        Hide
+                        Sembunyikan
                       </span>
                     </button>
                   </div>

@@ -131,10 +131,10 @@
                   <label for="on-off-condition" class="block mb-2 text-xs md:text-sm font-medium text-gray-900 dark:text-gray-200">
                     Kondisi Nyala/Mati
                   </label>
-                  <select id="on-off-condition" class="text-xs md:text-sm text-gray-900 bg-gray-50 border-2 border-gray-400 rounded-lg outline-none focus:border-indigo-800 dark:border-gray-100 w-full p-3" required name="on_off_condition">
-                    <option selected>Pilih Kondisi</option>
-                    <option value="menyala">menyala</option>
-                    <option value="mati">mati</option>
+                  <select id="on-off-condition" class="text-xs md:text-sm text-gray-900 bg-gray-50 border-2 border-gray-400 rounded-lg outline-none focus:border-indigo-800 dark:border-gray-100 w-full p-3 capitalize" required name="on_off_condition">
+                    <option>Pilih Kondisi</option>
+                    <option value="menyala" {{$komputer->on_off_condition == 'menyala' ? 'selected' : ''}}>menyala</option>
+                    <option value="mati" {{$komputer->on_off_condition == 'mati' ? 'selected' : ''}}>mati</option>
                   </select>
                 </div>
 
@@ -188,10 +188,10 @@
                   <label for="clean-file-status" class="block mb-2 text-xs md:text-sm font-medium text-gray-900 dark:text-gray-200">
                     Status Pembersihan File
                   </label>
-                  <select id="clean-file-status" class="text-xs md:text-sm text-gray-900 bg-gray-50 border-2 border-gray-400 rounded-lg outline-none focus:border-indigo-800 dark:border-gray-100 w-full p-3" required name="clean_file_status">
-                    <option selected>Pilih Status</option>
-                    <option value="hapus">hapus</option>
-                    <option value="tidak hapus">tidak hapus</option>
+                  <select id="clean-file-status" class="text-xs md:text-sm text-gray-900 bg-gray-50 border-2 border-gray-400 rounded-lg outline-none focus:border-indigo-800 dark:border-gray-100 w-full p-3 capitalize" required name="clean_file_status">
+                    <option>Pilih Status</option>
+                    <option value="hapus" {{$komputer->clean_file_desc == 'hapus' ? 'selected' : ''}}>hapus</option>
+                    <option value="tidak hapus" {{$komputer->clean_file_status == 'tidak hapus' ? 'selected' : ''}}>tidak hapus</option>
                   </select>
                 </div>
 

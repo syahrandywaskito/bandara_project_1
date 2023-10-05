@@ -129,10 +129,10 @@
                 <div>
                   <label for="record-status" class="block mb-2 text-xs md:text-sm font-medium text-gray-900 dark:text-gray-200">Status Rekaman</label>
                   <select id="record-status" class="text-xs md:text-sm text-gray-900 bg-gray-50 border-2 border-gray-400 rounded-lg outline-none focus:border-indigo-800 dark:border-gray-100 w-full p-3" required name="record_status">
-                    <option selected>Pilih Status</option>
-                    <option value="B">B</option>
-                    <option value="S">S</option>
-                    <option value="T">T</option>
+                    <option>Pilih Status</option>
+                    <option value="B" {{$cctv->record_status == 'B' ? 'selected' : ''}}>B</option>
+                    <option value="S" {{$cctv->record_status == 'S' ? 'selected' : ''}}>S</option>
+                    <option value="T" {{$cctv->record_status == 'T' ? 'selected' : ''}}>T</option>
                   </select>
                 </div>
                 <div class="md:col-span-2">
@@ -149,10 +149,10 @@
                 <div>
                   <label for="clean-status" class="block mb-2 text-xs md:text-sm font-medium text-gray-900 dark:text-gray-200">Status Kebersihan</label>
                   <select id="clean-status" class="text-xs md:text-sm text-gray-900 bg-gray-50 border-2 border-gray-400 rounded-lg outline-none focus:border-indigo-800 dark:border-gray-100 w-full p-3" required name="clean_status">
-                    <option selected>Pilih Status</option>
-                    <option value="B">B</option>
-                    <option value="S">S</option>
-                    <option value="T">T</option>
+                    <option>Pilih Status</option>
+                    <option value="B" {{$cctv->clean_status == 'B' ? 'selected' : ''}}>B</option>
+                    <option value="S" {{$cctv->clean_status == 'S' ? 'selected' : ''}}>S</option>
+                    <option value="T" {{$cctv->clean_status == 'T' ? 'selected' : ''}}>T</option>
                   </select>
                 </div>
                 <div class="md:col-span-2">

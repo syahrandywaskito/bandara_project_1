@@ -77,7 +77,7 @@
               Halaman Informasi pengguna
             </h1>
             <p class="text-sm lg:text-base xl:text-lg font-normal font-montserrat text-gray-500 dark:text-gray-200 mb-3">
-              Halaman ini berisi tabel untuk user yang melakukan sign up atau registrasi untuk menjadi admin
+              Halaman ini berisi data siapa saja yang melakukan sign up atau registrasi untuk masuk ke halaman <strong>Dashboard</strong>
             </p>
 
             {{-- Menu opsi --}}

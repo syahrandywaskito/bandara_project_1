@@ -130,9 +130,9 @@
                 <div>
                   <label for="record-status" class="block mb-2 text-xs md:text-sm font-medium text-gray-900 dark:text-gray-200">Kondisi Tampilan</label>
                   <select id="record-status" class="text-xs md:text-sm text-gray-900 bg-gray-50 border-2 border-gray-400 rounded-lg outline-none focus:border-indigo-800 dark:border-gray-100 w-full p-3" required name="monitor_view">
-                    <option selected>Pilih Kondisi</option>
-                    <option value="V">V</option>
-                    <option value="X">X</option>
+                    <option>Pilih Kondisi</option>
+                    <option value="V" {{$fid->monitor_view == 'V' ? 'selected' : ''}}>V</option>
+                    <option value="X" {{$fid->monitor_view == 'X' ? 'selected' : ''}}>X</option>
                   </select>
                 </div>
 
@@ -153,9 +153,9 @@
                 <div>
                   <label for="clean-status" class="block mb-2 text-xs md:text-sm font-medium text-gray-900 dark:text-gray-200">Kondisi Kebersihan</label>
                   <select id="clean-status" class="text-xs md:text-sm text-gray-900 bg-gray-50 border-2 border-gray-400 rounded-lg outline-none focus:border-indigo-800 dark:border-gray-100 w-full p-3" required name="clean_condition">
-                    <option selected>Pilih Kondisi</option>
-                    <option value="V">V</option>
-                    <option value="X">X</option>
+                    <option>Pilih Kondisi</option>
+                    <option value="V" {{$fid->clean_condition == 'V' ? 'selected' : ''}}>V</option>
+                    <option value="X" {{$fid->clean_condition == 'X' ? 'selected' : ''}}>X</option>
                   </select>
                 </div>
 
