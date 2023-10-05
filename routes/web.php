@@ -47,7 +47,7 @@ Route::get('/tool/fids', function (){
 Route::controller(AuthController::class)->group(function(){
   Route::get('/login', 'Login')->name('login');
   Route::get('/register', 'Register')->name('register');
-  Route::get('/admin/dashboard', 'Dashboard')->name('dashboard');
+  Route::get('/dashboard', 'Dashboard')->name('dashboard');
   Route::post('/authenticate', 'Authenticate')->name('authenticate');
   Route::post('/store', 'Store')->name('store');
   Route::get('/logout', 'Logout')->name('logout');
@@ -106,24 +106,34 @@ Route::resource('/dashboard/hardware/list/komputer-list', KomputerListController
   'destroy' => 'list.komputer.destroy',
 ]);
 
-# kontak dan seran route dalam admin
-Route::controller(KontakController::class)->group(function(){
-  # for admin page
-  Route::get('/dashboard/kontak/index', 'indexAdmin')->name('kontak.admin.index');
-  Route::get('/dashboard/kontak/edit_kontak/{kontak}/edit', 'editKontak')->name('kontak.admin.edit');
-  Route::get('/dashboard/kontak/tambah_kontak', 'createKontak')->name('kontak.admin.create');
-  Route::post('/dashboard/kontak/tambah_kontak/tambah', 'storeKontak')->name('kontak.admin.store');
-  Route::put('/dashboard/kontak/update_kontak/{kontak}', 'updateKontak')->name('kontak.admin.update');
-  Route::get('/dashboard/kontak/lihat_saran/{saran}', 'showSaran')->name('saran.admin.show');
-  Route::delete('/dashboard/kontak/hapus_saran/{saran}', 'destroySaran')->name('saran.admin.destroy');
-
-  # for public page
-  Route::get('/hubungi_kami', 'indexUser')->name('kontak.user.index');
-  Route::post('/hubungi_kami/saran', 'storeSaran')->name('saran.user.store');
-});
-
 # Reset password
 Route::get('/send-email', [ResetController::class, 'create'])->name('send-email.index');
 Route::post('/send-email/send', [ResetController::class, 'sendEmail'])->name('send-email.send');
 Route::get('/reset-password/{token}', [ResetController::class, 'resetPass'])->name('password.reset');
 Route::post('/reset-password/change', [ChangePasswordController::class, 'changePassword'])->name('password.change');
+
+# for public page
+Route::get('/hubungi_kami', [KontakController::class, 'indexUser'])->name('kontak.user.index');
+Route::post('/hubungi_kami/saran', [KontakController::class ,'storeSaran'])->name('saran.user.store');
+
+# admin middleware
+Route::middleware(['admin'])->group(function() {
+
+  # kontak dan seran route dalam admin
+  Route::controller(KontakController::class)->group(function(){
+    # for admin page
+    Route::get('/dashboard/kontak/index', 'indexAdmin')->name('kontak.admin.index')->middleware('admin');
+    Route::get('/dashboard/kontak/edit_kontak/{kontak}/edit', 'editKontak')->name('kontak.admin.edit');
+    Route::get('/dashboard/kontak/tambah_kontak', 'createKontak')->name('kontak.admin.create');
+    Route::post('/dashboard/kontak/tambah_kontak/tambah', 'storeKontak')->name('kontak.admin.store');
+    Route::put('/dashboard/kontak/update_kontak/{kontak}', 'updateKontak')->name('kontak.admin.update');
+    Route::get('/dashboard/kontak/lihat_saran/{saran}', 'showSaran')->name('saran.admin.show');
+    Route::delete('/dashboard/kontak/hapus_saran/{saran}', 'destroySaran')->name('saran.admin.destroy');
+
+    
+  });
+
+  # user page CRUD 
+  Route::resource('/dashboard/users/users', UsersController::class);
+
+});

@@ -92,6 +92,13 @@
         </div>
       </section>
     </div>
+
+    @if ($message = Session::get('errors'))
+      <div class="fixed top-28 right-10" data-aos="fade-left" id="alert-box">
+        @include('components.dashboard.input-error-notif')
+      </div>
+    @endif
+
     {{-- success notif --}} @include('components.dashboard.successnotif')
     <script src="{{asset('js/hide-alert.js')}}"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
