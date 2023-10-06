@@ -282,30 +282,31 @@
                   <h4 class="text-sm md:text-base">Saran & Masukan</h4>
                 </div>
   
-                <form method="post" action="{{route('saran.user.store')}}"  class="text-start">
+                <form method="post" action="{{route('saran.user.store')}}" class="text-start">
                   @csrf
                   <div class="mb-6">
                     <label for="nama" class="block mb-2 text-xs md:text-sm font-medium text-[#2a313b] dark:text-white">Nama</label>
-                    <input type="text" id="nama" class="bg-gray-50 border border-gray-300 text-[#2a313b] text-xs md:text-sm rounded-lg block w-full p-2.5" required name="nama">
+                    <input type="text" id="nama" class="bg-gray-50 border border-gray-300 text-[#2a313b] text-xs md:text-sm rounded-lg block w-full p-2.5" required name="nama" />
                   </div>
                   <div class="mb-6">
                     <label for="email" class="block mb-2 text-xs md:text-sm font-medium text-[#2a313b] dark:text-white">Email</label>
-                    <input type="email" id="email" class="bg-gray-50 border border-gray-300 text-[#2a313b] text-xs md:text-sm rounded-lg block w-full p-2.5" required name="email">
+                    <input type="email" id="email" class="bg-gray-50 border border-gray-300 text-[#2a313b] text-xs md:text-sm rounded-lg block w-full p-2.5" required name="email" />
                   </div>
                   <div class="mb-6">
                     <label for="subjek" class="block mb-2 text-xs md:text-sm font-medium text-[#2a313b] dark:text-white">Subjek</label>
-                    <input type="text" id="subjek" class="bg-gray-50 border border-gray-300 text-[#2a313b] text-xs md:text-sm rounded-lg block w-full p-2.5" required name="subjek">
-                  </div>        
+                    <input type="text" id="subjek" class="bg-gray-50 border border-gray-300 text-[#2a313b] text-xs md:text-sm rounded-lg block w-full p-2.5" required name="subjek" />
+                  </div>
                   <div>
                     <label for="message" class="block mb-2 text-xs md:text-sm font-medium text-[#2a313b] dark:text-white">
                       Pesan
                     </label>
                     <textarea id="message" rows="4" class="block p-2.5 w-full text-xs md:text-sm text-[#2a313b] bg-gray-50 rounded-lg border border-gray-300" name="pesan"></textarea>
-                  </div>        
+                  </div>
                   <button type="submit" class="mt-5 text-white bg-[#a38458] hover:bg-opacity-75 transition duration-200 focus:ring-4 focus:outline-none font-medium rounded-lg text-xs md:text-sm w-full sm:w-auto px-5 py-2.5 text-center">
                     Kirim
                   </button>
                 </form>
+                
               </div>
             </div>
           </div>

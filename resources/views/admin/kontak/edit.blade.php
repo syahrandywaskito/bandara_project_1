@@ -116,10 +116,17 @@
                     <div class="grid grid-cols-1 grid-flow-row-dense gap-4">
                       
                       <div>
-                        <label for="no_telepon" class="block mb-2 text-xs md:text-sm font-medium text-gray-900 dark:text-gray-200">
+                        <label for="no_telepon" class="mb-2 text-xs md:text-sm font-medium text-gray-900 dark:text-gray-200 inline-flex items-center" title="Masukan no telepon tanpa 0 diawal karena sudah terformat +62">
                           No Telepon
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 ml-2 h-5">
+                            <path
+                              fill-rule="evenodd"
+                              d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a.75.75 0 000 1.5h.253a.25.25 0 01.244.304l-.459 2.066A1.75 1.75 0 0010.747 15H11a.75.75 0 000-1.5h-.253a.25.25 0 01-.244-.304l.459-2.066A1.75 1.75 0 009.253 9H9z"
+                              clip-rule="evenodd"
+                            />
+                          </svg>
                         </label>
-                        <div class="flex items-center">
+                        <div class="flex items-center pt-1">
                           <span class="text-xs md:text-sm text-gray-100 bg-gray-600 border-2 border-gray-600 rounded-l-lg outline-none focus:border-indigo-800 dark:border-indigo-900 dark:bg-indigo-900 block w-fit p-3"> +62 </span>
                           <input
                             type="text"
@@ -127,6 +134,8 @@
                             class="text-xs md:text-sm text-gray-900 bg-gray-50 border-y-2 border-r-2 border-gray-400 rounded-r-lg outline-none focus:border-indigo-800 dark:border-gray-100 dark:bg-gray-100 block w-full p-3"
                             required
                             name="no_tlp"
+                            pattern="^[1-9][0-9]*$"
+                            title="Masukan no telpon tanpa 0 diawal"
                             value="{{$kontak->no_tlp}}"
                           />
                         </div>
