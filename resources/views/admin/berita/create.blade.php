@@ -33,7 +33,7 @@
                 ></path>
               </svg>
             </button>
-            <a href="{{route('cctv.create')}}" class="flex ml-2 md:mr-24">
+            <a href="{{URL::current()}}" class="flex ml-2 md:mr-24">
               <img src="{{asset('img/logo.png')}}" class="h-8 mr-3" alt="FlowBite Logo" />
               <span class="self-center font-roboto uppercase font-semibold hidden sm:block sm:text-base md:text-lg lg:text-xl text-gray-100 whitespace-nowrap">Berita - Tambah Data</span>
             </a>

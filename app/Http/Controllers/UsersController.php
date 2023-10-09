@@ -50,4 +50,20 @@ class UsersController extends Controller
         return redirect()->back()->with('success', "Berhasil menghapus pengguna $nama");
     }
 
+    public function edit(User $user) : View
+    {
+        return view('admin.users.edit', ['user' => $user]);
+    } 
+
+    public function update(Request $request, User $user) : RedirectResponse
+    {
+        $request->validate([
+            'name' => 'required',
+        ]);
+
+        $user->update($request->all());
+
+        return redirect()->route('users.index')->with('success', 'Berhasil merubah data');
+    }
+
 }

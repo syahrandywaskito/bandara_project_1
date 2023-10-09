@@ -25,9 +25,9 @@
       <li>
         <a href="{{route('dashboard')}}" class="block px-4 py-2 text-gray-700 hover:translate-x-1 transition duration-200" role="menuitem">Dashboard</a>
       </li>
-      <li>
+      {{-- <li>
         <a href="#" class="block px-4 py-2 text-gray-700 hover:translate-x-1 transition duration-200" role="menuitem">Settings</a>
-      </li>
+      </li> --}}
       <li>
         <a href="{{route('logout')}}" class="block px-4 py-2 text-gray-700 hover:translate-x-1 transition duration-200" role="menuitem">Logout</a>
       </li>

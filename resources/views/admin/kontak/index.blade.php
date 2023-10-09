@@ -33,7 +33,7 @@
                 ></path>
               </svg>
             </button>
-            <a href="{{route('kontak.admin.index')}}" class="flex ml-2 md:mr-24">
+            <a href="{{URL::current()}}" class="flex ml-2 md:mr-24">
               <img src="{{asset('img/logo.png')}}" class="h-8 mr-3" alt="FlowBite Logo" />
               <span class="self-center text-lg font-roboto uppercase font-semibold hidden sm:block sm:text-base md:text-lg lg:text-xl text-gray-100 whitespace-nowrap">Kontak & Saran</span>
             </a>
@@ -157,7 +157,7 @@
                     {{$data->pesan}}
                   </td>
                   <td class="px-6 py-4">
-                    <form onsubmit="return confirm('Anda ingin mengahapus user ini ?')" action="{{route('saran.admin.destroy', $data->id)}}" method="POST">
+                    <form onsubmit="return confirm('Anda ingin mengahapus saran ini ?')" action="{{route('saran.admin.destroy', $data->id)}}" method="POST">
                       @csrf @method('DELETE')
                       <div class="inline-flex rounded-md shadow-md" role="group">
                         <a

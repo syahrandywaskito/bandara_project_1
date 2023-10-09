@@ -33,7 +33,7 @@
                 ></path>
               </svg>
             </button>
-            <a href="{{route('fids.index')}}" class="flex ml-2 md:mr-24">
+            <a href="{{URL::current()}}" class="flex ml-2 md:mr-24">
               <img src="{{asset('img/logo.png')}}" class="h-8 mr-3" alt="FlowBite Logo" />
               <span class="self-center font-roboto font-semibold hidden sm:block sm:text-base md:text-lg lg:text-xl uppercase text-gray-100 whitespace-nowrap">FIDS - lihat data</span>
             </a>
