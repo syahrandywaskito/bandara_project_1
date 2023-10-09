@@ -201,7 +201,7 @@
         <section class="bg-white shadow-lg rounded-lg">
           <div class="py-8 px-4 mx-auto lg:py-16">
             <div class="font-montserrat p-2 md:p-12 mb-8">
-              <h1 class="text-gray-900 uppercase text-sm sm:text-base md:text-lg lg:text-2xl font-bold mb-2 text-start md:text-center" data-aos="fade-up" data-aos-delay="100">Laporan Pengecekan CCTV selama satu bulan</h1>
+              <h1 class="text-gray-900 uppercase text-sm sm:text-base md:text-lg lg:text-2xl font-bold mb-2 text-start md:text-center" data-aos="fade-up" data-aos-delay="100">Laporan Pengecekan <span class="underline">CCTV</span> selama satu bulan</h1>
               <p class="text-xs sm:text-sm md:text-base font-normal text-gray-700 mt-5 mb-6 text-start" data-aos="fade-up" data-aos-delay="200">
                 Laporan pengecekan yang direkap sebulan sekali. Untuk mendownload data laporan, silahkan masukkan dulu bulan yang ingin di download laporannya
               </p>
