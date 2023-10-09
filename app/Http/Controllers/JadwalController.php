@@ -64,6 +64,8 @@ class JadwalController extends Controller
             'jam' => 'required'
         ]);
 
+        $nama_maskapai = $request->maskapai;
+
         $logoMaskapai = $request->file('logo_maskapai');
         $logoMaskapai->storeAs('public/logo/', $logoMaskapai->hashName());
 
@@ -76,7 +78,7 @@ class JadwalController extends Controller
             'jam' => $request->jam,
         ]); 
 
-        return redirect()->route('jadwal.index')->with('success', 'berhasil menambah data');
+        return redirect()->route('jadwal.index')->with('success', "berhasil menambah jadwal untuk maskapai $nama_maskapai");
     }
 
     public function edit(Jadwal $jadwal) : View
@@ -122,15 +124,19 @@ class JadwalController extends Controller
             ]);
         }
 
-        return redirect()->route('jadwal.index')->with('success', 'success merubah data');
+        $nama_maskapai = $jadwal->maskapai;
+
+        return redirect()->route('jadwal.index')->with('success', "success merubah jadwal maskapai $nama_maskapai");
     }
 
     public function destroy(Jadwal $jadwal) : RedirectResponse
     {
+        $nama_maskapai = $jadwal->maskapai;
+
         Storage::delete('public/logo/'.$jadwal->logo_maskapai);
 
         $jadwal->delete();
 
-        return redirect()->back()->with('success', 'berhasil menghapus data');
+        return redirect()->back()->with('success', "berhasil menghapus jadwal maskapai $nama_maskapai");
     }
 }

@@ -61,9 +61,11 @@ class UsersController extends Controller
             'name' => 'required',
         ]);
 
+        $nama = $user->name;
+
         $user->update($request->all());
 
-        return redirect()->route('users.index')->with('success', 'Berhasil merubah data');
+        return redirect()->route('users.index')->with('success', "Berhasil merubah data pengguna $nama");
     }
 
 }

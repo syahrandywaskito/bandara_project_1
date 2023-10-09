@@ -82,7 +82,10 @@
               </ol>
             </nav>
 
-            <h1 class="text-gray-900 dark:text-gray-200 mt-6 text-base md:text-lg xl:text-xl uppercase font-montserrat font-bold">
+            <h1 class="inline-flex items-center text-gray-900 dark:text-gray-200 mt-6 text-base md:text-lg xl:text-xl uppercase font-montserrat font-bold">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 mr-2 h-6">
+                <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM12.75 9a.75.75 0 00-1.5 0v2.25H9a.75.75 0 000 1.5h2.25V15a.75.75 0 001.5 0v-2.25H15a.75.75 0 000-1.5h-2.25V9z" clip-rule="evenodd" />
+              </svg>              
               Halaman Tambah Data
             </h1>
 
@@ -246,8 +249,8 @@
                       </label>
                       <select id="on-off-condition" class="text-xs md:text-sm text-gray-900 bg-gray-50 border-2 border-gray-400 rounded-lg outline-none focus:border-indigo-800 dark:border-gray-100 w-full p-3" required name="on_off_condition">
                         <option selected>Pilih Kondisi</option>
-                        <option value="menyala">menyala</option>
-                        <option value="mati">mati</option>
+                        <option value="menyala">Menyala</option>
+                        <option value="mati">Mati</option>
                       </select>
                     </div>
   
@@ -305,8 +308,8 @@
                         name="clean_file_status"
                       >
                         <option selected>Pilih Status</option>
-                        <option value="hapus">hapus</option>
-                        <option value="tidak hapus">tidak hapus</option>
+                        <option value="hapus">Hapus</option>
+                        <option value="tidak hapus">Tidak Hapus</option>
                       </select>
                     </div>
   
