@@ -68,7 +68,7 @@
           <td scope="row" class="px-3 py-3 border-2 text-start">
             Kondisi PC On/Off
           </td>
-          <td scope="row" class="px-1 py-3 border-2">
+          <td scope="row" class="px-1 py-3 border-2 capitalize">
             {{$data->on_off_condition}}
           </td>
           <td scope="row" class="px-1 py-3 border-2">
@@ -90,7 +90,7 @@
           <td scope="row" class="px-3 py-3 border-2 text-start">
             Pembersihan file yang tidak dipakai
           </td>
-          <td scope="row" class="px-1 py-3 border-2">
+          <td scope="row" class="px-1 py-3 border-2 capitalize">
             {{$data->clean_file_status}}
           </td>
           <td scope="row" class="px-1 py-3 border-2">

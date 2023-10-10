@@ -15,6 +15,7 @@ use App\Http\Controllers\KomputerListController;
 use App\Http\Controllers\KontakController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\ResetController;
+use App\Http\Controllers\SystemController;
 use App\Http\Controllers\UsersController;
 
 /*
@@ -136,4 +137,10 @@ Route::middleware(['admin'])->group(function() {
   # user page CRUD 
   Route::resource('/dashboard/users/users', UsersController::class);
 
+  # system page
+  Route::get('/dashboard/system/index', [SystemController::class, 'index'])->name('system.index');
+  Route::get('/dashboard/system/index/backup', [SystemController::class, 'backupData'])->name('system.index.backup');
+  Route::post('/dashboard/system/index/restore', [SystemController::class, 'restoreData'])->name('system.index.restore');
+
 });
+
