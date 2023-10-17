@@ -99,7 +99,7 @@
         </a>
       </li>
 
-      @if (auth()->user()->position == "admin")
+      @if (auth()->user()->position == "Admin")
       {{-- pengguna --}}
         <li>
           <a href="{{route('users.index')}}" class="flex items-center p-2 text-gray-100 rounded-lg hover:bg-gray-100 hover:text-gray-900 group transition duration-150">

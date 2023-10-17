@@ -247,24 +247,25 @@
               </div>
             </div>
           @endforeach
-        @else
-          <div>
-            <div class="bg-white border border-gray-200 rounded-lg shadow" data-aos="fade-up" data-aos-delay="600" data-aos-ease="ease-in-out" data-aos-duration="400">
-              <div class=" cursor-not-allowed">
+        @endif
+
+        <div>
+          <div class="bg-white border border-gray-200 rounded-lg shadow" data-aos="fade-up" data-aos-delay="600" data-aos-ease="ease-in-out" data-aos-duration="400">
+            <div class=" cursor-not-allowed">
+              <div href="#">
+                <img class="rounded-t-lg" src="{{asset('img/image-not-available-.jpg')}}" alt="" />
+              </div>
+              <div class="p-5 font-montserrat">
                 <div href="#">
-                  <img class="rounded-t-lg" src="{{asset('img/image-not-available-.jpg')}}" alt="" />
-                </div>
-                <div class="p-5 font-montserrat">
-                  <div href="#">
-                    <h5 class="mb-1 text-sm sm:text-base md:text-lg font-bold tracking-tight text-gray-900">
-                      Berita Tidak Tersedia
-                    </h5>
-                  </div>
+                  <h5 class="mb-1 text-sm sm:text-base md:text-lg font-bold tracking-tight text-gray-900">
+                    Berita Tidak Tersedia
+                  </h5>
                 </div>
               </div>
             </div>
           </div>
-        @endif
+        </div>
+        
       </div>
 
       {{-- carousel if viewport md above it--}}
@@ -299,35 +300,36 @@
                   </a>
                 </div>
               @endforeach
-            @else
-              <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <div class=" cursor-not-allowed">
-                  <img src="{{asset('img/image-not-available-.jpg')}}" class="absolute block -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 transition duration-200" alt="" />
-
-                  <div class="absolute bottom-0 w-full">
-                    <div class="bg-opacity-80 font-montserrat bg-indigo-600 text-white shadow-lg mx-6 mb-4 px-4 py-3 rounded-lg" data-aos="fade-up" data-aos-duration="500" data-aos-delay="700" data-aos-ease="ease-in-out">
-                      <h3 class="text-center uppercase">
-                        Berita Tidak Ada
-                      </h3>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <div class=" cursor-not-allowed">
-                  <img src="{{asset('img/image-not-available-.jpg')}}" class="absolute block -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 transition duration-200" alt="" />
-
-                  <div class="absolute bottom-0 w-full">
-                    <div class="bg-opacity-80 font-montserrat bg-indigo-600 text-white shadow-lg mx-6 mb-4 px-4 py-3 rounded-lg" data-aos="fade-up" data-aos-duration="500" data-aos-delay="700" data-aos-ease="ease-in-out">
-                      <h3 class="text-center uppercase">
-                        Berita Tidak Ada
-                      </h3>
-                    </div>
-                  </div>
-                </div>
-              </div>
             @endif
+
+              <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <div class=" cursor-not-allowed">
+                  <img src="{{asset('img/image-not-available-.jpg')}}" class="absolute block -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 transition duration-200" alt="" />
+
+                  <div class="absolute bottom-0 w-full">
+                    <div class="bg-opacity-80 font-montserrat bg-indigo-600 text-white shadow-lg mx-6 mb-4 px-4 py-3 rounded-lg" data-aos="fade-up" data-aos-duration="500" data-aos-delay="700" data-aos-ease="ease-in-out">
+                      <h3 class="text-center uppercase">
+                        Berita Tidak Tersedia
+                      </h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <div class=" cursor-not-allowed">
+                  <img src="{{asset('img/image-not-available-.jpg')}}" class="absolute block -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 transition duration-200" alt="" />
+
+                  <div class="absolute bottom-0 w-full">
+                    <div class="bg-opacity-80 font-montserrat bg-indigo-600 text-white shadow-lg mx-6 mb-4 px-4 py-3 rounded-lg" data-aos="fade-up" data-aos-duration="500" data-aos-delay="700" data-aos-ease="ease-in-out">
+                      <h3 class="text-center uppercase">
+                        Berita Tidak Tersedia
+                      </h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
           </div>
           <!-- Slider controls -->
           <button type="button" class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>

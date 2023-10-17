@@ -55,7 +55,7 @@ class AuthController extends Controller
             'name' => 'required|string|min:2',
             'email' => 'required|email|unique:users',
             'password' => 'required|regex:/^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/',
-            'position' => 'required|string|not_in:Pilih Jabatan'
+            'position' => 'required|string|not_in:Pilih Jabatan',
         ],
         [
             'password.regex' => 'Password harus mengandung setidaknya satu huruf kapital, satu angka, dan memiliki panjang minimal 8 karakter.',
@@ -63,11 +63,21 @@ class AuthController extends Controller
             'name.min' => 'Tuliskan nama lengkap lebih dari satu huruf',
         ]);
 
+        $position = '';
+
+        if($request->input('position') == 'input'){
+            $position = $request->input('other_position');
+        }
+
+        else {
+            $position = $request->input('position');
+        }
+
         User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'position' =>$request->position,
+            'position' => $position,
         ]);
 
         $credentials = $request->only('email', 'password');

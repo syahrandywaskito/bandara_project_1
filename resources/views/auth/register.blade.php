@@ -148,11 +148,11 @@
               {{-- pilih jabatan --}}
               <div>
                 {{-- label --}}
-                <label for="position" class="block mb-2 text-xs md:text-sm font-medium text-gray-900">Jabatan</label>
+                <label for="position-field" class="block mb-2 text-xs md:text-sm font-medium text-gray-900">Jabatan</label>
 
                 {{-- input --}}
                 <select
-                  id="position"
+                  id="position-field"
                   class="bg-gray-50 border-2 border-gray-100 text-gray-900 text-xs md:text-sm rounded-lg p-2.5 focus:ring-indigo-400 focus:ring-2 focus:outline-none block w-full @error('position') is-invalid @enderror"
                   name="position"
                   value="{{old('position')}}"
@@ -173,16 +173,17 @@
                   <input
                     type="text"
                     id="otherPosition"
-                    name="position"
+                    name="other_position"
                     placeholder="Masukkan Jabatan Lainnya"
                     class="bg-gray-50 border-2 border-gray-100 text-gray-900 text-xs md:text-sm rounded-lg p-2.5 focus:ring-indigo-400 focus:ring-2 focus:outline-none block w-full capitalize"
                   >
                 </div>                
 
-                {{-- error notif --}} @error('position')
-                <div class="mt-3">
-                  @include('components.dashboard.input-error-notif')
-                </div>
+                {{-- error notif --}} 
+                @error('position')
+                  <div class="mt-3">
+                    @include('components.dashboard.input-error-notif')
+                  </div>
                 @enderror
               </div>
 
@@ -204,7 +205,7 @@
 
 
     <script>
-      const positionSelect = document.getElementById('position');
+      const positionSelect = document.getElementById('position-field');
       const inputField = document.getElementById('inputField');
       const otherPositionInput = document.getElementById('otherPosition');
     
