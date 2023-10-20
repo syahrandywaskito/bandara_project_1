@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\CCTVList;
+use App\Models\cctvList;
 use App\Models\CctvModel;
 use Carbon\Carbon;
 use Illuminate\Contracts\View\View;
@@ -149,7 +149,7 @@ class CCTVController extends Controller
             $date = $today;
         }
 
-        $list = CCTVList::all(['*']);
+        $list = cctvList::all(['*']);
 
         return view('admin.report.cctv.create', ['list' => $list, 'date' => $date, 'formattedDate' => $formattedDate]);
     }
@@ -203,12 +203,12 @@ class CCTVController extends Controller
             'record_desc' => 'required',
             'clean_status' => 'required',
             'clean_desc' => 'required',
-            'updated_by',
+            'updated_by' => 'required',
         ]);
 
         $cctv = CctvModel::findOrFail($cctv->id);
         
-        $cctv->update($request->all(['hardware_name', 'record_status', 'record_desc', 'clean_status', 'clean_desc', 'updated_by']));
+        $cctv->update($request->only(['hardware_name', 'record_status', 'record_desc', 'clean_status', 'clean_desc', 'updated_by']));
 
         $name = $cctv->hardware_name;
 

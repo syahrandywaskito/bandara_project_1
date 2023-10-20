@@ -166,12 +166,12 @@ class KomputerController extends Controller
             'uninstalled_app_desc' => 'required',
             'clean_file_status' => 'required',
             'clean_file_desc' => 'required',
-            'updated_by',
+            'updated_by' => 'required',
         ]);
 
         $komputer = Komputer::findOrFail($komputer->id);
 
-        $komputer->update($request->all([
+        $komputer->update($request->only([
             'computer_name',
             'on_off_condition',
             'on_off_desc',

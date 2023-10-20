@@ -168,12 +168,12 @@ class FIDSController extends Controller
             'view_desc' => 'required',
             'clean_condition' => 'required',
             'condition_desc' => 'required',
-            'updated_by',
+            'updated_by' => 'required',
         ]);
 
         $fids = fids::findOrFail($fid->id);
 
-        $fids->update($request->all(['monitor_name', 'monitor_view', 'view_desc', 'clean_condition', 'condition_desc', 'updated_by']));
+        $fids->update($request->only(['monitor_name', 'monitor_view', 'view_desc', 'clean_condition', 'condition_desc', 'updated_by']));
 
         $name = $fids->monitor_name;
 

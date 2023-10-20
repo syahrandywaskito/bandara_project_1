@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\CCTVList;
+use App\Models\cctvList;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -20,17 +20,17 @@ class CCTVListController extends Controller
 
         if (isset($cari) && isset($namaKolom)) {
             
-            $list = CCTVList::where($namaKolom, 'like', "%$cari%")->get();
+            $list = cctvList::where($namaKolom, 'like', "%$cari%")->get();
         }
 
         elseif (isset($all)) {
             
-            $list = CCTVList::all(['*']);
+            $list = cctvList::all(['*']);
         }
 
         else{
 
-            $list = CCTVList::all(['*']);
+            $list = cctvList::all(['*']);
         }
 
         return view('admin.hardware.cctv_list.index', ['list' => $list]);
@@ -44,20 +44,20 @@ class CCTVListController extends Controller
 
         $name = $request->input('name');
 
-        CCTVList::create($request->all());
+        cctvList::create($request->all());
 
         $successMessage = "Berhasil menambah data $name";
 
         return redirect()->back()->with('success', $successMessage);
     }
 
-    public function edit(CCTVList $cctv_list)
+    public function edit(cctvList $cctv_list)
     {
 
         return view('admin.hardware.cctv_list.edit', compact('cctv_list'));
     }
 
-    public function update(Request $request, CCTVList $cctv_list)
+    public function update(Request $request, cctvList $cctv_list)
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required'
@@ -80,7 +80,7 @@ class CCTVListController extends Controller
         return redirect()->route('list.cctv.index')->with('success', $successMessage);
     }
 
-    public function destroy(CCTVList $cctv_list)
+    public function destroy(cctvList $cctv_list)
     {
         $name = $cctv_list->name;
 

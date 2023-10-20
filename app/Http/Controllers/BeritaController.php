@@ -14,9 +14,11 @@ class BeritaController extends Controller
 {
 
     /**
-     * Berita view index
+     *  * Melihat Halaman index
+     *  * Search akan direturn ke index
      * 
-     * @return View
+     *  @param Request $request
+     *  @return View
      */
     public function index(Request $request) : View
     {
@@ -44,7 +46,7 @@ class BeritaController extends Controller
     }
 
     /**
-     * Halaman untuk memasukkan data berita
+     *  * View halaman tambah berita
      * 
      * @return View
      */
@@ -55,9 +57,10 @@ class BeritaController extends Controller
     }
 
     /**
-     * Memasukkan data ke dalam database 
+     *  * Memasukkan hasil input berita ke dalam database
      * 
-     * @return RedirectResponse
+     *  @param Request $request
+     *  @return RedirectResponse
      */
 
     public function store(Request $request)
@@ -89,9 +92,10 @@ class BeritaController extends Controller
     }
 
     /**
-     * Edit berita
-     * 
-     * @return View
+     *  * View halaman edit berita
+     *  
+     *  @param Berita $berita 
+     *  @return View
      */
 
     public function edit(Berita $berita) : View
@@ -101,9 +105,11 @@ class BeritaController extends Controller
     }
 
     /**
-     * Update berita 
-     * 
-     * @return RedirectResponse
+     *  * Update berita di database dengan data yang baru
+     *  
+     *  @param Request $request
+     *  @param Berita $berita
+     *  @return RedirectResponse
      */
 
     public function update(Request $request, Berita $berita) : RedirectResponse
@@ -141,9 +147,10 @@ class BeritaController extends Controller
     }
 
     /**
-     * Menampilkan berita yang sama seperti pada homepage
-     * 
-     * @return View
+     *  * Menampilkan berita secara lengkap
+     *  
+     *  @param Berita $berita
+     *  @return View 
      */
 
     public function show(Berita $berita) : View
@@ -152,9 +159,10 @@ class BeritaController extends Controller
     }
 
     /**
-     * Menghapus data beserta gambar pada public 
+     *  * Menghapus data berita beserta gambar pada /public/berita/
      * 
-     * @return RedirectResponse
+     *  @param Berita $berita
+     *  @return RedirectResponse
      */
 
     public function destroy(Berita $berita) : RedirectResponse

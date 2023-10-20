@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Berita;
-use App\Models\CCTVList;
+use App\Models\cctvList;
 use App\Models\CctvModel;
 use App\Models\fids;
 use App\Models\fidslist;
@@ -36,7 +36,7 @@ class SystemController extends Controller
          // Daftar model yang tersedia
          $models = [
              'Berita' => Berita::all(),
-             'CCTVList' => CCTVList::all(),
+             'cctvList' => cctvList::all(),
              'CctvModel' => CctvModel::all(),
              'fids' => fids::all(),
              'fidslist' => fidslist::all(),
