@@ -1,52 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="shortcut icon" href="{{asset('img/logo.png')}}" type="image/x-icon" />
-    <title>Admin - Laporan</title>
+@extends('layouts.app')
 
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-    <script src="{{asset('js/onPageLoad.js')}}"></script>
-    {{-- tailwind css using vite --}} @vite(['resources/css/app.css','resources/js/app.js'])
-  </head>
-  <body class="dark:bg-slate-900 bg-white">
-    {{-- Navbar Part --}}
-    <nav class="fixed top-0 z-50 w-full bg-indigo-800 border-b-4 border-indigo-900 dark:bg-indigo-950 dark:border-slate-900">
-      <div class="px-3 py-3 lg:px-5 lg:pl-3">
-        <div class="flex items-center justify-between">
-          <div class="flex items-center justify-start">
-            <button
-              data-drawer-target="logo-sidebar"
-              data-drawer-toggle="logo-sidebar"
-              aria-controls="logo-sidebar"
-              type="button"
-              class="inline-flex items-center p-2 text-sm text-gray-100 rounded-lg lg:hidden hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
-            >
-              <span class="sr-only">Open sidebar</span>
-              <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  clip-rule="evenodd"
-                  fill-rule="evenodd"
-                  d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"
-                ></path>
-              </svg>
-            </button>
-            <a href="{{URL::current()}}" class="flex ml-2 md:mr-24">
-              <img src="{{asset('img/logo.png')}}" class="h-8 mr-3" />
-              <span class="self-center uppercase font-roboto font-semibold hidden sm:block sm:text-base md:text-lg lg:text-xl text-gray-100 whitespace-nowrap">Laporan - Komputer</span>
-            </a>
-          </div>
-          <div class="flex items-center">
-            {{-- Dark toggle --}} @include('components.dashboard.darktoggle') {{-- User Profile Menu --}} @include('components.dashboard.userprofile')
-          </div>
-        </div>
-      </div>
-    </nav>
+@section('title')
+    Dashboard - Laporan
+@endsection
 
-    {{-- Sidebar Part --}} @include('components.dashboard.sidebar') {{-- Content Part --}}
-    <div class="py-7 md:px-5 lg:ml-64">
+@section('navbar-header')
+    Laporan - Komputer
+@endsection
+
+@section('content')
+    
+{{-- Content Part --}}
+<div class="py-7 md:px-5 lg:ml-64">
       {{-- Header and table --}}
       <div class="bg-white dark:bg-slate-900">
         {{-- header --}}
@@ -81,12 +46,12 @@
             <h1 class="inline-flex items-center text-gray-900 dark:text-gray-200 mt-8 text-base md:text-lg xl:text-xl uppercase font-roboto font-bold mb-4">
               <svg class="flex-shrink-0 w-5 mr-3 h-5 text-gray-900 dark:text-gray-200 group-hover:text-gray-900" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
                 <path
-                  d="M6.143 0H1.857A1.857 1.857 0 0 0 0 1.857v4.286C0 7.169.831 8 1.857 8h4.286A1.857 1.857 0 0 0 8 6.143V1.857A1.857 1.857 0 0 0 6.143 0Zm10 0h-4.286A1.857 1.857 0 0 0 10 1.857v4.286C10 7.169 10.831 8 11.857 8h4.286A1.857 1.857 0 0 0 18 6.143V1.857A1.857 1.857 0 0 0 16.143 0Zm-10 10H1.857A1.857 1.857 0 0 0 0 11.857v4.286C0 17.169.831 18 1.857 18h4.286A1.857 1.857 0 0 0 8 16.143v-4.286A1.857 1.857 0 0 0 6.143 10Zm10 0h-4.286A1.857 1.857 0 0 0 10 11.857v4.286c0 1.026.831 1.857 1.857 1.857h4.286A1.857 1.857 0 0 0 18 16.143v-4.286A1.857 1.857 0 0 0 16.143 10Z"
+                d="M6.143 0H1.857A1.857 1.857 0 0 0 0 1.857v4.286C0 7.169.831 8 1.857 8h4.286A1.857 1.857 0 0 0 8 6.143V1.857A1.857 1.857 0 0 0 6.143 0Zm10 0h-4.286A1.857 1.857 0 0 0 10 1.857v4.286C10 7.169 10.831 8 11.857 8h4.286A1.857 1.857 0 0 0 18 6.143V1.857A1.857 1.857 0 0 0 16.143 0Zm-10 10H1.857A1.857 1.857 0 0 0 0 11.857v4.286C0 17.169.831 18 1.857 18h4.286A1.857 1.857 0 0 0 8 16.143v-4.286A1.857 1.857 0 0 0 6.143 10Zm10 0h-4.286A1.857 1.857 0 0 0 10 11.857v4.286c0 1.026.831 1.857 1.857 1.857h4.286A1.857 1.857 0 0 0 18 16.143v-4.286A1.857 1.857 0 0 0 16.143 10Z"
                 />
               </svg>
               Laporan pengecekan Komputer
             </h1>
-
+            
             {{-- sub header text --}}
             <p class="text-sm lg:text-base xl:text-lg font-normal font-montserrat text-gray-500 dark:text-gray-200 mb-3">
               Tabel laporan ini akan menampilkan hasil input dari pengecekan yang telah dilakukan sebelumnya. Tabel ini dapat diubah sesuai dengan tanggal data pengecekan
@@ -97,14 +62,14 @@
               {{-- add data --}}
               <div>
                 <a
-                  href="{{route('komputer.create')}}"
-                  class="px-5 py-3.5 text-xs sm:text-sm md:text-base font-medium text-center inline-flex items-center text-gray-50 bg-indigo-800 rounded-lg hover:bg-gray-100 hover:text-green-700 focus:z-10 focus:ring-2 focus:ring-indigo-800 transition duration-200 dark:bg-gray-50 dark:text-green-700 dark:hover:bg-indigo-900 dark:hover:text-gray-100 dark:border-gray-100"
-                  title="Tambah data baru"
+                href="{{route('komputer.create')}}"
+                class="px-5 py-3.5 text-xs sm:text-sm md:text-base font-medium text-center inline-flex items-center text-gray-50 bg-indigo-800 rounded-lg hover:bg-gray-100 hover:text-green-700 focus:z-10 focus:ring-2 focus:ring-indigo-800 transition duration-200 dark:bg-gray-50 dark:text-green-700 dark:hover:bg-indigo-900 dark:hover:text-gray-100 dark:border-gray-100"
+                title="Tambah data baru"
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 mr-2 h-5">
-                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm.75-11.25a.75.75 0 00-1.5 0v2.5h-2.5a.75.75 0 000 1.5h2.5v2.5a.75.75 0 001.5 0v-2.5h2.5a.75.75 0 000-1.5h-2.5v-2.5z" clip-rule="evenodd" />
-                  </svg>
-                  Tambah
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 mr-2 h-5">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm.75-11.25a.75.75 0 00-1.5 0v2.5h-2.5a.75.75 0 000 1.5h2.5v2.5a.75.75 0 001.5 0v-2.5h2.5a.75.75 0 000-1.5h-2.5v-2.5z" clip-rule="evenodd" />
+                </svg>
+                Tambah
                 </a>
               </div>
 
@@ -113,36 +78,36 @@
                 <form action="{{route('komputer.index')}}" method="GET">
                   <div class="flex">
                     <select
-                      id="kolom"
-                      class="block p-3.5 w-full z-20 text-xs md:text-sm text-gray-900 bg-gray-200 border-2 border-gray-200 rounded-l-lg outline-none focus:border-indigo-800 dark:border-gray-50 dark:bg-gray-50 font-roboto"
-                      name="kolom"
+                    id="kolom"
+                    class="block p-3.5 w-full z-20 text-xs md:text-sm text-gray-900 bg-gray-200 border-2 border-gray-200 rounded-l-lg outline-none focus:border-indigo-800 dark:border-gray-50 dark:bg-gray-50 font-roboto"
+                    name="kolom"
                     >
-                      <option selected>Pilih Kolom</option>
-                      <option value="computer_name">Nama Perangkat</option>
-                      <option value="on_off_condition">Kondisi Nyala / Mati</option>
-                      <option value="on_off_desc">Keterangan Nyala / Mati</option>
-                      <option value="uninstalled_app">Aplikasi yang Diuninstall</option>
-                      <option value="uninstalled_app_desc">Keterangan Aplikasi yang Diuninstall</option>
-                      <option value="clean_file_status">Status Pembersihan File</option>
-                      <option value="clean_file_desc">Keterangan Pembersihan File</option>
-                    </select>
+                    <option selected>Pilih Kolom</option>
+                    <option value="computer_name">Nama Perangkat</option>
+                    <option value="on_off_condition">Kondisi Nyala / Mati</option>
+                    <option value="on_off_desc">Keterangan Nyala / Mati</option>
+                    <option value="uninstalled_app">Aplikasi yang Diuninstall</option>
+                    <option value="uninstalled_app_desc">Keterangan Aplikasi yang Diuninstall</option>
+                    <option value="clean_file_status">Status Pembersihan File</option>
+                    <option value="clean_file_desc">Keterangan Pembersihan File</option>
+                  </select>
 
-                    <div class="relative w-full font-montserrat">
-                      <input
-                        type="text"
-                        class="block p-3.5 w-full z-20 text-xs md:text-sm text-gray-900 bg-gray-200 border-2 border-gray-200 rounded-r-lg outline-none focus:border-indigo-800 dark:border-gray-50 dark:bg-gray-50"
-                        placeholder="Cari"
-                        name="cari"
-                        required
-                      />
-
-                      <button
-                        type="submit"
-                        class="absolute top-0 right-0 p-3 text-xs md:text-sm font-medium h-full text-gray-50 bg-indigo-800 rounded-r-lg hover:bg-gray-100 hover:text-indigo-800 focus:z-10 focus:ring-2 focus:ring-indigo-800 focus:outline-none dark:bg-gray-50 dark:text-indigo-900 dark:hover:bg-indigo-900 dark:hover:text-gray-100 transition duration-200 dark:hover:ring-1 dark:hover:ring-indigo-900"
-                        title="Cari data"
+                  <div class="relative w-full font-montserrat">
+                    <input
+                    type="text"
+                    class="block p-3.5 w-full z-20 text-xs md:text-sm text-gray-900 bg-gray-200 border-2 border-gray-200 rounded-r-lg outline-none focus:border-indigo-800 dark:border-gray-50 dark:bg-gray-50"
+                    placeholder="Cari"
+                    name="cari"
+                    required
+                    />
+                    
+                    <button
+                    type="submit"
+                    class="absolute top-0 right-0 p-3 text-xs md:text-sm font-medium h-full text-gray-50 bg-indigo-800 rounded-r-lg hover:bg-gray-100 hover:text-indigo-800 focus:z-10 focus:ring-2 focus:ring-indigo-800 focus:outline-none dark:bg-gray-50 dark:text-indigo-900 dark:hover:bg-indigo-900 dark:hover:text-gray-100 transition duration-200 dark:hover:ring-1 dark:hover:ring-indigo-900"
+                    title="Cari data"
                       >
-                        <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                      <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
                         </svg>
                         <span class="sr-only">Search</span>
                       </button>
@@ -150,7 +115,7 @@
                   </div>
                 </form>
               </div>
-
+              
               {{-- Select date --}}
               <div class="flex-initial w-60">
                 <form class="flex items-center" method="get" action="{{route('komputer.index')}}">
@@ -168,13 +133,13 @@
                       name="selected_date"
                       class="font-roboto z-20 text-xs md:text-sm text-gray-900 bg-gray-200 border-2 border-gray-200 rounded-lg outline-none focus:border-indigo-800 dark:bg-gray-50 dark:border-gray-50 block w-full pl-10 p-3"
                       required
-                    />
-                  </div>
+                      />
+                    </div>
                   <button
                     type="submit"
                     class="p-4 ml-2 text-xs md:text-sm font-medium text-gray-50 bg-indigo-800 rounded-lg hover:bg-gray-100 hover:text-indigo-800 focus:z-10 focus:ring-2 focus:ring-indigo-800 focus:outline-none dark:bg-gray-100 dark:text-indigo-900 dark:hover:bg-indigo-900 dark:hover:text-gray-100 dark:hover:border-indigo-900 dark:border-gray-100 transition duration-200"
                     title="Cari sesuai tanggal"
-                  >
+                    >
                     <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                       <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
                     </svg>
@@ -182,22 +147,22 @@
                   </button>
                 </form>
               </div>
-
+              
               {{-- show all data or current data --}}
               <div>
                 <form action="{{route('komputer.index')}}" method="GET">
                   <input type="text" name="all" class="hidden" readonly value="all" />
                   <button
-                    type="submit"
-                    class="p-3.5 text-base font-medium text-center inline-flex items-center text-gray-50 bg-indigo-800 rounded-lg hover:bg-gray-100 hover:text-indigo-800 focus:z-10 focus:ring-2 focus:ring-indigo-800 transition duration-200 dark:bg-gray-100 dark:text-indigo-800 dark:hover:bg-indigo-900 dark:hover:text-gray-100 dark:border-gray-100 font-roboto"
-                    title="Tampilkan data sekarang"
+                  type="submit"
+                  class="p-3.5 text-base font-medium text-center inline-flex items-center text-gray-50 bg-indigo-800 rounded-lg hover:bg-gray-100 hover:text-indigo-800 focus:z-10 focus:ring-2 focus:ring-indigo-800 transition duration-200 dark:bg-gray-100 dark:text-indigo-800 dark:hover:bg-indigo-900 dark:hover:text-gray-100 dark:border-gray-100 font-roboto"
+                  title="Tampilkan data sekarang"
                   >
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
-                      <path
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                    <path
                         fill-rule="evenodd"
                         d="M3 3.5A1.5 1.5 0 014.5 2h6.879a1.5 1.5 0 011.06.44l4.122 4.12A1.5 1.5 0 0117 7.622V16.5a1.5 1.5 0 01-1.5 1.5h-11A1.5 1.5 0 013 16.5v-13zM13.25 9a.75.75 0 01.75.75v4.5a.75.75 0 01-1.5 0v-4.5a.75.75 0 01.75-.75zm-6.5 4a.75.75 0 01.75.75v.5a.75.75 0 01-1.5 0v-.5a.75.75 0 01.75-.75zm4-1.25a.75.75 0 00-1.5 0v2.5a.75.75 0 001.5 0v-2.5z"
                         clip-rule="evenodd"
-                      />
+                        />
                     </svg>
                     <span class="sr-only">all</span>
                   </button>
@@ -308,7 +273,7 @@
                 <td class="px-2 py-4">
                   {{$formatted}}
                 </td>
-
+                
                 @endif
                 <td class="px-6 py-4">
                   {{$data->computer_name}}
@@ -336,23 +301,23 @@
                     @csrf @method('DELETE')
                     <div class="inline-flex rounded-md shadow-md" role="group">
                       <a
-                        href="{{route('komputer.edit', $data->id)}}"
-                        title="Edit data"
-                        class="inline-flex items-center px-4 py-2 text-xs md:text-sm font-medium text-gray-50 bg-indigo-800 rounded-l-lg hover:bg-gray-100 hover:text-indigo-800 focus:z-10 focus:ring-2 focus:ring-indigo-800 dark:bg-gray-100 dark:text-indigo-800 dark:hover:bg-indigo-900 dark:hover:text-gray-100 transition duration-200"
+                      href="{{route('komputer.edit', $data->id)}}"
+                      title="Edit data"
+                      class="inline-flex items-center px-4 py-2 text-xs md:text-sm font-medium text-gray-50 bg-indigo-800 rounded-l-lg hover:bg-gray-100 hover:text-indigo-800 focus:z-10 focus:ring-2 focus:ring-indigo-800 dark:bg-gray-100 dark:text-indigo-800 dark:hover:bg-indigo-900 dark:hover:text-gray-100 transition duration-200"
                       >
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 mr-2 h-5">
-                          <path d="M5.433 13.917l1.262-3.155A4 4 0 017.58 9.42l6.92-6.918a2.121 2.121 0 013 3l-6.92 6.918c-.383.383-.84.685-1.343.886l-3.154 1.262a.5.5 0 01-.65-.65z" />
-                          <path
-                            d="M3.5 5.75c0-.69.56-1.25 1.25-1.25H10A.75.75 0 0010 3H4.75A2.75 2.75 0 002 5.75v9.5A2.75 2.75 0 004.75 18h9.5A2.75 2.75 0 0017 15.25V10a.75.75 0 00-1.5 0v5.25c0 .69-.56 1.25-1.25 1.25h-9.5c-.69 0-1.25-.56-1.25-1.25v-9.5z"
-                          />
-                        </svg>
-                        Edit
-                      </a>
-                      <a
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 mr-2 h-5">
+                        <path d="M5.433 13.917l1.262-3.155A4 4 0 017.58 9.42l6.92-6.918a2.121 2.121 0 013 3l-6.92 6.918c-.383.383-.84.685-1.343.886l-3.154 1.262a.5.5 0 01-.65-.65z" />
+                        <path
+                        d="M3.5 5.75c0-.69.56-1.25 1.25-1.25H10A.75.75 0 0010 3H4.75A2.75 2.75 0 002 5.75v9.5A2.75 2.75 0 004.75 18h9.5A2.75 2.75 0 0017 15.25V10a.75.75 0 00-1.5 0v5.25c0 .69-.56 1.25-1.25 1.25h-9.5c-.69 0-1.25-.56-1.25-1.25v-9.5z"
+                        />
+                      </svg>
+                      Edit
+                    </a>
+                    <a
                         href="{{route('komputer.show', $data->id)}}"
                         title="Lihat data"
                         class="inline-flex items-center px-4 py-2 text-xs md:text-sm font-medium text-gray-50 bg-indigo-800 hover:bg-gray-100 hover:text-indigo-800 focus:z-10 focus:ring-2 focus:ring-indigo-800 dark:bg-gray-100 dark:text-indigo-800 dark:hover:bg-indigo-900 dark:hover:text-gray-100 transition duration-200"
-                      >
+                        >
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 mr-2 h-5">
                           <path d="M10 12.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z" />
                           <path
@@ -367,12 +332,12 @@
                         type="submit"
                         title="Hapus data"
                         class="inline-flex items-center px-4 py-2 text-xs md:text-sm font-medium text-gray-50 bg-indigo-800 rounded-r-md hover:bg-gray-100 hover:text-red-800 focus:z-10 focus:ring-2 focus:ring-red-800 focus:bg-gray-100 focus:text-red-800 dark:bg-gray-100 dark:text-red-800 dark:hover:bg-indigo-900 dark:hover:text-gray-100 transition duration-200"
-                      >
+                        >
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 mr-1 h-5">
                           <path
-                            fill-rule="evenodd"
-                            d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z"
-                            clip-rule="evenodd"
+                          fill-rule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z"
+                          clip-rule="evenodd"
                           />
                         </svg>
                         Delete
@@ -390,7 +355,9 @@
 
     {{-- pagination --}}
     <div class="px-4 py-4 mx-auto max-w-screen-xl">
-      @if (!Session::has('cari')) {{ $komputer->links() }} @endif
+      @if (!Session::has('cari')) 
+        {{ $komputer->links() }} 
+      @endif
     </div>
 
     {{-- success notif --}} @include('components.dashboard.successnotif')
@@ -400,71 +367,66 @@
       var dataDokumen = $dokumen;
       
       function toggleSortDirectionNamaPerangkat(column) {
-          toggleSortDirection(column, 'sortIconNamaPerangkat', 0);
+        toggleSortDirection(column, 'sortIconNamaPerangkat', 0);
       }
-  
+      
       function toggleSortDirectionKondisiNyalaMati(column) {
-          toggleSortDirection(column, 'sortIconKondisiNyalaMati', 1);
+        toggleSortDirection(column, 'sortIconKondisiNyalaMati', 1);
       }
-  
+      
       function toggleSortDirectionKeteranganNyalaMati(column) {
-          toggleSortDirection(column, 'sortIconKeteranganNyalaMati', 2);
+        toggleSortDirection(column, 'sortIconKeteranganNyalaMati', 2);
       }
-  
+      
       function toggleSortDirectionAplikasiDiUninstall(column) {
-          toggleSortDirection(column, 'sortIconAplikasiDiUninstall', 3);
+        toggleSortDirection(column, 'sortIconAplikasiDiUninstall', 3);
       }
-  
+      
       function toggleSortDirectionKeteranganUninstall(column) {
-          toggleSortDirection(column, 'sortIconKeteranganUninstall', 4);
+        toggleSortDirection(column, 'sortIconKeteranganUninstall', 4);
       }
-
+      
       function toggleSortDirectionStatusPembersihanFile(column) {
-          toggleSortDirection(column, 'sortIconStatusPembersihanFile', 5);
+        toggleSortDirection(column, 'sortIconStatusPembersihanFile', 5);
       }
-
+      
       function toggleSortDirectionKeteranganPembersihanFile(column) {
-          toggleSortDirection(column, 'sortIconKeteranganPembersihanFile', 6);
+        toggleSortDirection(column, 'sortIconKeteranganPembersihanFile', 6);
       }
-  
+      
       function toggleSortDirection(column, sortIconId, columnIndex) {
           var sortIcon = document.getElementById(sortIconId);
           var dataTabel = document.getElementById('dataTabel');
           var rows = Array.from(dataTabel.getElementsByTagName('tr')).slice(1);
-  
+          
           if (sortDirection === 'asc') {
-              sortDirection = 'desc';
-              sortIcon.innerHTML = '&#x25BC;';
+            sortDirection = 'desc';
+            sortIcon.innerHTML = '&#x25BC;';
           } else {
-              sortDirection = 'asc';
-              sortIcon.innerHTML = '&#x25B2;';
+            sortDirection = 'asc';
+            sortIcon.innerHTML = '&#x25B2;';
           }
-  
+          
           rows.sort(function(a, b) {
-              var aText = a.getElementsByTagName('td')[columnIndex].textContent;
-              var bText = b.getElementsByTagName('td')[columnIndex].textContent;
-              console.log(aText);
-              console.log(bText);
-              if (sortDirection === 'asc') {
-                  return aText.localeCompare(bText);
-              } else {
-                  return bText.localeCompare(aText);
-              }
+            var aText = a.getElementsByTagName('td')[columnIndex].textContent;
+            var bText = b.getElementsByTagName('td')[columnIndex].textContent;
+            console.log(aText);
+            console.log(bText);
+            if (sortDirection === 'asc') {
+              return aText.localeCompare(bText);
+            } else {
+              return bText.localeCompare(aText);
+            }
           });
   
           for (var i = 0; i < rows.length; i++) {
-              dataTabel.tBodies[0].appendChild(rows[i]);
+            dataTabel.tBodies[0].appendChild(rows[i]);
           }
       }
-    </script>
+      </script>
 
-    <script src="{{asset('js/hide-alert.js')}}"></script>
+<script src="{{asset('js/hide-alert.js')}}"></script>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-      AOS.init();
-    </script>
+<script src="{{asset('js/darkToggle.js')}}"></script>
 
-    <script src="{{asset('js/darkToggle.js')}}"></script>
-  </body>
-</html>
+@endsection

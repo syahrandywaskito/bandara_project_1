@@ -1,61 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="shortcut icon" href="{{asset('img/logo.png')}}" type="image/x-icon" />
-    <title>Admin - Pengguna</title>
+@extends('layouts.app')
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="{{asset('js/onPageLoad.js')}}"></script>
-    {{-- tailwind css using vite --}} @vite(['resources/css/app.css','resources/js/app.js'])
-  </head>
-  <body class="dark:bg-slate-900 bg-white">
-    {{-- Navbar Part --}}
-    <nav class="fixed top-0 z-50 w-full bg-indigo-800 border-b-4 border-indigo-900 dark:bg-indigo-950 dark:border-slate-900">
-      <div class="px-3 py-3 lg:px-5 lg:pl-3">
-        <div class="flex items-center justify-between">
-          <div class="flex items-center justify-start">
-            <button
-              data-drawer-target="logo-sidebar"
-              data-drawer-toggle="logo-sidebar"
-              aria-controls="logo-sidebar"
-              type="button"
-              class="inline-flex items-center p-2 text-sm text-gray-100 rounded-lg lg:hidden hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
-            >
-              <span class="sr-only">Open sidebar</span>
-              <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  clip-rule="evenodd"
-                  fill-rule="evenodd"
-                  d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"
-                ></path>
-              </svg>
-            </button>
-            <a href="{{URL::current()}}" class="flex ml-2 md:mr-24">
-              <img src="{{asset('img/logo.png')}}" class="h-8 mr-3" />
-              <span class="self-center font-roboto uppercase font-semibold hidden sm:block sm:text-base md:text-lg lg:text-xl text-gray-100 whitespace-nowrap">
-                Halaman Pengguna - Ubah Data
-              </span>
-            </a>
-          </div>
-          <div class="flex items-center">
-            {{-- Dark toggle --}} 
-            @include('components.dashboard.darktoggle') 
-            {{-- User Profile Menu --}} 
-            @include('components.dashboard.userprofile')
-          </div>
-        </div>
-      </div>
-    </nav>
+@section('title')
+    Admin - Pengguna
+@endsection
 
-    {{-- Sidebar Part --}} 
-    @include('components.dashboard.sidebar') 
+@section('navbar-header')
+    Halaman Pengguna - Ubah Data
+@endsection
 
-    {{-- Content Part --}}
-    <div class="py-7 md:px-5 lg:ml-64">
-      <div class="bg-white dark:bg-slate-900">
+@section('content')
+    
+{{-- Content Part --}}
+<div class="py-7 md:px-5 lg:ml-64">
+  <div class="bg-white dark:bg-slate-900">
         <div class="py-16 px-4 mx-auto max-w-screen-xl text-start">
           <div class="bg-gray-50 border border-gray-100 dark:border-0 dark:bg-indigo-950 rounded-lg shadow-lg px-5 py-8 sm:px-8 md:p-12">
             <!-- Breadcrumb -->
@@ -65,7 +22,7 @@
                   <a href="{{route('dashboard')}}" class="inline-flex items-center text-xs md:text-sm font-medium text-gray-700 hover:text-indigo-600">
                     <svg class="w-3 h-3 mr-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                       <path
-                        d="m19.707 9.293-2-2-7-7a1 1 0 0 0-1.414 0l-7 7-2 2a1 1 0 0 0 1.414 1.414L2 10.414V18a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2v-7.586l.293.293a1 1 0 0 0 1.414-1.414Z"
+                      d="m19.707 9.293-2-2-7-7a1 1 0 0 0-1.414 0l-7 7-2 2a1 1 0 0 0 1.414 1.414L2 10.414V18a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2v-7.586l.293.293a1 1 0 0 0 1.414-1.414Z"
                       />
                     </svg>
                     Dashboard
@@ -85,55 +42,55 @@
                       <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
                     </svg>
                     <span class="ml-1 text-xs md:text-sm font-medium text-gray-700 md:ml-2">
-                     Ubah Data
+                      Ubah Data
                     </span>
                   </div>
                 </li>
               </ol>
             </nav>
-              {{-- Header text --}}
-              <h1 class="inline-flex items-center text-gray-900 dark:text-gray-200 lg:px-2 mt-6 text-base md:text-lg xl:text-xl uppercase font-montserrat font-bold">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 mr-2 h-6">
-                  <path d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-8.4 8.4a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32l8.4-8.4z" />
-                  <path d="M5.25 5.25a3 3 0 00-3 3v10.5a3 3 0 003 3h10.5a3 3 0 003-3V13.5a.75.75 0 00-1.5 0v5.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5V8.25a1.5 1.5 0 011.5-1.5h5.25a.75.75 0 000-1.5H5.25z" />
-                </svg>              
-                Halaman Ubah data
-              </h1>
-
-              {{-- Input form --}}
-              <div class="font-roboto flex-row items-center">
-                <div class="mt-4">
-                  <form action="{{route('users.update', $user->id)}}" method="POST" enctype="multipart/form-data">
-                    @csrf 
-                    @method('PUT')
-                    <div class="grid grid-cols-1 grid-flow-row-dense gap-4">
-                      
-                      <div>
-                        <label for="name" class="block mb-2 text-xs md:text-sm font-medium text-gray-900 dark:text-gray-200">
-                          Nama Lengkap
-                        </label>
-                          <input
-                            type="text"
-                            id="name"
-                            class="text-xs md:text-sm text-gray-900 bg-gray-50 border-2 border-gray-400 rounded-lg outline-none focus:border-indigo-800 dark:border-gray-100 dark:bg-gray-100 block w-full p-3"
-                            required
-                            name="name"
-                            value="{{$user->name}}"
-                          />
-                      </div>
+            {{-- Header text --}}
+            <h1 class="inline-flex items-center text-gray-900 dark:text-gray-200 lg:px-2 mt-6 text-base md:text-lg xl:text-xl uppercase font-montserrat font-bold">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 mr-2 h-6">
+                <path d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-8.4 8.4a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32l8.4-8.4z" />
+                <path d="M5.25 5.25a3 3 0 00-3 3v10.5a3 3 0 003 3h10.5a3 3 0 003-3V13.5a.75.75 0 00-1.5 0v5.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5V8.25a1.5 1.5 0 011.5-1.5h5.25a.75.75 0 000-1.5H5.25z" />
+              </svg>              
+              Halaman Ubah data
+            </h1>
+            
+            {{-- Input form --}}
+            <div class="font-roboto flex-row items-center">
+              <div class="mt-4">
+                <form action="{{route('users.update', $user->id)}}" method="POST" enctype="multipart/form-data">
+                  @csrf 
+                  @method('PUT')
+                  <div class="grid grid-cols-1 grid-flow-row-dense gap-4">
+                    
+                    <div>
+                      <label for="name" class="block mb-2 text-xs md:text-sm font-medium text-gray-900 dark:text-gray-200">
+                        Nama Lengkap
+                      </label>
+                      <input
+                      type="text"
+                      id="name"
+                      class="text-xs md:text-sm text-gray-900 bg-gray-50 border-2 border-gray-400 rounded-lg outline-none focus:border-indigo-800 dark:border-gray-100 dark:bg-gray-100 block w-full p-3"
+                      required
+                      name="name"
+                      value="{{$user->name}}"
+                      />
+                    </div>
 
                       <div>
                         <label for="email" class="block mb-2 text-xs md:text-sm font-medium text-gray-900 dark:text-gray-200">
                           Email
                         </label>
                         <input
-                          type="email"
-                          id="email"
-                          class="text-xs md:text-sm text-gray-900 bg-gray-200 border-2 border-gray-400 rounded-lg outline-none focus:border-indigo-800 dark:border-gray-300 dark:bg-gray-300 block w-full p-3"
-                          required
-                          name="email"
-                          value="{{$user->email}}"
-                          readonly
+                        type="email"
+                        id="email"
+                        class="text-xs md:text-sm text-gray-900 bg-gray-200 border-2 border-gray-400 rounded-lg outline-none focus:border-indigo-800 dark:border-gray-300 dark:bg-gray-300 block w-full p-3"
+                        required
+                        name="email"
+                        value="{{$user->email}}"
+                        readonly
                         />
                       </div>
 
@@ -142,22 +99,22 @@
                           Jabatan
                         </label>
                         <input
-                          type="text"
-                          id="jabatan"
-                          class="text-xs md:text-sm text-gray-900 bg-gray-200 border-2 border-gray-400 rounded-lg outline-none focus:border-indigo-800 dark:border-gray-300 dark:bg-gray-300 block w-full p-3"
-                          required
-                          name="position"
-                          value="{{$user->position}}"
-                          readonly
+                        type="text"
+                        id="jabatan"
+                        class="text-xs md:text-sm text-gray-900 bg-gray-200 border-2 border-gray-400 rounded-lg outline-none focus:border-indigo-800 dark:border-gray-300 dark:bg-gray-300 block w-full p-3"
+                        required
+                        name="position"
+                        value="{{$user->position}}"
+                        readonly
                         />
                       </div>
     
                       {{-- group of button --}}
                       <div class="inline-flex rounded-md shadow-sm ml-0" role="group">
                         <button
-                          type="submit"
-                          class="submitButton inline-flex items-center px-4 py-2 text-sm font-medium bg-gray-900 text-white border-2 border-gray-900 rounded-lg hover:bg-gray-500 hover:border-gray-500 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:bg-indigo-900 dark:border-indigo-900 dark:hover:bg-indigo-950"
-                          title="Submit data"
+                        type="submit"
+                        class="submitButton inline-flex items-center px-4 py-2 text-sm font-medium bg-gray-900 text-white border-2 border-gray-900 rounded-lg hover:bg-gray-500 hover:border-gray-500 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:bg-indigo-900 dark:border-indigo-900 dark:hover:bg-indigo-950"
+                        title="Submit data"
                         >
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 md:mr-3 h-5">
                             <path
@@ -178,14 +135,13 @@
         </div>
       </div>
     </div>
-
+    
     <script src="{{asset('js/compress-image.js')}}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.ckeditor.com/4.13.1/standard/ckeditor.js"></script>
     <script>
       CKEDITOR.replace("isi");
-    </script>
+      </script>
     <script src="{{asset('js/darkToggle.js')}}"></script>
-  </body>
-</html>
-
+    
+@endsection
