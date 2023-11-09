@@ -220,12 +220,5 @@
       </div>
     @endif
 
-    {{-- success notif --}} 
-    @include('components.dashboard.successnotif')
-
-    <script src="{{asset('js/hide-alert.js')}}"></script>
-    
-    <script src="{{asset('js/darkToggle.js')}}"></script>
-
 @endsection
 

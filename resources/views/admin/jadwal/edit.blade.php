@@ -1,17 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="shortcut icon" href="{{asset('img/logo.png')}}" type="image/x-icon" />
-    <title>Admin - Jadwal</title>
+@extends('layouts.app')
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="{{asset('js/onPageLoad.js')}}"></script>
-    {{-- tailwind css using vite --}} @vite(['resources/css/app.css','resources/js/app.js'])
-  </head>
-  <body class="dark:bg-slate-900 bg-white">
+@section('title')
+    Dashboard - Jadwal
+@endsection
+
+@section('navbar-header')
+    Jadwal - Ubah Data
+@endsection
+
+@section('content')
     {{-- Navbar Part --}}
     <nav class="fixed top-0 z-50 w-full bg-indigo-800 border-b-4 border-indigo-900 dark:bg-indigo-950 dark:border-slate-900">
       <div class="px-3 py-3 lg:px-5 lg:pl-3">
@@ -212,11 +209,4 @@
       </div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdn.ckeditor.com/4.13.1/standard/ckeditor.js"></script>
-    <script>
-      CKEDITOR.replace("isi");
-    </script>
-    <script src="{{asset('js/darkToggle.js')}}"></script>
-  </body>
-</html>
+@endsection

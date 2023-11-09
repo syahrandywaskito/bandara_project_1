@@ -14,7 +14,7 @@
     {{-- tailwind css using vite --}} 
     @vite(['resources/css/app.css','resources/js/app.js'])
   </head>
-  <body>
+  <body class="dark:bg-slate-900 bg-white">
     {{-- navbar & sidebar --}}
     <nav class="fixed top-0 z-50 w-full bg-indigo-800 border-b-4 border-indigo-900 dark:bg-indigo-950 dark:border-slate-900">
       <div class="px-3 py-3 lg:px-5 lg:pl-3">
@@ -58,6 +58,12 @@
     @include('components.dashboard.sidebar')
 
     @yield('content')
+
+    @include('components.dashboard.successnotif')
+
+    <script src="{{asset('js/hide-alert.js')}}"></script>
+    
+    <script src="{{asset('js/darkToggle.js')}}"></script>
 
     {{-- Aos Init --}}
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

@@ -412,7 +412,7 @@
                       $hari = now()->isoFormat('dddd'); // Mengambil nama hari
                       @endphp
             
-                      @if ($data->maskapai != 'Garuda Indonesia' || in_array($hari, ['Senin', 'Rabu', 'Jumat', 'Sabtu', 'Minggu']))  
+                      @if ($data->id_penerbangan != 'GIA-291' || in_array($hari, ['Senin', 'Rabu', 'Jumat', 'Sabtu', 'Minggu']))  
                       <tr>
                         <td class="px-4 lg:px-0 py-2 text-center hidden md:block">
                           <img src="{{asset('/storage/logo/'.$data->logo_maskapai)}}" style="width: 120px" alt="{{$data->maskapai}}" class="mx-auto">
@@ -488,7 +488,7 @@
                       $hari = now()->isoFormat('dddd'); // Mengambil nama hari
                       @endphp
             
-                      @if ($data->maskapai != 'Garuda Indonesia' || in_array($hari, ['Senin', 'Rabu', 'Jumat', 'Sabtu', 'Minggu']))  
+                      @if ($data->id_penerbangan != 'GIA-290' || in_array($hari, ['Senin', 'Rabu', 'Jumat', 'Sabtu', 'Minggu']))  
                       <tr>
                         <td class="px-4 lg:px-0 py-2 text-center hidden md:block">
                           <img src="{{asset('/storage/logo/'.$data->logo_maskapai)}}" style="width: 120px" alt="{{$data->maskapai}}" class="mx-auto">
