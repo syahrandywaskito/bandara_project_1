@@ -10,11 +10,11 @@
 
 @section('content') 
     <div class="py-7 md:px-5 lg:ml-64">
-      <section class="bg-white dark:bg-slate-900">
-        <div class="pt-16 pb-5 px-4 mx-auto max-w-screen-xl">
-          <div class="bg-gray-50 border border-gray-100 dark:bg-indigo-950 dark:border-0 rounded-lg shadow-lg px-5 py-8 sm:px-8 md:p-12 lg:mb-8">
+      <div>
+        <div class="pt-16 px-4 mx-auto max-w-screen-xl">
+          <div class="bg-white dark:bg-indigo-950 rounded-lg shadow-lg px-5 py-8 sm:px-8 md:p-12 lg:mb-8">
             <!-- Breadcrumb -->
-            <nav class="flex px-5 py-3 text-gray-900 border-2 border-gray-200 rounded-lg bg-gray-200 dark:text-gray-100 shadow-sm" aria-label="Breadcrumb">
+            <nav class="flex py-3 text-gray-700 rounded-lg" aria-label="Breadcrumb">
               <ol class="inline-flex items-center space-x-1 md:space-x-3 font-montserrat">
                 <li class="inline-flex items-center">
                   <a href="{{route('dashboard')}}" class="inline-flex items-center text-xs md:text-sm font-medium text-gray-700 hover:text-indigo-600">
@@ -28,7 +28,7 @@
                 </li>
                 <li aria-current="page">
                   <div class="flex items-center">
-                    <svg class="w-3 h-3 mx-1 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                    <svg class="w-3 h-3 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                       <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
                     </svg>
                     <span class="ml-1 text-xs md:text-sm font-medium text-gray-700 md:ml-2">List FIDS</span>
@@ -36,6 +36,9 @@
                 </li>
               </ol>
             </nav>
+
+            <hr class="border border-gray-300">
+
             <h1 class="inline-flex items-center text-gray-900 dark:text-gray-200 mt-8 text-base md:text-lg xl:text-xl uppercase font-roboto font-bold mb-4">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="flex-shrink-0 w-6 mr-3 h-6 dark:text-gray-100 group-hover:text-gray-900">
                 <path
@@ -73,7 +76,7 @@
                   <div class="flex">
                     <select
                       id="kolom"
-                      class="block p-3.5 w-full z-20 text-xs md:text-sm text-gray-900 bg-gray-200 border-2 border-gray-200 rounded-l-lg outline-none focus:border-indigo-800 dark:border-gray-50 dark:bg-gray-50 font-roboto"
+                      class="block p-3.5 w-full z-20 text-gray-900 bg-gray-100 rounded-l-lg outline-none focus:border-indigo-800 dark:border-gray-50 dark:bg-gray-50 font-roboto text-xs md:text-sm"
                       name="kolom"
                     >
                       <option value="name" selected>Nama Perangkat</option>
@@ -83,7 +86,7 @@
                       <input
                         type="text"
                         name="cari"
-                        class="block p-3.5 w-full z-20 text-xs md:text-sm text-gray-900 bg-gray-200 border-2 border-gray-200 rounded-r-lg outline-none focus:border-indigo-800 dark:border-gray-50 dark:bg-gray-50 font-roboto"
+                        class="block p-3.5 w-full z-20 text-gray-900 bg-gray-100 rounded-r-lg outline-none focus:border-indigo-800 dark:border-gray-50 dark:bg-gray-50 font-roboto text-xs md:text-sm"
                         placeholder="Cari"
                         required
                       />
@@ -91,7 +94,7 @@
                       <button
                         title="Cari data"
                         type="submit"
-                        class="absolute top-0 right-0 p-3 text-xs md:text-sm font-medium h-full text-gray-50 bg-indigo-800 rounded-r-lg hover:bg-gray-100 hover:text-indigo-800 focus:z-10 focus:ring-2 focus:ring-indigo-800 focus:outline-none dark:bg-gray-50 dark:text-indigo-900 dark:hover:bg-indigo-900 dark:hover:text-gray-100 transition duration-200 dark:hover:ring-1 dark:hover:ring-indigo-900"
+                        class="absolute top-0 right-0 p-3 text-xs md:text-sm font-medium h-full text-gray-50 bg-indigo-800 rounded-r-lg hover:bg-indigo-500 focus:z-10 focus:ring-2 focus:ring-indigo-800 focus:outline-none dark:bg-gray-50 dark:text-indigo-900 dark:hover:bg-indigo-900 dark:hover:text-gray-100 transition duration-200 dark:hover:ring-1 dark:hover:ring-indigo-900"
                       >
                         <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
@@ -109,7 +112,7 @@
                   <input type="text" name="all" class="hidden" readonly value="all" />
                   <button
                     type="submit"
-                    class="p-4 text-xs md:text-sm font-medium text-center inline-flex items-center text-gray-50 bg-indigo-800 rounded-lg hover:bg-gray-100 hover:text-indigo-800 focus:z-10 focus:ring-2 focus:ring-indigo-800 transition duration-200 dark:bg-gray-100 dark:text-indigo-800 dark:hover:bg-indigo-900 dark:hover:text-gray-100 dark:border-gray-100"
+                    class="p-3.5 text-base font-medium text-center inline-flex items-center text-gray-50 bg-indigo-800 rounded-lg hover:bg-indigo-500 focus:z-10 focus:ring-2 focus:ring-indigo-800 transition duration-200 dark:bg-gray-100 dark:text-indigo-800 dark:hover:bg-indigo-900 dark:hover:text-gray-100 dark:border-gray-100"
                     title="Tampilkan data sekarang"
                   >
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
@@ -128,7 +131,7 @@
         </div>
 
         <div class="px-4 mx-auto max-w-screen-xl">
-          <div class="relative overflow-x-auto shadow-lg bg-gray-50 dark:bg-indigo-950 dark:border-0 sm:rounded-lg p-4">
+          <div class="relative overflow-x-auto shadow-lg bg-white dark:bg-indigo-950 dark:border-0 sm:rounded-lg p-4">
             <table class="w-full text-sm text-left">
               <caption class="p-5 text-sm lg:text-base font-semibold text-left text-gray-900 dark:text-gray-200 font-montserrat">
                 <span class="uppercase">Tabel Perangkat</span>
@@ -194,7 +197,7 @@
             </table>
           </div>
         </div>
-      </section>
+      </div>
     </div>
 
     {{-- Create Data Modal--}}
@@ -208,7 +211,7 @@
               @csrf
               <div>
                 <label for="name" class="block mb-2 text-xs md:text-sm font-medium text-gray-900 dark:text-white">Nama Monitor FIDS</label>
-                <input type="text" name="name" class="text-xs md:text-sm text-gray-900 bg-gray-50 border-2 border-gray-400 rounded-lg outline-none focus:border-indigo-800 dark:border-gray-100 w-full p-3" required />
+                <input type="text" name="name" class="text-xs md:text-sm text-gray-900 bg-white shadow-md rounded-lg outline-none focus:border-indigo-800 dark:border-gray-100 dark:bg-gray-100 block w-full p-3" required />
               </div>
               <button
                 type="submit"

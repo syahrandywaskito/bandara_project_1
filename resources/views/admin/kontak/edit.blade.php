@@ -16,14 +16,14 @@
 @section('content')
     {{-- Content Part --}}
     <div class="py-7 md:px-5 lg:ml-64">
-      <div class="bg-white dark:bg-slate-900">
+      <div>
         <div class="py-16 px-4 mx-auto max-w-screen-xl text-start">
-          <div class="bg-gray-50 border border-gray-100 dark:border-0 dark:bg-indigo-950 rounded-lg shadow-lg px-5 py-8 sm:px-8 md:p-12">
+          <div class="bg-white dark:bg-indigo-950 rounded-lg shadow-lg px-5 py-8 sm:px-8 md:p-12">
             <!-- Breadcrumb -->
-            <nav class="flex px-5 py-3 text-gray-900 border-2 border-gray-200 rounded-lg bg-gray-200 dark:bg-gray-100 shadow-sm" aria-label="Breadcrumb">
+            <nav class="lex py-3 text-gray-700 rounded-lg" aria-label="Breadcrumb">
               <ol class="inline-flex items-center space-x-1 md:space-x-3 font-montserrat">
                 <li class="inline-flex items-center">
-                  <a href="{{route('dashboard')}}" class="inline-flex items-center text-xs md:text-sm font-medium text-gray-700 hover:text-indigo-600">
+                  <a href="{{route('dashboard')}}" class="inline-flex items-center text-xs md:text-sm font-medium hover:text-indigo-600">
                     <svg class="w-3 h-3 mr-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                       <path
                         d="m19.707 9.293-2-2-7-7a1 1 0 0 0-1.414 0l-7 7-2 2a1 1 0 0 0 1.414 1.414L2 10.414V18a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2v-7.586l.293.293a1 1 0 0 0 1.414-1.414Z"
@@ -34,18 +34,18 @@
                 </li>
                 <li>
                   <div class="flex items-center">
-                    <svg class="w-3 h-3 mx-1 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                    <svg class="w-3 h-3 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                       <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
                     </svg>
-                    <a href="{{URL::previous()}}" class="ml-1 text-xs md:text-sm font-medium text-gray-900 hover:text-indigo-600 md:ml-2">Kontak & Saran</a>
+                    <a href="{{URL::previous()}}" class="ml-1 text-xs md:text-sm font-medium hover:text-indigo-600 md:ml-2">Kontak & Saran</a>
                   </div>
                 </li>
                 <li aria-current="page">
                   <div class="flex items-center">
-                    <svg class="w-3 h-3 mx-1 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                    <svg class="w-3 h-3 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                       <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
                     </svg>
-                    <span class="ml-1 text-xs md:text-sm font-medium text-gray-700 md:ml-2">
+                    <span class="ml-1 text-xs md:text-sm font-medium md:ml-2">
                       @if (isset($kontak))
                         Ubah Data  
                       @else
@@ -57,9 +57,11 @@
               </ol>
             </nav>
 
+            <hr class="border border-gray-300">
+
             @if(isset($kontak))
               {{-- Header text --}}
-              <h1 class="inline-flex items-center text-gray-900 dark:text-gray-200 lg:px-2 mt-6 text-base md:text-lg xl:text-xl uppercase font-montserrat font-bold">
+              <h1 class="inline-flex items-center text-gray-900 dark:text-gray-200 mt-6 text-base md:text-lg xl:text-xl uppercase font-montserrat font-bold">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 mr-2 h-6">
                   <path d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-8.4 8.4a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32l8.4-8.4z" />
                   <path d="M5.25 5.25a3 3 0 00-3 3v10.5a3 3 0 003 3h10.5a3 3 0 003-3V13.5a.75.75 0 00-1.5 0v5.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5V8.25a1.5 1.5 0 011.5-1.5h5.25a.75.75 0 000-1.5H5.25z" />
@@ -86,12 +88,12 @@
                             />
                           </svg>
                         </label>
-                        <div class="flex items-center pt-1">
-                          <span class="text-xs md:text-sm text-gray-100 bg-gray-600 border-2 border-gray-600 rounded-l-lg outline-none focus:border-indigo-800 dark:border-indigo-900 dark:bg-indigo-900 block w-fit p-3"> +62 </span>
+                        <div class="flex items-center pt-1 shadow-md">
+                          <span class="text-xs md:text-sm text-gray-100 bg-indigo-800 rounded-l-lg outline-none dark:border-indigo-900 dark:bg-indigo-900 block w-fit p-3"> +62 </span>
                           <input
                             type="text"
                             id="no_telepon"
-                            class="text-xs md:text-sm text-gray-900 bg-gray-50 border-y-2 border-r-2 border-gray-400 rounded-r-lg outline-none focus:border-indigo-800 dark:border-gray-100 dark:bg-gray-100 block w-full p-3"
+                            class="text-xs md:text-sm text-gray-900 bg-white rounded-r-lg outline-none dark:border-gray-100 dark:bg-gray-100 block w-full p-3"
                             required
                             name="no_tlp"
                             pattern="^[1-9][0-9]*$"
@@ -108,7 +110,7 @@
                         <input
                           type="email"
                           id="email"
-                          class="text-xs md:text-sm text-gray-900 bg-gray-50 border-2 border-gray-400 rounded-lg outline-none focus:border-indigo-800 dark:border-gray-100 dark:bg-gray-100 block w-full p-3"
+                          class="text-xs md:text-sm text-gray-900 bg-white rounded-lg outline-none dark:border-gray-100 dark:bg-gray-100 block w-full p-3 shadow-md"
                           required
                           name="email_admin"
                           value="{{$kontak->email_admin}}"
@@ -116,10 +118,10 @@
                       </div>
     
                       {{-- group of button --}}
-                      <div class="" role="group">
+                      <div class="w-fit shadow-lg" role="group">
                         <button
                           type="submit"
-                          class="submitButton inline-flex items-center px-4 py-2 text-sm font-medium bg-gray-900 text-white border-2 border-gray-900 rounded-l-lg hover:bg-gray-500 hover:border-gray-500 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:bg-indigo-900 dark:border-indigo-900 dark:hover:bg-indigo-950 rounded-lg"
+                          class="submitButton inline-flex items-center px-4 py-2 text-sm font-medium bg-indigo-800 text-white rounded-lg hover:bg-indigo-500 focus:z-10 focus:ring-2 focus:ring-indigo-800 dark:bg-indigo-900 dark:border-indigo-900 dark:hover:bg-indigo-950"
                           title="Submit data"
                         >
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 md:mr-3 h-5">
@@ -158,12 +160,12 @@
                         <label for="no_telepon" class="block mb-2 text-xs md:text-sm font-medium text-gray-900 dark:text-gray-200">
                           No Telepon
                         </label>
-                        <div class="flex items-center">
-                          <span class="text-xs md:text-sm text-gray-100 bg-gray-600 border-2 border-gray-600 rounded-l-lg outline-none focus:border-indigo-800 dark:border-indigo-900 dark:bg-indigo-900 block w-fit p-3"> +62 </span>
+                        <div class="flex items-center shadow-md">
+                          <span class="text-xs md:text-sm text-gray-100 bg-indigo-800 rounded-l-lg outline-none focus:border-indigo-800 dark:border-indigo-900 dark:bg-indigo-900 block w-fit p-3"> +62 </span>
                           <input
                             type="text"
                             id="no_telepon"
-                            class="text-xs md:text-sm text-gray-900 bg-gray-50 border-y-2 border-r-2 border-gray-400 rounded-r-lg outline-none focus:border-indigo-800 dark:border-gray-100 dark:bg-gray-100 block w-full p-3"
+                            class="text-xs md:text-sm text-gray-900 bg-white rounded-r-lg outline-none focus:border-indigo-800 dark:border-gray-100 dark:bg-gray-100 block w-full p-3"
                             required
                             name="no_tlp"
                           />
@@ -177,17 +179,17 @@
                         <input
                           type="email"
                           id="email"
-                          class="text-xs md:text-sm text-gray-900 bg-gray-50 border-2 border-gray-400 rounded-lg outline-none focus:border-indigo-800 dark:border-gray-100 dark:bg-gray-100 block w-full p-3"
+                          class="text-xs md:text-sm text-gray-900 bg-white rounded-lg outline-none focus:border-indigo-800 dark:border-gray-100 dark:bg-gray-100 block w-full p-3 shadow-md"
                           required
                           name="email_admin"
                         />
                       </div>
     
                       {{-- group of button --}}
-                      <div class="inline-flex rounded-md shadow-sm ml-0" role="group">
+                      <div class="inline-flex rounded-md shadow-lg ml-0" role="group">
                         <button
                           type="submit"
-                          class="submitButton inline-flex items-center px-4 py-2 text-sm font-medium bg-gray-900 text-white border-2 border-gray-900 rounded-l-lg hover:bg-gray-500 hover:border-gray-500 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:bg-indigo-900 dark:border-indigo-900 dark:hover:bg-indigo-950"
+                          class="submitButton inline-flex items-center px-4 py-2 text-sm font-medium bg-indigo-800 text-white rounded-l-lg hover:bg-indigo-500 focus:z-10 focus:ring-2 focus:ring-indigo-800 dark:bg-indigo-900 dark:border-indigo-900 dark:hover:bg-indigo-950"
                           title="Submit data"
                         >
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 md:mr-3 h-5">
@@ -203,7 +205,7 @@
                         </button>
                         <button
                           type="reset"
-                          class="inline-flex rounded-r-lg items-center px-4 py-2 text-sm font-medium text-white bg-gray-900 border-2 border-t border-b border-gray-900 hover:bg-gray-500 hover:border-gray-500 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:bg-indigo-900 dark:border-indigo-900 dark:hover:bg-indigo-950"
+                          class="inline-flex items-center px-4 py-2 text-sm font-medium bg-indigo-800 text-white rounded-r-lg hover:bg-indigo-500 focus:z-10 focus:ring-2 focus:ring-indigo-800 dark:bg-indigo-900 dark:border-indigo-900 dark:hover:bg-indigo-950"
                           title="reset form"
                         >
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 md:mr-3 h-5">
@@ -228,12 +230,5 @@
         </div>
       </div>
     </div>
-
-    <script src="{{asset('js/compress-image.js')}}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdn.ckeditor.com/4.13.1/standard/ckeditor.js"></script>
-    <script>
-      CKEDITOR.replace("isi");
-    </script>
 
 @endsection

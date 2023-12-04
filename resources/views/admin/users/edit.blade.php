@@ -75,7 +75,7 @@
                       <input
                       type="text"
                       id="name"
-                      class="text-xs md:text-sm text-gray-900 bg-gray-50 border-2 border-gray-400 rounded-lg outline-none focus:border-indigo-800 dark:border-gray-100 dark:bg-gray-100 block w-full p-3"
+                      class="text-xs md:text-sm text-gray-900 bg-white shadow-md rounded-lg outline-none focus:border-indigo-800 dark:border-gray-100 dark:bg-gray-100 block w-full p-3"
                       required
                       name="name"
                       value="{{$user->name}}"
@@ -89,7 +89,7 @@
                         <input
                         type="email"
                         id="email"
-                        class="text-xs md:text-sm text-gray-900 bg-gray-200 border-2 border-gray-400 rounded-lg outline-none focus:border-indigo-800 dark:border-gray-300 dark:bg-gray-300 block w-full p-3"
+                        class="text-xs md:text-sm text-gray-900 bg-gray-100 shadow-md rounded-lg outline-none dark:border-gray-100 dark:bg-gray-100 block w-full p-3"
                         required
                         name="email"
                         value="{{$user->email}}"
@@ -104,7 +104,7 @@
                         <input
                         type="text"
                         id="jabatan"
-                        class="text-xs md:text-sm text-gray-900 bg-gray-200 border-2 border-gray-400 rounded-lg outline-none focus:border-indigo-800 dark:border-gray-300 dark:bg-gray-300 block w-full p-3"
+                        class="text-xs md:text-sm text-gray-900 bg-gray-100 shadow-md rounded-lg outline-none focus:border-indigo-800 dark:border-gray-100 dark:bg-gray-100 block w-full p-3"
                         required
                         name="position"
                         value="{{$user->position}}"
@@ -113,10 +113,10 @@
                       </div>
     
                       {{-- group of button --}}
-                      <div class="inline-flex rounded-md shadow-sm ml-0" role="group">
+                      <div class="inline-flex rounded-md shadow-lg ml-0 w-fit" role="group">
                         <button
                         type="submit"
-                        class="submitButton inline-flex items-center px-4 py-2 text-sm font-medium bg-gray-900 text-white border-2 border-gray-900 rounded-lg hover:bg-gray-500 hover:border-gray-500 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:bg-indigo-900 dark:border-indigo-900 dark:hover:bg-indigo-950"
+                        class="submitButton inline-flex items-center px-4 py-2 text-sm font-medium bg-indigo-800 text-white rounded-lg hover:bg-indigo-500 focus:z-10 focus:ring-2 focus:ring-indigo-800 dark:bg-indigo-900 dark:border-indigo-900 dark:hover:bg-indigo-950"
                         title="Submit data"
                         >
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 md:mr-3 h-5">
@@ -138,13 +138,5 @@
         </div>
       </div>
     </div>
-    
-    <script src="{{asset('js/compress-image.js')}}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdn.ckeditor.com/4.13.1/standard/ckeditor.js"></script>
-    <script>
-      CKEDITOR.replace("isi");
-      </script>
-    <script src="{{asset('js/darkToggle.js')}}"></script>
     
 @endsection

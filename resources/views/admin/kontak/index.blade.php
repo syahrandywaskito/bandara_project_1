@@ -11,11 +11,11 @@
 @section('content')
 
     <div class="py-7 md:px-5 lg:ml-64">
-      <div class="bg-white dark:bg-slate-900">
-        <div class="pt-16 pb-5 px-4 mx-auto max-w-screen-xl">
-          <div class="bg-gray-50 border border-gray-100 dark:bg-indigo-950 dark:border-0 rounded-lg shadow-lg px-5 py-8 sm:px-8 md:p-12 lg:mb-8">
+      <div>
+        <div class="pt-16 px-4 mx-auto max-w-screen-xl">
+          <div class="bg-white dark:bg-indigo-950 dark:border-0 rounded-lg shadow-lg px-5 py-8 sm:px-8 md:p-12 lg:mb-8">
             <!-- Breadcrumb -->
-            <nav class="flex px-5 py-3 text-gray-900 border-2 border-gray-200 rounded-lg bg-gray-200 dark:text-gray-100 shadow-sm" aria-label="Breadcrumb">
+            <nav class="flex py-3 text-gray-700 rounded-lg" aria-label="Breadcrumb">
               <ol class="inline-flex items-center space-x-1 md:space-x-3 font-montserrat">
                 <li class="inline-flex items-center">
                   <a href="{{route('dashboard')}}" class="inline-flex items-center font-medium text-gray-700 hover:text-indigo-600 text-xs md:text-sm">
@@ -29,7 +29,7 @@
                 </li>
                 <li aria-current="page">
                   <div class="flex items-center">
-                    <svg class="w-3 h-3 mx-1 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                    <svg class="w-3 h-3 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                       <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
                     </svg>
                     <span class="ml-1 text-xs md:text-sm font-medium text-gray-700 md:ml-2">Kontak & Saran</span>
@@ -37,6 +37,9 @@
                 </li>
               </ol>
             </nav>
+
+            <hr class="border border-gray-300">
+
             <h1 class="inline-flex items-center text-gray-900 mt-8 dark:text-gray-200 text-base md:text-lg xl:text-xl font-roboto font-bold mb-4 uppercase">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 mr-2 h-6">
                 <path fill-rule="evenodd" d="M4.804 21.644A6.707 6.707 0 006 21.75a6.721 6.721 0 003.583-1.029c.774.182 1.584.279 2.417.279 5.322 0 9.75-3.97 9.75-9 0-5.03-4.428-9-9.75-9s-9.75 3.97-9.75 9c0 2.409 1.025 4.587 2.674 6.192.232.226.277.428.254.543a3.73 3.73 0 01-.814 1.686.75.75 0 00.44 1.223zM8.25 10.875a1.125 1.125 0 100 2.25 1.125 1.125 0 000-2.25zM10.875 12a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0zm4.875-1.125a1.125 1.125 0 100 2.25 1.125 1.125 0 000-2.25z" clip-rule="evenodd" />
@@ -87,7 +90,7 @@
         </div>
 
         <div class="px-4 mx-auto max-w-screen-xl">
-          <div class="relative overflow-x-auto shadow-lg bg-gray-50 dark:bg-indigo-950 dark:border-0 sm:rounded-lg p-4">
+          <div class="relative overflow-x-auto shadow-lg bg-white dark:bg-indigo-950 dark:border-0 sm:rounded-lg p-4">
             <table class="w-full text-sm text-left">
               <caption class="p-5 text-sm lg:text-base font-semibold text-left text-gray-900 dark:text-gray-200 font-montserrat">
                 <span class="uppercase">Tabel Saran</span>
