@@ -11,20 +11,20 @@
 @section('content')
     
     <div class="py-7 md:px-5 lg:ml-64">
-      <div class="bg-white dark:bg-slate-900">
+      <div class="">
         <div class="pt-16 pb-5 px-4 mx-auto max-w-screen-xl">
-          <div class="bg-gray-50 border border-gray-100 dark:border-0 dark:bg-indigo-950 rounded-lg shadow-lg px-5 py-8 sm:px-8 md:p-12 lg:mb-8">
-            <h1 class="text-gray-900 dark:text-gray-200 text-base text-center uppercase md:text-lg xl:text-2xl font-roboto font-bold mb-4">Selamat Datang di Dashboard Admin</h1>
+          <div class="bg-white border border-gray-50 dark:border-0 dark:bg-indigo-950 rounded-lg shadow-lg px-5 py-8 sm:px-8 md:p-12 lg:mb-8">
+            <h1 class="text-gray-900 dark:text-gray-200 text-base text-center uppercase md:text-lg xl:text-2xl font-roboto font-bold mb-4">Selamat Datang di Dashboard</h1>
             <p class="text-sm lg:text-base xl:text-lg text-center font-normal font-montserrat text-gray-600 dark:text-gray-200 mb-3">
-              <strong>Admin Dashboard</strong> atau <strong>Dashboard Admin</strong> adalah bagian yang berfungsi agar pengguna yang terdaftar untuk masuk ke Dashboard dapat menambahkan, menghapus, dan mengedit data-data yang ditampilkan pada halaman non-Dashboard atau yang biasa disebut
-              <em>Tampilan Pengguna</em> atau <em>Landing Page</em>. Jika anda sudah masuk ke halaman Dashboard Admin maka anda sudah mendaftar dan mendapat izin dari pihak yang mengelola website ini.
+              <strong>Dashboard</strong> adalah bagian yang berfungsi agar pengguna yang terdaftar untuk masuk ke Dashboard dapat menambahkan, menghapus, dan mengedit data-data yang ditampilkan pada halaman non-Dashboard atau yang biasa disebut
+              <em>Tampilan Pengguna</em> atau <em>Landing Page</em>. Jika anda sudah masuk ke halaman Dashboard maka anda sudah mendaftar dan mendapat izin dari pihak yang mengelola website ini.
             </p>
           </div>
         </div>
 
         {{-- Timeline Pembuatan Laporan --}}
         <div class="px-4 pb-8 mx-auto max-w-screen-xl">
-          <div class="bg-gray-50 border border-gray-100 dark:border-0 dark:bg-indigo-950 rounded-lg shadow-lg px-5 py-8 sm:px-8 md:p-12">
+          <div class="bg-white border border-gray-50 dark:border-0 dark:bg-indigo-950 rounded-lg shadow-lg px-5 py-8 sm:px-8 md:p-12">
             <h2 class="inline-flex items-center text-gray-900 dark:text-gray-200 text-base uppercase md:text-lg xl:text-xl font-roboto font-bold mb-6">
               <svg class="flex-shrink-0 w-5 mr-3 h-5 text-gray-900 dark:text-gray-200 group-hover:text-gray-900" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
                 <path
@@ -93,7 +93,7 @@
 
         {{-- Timeline Pembuatan berita --}}
         <div class="px-4 pb-8 mx-auto max-w-screen-xl">
-          <div class="bg-gray-50 border border-gray-100 dark:border-0 dark:bg-indigo-950 rounded-lg shadow-lg px-5 py-8 sm:px-8 md:p-12">
+          <div class="bg-white border border-gray-50 dark:border-0 dark:bg-indigo-950 rounded-lg shadow-lg px-5 py-8 sm:px-8 md:p-12">
             <h2 class="inline-flex items-center text-gray-900 dark:text-gray-200 text-base uppercase md:text-lg xl:text-xl font-roboto font-bold mb-6">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 mr-3 h-6">
                 <path
@@ -152,7 +152,7 @@
 
         {{-- Timeline Pembuatan Jadwal --}}
         <div class="px-4 pb-8 mx-auto max-w-screen-xl">
-          <div class="bg-gray-50 border border-gray-100 dark:border-0 dark:bg-indigo-950 rounded-lg shadow-lg px-5 py-8 sm:px-8 md:p-12">
+          <div class="bg-white border border-gray-50 dark:border-0 dark:bg-indigo-950 rounded-lg shadow-lg px-5 py-8 sm:px-8 md:p-12">
             <h2 class="inline-flex items-center text-gray-900 dark:text-gray-200 text-base uppercase md:text-lg xl:text-xl font-roboto font-bold mb-6">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 mr-3 h-6">
                 <path

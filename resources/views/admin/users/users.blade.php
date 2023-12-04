@@ -12,14 +12,14 @@
   
   {{-- content --}}
   <div class="py-7 md:px-5 lg:ml-64">
-    <div class="bg-white dark:bg-slate-900">
+    <div>
       <div class="pt-16 pb-5 px-4 mx-auto max-w-screen-xl">
-        <div class="bg-gray-50 border border-gray-100 dark:bg-indigo-950 dark:border-0 rounded-lg shadow-lg px-5 py-8 sm:px-8 md:p-12 lg:mb-8">
+        <div class="bg-white dark:bg-indigo-950 rounded-lg shadow-lg px-5 py-8 sm:px-8 md:p-12 lg:mb-8">
           <!-- Breadcrumb -->
-          <nav class="flex px-5 py-3 text-gray-900 border-2 border-gray-200 rounded-lg bg-gray-200 dark:text-gray-100 shadow-sm" aria-label="Breadcrumb">
+          <nav class="flex py-3 text-gray-700 rounded-lg" aria-label="Breadcrumb">
             <ol class="inline-flex items-center space-x-1 md:space-x-3 font-montserrat">
               <li class="inline-flex items-center">
-                <a href="{{route('dashboard')}}" class="inline-flex items-center font-medium text-gray-700 hover:text-indigo-600 text-xs md:text-sm">
+                <a href="{{route('dashboard')}}" class="inline-flex items-center font-medium hover:text-indigo-600 text-xs md:text-sm">
                   <svg class="w-3 h-3 mr-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                     <path
                       d="m19.707 9.293-2-2-7-7a1 1 0 0 0-1.414 0l-7 7-2 2a1 1 0 0 0 1.414 1.414L2 10.414V18a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2v-7.586l.293.293a1 1 0 0 0 1.414-1.414Z"
@@ -30,14 +30,17 @@
               </li>
               <li aria-current="page">
                 <div class="flex items-center">
-                  <svg class="w-3 h-3 mx-1 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                  <svg class="w-3 h-3 mx-1 text-inherit aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
                   </svg>
-                  <span class="ml-1 text-xs md:text-sm font-medium text-gray-700 md:ml-2">Halaman Pengguna</span>
+                  <span class="ml-1 text-xs md:text-sm font-medium md:ml-2">Halaman Pengguna</span>
                 </div>
               </li>
             </ol>
           </nav>
+
+          <hr class="border border-gray-300">
+
           <h1 class="inline-flex items-center text-gray-900 mt-8 dark:text-gray-200 text-base md:text-lg xl:text-xl font-roboto font-bold mb-4 uppercase">
             <svg class="flex-shrink-0 w-5 mr-3 h-5 dark:text-gray-100 group-hover:text-gray-900" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
               <path
@@ -58,7 +61,7 @@
                 <div class="flex">
                   <select
                     id="kolom"
-                    class="block p-3.5 w-full z-20 text-gray-900 bg-gray-200 border-2 border-gray-200 rounded-l-lg outline-none focus:border-indigo-800 dark:border-gray-50 dark:bg-gray-50 font-roboto text-xs md:text-sm"
+                    class="block p-3.5 w-full z-20 text-gray-900 bg-gray-100 rounded-l-lg outline-none focus:border-indigo-800 dark:border-gray-50 dark:bg-gray-50 font-roboto text-xs md:text-sm"
                     name="kolom"
                   >
                     <option selected>Pilih Kolom</option>
@@ -71,7 +74,7 @@
                     <input
                       type="text"
                       name="cari"
-                      class="block p-3.5 w-full z-20 text-gray-900 bg-gray-200 border-2 border-gray-200 rounded-r-lg outline-none focus:border-indigo-800 dark:border-gray-50 dark:bg-gray-50 font-roboto text-xs md:text-sm"
+                      class="block p-3.5 w-full z-20 text-gray-900 bg-gray-100 rounded-r-lg outline-none focus:border-indigo-800 dark:border-gray-50 dark:bg-gray-50 font-roboto text-xs md:text-sm"
                       placeholder="Cari"
                       required
                     />
@@ -115,7 +118,7 @@
       </div>
 
       <div class="px-4 mx-auto max-w-screen-xl">
-        <div class="relative overflow-x-auto shadow-lg bg-gray-50 dark:bg-indigo-950 dark:border-0 sm:rounded-lg p-4">
+        <div class="relative overflow-x-auto shadow-lg bg-white dark:bg-indigo-950 sm:rounded-lg p-4">
           <table class="w-full text-sm text-left">
             <caption class="p-5 text-sm lg:text-base font-semibold text-left text-gray-900 dark:text-gray-200 font-montserrat">
               <span class="uppercase">Tabel Data Pengguna</span>
@@ -188,10 +191,4 @@
       </div>
     </div>
   </div>
-
-  {{-- success notif --}} 
-  @include('components.dashboard.successnotif')
-
-  <script src="{{asset('js/darkToggle.js')}}"></script>
-
 @endsection

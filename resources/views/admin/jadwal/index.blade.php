@@ -263,7 +263,7 @@
                       Tujuan
                     </th>
                     <th scope="col" class="px-6 py-3">
-                      Jam Penerbangan
+                      Jam Keberangkatan
                     </th>
                     <th scope="col" class="px-6 py-3">
                       Aksi
@@ -356,7 +356,7 @@
                       Dari
                     </th>
                     <th scope="col" class="px-6 py-3">
-                      Jam Penerbangan
+                      Jam Kedatangan
                     </th>
                     <th scope="col" class="px-6 py-3">
                       Aksi

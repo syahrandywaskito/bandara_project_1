@@ -14,9 +14,9 @@
     {{-- tailwind css using vite --}} 
     @vite(['resources/css/app.css','resources/js/app.js'])
   </head>
-  <body class="dark:bg-slate-900 bg-white">
+  <body class="dark:bg-slate-900 bg-gray-50">
     {{-- navbar & sidebar --}}
-    <nav class="fixed top-0 z-50 w-full bg-indigo-800 border-b-4 border-indigo-900 dark:bg-indigo-950 dark:border-slate-900">
+    <nav class="fixed top-0 z-50 w-full bg-gray-50 dark:bg-indigo-950 dark:border-slate-900">
       <div class="px-3 py-3 lg:px-5 lg:pl-3">
         <div class="flex items-center justify-between">
           <div class="flex items-center justify-start">
@@ -25,7 +25,7 @@
               data-drawer-toggle="logo-sidebar"
               aria-controls="logo-sidebar"
               type="button"
-              class="inline-flex items-center p-2 text-sm text-gray-100 rounded-lg lg:hidden hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+              class="inline-flex items-center p-2 text-sm text-gray-900 rounded-lg lg:hidden hover:text-gray-50 hover:bg-indigo-800 focus:outline-none"
             >
               <span class="sr-only">Open sidebar</span>
               <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -37,8 +37,8 @@
               </svg>
             </button>
             <a href="{{URL::current()}}" class="flex ml-2 md:mr-24">
-              <img src="{{asset('img/logo.png')}}" class="h-8 mr-3" alt="FlowBite Logo" />
-              <span class="self-center uppercase font-roboto font-semibold hidden sm:block sm:text-base md:text-lg lg:text-xl text-gray-100 whitespace-nowrap">
+              <img src="{{asset('img/logo.png')}}" class="h-8 mr-3" />
+              <span class="self-center uppercase font-roboto font-semibold hidden sm:block sm:text-base md:text-lg lg:text-xl text-gray-900 whitespace-nowrap">
                 @yield('navbar-header', 'Dashboard')
               </span>
             </a>

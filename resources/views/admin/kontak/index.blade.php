@@ -52,6 +52,7 @@
 
                {{-- add data --}}
                <div>
+
                 @if ($kontak)
                   <a
                     href="{{route('kontak.admin.edit', $kontak->id)}}"
@@ -66,6 +67,7 @@
                     </svg>
                     Ubah Kontak
                   </a>
+
                 @else
                     <a
                     href="{{route('kontak.admin.create')}}"
@@ -78,6 +80,7 @@
                     Tambah Kontak
                   </a>
                 @endif
+
               </div>
             </div>
           </div>
@@ -109,6 +112,7 @@
                 </tr>
               </thead>
               <tbody class="font-roboto text-center text-xs sm:text-sm dark:text-gray-200">
+                
                 @foreach ($saran as $data)
                 <tr>
                   <td class="px-6 py-4">
@@ -121,7 +125,7 @@
                     {{$data->subjek}}
                   </td>
                   <td class="px-6 py-4 truncate">
-                    {{$data->pesan}}
+                    {!! Str::limit(strip_tags($data->pesan), $limit = 100, $end = '...') !!}
                   </td>
                   <td class="px-6 py-4">
                     <form onsubmit="return confirm('Anda ingin mengahapus saran ini ?')" action="{{route('saran.admin.destroy', $data->id)}}" method="POST">
@@ -160,14 +164,12 @@
                   </td>
                 </tr>
                 @endforeach
+
               </tbody>
             </table>
           </div>
         </div>
       </div>
     </div>
-
-    {{-- success notif --}} 
-    @include('components.dashboard.successnotif')
 
 @endsection
