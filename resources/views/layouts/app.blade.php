@@ -6,16 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="shortcut icon" href="{{asset('img/logo.png')}}" type="image/x-icon" />
     <title>
+
+      {{-- * Title name for each Part --}}
       @yield('title', 'Dashboard')
     </title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <script src="{{asset('js/onPageLoad.js')}}"></script>
-    {{-- tailwind css using vite --}} 
+
+    {{-- * tailwind css using vite --}} 
     @vite(['resources/css/app.css','resources/js/app.js'])
   </head>
   <body class="dark:bg-slate-900 bg-gray-50">
-    {{-- navbar & sidebar --}}
+    
+    {{-- * navbar & sidebar --}}
     <nav class="fixed top-0 z-50 w-full bg-gray-50 dark:bg-indigo-950 dark:border-slate-900">
       <div class="px-3 py-3 lg:px-5 lg:pl-3">
         <div class="flex items-center justify-between">
@@ -39,33 +43,40 @@
             <a href="{{URL::current()}}" class="flex ml-2 md:mr-24">
               <img src="{{asset('img/logo.png')}}" class="h-8 mr-3" />
               <span class="self-center uppercase font-roboto font-semibold hidden sm:block sm:text-base md:text-lg lg:text-xl text-gray-900 whitespace-nowrap">
+
+                {{-- * Navbar name for each Page --}}
                 @yield('navbar-header', 'Dashboard')
               </span>
             </a>
           </div>
           <div class="flex items-center">
 
-            {{-- Dark toggle --}} 
-            @include('components.dashboard.darktoggle') 
+            {{-- * Dark toggle --}} 
+            @include('components.dashboard._dark-toggle') 
 
-            {{-- User Profile Menu --}} 
-            @include('components.dashboard.userprofile')
+            {{-- * User Profile Menu --}} 
+            @include('components.dashboard._user-profile')
           </div>
         </div>
       </div>
     </nav>
 
-    @include('components.dashboard.sidebar')
+    {{-- * Side bar --}}
+    @include('components.dashboard._side-bar')
 
+    {{-- * Web Page Content --}}
     @yield('content')
 
-    @include('components.dashboard.successnotif')
+    {{-- * Success Notif --}}
+    @include('components.dashboard._success-notif')
 
+    {{-- * Hide Alert after alert appear --}}
     <script src="{{asset('js/hide-alert.js')}}"></script>
     
+    {{-- * JS for dark toggle --}}
     <script src="{{asset('js/darkToggle.js')}}"></script>
 
-    {{-- Aos Init --}}
+    {{-- * Aos Init for scrolling animation --}}
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
       AOS.init();

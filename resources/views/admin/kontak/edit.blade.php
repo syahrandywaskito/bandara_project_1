@@ -186,7 +186,7 @@
                       </div>
     
                       {{-- group of button --}}
-                      <div class="inline-flex rounded-md shadow-lg ml-0" role="group">
+                      <div class="inline-flex rounded-md shadow-lg ml-0 w-fit" role="group">
                         <button
                           type="submit"
                           class="submitButton inline-flex items-center px-4 py-2 text-sm font-medium bg-indigo-800 text-white rounded-l-lg hover:bg-indigo-500 focus:z-10 focus:ring-2 focus:ring-indigo-800 dark:bg-indigo-900 dark:border-indigo-900 dark:hover:bg-indigo-950"

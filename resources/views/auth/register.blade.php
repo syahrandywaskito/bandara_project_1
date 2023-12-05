@@ -182,7 +182,7 @@
                 {{-- error notif --}} 
                 @error('position')
                   <div class="mt-3">
-                    @include('components.dashboard.input-error-notif')
+                    @include('components.dashboard._input-error-notif')
                   </div>
                 @enderror
               </div>

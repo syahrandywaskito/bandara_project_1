@@ -60,19 +60,9 @@
 
             {{-- Menu opsi --}}
             <div class="pt-3 lg:flex items-center flex-row space-y-7 lg:space-x-4 lg:space-y-0">
+              
               {{-- add data --}}
-              <div>
-                <a
-                  href="{{route('cctv.create')}}"
-                  title="Tambah data baru"
-                  class="px-5 py-3.5 font-medium text-center inline-flex items-center text-gray-50 bg-indigo-800 rounded-lg hover:bg-gray-100 hover:text-green-700 focus:z-10 focus:ring-2 focus:ring-indigo-800 transition duration-200 dark:bg-gray-50 dark:text-green-700 dark:hover:bg-indigo-900 dark:hover:text-gray-100 dark:border-gray-100 text-xs sm:text-sm md:text-base"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 mr-2 h-5">
-                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm.75-11.25a.75.75 0 00-1.5 0v2.5h-2.5a.75.75 0 000 1.5h2.5v2.5a.75.75 0 001.5 0v-2.5h2.5a.75.75 0 000-1.5h-2.5v-2.5z" clip-rule="evenodd" />
-                  </svg>
-                  Tambah
-                </a>
-              </div>
+              @include('components.dashboard.buttons._add-button', ['route' => route('cctv.create')])
 
               {{-- Search --}}
               <div>
@@ -153,20 +143,9 @@
               <div>
                 <form action="{{route('cctv.index')}}" method="GET">
                   <input type="text" name="all" class="hidden" readonly value="all" />
-                  <button
-                    type="submit"
-                    class="p-3.5 text-base font-medium text-center inline-flex items-center text-gray-50 bg-indigo-800 rounded-lg hover:bg-indigo-500 focus:z-10 focus:ring-2 focus:ring-indigo-800 transition duration-200 dark:bg-gray-100 dark:text-indigo-800 dark:hover:bg-indigo-900 dark:hover:text-gray-100 dark:border-gray-100"
-                    title="Tampilkan data sekarang"
-                  >
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
-                      <path
-                        fill-rule="evenodd"
-                        d="M3 3.5A1.5 1.5 0 014.5 2h6.879a1.5 1.5 0 011.06.44l4.122 4.12A1.5 1.5 0 0117 7.622V16.5a1.5 1.5 0 01-1.5 1.5h-11A1.5 1.5 0 013 16.5v-13zM13.25 9a.75.75 0 01.75.75v4.5a.75.75 0 01-1.5 0v-4.5a.75.75 0 01.75-.75zm-6.5 4a.75.75 0 01.75.75v.5a.75.75 0 01-1.5 0v-.5a.75.75 0 01.75-.75zm4-1.25a.75.75 0 00-1.5 0v2.5a.75.75 0 001.5 0v-2.5z"
-                        clip-rule="evenodd"
-                      />
-                    </svg>
-                    <span class="sr-only">all</span>
-                  </button>
+
+                  @include('components.dashboard.buttons._show-current-button')
+                  
                 </form>
               </div>
             </div>
@@ -325,16 +304,14 @@
           </div>
         </div>
       </div>
-
-      {{-- pagination --}}
-      <div class="px-4 py-4 mx-auto max-w-screen-xl">
-        @if (!Session::has('cari'))  
-          {{ $cctvs->links() }}
-        @endif
-      </div>
     </div>
 
-    {{-- success notif --}} @include('components.dashboard.successnotif')
+    {{-- pagination --}}
+    @if (!Session::has('cari'))  
+      <div class="px-4 py-4 mx-auto max-w-screen-xl">
+        {{ $cctvs->links() }}
+      </div>
+    @endif
 
     <script>
       var sortDirection = 'asc';

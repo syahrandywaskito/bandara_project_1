@@ -16,7 +16,9 @@
         }
       }
     </style>
-    {{-- tailwind css using vite --}} @vite(['resources/css/app.css','resources/js/app.js'])
+
+    {{-- tailwind css using vite --}} 
+    @vite(['resources/css/app.css','resources/js/app.js'])
   </head>
   <body class="bg-login bg-cover bg-bottom sm:overflow-hidden">
     {{-- Back Button --}}
@@ -64,7 +66,7 @@
                 {{-- error notif --}}
                 @error('email')
                     <div class="mt-3">
-                      @include('components.dashboard.input-error-notif')
+                      @include('components.dashboard._input-error-notif')
                     </div>
                 @enderror
               </div>
@@ -118,7 +120,7 @@
                 {{-- error notif --}}
                 @error('password')
                     <div class="mt-3">
-                      @include('components.dashboard.input-error-notif')
+                      @include('components.dashboard._input-error-notif')
                     </div>
                 @enderror
               </div>
