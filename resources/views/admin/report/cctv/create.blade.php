@@ -12,14 +12,14 @@
 
     {{-- Content Part --}}
     <div class="py-7 md:px-5 lg:ml-64">
-      <section class="bg-white dark:bg-slate-900">
-        <div class="py-16 px-4 mx-auto max-w-screen-xl text-start">
-          <div class="bg-gray-50 border border-gray-100 dark:border-0 dark:bg-indigo-950 rounded-lg shadow-lg px-5 py-8 sm:px-8 md:p-12">
+      <div>
+        <div class="pt-16 px-4 mx-auto max-w-screen-xl text-start">
+          <div class="bg-white dark:bg-indigo-950 rounded-lg shadow-lg px-5 py-8 sm:px-8 md:p-12">
             <!-- Breadcrumb -->
-            <nav class="flex px-5 py-3 text-gray-900 border-2 border-gray-200 rounded-lg bg-gray-200 dark:bg-gray-100 shadow-sm" aria-label="Breadcrumb">
+            <nav class="flex py-3 text-gray-700" aria-label="Breadcrumb">
               <ol class="inline-flex items-center space-x-1 md:space-x-3 font-montserrat">
                 <li class="inline-flex items-center">
-                  <a href="{{route('dashboard')}}" class="inline-flex items-center text-xs md:text-sm font-medium text-gray-700 hover:text-indigo-600">
+                  <a href="{{route('dashboard')}}" class="inline-flex items-center text-xs md:text-sm font-medium hover:text-indigo-600">
                     <svg class="w-3 h-3 mr-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                       <path
                         d="m19.707 9.293-2-2-7-7a1 1 0 0 0-1.414 0l-7 7-2 2a1 1 0 0 0 1.414 1.414L2 10.414V18a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2v-7.586l.293.293a1 1 0 0 0 1.414-1.414Z"
@@ -30,22 +30,24 @@
                 </li>
                 <li>
                   <div class="flex items-center">
-                    <svg class="w-3 h-3 mx-1 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                    <svg class="w-3 h-3 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                       <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
                     </svg>
-                    <a href="{{route('cctv.index')}}" class="ml-1 text-xs md:text-sm font-medium text-gray-900 hover:text-indigo-600 md:ml-2">CCTV</a>
+                    <a href="{{route('cctv.index')}}" class="ml-1 text-xs md:text-sm font-medium hover:text-indigo-600 md:ml-2">CCTV</a>
                   </div>
                 </li>
                 <li aria-current="page">
                   <div class="flex items-center">
-                    <svg class="w-3 h-3 mx-1 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                    <svg class="w-3 h-3 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                       <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
                     </svg>
-                    <span class="ml-1 text-xs md:text-sm font-medium text-gray-700 md:ml-2">Tambah Data</span>
+                    <span class="ml-1 text-xs md:text-sm font-medium md:ml-2">Tambah Data</span>
                   </div>
                 </li>
               </ol>
             </nav>
+
+            <hr class="border border-gray-300">
 
             <h1 class="inline-flex items-center text-gray-900 dark:text-gray-200 mt-6 text-base md:text-lg xl:text-xl uppercase font-montserrat font-bold">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 mr-2 h-6">
@@ -77,7 +79,7 @@
                       type="date"
                       id="date"
                       name="selected_date"
-                      class="z-20 text-xs md:text-sm text-gray-900 bg-gray-200 border-2 border-gray-200 rounded-lg outline-none focus:border-indigo-800 dark:border-gray-100 dark:bg-gray-50 block w-full pl-10 p-3 font-roboto"
+                      class="z-20 text-xs md:text-sm text-gray-900 bg-gray-100  rounded-lg outline-none focus:border-indigo-800 dark:border-gray-100 dark:bg-gray-50 block w-full pl-10 p-3.5 font-roboto"
                       required
                     />
                   </div>
@@ -85,7 +87,7 @@
                   <button
                     title="Cari berdasarkan tanggal"
                     type="submit"
-                    class="p-4 ml-2 text-xs md:text-sm font-medium text-gray-50 bg-indigo-800 rounded-lg hover:bg-gray-100 hover:text-indigo-800 focus:z-10 focus:ring-2 focus:ring-indigo-800 focus:outline-none dark:bg-gray-100 dark:text-indigo-900 dark:hover:bg-indigo-900 dark:hover:text-gray-100 dark:hover:border-indigo-900 dark:border-gray-100 transition duration-200 font-roboto"
+                    class="p-4 ml-2 text-xs md:text-sm font-medium h-full text-gray-50 bg-indigo-800 rounded-lg hover:bg-indigo-500 focus:z-10 focus:ring-2 focus:ring-indigo-800 focus:outline-none dark:bg-gray-50 dark:text-indigo-900 dark:hover:bg-indigo-900 dark:hover:text-gray-100 transition duration-200 dark:hover:ring-1 dark:hover:ring-indigo-900"
                   >
                     <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                       <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
@@ -101,7 +103,7 @@
                   <input type="text" name="all" class="hidden" readonly value="all" />
                   <button
                     type="submit"
-                    class="p-3.5 text-xs md:text-sm font-medium text-center inline-flex items-center text-gray-50 bg-indigo-800 rounded-lg hover:bg-gray-100 hover:text-indigo-800 focus:z-10 focus:ring-2 focus:ring-indigo-800 transition duration-200 dark:bg-gray-100 dark:text-indigo-800 dark:hover:bg-indigo-900 dark:hover:text-gray-100 dark:border-gray-100"
+                    class="p-3.5 text-base font-medium text-center inline-flex items-center text-gray-50 bg-indigo-800 rounded-lg hover:bg-indigo-500 focus:z-10 focus:ring-2 focus:ring-indigo-800 transition duration-200 dark:bg-gray-100 dark:text-indigo-800 dark:hover:bg-indigo-900 dark:hover:text-gray-100 dark:border-gray-100"
                     title="Tampilkan data sekarang"
                   >
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
@@ -152,7 +154,7 @@
                       </label>
                       <input
                         type="date"
-                        class="text-sm text-gray-900 bg-gray-50 border-2 border-gray-400 rounded-lg outline-none focus:border-indigo-800 dark:border-gray-300 dark:bg-gray-300 block w-full p-3"
+                        class="text-xs md:text-sm text-gray-900 bg-white shadow-md rounded-lg outline-none focus:border-indigo-800 dark:border-gray-100 dark:bg-gray-100 block w-full p-3"
                         required
                         name="date"
                         value="{{$date}}"
@@ -165,7 +167,7 @@
                       <label for="by" class="block mb-2 text-sm font-medium text-gray-900">Created By</label>
                       <input
                         type="text"
-                        class="bg-gray-100 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3"
+                        class="text-xs md:text-sm text-gray-900 bg-white shadow-md rounded-lg outline-none focus:border-indigo-800 dark:border-gray-100 dark:bg-gray-100 block w-full p-3"
                         required
                         name="created_by"
                         value="{{auth()->user()->name}}"
@@ -178,7 +180,7 @@
                       <label for="by" class="block mb-2 text-sm font-medium text-gray-900">Updated By</label>
                       <input
                         type="text"
-                        class="bg-gray-100 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3"
+                        class="text-xs md:text-sm text-gray-900 bg-white shadow-md rounded-lg outline-none focus:border-indigo-800 dark:border-gray-100 dark:bg-gray-100 block w-full p-3"
                         required
                         name="updated_by"
                         value="{{auth()->user()->name}}"
@@ -192,7 +194,7 @@
                       <input
                         type="text"
                         id="hardware-name"
-                        class="text-xs md:text-sm text-gray-900 bg-gray-50 border-2 border-gray-400 rounded-lg outline-none focus:border-indigo-800 dark:border-gray-300 dark:bg-gray-300 block w-full p-3"
+                        class="text-xs md:text-sm text-gray-900 bg-white shadow-md rounded-lg outline-none focus:border-indigo-800 dark:border-gray-100 dark:bg-gray-100 block w-full p-3"
                         required
                         value="{{$item->name}}"
                         readonly
@@ -203,7 +205,7 @@
                     {{-- Select status for record --}}
                     <div>
                       <label for="record-status" class="block mb-2 text-xs md:text-sm font-medium text-gray-900 dark:text-gray-200">Status Rekaman</label>
-                      <select id="record-status" class="text-xs md:text-sm text-gray-900 bg-gray-50 border-2 border-gray-400 rounded-lg outline-none focus:border-indigo-800 dark:border-gray-100 w-full p-3" required name="record_status">
+                      <select id="record-status" class="text-xs md:text-sm text-gray-900 bg-white shadow-md rounded-lg outline-none focus:border-indigo-800 dark:border-gray-100 dark:bg-gray-100 block w-full p-3" required name="record_status">
                         <option selected>Select Status</option>
                         <option value="B">B</option>
                         <option value="S">S</option>
@@ -217,7 +219,7 @@
                       <input
                         type="text"
                         id="record-desc"
-                        class="text-xs md:text-sm text-gray-900 bg-gray-50 border-2 border-gray-400 rounded-lg outline-none focus:border-indigo-800 dark:border-gray-100 w-full p-3"
+                        class="text-xs md:text-sm text-gray-900 bg-white shadow-md rounded-lg outline-none focus:border-indigo-800 dark:border-gray-100 dark:bg-gray-100 block w-full p-3"
                         required
                         name="record_desc"
                       />
@@ -226,7 +228,7 @@
                     {{-- Select status for clean --}}
                     <div>
                       <label for="clean-status" class="block mb-2 text-xs md:text-sm font-medium text-gray-900 dark:text-gray-200">Status Kebersihan</label>
-                      <select id="clean-status" class="text-xs md:text-sm text-gray-900 bg-gray-50 border-2 border-gray-400 rounded-lg outline-none focus:border-indigo-800 dark:border-gray-100 w-full p-3" required name="clean_status">
+                      <select id="clean-status" class="text-xs md:text-sm text-gray-900 bg-white shadow-md rounded-lg outline-none focus:border-indigo-800 dark:border-gray-100 dark:bg-gray-100 block w-full p-3" required name="clean_status">
                         <option selected>Select Status</option>
                         <option value="B">B</option>
                         <option value="S">S</option>
@@ -240,7 +242,7 @@
                       <input
                         type="text"
                         id="clean-desc"
-                        class="text-xs md:text-sm text-gray-900 bg-gray-50 border-2 border-gray-400 rounded-lg outline-none focus:border-indigo-800 dark:border-gray-100 w-full p-3"
+                        class="text-xs md:text-sm text-gray-900 bg-white shadow-md rounded-lg outline-none focus:border-indigo-800 dark:border-gray-100 dark:bg-gray-100 block w-full p-3"
                         required
                         name="clean_desc"
                       />
@@ -252,7 +254,7 @@
                     <button
                       type="submit"
                       data-form="{{$dataForm}}"
-                      class="submitButton inline-flex items-center px-4 py-2 text-sm font-medium bg-gray-900 text-white border-2 border-gray-900 rounded-l-lg hover:bg-gray-500 hover:border-gray-500 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:bg-indigo-900 dark:border-indigo-900 dark:hover:bg-indigo-950"
+                      class="submitButton inline-flex items-center px-4 py-2 text-sm font-medium bg-indigo-800 text-white rounded-l-lg hover:bg-indigo-500 focus:z-10 focus:ring-2 focus:ring-indigo-800 dark:bg-indigo-900 dark:border-indigo-900 dark:hover:bg-indigo-950"
                       title="Submit data"
                     >
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 md:mr-3 h-5">
@@ -268,7 +270,7 @@
                     </button>
                     <button
                       type="reset"
-                      class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-gray-900 border-2 border-t border-b border-gray-900 hover:bg-gray-500 hover:border-gray-500 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:bg-indigo-900 dark:border-indigo-900 dark:hover:bg-indigo-950"
+                      class="inline-flex items-center px-4 py-2 text-sm font-medium bg-indigo-800 text-white hover:bg-indigo-500 focus:z-10 focus:ring-2 focus:ring-indigo-800 dark:bg-indigo-900 dark:border-indigo-900 dark:hover:bg-indigo-950"
                       title="reset form"
                     >
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 md:mr-3 h-5">
@@ -285,7 +287,7 @@
                     <button
                       type="button"
                       data-target="{{$toHide}}"
-                      class="hideButton inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-gray-900 border-2 border-gray-900 rounded-r-md hover:bg-gray-500 hover:border-gray-500 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:bg-indigo-900 dark:border-indigo-900 dark:hover:bg-indigo-950"
+                      class="hideButton inline-flex items-center px-4 py-2 text-sm font-medium bg-indigo-800 text-white rounded-r-lg hover:bg-indigo-500 focus:z-10 focus:ring-2 focus:ring-indigo-800 dark:bg-indigo-900 dark:border-indigo-900 dark:hover:bg-indigo-950"
                       title="sembunyikan form"
                     >
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 md:mr-3 h-5">
@@ -309,7 +311,7 @@
             </div>
           </div>
         </div>
-      </section>
+      </div>
     </div>
 
     <script>
@@ -348,7 +350,5 @@
         });
       });
     </script>
-
-    <script src="{{asset('js/darkToggle.js')}}"></script>
 
 @endsection

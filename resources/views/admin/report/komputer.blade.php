@@ -13,16 +13,16 @@
 {{-- Content Part --}}
 <div class="py-7 md:px-5 lg:ml-64">
       {{-- Header and table --}}
-      <div class="bg-white dark:bg-slate-900">
+      <div>
         {{-- header --}}
-        <div class="pt-16 pb-5 px-4 mx-auto max-w-screen-xl">
+        <div class="pt-16 px-4 mx-auto max-w-screen-xl">
           {{-- contain breadcrump, header text, sub-header text, and option menu --}}
-          <div class="bg-gray-50 border border-gray-100 dark:bg-indigo-950 dark:border-0 rounded-lg shadow-lg px-5 py-8 sm:px-8 md:p-12 lg:mb-8">
+          <div class="bg-white dark:bg-indigo-950 rounded-lg shadow-lg px-5 py-8 sm:px-8 md:p-12 lg:mb-8">
             <!-- Breadcrumb -->
-            <nav class="flex px-5 py-3 text-gray-900 border-2 border-gray-200 rounded-lg bg-gray-200 dark:bg-gray-100 shadow-sm" aria-label="Breadcrumb">
+            <nav class="flex py-3 text-gray-700" aria-label="Breadcrumb">
               <ol class="inline-flex items-center space-x-1 md:space-x-3 font-montserrat">
                 <li class="inline-flex items-center">
-                  <a href="{{route('dashboard')}}" class="inline-flex items-center text-xs md:text-sm font-medium text-gray-700 hover:text-indigo-600">
+                  <a href="{{route('dashboard')}}" class="inline-flex items-center text-xs md:text-sm font-medium hover:text-indigo-600">
                     <svg class="w-3 h-3 mr-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                       <path
                         d="m19.707 9.293-2-2-7-7a1 1 0 0 0-1.414 0l-7 7-2 2a1 1 0 0 0 1.414 1.414L2 10.414V18a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2v-7.586l.293.293a1 1 0 0 0 1.414-1.414Z"
@@ -33,14 +33,16 @@
                 </li>
                 <li aria-current="page">
                   <div class="flex items-center">
-                    <svg class="w-3 h-3 mx-1 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                    <svg class="w-3 h-3 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                       <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
                     </svg>
-                    <span class="ml-1 text-xs md:text-sm font-medium text-gray-700 md:ml-2">Komputer</span>
+                    <span class="ml-1 text-xs md:text-sm font-medium md:ml-2">Komputer</span>
                   </div>
                 </li>
               </ol>
             </nav>
+
+            <hr class="border border-gray-300">
 
             {{-- header text --}}
             <h1 class="inline-flex items-center text-gray-900 dark:text-gray-200 mt-8 text-base md:text-lg xl:text-xl uppercase font-roboto font-bold mb-4">
@@ -79,7 +81,7 @@
                   <div class="flex">
                     <select
                     id="kolom"
-                    class="block p-3.5 w-full z-20 text-xs md:text-sm text-gray-900 bg-gray-200 border-2 border-gray-200 rounded-l-lg outline-none focus:border-indigo-800 dark:border-gray-50 dark:bg-gray-50 font-roboto"
+                    class="block p-3.5 w-full z-20 text-gray-900 bg-gray-100 rounded-l-lg outline-none focus:border-indigo-800 dark:border-gray-50 dark:bg-gray-50 font-roboto text-xs md:text-sm"
                     name="kolom"
                     >
                     <option selected>Pilih Kolom</option>
@@ -95,7 +97,7 @@
                   <div class="relative w-full font-montserrat">
                     <input
                     type="text"
-                    class="block p-3.5 w-full z-20 text-xs md:text-sm text-gray-900 bg-gray-200 border-2 border-gray-200 rounded-r-lg outline-none focus:border-indigo-800 dark:border-gray-50 dark:bg-gray-50"
+                    class="block p-3.5 w-full z-20 text-gray-900 bg-gray-100 rounded-r-lg outline-none focus:border-indigo-800 dark:border-gray-50 dark:bg-gray-50 font-roboto text-xs md:text-sm"
                     placeholder="Cari"
                     name="cari"
                     required
@@ -103,7 +105,7 @@
                     
                     <button
                     type="submit"
-                    class="absolute top-0 right-0 p-3 text-xs md:text-sm font-medium h-full text-gray-50 bg-indigo-800 rounded-r-lg hover:bg-gray-100 hover:text-indigo-800 focus:z-10 focus:ring-2 focus:ring-indigo-800 focus:outline-none dark:bg-gray-50 dark:text-indigo-900 dark:hover:bg-indigo-900 dark:hover:text-gray-100 transition duration-200 dark:hover:ring-1 dark:hover:ring-indigo-900"
+                    class="absolute top-0 right-0 p-3 text-xs md:text-sm font-medium h-full text-gray-50 bg-indigo-800 rounded-r-lg hover:bg-indigo-500 focus:z-10 focus:ring-2 focus:ring-indigo-800 focus:outline-none dark:bg-gray-50 dark:text-indigo-900 dark:hover:bg-indigo-900 dark:hover:text-gray-100 transition duration-200 dark:hover:ring-1 dark:hover:ring-indigo-900"
                     title="Cari data"
                       >
                       <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
@@ -131,13 +133,13 @@
                       type="date"
                       id="date"
                       name="selected_date"
-                      class="font-roboto z-20 text-xs md:text-sm text-gray-900 bg-gray-200 border-2 border-gray-200 rounded-lg outline-none focus:border-indigo-800 dark:bg-gray-50 dark:border-gray-50 block w-full pl-10 p-3"
+                      class="z-20 text-xs md:text-sm text-gray-900 bg-gray-100  rounded-lg outline-none focus:border-indigo-800 dark:border-gray-100 dark:bg-gray-50 block w-full pl-10 p-3.5 font-roboto"
                       required
                       />
                     </div>
                   <button
                     type="submit"
-                    class="p-4 ml-2 text-xs md:text-sm font-medium text-gray-50 bg-indigo-800 rounded-lg hover:bg-gray-100 hover:text-indigo-800 focus:z-10 focus:ring-2 focus:ring-indigo-800 focus:outline-none dark:bg-gray-100 dark:text-indigo-900 dark:hover:bg-indigo-900 dark:hover:text-gray-100 dark:hover:border-indigo-900 dark:border-gray-100 transition duration-200"
+                    class="p-4 ml-2 text-xs md:text-sm font-medium h-full text-gray-50 bg-indigo-800 rounded-lg hover:bg-indigo-500 focus:z-10 focus:ring-2 focus:ring-indigo-800 focus:outline-none dark:bg-gray-50 dark:text-indigo-900 dark:hover:bg-indigo-900 dark:hover:text-gray-100 transition duration-200 dark:hover:ring-1 dark:hover:ring-indigo-900"
                     title="Cari sesuai tanggal"
                     >
                     <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
@@ -154,7 +156,7 @@
                   <input type="text" name="all" class="hidden" readonly value="all" />
                   <button
                   type="submit"
-                  class="p-3.5 text-base font-medium text-center inline-flex items-center text-gray-50 bg-indigo-800 rounded-lg hover:bg-gray-100 hover:text-indigo-800 focus:z-10 focus:ring-2 focus:ring-indigo-800 transition duration-200 dark:bg-gray-100 dark:text-indigo-800 dark:hover:bg-indigo-900 dark:hover:text-gray-100 dark:border-gray-100 font-roboto"
+                  class="p-3.5 text-base font-medium text-center inline-flex items-center text-gray-50 bg-indigo-800 rounded-lg hover:bg-indigo-500 focus:z-10 focus:ring-2 focus:ring-indigo-800 transition duration-200 dark:bg-gray-100 dark:text-indigo-800 dark:hover:bg-indigo-900 dark:hover:text-gray-100 dark:border-gray-100"
                   title="Tampilkan data sekarang"
                   >
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
@@ -175,7 +177,7 @@
 
       {{-- Table --}}
       <div class="px-4 mx-auto max-w-screen-xl">
-        <div class="relative overflow-x-auto shadow-lg bg-gray-50 dark:bg-indigo-950 sm:rounded-lg p-4">
+        <div class="relative overflow-x-auto shadow-lg bg-white dark:bg-indigo-950 sm:rounded-lg p-4">
           <table class="w-full text-sm text-left" id="dataTabel">
             <caption class="p-5 text-sm lg:text-base font-semibold text-left text-gray-900 dark:text-gray-200 font-montserrat">
               <span class="uppercase">Tabel pengecekan</span>
@@ -424,9 +426,5 @@
           }
       }
       </script>
-
-<script src="{{asset('js/hide-alert.js')}}"></script>
-
-<script src="{{asset('js/darkToggle.js')}}"></script>
 
 @endsection
