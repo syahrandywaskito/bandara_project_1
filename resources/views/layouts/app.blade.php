@@ -20,7 +20,7 @@
   <body class="dark:bg-slate-900 bg-gray-50">
     
     {{-- * navbar & sidebar --}}
-    <nav class="fixed top-0 z-50 w-full bg-gray-50 dark:bg-indigo-950 dark:border-slate-900">
+    <nav class="fixed top-0 z-50 w-full bg-gray-50 dark:bg-slate-900 dark:border-slate-900">
       <div class="px-3 py-3 lg:px-5 lg:pl-3">
         <div class="flex items-center justify-between">
           <div class="flex items-center justify-start">
@@ -42,7 +42,7 @@
             </button>
             <a href="{{URL::current()}}" class="flex ml-2 md:mr-24">
               <img src="{{asset('img/logo.png')}}" class="h-8 mr-3" />
-              <span class="self-center uppercase font-roboto font-semibold hidden sm:block sm:text-base md:text-lg lg:text-xl text-gray-900 whitespace-nowrap">
+              <span class="self-center uppercase font-roboto font-semibold hidden sm:block sm:text-base md:text-lg lg:text-xl text-gray-900 dark:text-gray-100 whitespace-nowrap">
 
                 {{-- * Navbar name for each Page --}}
                 @yield('navbar-header', 'Dashboard')

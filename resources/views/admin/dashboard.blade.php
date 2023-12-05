@@ -13,9 +13,9 @@
     <div class="py-7 md:px-5 lg:ml-64">
       <div class="">
         <div class="pt-16 pb-5 px-4 mx-auto max-w-screen-xl">
-          <div class="bg-white border border-gray-50 dark:border-0 dark:bg-indigo-950 rounded-lg shadow-lg px-5 py-8 sm:px-8 md:p-12 lg:mb-8">
-            <h1 class="text-gray-900 dark:text-gray-200 text-base text-center uppercase md:text-lg xl:text-2xl font-roboto font-bold mb-4">Selamat Datang di Dashboard</h1>
-            <p class="text-sm lg:text-base xl:text-lg text-center font-normal font-montserrat text-gray-600 dark:text-gray-200 mb-3">
+          <div class="bg-white dark:bg-slate-800 rounded-lg shadow-lg px-5 py-8 sm:px-8 md:p-12 lg:mb-8">
+            <h1 class="text-gray-900 dark:text-gray-100 text-base text-center uppercase md:text-lg xl:text-2xl font-roboto font-bold mb-4">Selamat Datang di Dashboard</h1>
+            <p class="text-sm lg:text-base xl:text-lg text-center font-normal font-montserrat text-gray-600 dark:text-gray-100 mb-3">
               <strong>Dashboard</strong> adalah bagian yang berfungsi agar pengguna yang terdaftar untuk masuk ke Dashboard dapat menambahkan, menghapus, dan mengedit data-data yang ditampilkan pada halaman non-Dashboard atau yang biasa disebut
               <em>Tampilan Pengguna</em> atau <em>Landing Page</em>. Jika anda sudah masuk ke halaman Dashboard maka anda sudah mendaftar dan mendapat izin dari pihak yang mengelola website ini.
             </p>
@@ -24,16 +24,16 @@
 
         {{-- Timeline Pembuatan Laporan --}}
         <div class="px-4 pb-8 mx-auto max-w-screen-xl">
-          <div class="bg-white border border-gray-50 dark:border-0 dark:bg-indigo-950 rounded-lg shadow-lg px-5 py-8 sm:px-8 md:p-12">
-            <h2 class="inline-flex items-center text-gray-900 dark:text-gray-200 text-base uppercase md:text-lg xl:text-xl font-roboto font-bold mb-6">
-              <svg class="flex-shrink-0 w-5 mr-3 h-5 text-gray-900 dark:text-gray-200 group-hover:text-gray-900" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
+          <div class="bg-white dark:bg-slate-800 rounded-lg shadow-lg px-5 py-8 sm:px-8 md:p-12">
+            <h2 class="inline-flex items-center text-gray-900 dark:text-gray-100 text-base uppercase md:text-lg xl:text-xl font-roboto font-bold mb-6">
+              <svg class="flex-shrink-0 w-5 mr-3 h-5 text-gray-900 dark:text-gray-100 group-hover:text-gray-900" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
                 <path
                   d="M6.143 0H1.857A1.857 1.857 0 0 0 0 1.857v4.286C0 7.169.831 8 1.857 8h4.286A1.857 1.857 0 0 0 8 6.143V1.857A1.857 1.857 0 0 0 6.143 0Zm10 0h-4.286A1.857 1.857 0 0 0 10 1.857v4.286C10 7.169 10.831 8 11.857 8h4.286A1.857 1.857 0 0 0 18 6.143V1.857A1.857 1.857 0 0 0 16.143 0Zm-10 10H1.857A1.857 1.857 0 0 0 0 11.857v4.286C0 17.169.831 18 1.857 18h4.286A1.857 1.857 0 0 0 8 16.143v-4.286A1.857 1.857 0 0 0 6.143 10Zm10 0h-4.286A1.857 1.857 0 0 0 10 11.857v4.286c0 1.026.831 1.857 1.857 1.857h4.286A1.857 1.857 0 0 0 18 16.143v-4.286A1.857 1.857 0 0 0 16.143 10Z"
                 />
               </svg>
               Panduan dalam pembuatan laporan pengecekan
             </h2>
-            <p class="text-sm lg:text-base xl:text-lg font-normal text-gray-600 dark:text-gray-200 mb-4">
+            <p class="text-sm lg:text-base xl:text-lg font-normal text-gray-600 dark:text-gray-100 mb-4">
               Selamat datang di <em>Panduan Pembuatan Laporan</em>. Panduan ini akan membantu anda memahami langkah-langkah yang diperlukan untuk menginput data laporan dengan benar dan efisien.
             </p>
             
@@ -93,8 +93,8 @@
 
         {{-- Timeline Pembuatan berita --}}
         <div class="px-4 pb-8 mx-auto max-w-screen-xl">
-          <div class="bg-white border border-gray-50 dark:border-0 dark:bg-indigo-950 rounded-lg shadow-lg px-5 py-8 sm:px-8 md:p-12">
-            <h2 class="inline-flex items-center text-gray-900 dark:text-gray-200 text-base uppercase md:text-lg xl:text-xl font-roboto font-bold mb-6">
+          <div class="bg-white dark:bg-slate-800 rounded-lg shadow-lg px-5 py-8 sm:px-8 md:p-12">
+            <h2 class="inline-flex items-center text-gray-900 dark:text-gray-100 text-base uppercase md:text-lg xl:text-xl font-roboto font-bold mb-6">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 mr-3 h-6">
                 <path
                   stroke-linecap="round"
@@ -104,7 +104,7 @@
               </svg>
               Panduan dalam pembuatan berita
             </h2>
-            <p class="text-sm lg:text-base xl:text-lg font-normal text-gray-600 dark:text-gray-200 mb-4">
+            <p class="text-sm lg:text-base xl:text-lg font-normal text-gray-600 dark:text-gray-100 mb-4">
               Selamat datang di <em>Panduan Pembuatan Berita</em>. Panduan ini akan membantu anda memahami langkah-langkah dalam membuat berita terkini sesuai peristiwa yang ada dan terjadi.
             </p>
             
@@ -152,8 +152,8 @@
 
         {{-- Timeline Pembuatan Jadwal --}}
         <div class="px-4 pb-8 mx-auto max-w-screen-xl">
-          <div class="bg-white border border-gray-50 dark:border-0 dark:bg-indigo-950 rounded-lg shadow-lg px-5 py-8 sm:px-8 md:p-12">
-            <h2 class="inline-flex items-center text-gray-900 dark:text-gray-200 text-base uppercase md:text-lg xl:text-xl font-roboto font-bold mb-6">
+          <div class="bg-white dark:bg-slate-800 rounded-lg shadow-lg px-5 py-8 sm:px-8 md:p-12">
+            <h2 class="inline-flex items-center text-gray-900 dark:text-gray-100 text-base uppercase md:text-lg xl:text-xl font-roboto font-bold mb-6">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 mr-3 h-6">
                 <path
                   d="M12.75 12.75a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM7.5 15.75a.75.75 0 100-1.5.75.75 0 000 1.5zM8.25 17.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM9.75 15.75a.75.75 0 100-1.5.75.75 0 000 1.5zM10.5 17.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12 15.75a.75.75 0 100-1.5.75.75 0 000 1.5zM12.75 17.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM14.25 15.75a.75.75 0 100-1.5.75.75 0 000 1.5zM15 17.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM16.5 15.75a.75.75 0 100-1.5.75.75 0 000 1.5zM15 12.75a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM16.5 13.5a.75.75 0 100-1.5.75.75 0 000 1.5z"
@@ -166,7 +166,7 @@
               </svg>
               Panduan dalam pembuatan jadwal
             </h2>
-            <p class="text-sm lg:text-base xl:text-lg font-normal text-gray-600 dark:text-gray-200 mb-4">
+            <p class="text-sm lg:text-base xl:text-lg font-normal text-gray-600 dark:text-gray-100 mb-4">
               Selamat datang di <em>Panduan Pembuatan Jadwal</em>. Panduan ini akan membantu anda memahami langkah-langkah dalam membuat jadwal penerbangan yang sesuai dengan FIDS pada bandara.
             </p>
             
@@ -216,7 +216,7 @@
 
     @if ($message = Session::get('errors'))
       <div class="fixed top-28 right-10" data-aos="fade-left" id="alert-box">
-        @include('components.dashboard.input-error-notif')
+        @include('components.dashboard._input-error-notif')
       </div>
     @endif
 

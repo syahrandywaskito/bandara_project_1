@@ -36,7 +36,12 @@
 
     <div class="md:fixed right-8 sm:mt-0 mt-5 top-10 max-w-screen-xl flex flex-wrap items-center justify-between mx-auto px-6 md:px-0">
       <div class="flex items-center">
-        {{-- Dark toggle --}} @include('components.dashboard.darktoggle') {{-- User Profile Menu --}} @include('components.dashboard.userprofile')
+
+        {{-- Dark toggle --}} 
+        @include('components.dashboard._dark-toggle') 
+
+        {{-- User Profile Menu --}} 
+        @include('components.dashboard._user-profile')
       </div>
     </div>
 

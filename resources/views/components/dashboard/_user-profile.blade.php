@@ -1,7 +1,7 @@
 {{-- User Profile Menu --}}
 <div class="flex items-center ml-3">
   <div>
-    <button type="button" class="flex text-sm bg-white shadow-lg p-1 rounded-full focus:ring-4 focus:ring-indigo-800" aria-expanded="false" data-dropdown-toggle="dropdown-user">
+    <button type="button" class="flex text-sm bg-white shadow-lg p-1 rounded-full focus:ring-4 focus:ring-indigo-800 dark:focus:ring-slate-700" aria-expanded="false" data-dropdown-toggle="dropdown-user">
       <span class="sr-only">Open user menu</span>
       <img class="w-8 h-8 p-1 rounded-full" src="{{asset('img/user.png')}}" alt="user photo" />
     </button>

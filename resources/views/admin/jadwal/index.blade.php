@@ -318,7 +318,7 @@
           {{-- Tabel jadwal kedatangan --}}
           <div class="px-4 mx-auto max-w-screen-xl mt-10">
             <div class="relative overflow-x-auto shadow-lg bg-white dark:bg-indigo-950 sm:rounded-lg p-4">
-              <table class="w-full text-sm text-left mt-5">
+              <table class="w-full text-sm text-left">
                 <caption class="p-5 text-sm lg:text-base font-semibold text-left text-gray-900 dark:text-gray-200 font-montserrat">
                   <span class="uppercase">Tabel Jadwal Kedatangan</span>
                 </caption>
