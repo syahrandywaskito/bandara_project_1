@@ -61,7 +61,7 @@
                   type="button"
                   data-modal-target="create-modal"
                   data-modal-toggle="create-modal"
-                  class="px-5 py-3.5 text-xs sm:text-sm md:text-base font-medium text-center inline-flex items-center text-gray-50 bg-indigo-800 rounded-lg hover:bg-gray-100 hover:text-green-700 focus:z-10 focus:ring-2 focus:ring-indigo-800 transition duration-200 dark:bg-gray-100 dark:text-green-700 dark:hover:bg-indigo-900 dark:hover:text-gray-100 dark:border-gray-100"
+                  class="px-5 py-3.5 font-medium text-center inline-flex items-center text-gray-50 bg-indigo-800 rounded-lg hover:bg-gray-100 hover:text-green-700 focus:z-10 focus:ring-2 focus:ring-indigo-800 transition duration-200 dark:bg-gray-50 dark:text-green-700 dark:hover:bg-slate-600 dark:hover:text-gray-100 dark:focus:ring-slate-600 text-xs sm:text-sm md:text-base"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 mr-2 h-5">
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm.75-11.25a.75.75 0 00-1.5 0v2.5h-2.5a.75.75 0 000 1.5h2.5v2.5a.75.75 0 001.5 0v-2.5h2.5a.75.75 0 000-1.5h-2.5v-2.5z" clip-rule="evenodd" />
@@ -91,16 +91,7 @@
                         required
                       />
 
-                      <button
-                        title="Cari data"
-                        type="submit"
-                        class="absolute top-0 right-0 p-3 text-xs md:text-sm font-medium h-full text-gray-50 bg-indigo-800 rounded-r-lg hover:bg-indigo-500 focus:z-10 focus:ring-2 focus:ring-indigo-800 focus:outline-none dark:bg-gray-50 dark:text-indigo-900 dark:hover:bg-indigo-900 dark:hover:text-gray-100 transition duration-200 dark:hover:ring-1 dark:hover:ring-indigo-900"
-                      >
-                        <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
-                        </svg>
-                        <span class="sr-only">Search</span>
-                      </button>
+                      @include('components.dashboard.buttons._search-button')
                     </div>
                   </div>
                 </form>
@@ -120,7 +111,7 @@
         </div>
 
         <div class="px-4 mx-auto max-w-screen-xl">
-          <div class="relative overflow-x-auto shadow-lg bg-white dark:bg-indigo-950 dark:border-0 sm:rounded-lg p-4">
+          <div class="relative overflow-x-auto shadow-lg bg-white dark:bg-slate-800 dark:border-0 sm:rounded-lg p-4">
             <table class="w-full text-sm text-left">
               <caption class="p-5 text-sm lg:text-base font-semibold text-left text-gray-900 dark:text-gray-200 font-montserrat">
                 <span class="uppercase">Tabel Perangkat</span>
@@ -152,31 +143,10 @@
                     <form onsubmit="return confirm('Apakah anda ingin menghapus data ini ?')" action="{{route('list.cctv.destroy', $data->id)}}" method="post">
                       @csrf @method('DELETE')
                       <div class="inline-flex rounded-md shadow-md" role="group">
-                        <a
-                          href="{{route('list.cctv.edit', $data->id)}}"
-                          class="inline-flex items-center px-4 py-2 text-xs md:text-sm font-medium text-gray-50 bg-indigo-800 rounded-l-lg hover:bg-gray-100 hover:text-indigo-800 focus:z-10 focus:ring-2 focus:ring-indigo-800 dark:bg-gray-100 dark:text-indigo-800 dark:hover:bg-indigo-900 dark:hover:text-gray-100 transition duration-200"
-                        >
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 mr-2 h-5">
-                            <path d="M5.433 13.917l1.262-3.155A4 4 0 017.58 9.42l6.92-6.918a2.121 2.121 0 013 3l-6.92 6.918c-.383.383-.84.685-1.343.886l-3.154 1.262a.5.5 0 01-.65-.65z" />
-                            <path
-                              d="M3.5 5.75c0-.69.56-1.25 1.25-1.25H10A.75.75 0 0010 3H4.75A2.75 2.75 0 002 5.75v9.5A2.75 2.75 0 004.75 18h9.5A2.75 2.75 0 0017 15.25V10a.75.75 0 00-1.5 0v5.25c0 .69-.56 1.25-1.25 1.25h-9.5c-.69 0-1.25-.56-1.25-1.25v-9.5z"
-                            />
-                          </svg>
-                          Edit
-                        </a>
-                        <button
-                          type="submit"
-                          class="inline-flex items-center px-4 py-2 text-xs md:text-sm font-medium text-gray-50 bg-indigo-800 rounded-r-md hover:bg-gray-100 hover:text-red-800 focus:z-10 focus:ring-2 focus:ring-red-800 focus:bg-gray-100 focus:text-red-800 dark:bg-gray-100 dark:text-red-800 dark:hover:bg-indigo-900 dark:hover:text-gray-100 transition duration-200"
-                        >
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 mr-1 h-5">
-                            <path
-                              fill-rule="evenodd"
-                              d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z"
-                              clip-rule="evenodd"
-                            />
-                          </svg>
-                          Delete
-                        </button>
+
+                        @include('components.dashboard.buttons._edit-in-table', ['route' => route('list.cctv.edit', $data->id)])
+
+                        @include('components.dashboard.buttons._delete-in-table')
                       </div>
                     </form>
                   </td>
@@ -193,7 +163,7 @@
     <div id="create-modal" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
       <div class="relative w-full max-w-md max-h-full">
         <!-- Modal content -->
-        <div class="relative bg-white dark:bg-edit-dark bg-cover rounded-lg shadow-xl">
+        <div class="relative bg-white dark:bg-slate-800 rounded-lg shadow-xl">
           <div class="px-6 py-6 lg:px-8 font-montserrat">
             <h3 class="mb-4 text-sm sm:text-base md:text-lg lg:text-xl font-medium text-gray-900 dark:text-gray-200">Tambah Data</h3>
             <form class="space-y-6" action="{{route('list.cctv.store')}}" method="POST">
@@ -204,7 +174,7 @@
               </div>
               <button
                 type="submit"
-                class="text-xs md:text-sm w-full text-gray-50 bg-indigo-800 rounded-lg hover:bg-gray-100 hover:text-green-700 focus:z-10 focus:ring-2 focus:ring-indigo-800 transition duration-200 px-5 py-2.5 text-center dark:bg-indigo-600 dark:hover:bg-gray-100"
+                class="w-full font-medium text-center text-gray-50 bg-indigo-800 rounded-lg hover:bg-gray-100 hover:text-green-700 focus:z-10 focus:ring-2 focus:ring-indigo-800 transition duration-200 dark:bg-gray-50 dark:text-green-700 dark:hover:bg-slate-600 dark:hover:text-gray-100 dark:focus:ring-slate-600 text-xs sm:text-sm md:text-base py-1.5 shadow-lg"
               >
                 Tambah
               </button>

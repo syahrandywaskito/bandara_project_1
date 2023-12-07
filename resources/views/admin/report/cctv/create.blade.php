@@ -14,12 +14,12 @@
     <div class="py-7 md:px-5 lg:ml-64">
       <div>
         <div class="pt-16 px-4 mx-auto max-w-screen-xl text-start">
-          <div class="bg-white dark:bg-indigo-950 rounded-lg shadow-lg px-5 py-8 sm:px-8 md:p-12">
+          <div class="bg-white dark:bg-slate-800 rounded-lg shadow-lg px-5 py-8 sm:px-8 md:p-12">
             <!-- Breadcrumb -->
-            <nav class="flex py-3 text-gray-700" aria-label="Breadcrumb">
+            <nav class="flex py-3 text-gray-700 dark:text-gray-100" aria-label="Breadcrumb">
               <ol class="inline-flex items-center space-x-1 md:space-x-3 font-montserrat">
                 <li class="inline-flex items-center">
-                  <a href="{{route('dashboard')}}" class="inline-flex items-center text-xs md:text-sm font-medium hover:text-indigo-600">
+                  <a href="{{route('dashboard')}}" class="inline-flex items-center text-xs md:text-sm font-medium hover:text-indigo-600 dark:hover:text-slate-400">
                     <svg class="w-3 h-3 mr-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                       <path
                         d="m19.707 9.293-2-2-7-7a1 1 0 0 0-1.414 0l-7 7-2 2a1 1 0 0 0 1.414 1.414L2 10.414V18a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2v-7.586l.293.293a1 1 0 0 0 1.414-1.414Z"
@@ -33,7 +33,7 @@
                     <svg class="w-3 h-3 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                       <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
                     </svg>
-                    <a href="{{route('cctv.index')}}" class="ml-1 text-xs md:text-sm font-medium hover:text-indigo-600 md:ml-2">CCTV</a>
+                    <a href="{{route('cctv.index')}}" class="ml-1 text-xs md:text-sm font-medium hover:text-indigo-600 dark:hover:text-slate-400 md:ml-2">CCTV</a>
                   </div>
                 </li>
                 <li aria-current="page">
@@ -84,16 +84,8 @@
                     />
                   </div>
 
-                  <button
-                    title="Cari berdasarkan tanggal"
-                    type="submit"
-                    class="p-4 ml-2 text-xs md:text-sm font-medium h-full text-gray-50 bg-indigo-800 rounded-lg hover:bg-indigo-500 focus:z-10 focus:ring-2 focus:ring-indigo-800 focus:outline-none dark:bg-gray-50 dark:text-indigo-900 dark:hover:bg-indigo-900 dark:hover:text-gray-100 transition duration-200 dark:hover:ring-1 dark:hover:ring-indigo-900"
-                  >
-                    <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
-                    </svg>
-                    <span class="sr-only">Search</span>
-                  </button>
+                  @include('components.dashboard.buttons._date-search-button')
+
                 </form>
               </div>
 
@@ -101,20 +93,7 @@
               <div>
                 <form action="{{route('cctv.create')}}" method="GET">
                   <input type="text" name="all" class="hidden" readonly value="all" />
-                  <button
-                    type="submit"
-                    class="p-3.5 text-base font-medium text-center inline-flex items-center text-gray-50 bg-indigo-800 rounded-lg hover:bg-indigo-500 focus:z-10 focus:ring-2 focus:ring-indigo-800 transition duration-200 dark:bg-gray-100 dark:text-indigo-800 dark:hover:bg-indigo-900 dark:hover:text-gray-100 dark:border-gray-100"
-                    title="Tampilkan data sekarang"
-                  >
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
-                      <path
-                        fill-rule="evenodd"
-                        d="M3 3.5A1.5 1.5 0 014.5 2h6.879a1.5 1.5 0 011.06.44l4.122 4.12A1.5 1.5 0 0117 7.622V16.5a1.5 1.5 0 01-1.5 1.5h-11A1.5 1.5 0 013 16.5v-13zM13.25 9a.75.75 0 01.75.75v4.5a.75.75 0 01-1.5 0v-4.5a.75.75 0 01.75-.75zm-6.5 4a.75.75 0 01.75.75v.5a.75.75 0 01-1.5 0v-.5a.75.75 0 01.75-.75zm4-1.25a.75.75 0 00-1.5 0v2.5a.75.75 0 001.5 0v-2.5z"
-                        clip-rule="evenodd"
-                      />
-                    </svg>
-                    <span class="sr-only">all</span>
-                  </button>
+                  @include('components.dashboard.buttons._show-current-button')
                 </form>
               </div>
             </div>
@@ -254,7 +233,7 @@
                     <button
                       type="submit"
                       data-form="{{$dataForm}}"
-                      class="submitButton inline-flex items-center px-4 py-2 text-sm font-medium bg-indigo-800 text-white rounded-l-lg hover:bg-indigo-500 focus:z-10 focus:ring-2 focus:ring-indigo-800 dark:bg-indigo-900 dark:border-indigo-900 dark:hover:bg-indigo-950"
+                      class="submitButton inline-flex items-center px-4 py-2 text-sm font-medium bg-indigo-800 text-white rounded-l-lg hover:bg-indigo-500 focus:z-10 focus:ring-2 focus:ring-indigo-800 dark:bg-slate-600 dark:hover:bg-slate-400 dark:focus:ring-slate-600"
                       title="Submit data"
                     >
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 md:mr-3 h-5">
@@ -270,7 +249,7 @@
                     </button>
                     <button
                       type="reset"
-                      class="inline-flex items-center px-4 py-2 text-sm font-medium bg-indigo-800 text-white hover:bg-indigo-500 focus:z-10 focus:ring-2 focus:ring-indigo-800 dark:bg-indigo-900 dark:border-indigo-900 dark:hover:bg-indigo-950"
+                      class="inline-flex items-center px-4 py-2 text-sm font-medium bg-indigo-800 text-white hover:bg-indigo-500 focus:z-10 focus:ring-2 focus:ring-indigo-800 dark:bg-slate-600 dark:hover:bg-slate-400 dark:focus:ring-slate-600"
                       title="reset form"
                     >
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 md:mr-3 h-5">
@@ -287,7 +266,7 @@
                     <button
                       type="button"
                       data-target="{{$toHide}}"
-                      class="hideButton inline-flex items-center px-4 py-2 text-sm font-medium bg-indigo-800 text-white rounded-r-lg hover:bg-indigo-500 focus:z-10 focus:ring-2 focus:ring-indigo-800 dark:bg-indigo-900 dark:border-indigo-900 dark:hover:bg-indigo-950"
+                      class="hideButton inline-flex items-center px-4 py-2 text-sm font-medium bg-indigo-800 text-white rounded-r-lg hover:bg-indigo-500 focus:z-10 focus:ring-2 focus:ring-indigo-800 dark:bg-slate-600 dark:hover:bg-slate-400 dark:focus:ring-slate-600"
                       title="sembunyikan form"
                     >
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 md:mr-3 h-5">
