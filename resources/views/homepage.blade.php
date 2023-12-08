@@ -33,11 +33,21 @@
       'hubungi_kami_active' => "",
       'hubungi_kami_inactive' => "hover:-translate-y-1",
 
-      // login
-      'login_active' => "",
-      'login_inactive' => "hover:-translate-y-1",
+      // register 
+      'register_color' => "bg-white text-indigo-500",
 
-      
+      // mobile beranda
+      'mobile_beranda_active' => "font-bold",
+      'mobile_beranda_inactive' => "",
+
+      // mobile alat 
+      'mobile_alat_active' => "",
+      'mobile_alat_inactive' => "hover:translate-x-1 focus:translate-x-1",
+
+      // mobile kontak / hubungi kami
+      'mobile_kontak_active' => "",
+      'mobile_kontak_inactive' => "hover:translate-x-1"
+
       ])
 
   
@@ -70,7 +80,7 @@
 
         {{-- TODO : Tata Ulang tampilan berita pada perangkat mobile --}}
 
-        @if ($beritaPaginate)
+        @if ($beritaPaginate) 
           @foreach ($beritaPaginate as $data)
             <div>
               <div class="bg-white border border-gray-200 rounded-lg shadow" data-aos="fade-up" data-aos-delay="600" data-aos-ease="ease-in-out" data-aos-duration="400">
@@ -92,24 +102,34 @@
               </div>
             </div>
           @endforeach
-        @endif
 
-        <div>
-          <div class="bg-white border border-gray-200 rounded-lg shadow" data-aos="fade-up" data-aos-delay="600" data-aos-ease="ease-in-out" data-aos-duration="400">
-            <div class=" cursor-not-allowed">
-              <div href="#">
-                <img class="rounded-t-lg" src="{{asset('img/image-not-available-.jpg')}}" alt="" />
-              </div>
-              <div class="p-5 font-montserrat">
+          @foreach ($beritaPaginate2 as $data)
+              @php
+                  var_dump($data->judul);
+                  echo "<br>";
+              @endphp
+          @endforeach
+        @else
+
+          <div>
+            <div class="bg-white border border-gray-200 rounded-lg shadow" data-aos="fade-up" data-aos-delay="600" data-aos-ease="ease-in-out" data-aos-duration="400">
+              <div class=" cursor-not-allowed">
                 <div href="#">
-                  <h5 class="mb-1 text-sm sm:text-base md:text-lg font-bold tracking-tight text-gray-900">
-                    Berita Tidak Tersedia
-                  </h5>
+                  <img class="rounded-t-lg" src="{{asset('img/image-not-available-.jpg')}}" alt="" />
+                </div>
+                <div class="p-5 font-montserrat">
+                  <div href="#">
+                    <h5 class="mb-1 text-sm sm:text-base md:text-lg font-bold tracking-tight text-gray-900">
+                      Berita Tidak Tersedia
+                    </h5>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+
+        @endif
+
         
       </div>
 
@@ -146,36 +166,38 @@
                   </a>
                 </div>
               @endforeach
+
+            @else
+                
+              <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <div class=" cursor-not-allowed">
+                  <img src="{{asset('img/image-not-available-.jpg')}}" class="absolute block -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 transition duration-200" alt="" />
+
+                  <div class="absolute bottom-0 w-full">
+                    <div class="bg-opacity-80 font-montserrat bg-indigo-600 text-white shadow-lg mx-6 mb-4 px-4 py-3 rounded-lg" data-aos="fade-up" data-aos-duration="500" data-aos-delay="700" data-aos-ease="ease-in-out">
+                      <h3 class="text-center uppercase">
+                        Berita Tidak Tersedia
+                      </h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <div class=" cursor-not-allowed">
+                  <img src="{{asset('img/image-not-available-.jpg')}}" class="absolute block -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 transition duration-200" alt="" />
+
+                  <div class="absolute bottom-0 w-full">
+                    <div class="bg-opacity-80 font-montserrat bg-indigo-600 text-white shadow-lg mx-6 mb-4 px-4 py-3 rounded-lg" data-aos="fade-up" data-aos-duration="500" data-aos-delay="700" data-aos-ease="ease-in-out">
+                      <h3 class="text-center uppercase">
+                        Berita Tidak Tersedia
+                      </h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
             @endif
-
-              <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <div class=" cursor-not-allowed">
-                  <img src="{{asset('img/image-not-available-.jpg')}}" class="absolute block -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 transition duration-200" alt="" />
-
-                  <div class="absolute bottom-0 w-full">
-                    <div class="bg-opacity-80 font-montserrat bg-indigo-600 text-white shadow-lg mx-6 mb-4 px-4 py-3 rounded-lg" data-aos="fade-up" data-aos-duration="500" data-aos-delay="700" data-aos-ease="ease-in-out">
-                      <h3 class="text-center uppercase">
-                        Berita Tidak Tersedia
-                      </h3>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <div class=" cursor-not-allowed">
-                  <img src="{{asset('img/image-not-available-.jpg')}}" class="absolute block -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 transition duration-200" alt="" />
-
-                  <div class="absolute bottom-0 w-full">
-                    <div class="bg-opacity-80 font-montserrat bg-indigo-600 text-white shadow-lg mx-6 mb-4 px-4 py-3 rounded-lg" data-aos="fade-up" data-aos-duration="500" data-aos-delay="700" data-aos-ease="ease-in-out">
-                      <h3 class="text-center uppercase">
-                        Berita Tidak Tersedia
-                      </h3>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
           </div>
           <!-- Slider controls -->
           <button type="button" class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
@@ -214,7 +236,7 @@
 
         {{-- * Tooltip --}}
         <div id="tooltip-bottom" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-xs md:text-sm font-medium text-white bg-gradient-to-r from-indigo-600 to-blue-500 rounded-lg shadow-sm opacity-0 tooltip dark:bg-slate-600 dark:text-gray-100 w-1/2 md:w-fit">
-          Jam Penerbangan Bisa Sewaktu-waktu Berubah
+          Jam Penerbangan Bisa Berubah Sewaktu-waktu
           <div class="tooltip-arrow" data-popper-arrow></div>
         </div>
       </div>

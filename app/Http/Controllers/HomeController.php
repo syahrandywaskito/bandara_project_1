@@ -28,14 +28,19 @@ class HomeController extends Controller
         $kedatangan = Jadwal::where('jenis_penerbangan', 'kedatangan')->orderBy('jam', 'asc')->get();
 
         # data berita dari model Berita
-        $berita = Berita::latest()->get();
+        $berita = Berita::latest()->limit(1)->get();
+        // $berita = Berita::latest()->first()->get();
 
         # data berita yang dipaginate
-        $paginate = Berita::latest()->paginate(3);
+        // $paginate = Berita::latest()->paginate(3);
+        $paginate = Berita::latest()->limit(1)->get();
+        $paginate2 = Berita::latest()->limit(3)->offset(1)->get();
+
 
         return view('homepage', [
             'berita' => $berita,
             'beritaPaginate' => $paginate,
+            'beritaPaginate2' => $paginate2,
             'keberangkatan' => $keberangkatan,
             'kedatangan' => $kedatangan,
             'message' => 'Homepage for Airport',

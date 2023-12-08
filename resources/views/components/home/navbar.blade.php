@@ -26,6 +26,8 @@
                     {{ $beranda_active }} 
                     {{ $beranda_inactive }}
 
+                    transition
+                    duration-200
                     font-semibold">
                     
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 xl:hidden h-5">
@@ -120,8 +122,6 @@
                     {{ $hubungi_kami_active }}
                     {{ $hubungi_kami_inactive }}
 
-                    hover:-translate-y-1 
-
                     transition duration-200"
             >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 xl:hidden h-5">
@@ -145,13 +145,8 @@
            class="hidden xl:block 
                   items-center 
                   py-4 px-2 
+                  hover:-translate-y-1
                   font-medium 
-
-                  {{-- * Navbar item variable : login --}}
-
-                  {{ $login_active }}
-                  {{ $login_inactive }}
- 
                   transition duration-200">
                   
           <span class="hidden xl:block">
@@ -159,7 +154,19 @@
           </span>
         </a>
 
-        <a href="{{route('register')}}" class="flex items-center py-3 px-4 bg-white text-indigo-500 rounded-lg shadow-md font-medium hover:bg-opacity-75 transition duration-200">
+        <a href="{{route('register')}}" 
+           class="flex items-center py-3 px-4
+
+                  {{-- * Navbar item variable : register --}}
+
+                  {{ $register_color }}
+
+                  rounded-lg 
+                  shadow-md 
+                  font-medium 
+                  hover:bg-opacity-75 
+                  transition duration-200">
+
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 xl:hidden h-5">
             <path
               d="M11 5a3 3 0 11-6 0 3 3 0 016 0zM2.615 16.428a1.224 1.224 0 01-.569-1.175 6.002 6.002 0 0111.908 0c.058.467-.172.92-.57 1.174A9.953 9.953 0 018 18a9.953 9.953 0 01-5.385-1.572zM16.25 5.75a.75.75 0 00-1.5 0v2h-2a.75.75 0 000 1.5h2v2a.75.75 0 001.5 0v-2h2a.75.75 0 000-1.5h-2v-2z"
@@ -171,7 +178,7 @@
         </a>
       </section>
 
-      {{-- Mobile Button --}}
+      {{-- * On Mobile Button --}}
       <section class="md:hidden flex items-center">
         <button class="outline-none" id="mobile-menu-button">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 md:hidden block">
@@ -183,21 +190,47 @@
     </section>
 
     {{-- Mobile Menu --}}
-    <section class="hidden pb-3" id="mobile-menu">
+    <section class="hidden pb-3 {{ $text_color }}" id="mobile-menu">
       <ul class="text-sm">
         <li class="active">
-          <a href="{{route('homepage')}}" class="block py-4 px-2 font-bold">Beranda</a>
+          <a href="{{route('homepage')}}" 
+             class="block 
+                    py-4 px-2 
+                    transition
+                    duration-200
+                    {{-- * On Mobile Variable : beranda --}}
+
+                    {{ $mobile_beranda_active}}
+                    {{ $mobile_beranda_inactive}}
+
+                    ">
+            Beranda
+          </a>
         </li>
         <li>
-          <a id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class= hover: focus:ring-4 focus:outline-none px-2 py-2.5 cursor-pointer inline-flex items-center" type="button">
+          <button id="dropdownDefaultButton2" data-dropdown-toggle="dropdown2" 
+             class= " 
+                     {{-- * On Mobile variabel : alat --}}
+
+                     {{ $mobile_alat_active }}
+                     {{ $mobile_alat_inactive }}
+
+                     px-2 py-2.5 
+                     cursor-pointer 
+                     inline-flex 
+                     items-center
+                     transition duration-200" 
+                     
+              type="button">
+
             Alat
             <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
             </svg>
-          </a>
+          </button>
           <!-- Dropdown menu -->
-          <div id="dropdown" class="z-10 hidden bg-gray-100 divide-y divide-gray-100 rounded-lg shadow w-44">
-            <ul class="py-2 text-gray-700 font-montserrat text-sm" aria-labelledby="dropdownHoverButton">
+          <div id="dropdown2" class="z-10 hidden bg-gray-100 divide-y divide-gray-100 rounded-lg shadow w-44">
+            <ul class="py-2 text-gray-700 font-montserrat text-xs md:text-sm" aria-labelledby="dropdownHoverButton">
               <li>
                 <a href="{{route('tool.cctv.index')}}" class="block px-4 py-2 hover:translate-x-1 transition duration-200">CCTV</a>
               </li>
@@ -214,13 +247,39 @@
           <a href="" class="block text-md py-4 px-2 hover:translate-x-1 transition duration-200">Layanan</a>
         </li>
         <li>
-          <a href="{{route('kontak.user.index')}}" class="block text-md py-4 px-2 hover:translate-x-1 transition duration-200">Hubungi Kami</a>
+          <a href="{{route('kontak.user.index')}}" 
+             class="block text-md 
+                    py-4 px-2 
+
+                    {{-- * On Mobile Variable : kontak --}}
+
+                    {{ $mobile_kontak_active }}
+                    {{ $mobile_kontak_inactive }}
+
+                    transition duration-200"
+                  >
+                  Hubungi Kami
+          </a>
         </li>
         <li>
           <a href="{{route('login')}}" class="block text-md py-4 px-2 hover:translate-x-1 transition duration-200">Login</a>
         </li>
         <li>
-          <a href="{{route('register')}}" class="block text-md bg-white text-indigo-500 rounded-lg shadow-md py-3 px-4 hover:bg-opacity-75 transition duration-200 text-center">Register</a>
+          <a href="{{route('register')}}" 
+             class="block text-md 
+
+                    {{-- * On Mobile Variable : register --}}
+                    {{ $register_color}}
+
+                    rounded-lg 
+                    shadow-md 
+                    py-3 px-4 
+                    hover:bg-opacity-75 
+                    transition duration-200 
+                    text-center"
+                >
+                    Register
+          </a>
         </li>
       </ul>
     </section>
