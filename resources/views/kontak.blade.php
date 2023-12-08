@@ -316,7 +316,7 @@
       </section>
     </header>
 
-    {{-- success notif --}} @include('components.dashboard.successnotif')
+    {{-- success notif --}} @include('components.dashboard._success-notif')
     {{-- footer --}} @include('components.home.footer') {{-- JS AOS --}}
 
     <script src="{{asset('js/hide-alert.js')}}"></script>
