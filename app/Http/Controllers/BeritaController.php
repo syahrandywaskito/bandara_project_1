@@ -70,7 +70,14 @@ class BeritaController extends Controller
             'gambar' => 'required|image|mimes:jpg,jpeg,png',
             'judul' => 'required|min:5',
             'isi' => 'required|min:10',
-        ]);
+        ],
+        [
+            'gambar.image' => 'File harus bertipe image atau gambar',
+            'gambar.mimes' => 'Format gambar harus jpg, jpeg, atau png',
+            'judul.min' => 'Judul harus memiliki minimal 5 huruf',
+            'isi.min' => 'Isi harus memiliki minimal 10 huruf',
+        ]
+        );
         
 
         # masukkan gambar ke public/berita/ dalam bentuk hash
@@ -118,7 +125,14 @@ class BeritaController extends Controller
             'gambar' => 'image|mimes:jpeg,jpg,png',
             'judul' => 'required|min:5',
             'isi' => 'required|min:10',
-        ]);
+        ],
+        [
+            'gambar.image' => 'File harus bertipe image atau gambar',
+            'gambar.mimes' => 'Format gambar harus jpg, jpeg, atau png',
+            'judul.min' => 'Judul harus memiliki minimal 5 huruf',
+            'isi.min' => 'Isi harus memiliki minimal 10 huruf',
+        ]
+        );
 
         $judul = $berita->judul;
 

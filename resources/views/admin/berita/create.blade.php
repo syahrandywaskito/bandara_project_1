@@ -70,9 +70,11 @@
                         multiple
                         type="file"
                         id="image-input"
-                        class="image-field text-xs md:text-sm text-gray-900 bg-white shadow-md rounded-lg outline-none focus:border-indigo-800 dark:border-gray-100 dark:bg-gray-100 block w-full p-3"
+                        class="image-field text-xs md:text-sm text-gray-900 bg-white shadow-md rounded-lg outline-none focus:border-indigo-800 dark:border-gray-100 dark:bg-gray-100 block w-full p-3 
+                        @error('gambar') is-invalid @enderror"
                         required
                         name="gambar"
+
                       />
                       {{-- text kompresi --}}
                       <div class="mt-2">
@@ -81,6 +83,13 @@
                           <span id="compressed-size"></span>
                         </p>
                       </div>
+
+                      {{-- error notif --}}
+                      @error('gambar')
+                          <div class="mt-3">
+                            @include('components.dashboard._input-error-notif')
+                          </div>
+                      @enderror
                     </div>
                     {{-- judul untuk header berita --}}
                     <div>
@@ -90,10 +99,18 @@
                       <input
                         type="text"
                         id="judul"
-                        class="text-xs md:text-sm text-gray-900 bg-white shadow-md rounded-lg outline-none focus:border-indigo-800 dark:border-gray-100 dark:bg-gray-100 block w-full p-3"
+                        class="text-xs md:text-sm text-gray-900 bg-white shadow-md rounded-lg outline-none focus:border-indigo-800 dark:border-gray-100 dark:bg-gray-100 block w-full p-3
+                         @error('judul') is-invalid @enderror"
                         required
                         name="judul"
                       />
+
+                      {{-- error notif --}}
+                      @error('judul')
+                          <div class="mt-3">
+                            @include('components.dashboard._input-error-notif')
+                          </div>
+                      @enderror
                     </div>
   
                     {{-- isi dari berita --}}
@@ -101,7 +118,15 @@
                       <label for="isi" class="block mb-2 text-xs md:text-sm font-medium text-gray-900 dark:text-gray-200">
                         Keterangan Rekaman
                       </label>
-                      <textarea name="isi" id="" cols="30" rows="10" class="text-xs md:text-sm text-gray-900 bg-white shadow-md rounded-lg outline-none focus:border-indigo-800 dark:border-gray-100 dark:bg-gray-100 block w-full p-3"> </textarea>
+                      <textarea name="isi" id="" cols="30" rows="10" class="text-xs md:text-sm text-gray-900 bg-white shadow-md rounded-lg outline-none focus:border-indigo-800 dark:border-gray-100 dark:bg-gray-100 block w-full p-3
+                      @error('isi') is-invalid @enderror"> </textarea>
+
+                      {{-- error notif --}}
+                      @error('isi')
+                          <div class="mt-3">
+                            @include('components.dashboard._input-error-notif')
+                          </div>
+                      @enderror
                     </div>
   
                     {{-- group of button --}}

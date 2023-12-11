@@ -141,23 +141,59 @@
                 <form method="post" action="{{route('saran.user.store')}}" class="text-start">
                   @csrf
                   <div class="grid grid-cols-1 grid-flow-row-dense md:grid-cols-2 gap-7">
+
+                    {{-- * Nama --}}
                     <div class=" col-span-1">
                       <label for="nama" class="block mb-2 text-xs md:text-sm font-medium text-[#2a313b] dark:text-white">Nama</label>
-                      <input type="text" id="nama" class="bg-gray-50 border border-gray-300 text-[#2a313b] text-xs md:text-sm rounded-lg block w-full p-2.5" required name="nama" />
+                      <input type="text" id="nama" class="bg-gray-50 border border-gray-300 text-[#2a313b] text-xs md:text-sm rounded-lg block w-full p-2.5 @error('nama') is-invalid @enderror" required name="nama" />
+
+                      {{-- * error notif --}}
+                      @error('nama')
+                          <div class="mt-3">
+                            @include('components.dashboard._input-error-notif')
+                          </div>
+                      @enderror
                     </div>
+
+                    {{-- * Email --}}
                     <div class="col-span-1">
                       <label for="email" class="block mb-2 text-xs md:text-sm font-medium text-[#2a313b] dark:text-white">Email</label>
-                      <input type="email" id="email" class="bg-gray-50 border border-gray-300 text-[#2a313b] text-xs md:text-sm rounded-lg block w-full p-2.5" required name="email" />
+                      <input type="email" id="email" class="bg-gray-50 border border-gray-300 text-[#2a313b] text-xs md:text-sm rounded-lg block w-full p-2.5 @error('email') is-invalid @enderror" required name="email" />
+
+                      {{-- * error notif --}}
+                      @error('email')
+                          <div class="mt-3">
+                            @include('components.dashboard._input-error-notif')
+                          </div>
+                      @enderror
                     </div>
+
+                    {{-- * Subjek --}}
                     <div class="col-span-2">
                       <label for="subjek" class="block mb-2 text-xs md:text-sm font-medium text-[#2a313b] dark:text-white">Subjek</label>
-                      <input type="text" id="subjek" class="bg-gray-50 border border-gray-300 text-[#2a313b] text-xs md:text-sm rounded-lg block w-full p-2.5" required name="subjek" />
+                      <input type="text" id="subjek" class="bg-gray-50 border border-gray-300 text-[#2a313b] text-xs md:text-sm rounded-lg block w-full p-2.5 @error('subjek') is-invalid @enderror" required name="subjek" />
+
+                      {{-- * error notif --}}
+                      @error('subjek')
+                          <div class="mt-3">
+                            @include('components.dashboard._input-error-notif')
+                          </div>
+                      @enderror
                     </div>
+
+                    {{-- * Pesan --}}
                     <div class="col-span-2">
                       <label for="message" class="block mb-2 text-xs md:text-sm font-medium text-[#2a313b] dark:text-white">
                         Pesan
                       </label>
-                      <textarea id="message" rows="4" class="block p-2.5 w-full text-xs md:text-sm text-[#2a313b] bg-gray-50 rounded-lg border border-gray-300" name="pesan"></textarea>
+                      <textarea id="message" rows="4" class="block p-2.5 w-full text-xs md:text-sm text-[#2a313b] bg-gray-50 rounded-lg border border-gray-300 @error('pesan') is-invalid @enderror" name="pesan"></textarea>
+
+                      {{-- * error notif --}}
+                      @error('pesan')
+                          <div class="mt-3">
+                            @include('components.dashboard._input-error-notif')
+                          </div>
+                      @enderror
                     </div>
                   </div>
                   <button type="submit" class="mt-5 text-white bg-[#a38458] hover:bg-opacity-75 transition duration-200 focus:ring-4 focus:outline-none font-medium rounded-lg text-xs md:text-sm w-full sm:w-auto px-5 py-2.5 text-center">

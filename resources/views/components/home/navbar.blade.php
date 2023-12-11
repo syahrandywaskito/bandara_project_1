@@ -52,7 +52,7 @@
                   {{ $alat_active }}
                   {{ $alat_inactive }}
 
-                  font-semibold rounded-lg 
+                  font-semibold 
                   text-sm pl-3 lg:px-5 py-2.5 
                   text-center inline-flex items-center 
                   transition duration-200 

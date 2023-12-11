@@ -11,6 +11,12 @@ use Illuminate\Support\Facades\Redis;
 
 class KontakController extends Controller
 {
+    /**
+     * 
+     * * Masuk ke halaman Index yang ada pada Hubungi Kami
+     * 
+     * @return View
+     */
 
     public function indexUser() : View
     {
@@ -20,6 +26,16 @@ class KontakController extends Controller
 
         return view('kontak', ['kontak' => $data]);
     }
+
+
+    /**
+     * 
+     * * Masuk ke halaman Index yang ada pada Dashboard
+     * 
+     * @return View
+     * 
+     */
+
 
     public function indexAdmin() : View
     {
@@ -33,7 +49,9 @@ class KontakController extends Controller
 
     /**
      * 
-     * Insert saran melalui input di halaman Hubungi Kami
+     *  * Insert saran melalui input di halaman Hubungi Kami
+     * 
+     *  @return RedirectResponse
      * 
      */
 
@@ -44,7 +62,14 @@ class KontakController extends Controller
             'email' => 'required|email',
             'subjek' => 'required|min:5',
             'pesan' => 'required|min:10'
-        ]);
+        ],
+        [
+            'nama.required' => 'Nama Harus disertakan',
+            'email.email' => 'Maaf, masukkan Email yang sesuai',
+            'subjek.min' => 'Maaf, subjek minimal harus 5 huruf',
+            'pesan.min' => 'Maaf, pesan minimal harus 10 huruf'
+        ]
+        );
 
         Saran::create($request->all());
 

@@ -77,14 +77,14 @@
           </h1>
         </div>
 
-        <div class="flex-row lg:flex lg:space-x-10 justify-center mt-7">
+        <div class="flex-row xl:flex xl:space-x-10 justify-center mt-7">
           @if ($beritaPaginate) 
             @foreach ($beritaPaginate as $data)
               <div class="">
-                <div class="bg-white border border-gray-200 rounded-lg shadow lg:w-[40rem]" data-aos="fade-right" data-aos-delay="600" data-aos-ease="ease-in-out" data-aos-duration="400">
+                <div class="bg-white border border-gray-200 rounded-lg shadow xl:w-[40rem]" data-aos="fade-right" data-aos-delay="600" data-aos-ease="ease-in-out" data-aos-duration="400">
                   <a href="{{route('berita', $data->id)}}">
                     <div href="#">
-                      <img class="rounded-t-lg" src="{{asset('/storage/berita/'.$data->gambar)}}" alt="" />
+                      <img class="rounded-t-lg hover:grayscale transition duration-200" src="{{asset('/storage/berita/'.$data->gambar)}}" alt="" />
                     </div>
                     <div class="p-5 font-montserrat">
                       <div>
@@ -101,11 +101,11 @@
               </div>
             @endforeach
   
-              <div class=" flex-row space-y-5 mt-5 lg:mt-0" data-aos="fade-left" data-aos-delay="600" data-aos-ease="ease-in-out" data-aos-duration="400">
+              <div class=" flex-row space-y-5 mt-5 xl:mt-0" data-aos="fade-left" data-aos-delay="600" data-aos-ease="ease-in-out" data-aos-duration="400">
                 @foreach ($beritaPaginate2 as $data)
-                  <a href="{{route('berita', $data->id)}}" class="flex space-x-5 items-center bg-white rounded-lg shadow-md hover:translate-x-1 transition duration-200 pr-5">
+                  <a href="{{route('berita', $data->id)}}" class="flex space-x-5 items-center bg-white rounded-lg shadow-md hover:translate-x-1 transition duration-200 pr-5 hover:grayscale">
                     <div>
-                      <img src="{{ asset('/storage/berita/'.$data->gambar) }}" class=" w-32 lg:w-44 rounded-l-lg" alt="">
+                      <img src="{{ asset('/storage/berita/'.$data->gambar) }}" class=" w-32 xl:w-44 rounded-l-lg" alt="">
                     </div>
                     <div>
                       <h3 class="text-sm font-bold font-roboto">{{ $data->judul}}</h3>
@@ -138,13 +138,8 @@
   
           @endif
         </div>
-
       </div>
 
-      {{-- TODO : Buat layout berita menjadi lebih rapi tanpa menggunakan carousel --}}
-      {{-- ? : Layout model 1 berita terbaru ditampilkan full, sedangkan berita yang sudah berlalu akan ditampilkan dalam row yang berada disamping berita 1 --}}
-
-      
       <div class="text-center pb-8 md:pb-3 mt-20" data-aos="fade-up" data-aos-delay="100" data-aos-duration="400" data-aos-ease="ease-in-out">
 
         {{-- * Header ToolTip --}}

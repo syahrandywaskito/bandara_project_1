@@ -67,10 +67,18 @@
                       <input
                         type="file"
                         id="logo-maskapai"
-                        class="text-xs md:text-sm text-gray-900 bg-white shadow-md rounded-lg outline-none focus:border-indigo-800 dark:border-gray-100 dark:bg-gray-100 block w-full p-3"
+                        class="text-xs md:text-sm text-gray-900 bg-white shadow-md rounded-lg outline-none focus:border-indigo-800 dark:border-gray-100 dark:bg-gray-100 block w-full p-3 
+                        @error('logo_maskapai') is-invalid @enderror"
                         required
                         name="logo_maskapai"
                       />
+
+                      {{-- error notif --}}
+                      @error('logo_maskapai')
+                          <div class="mt-3">
+                            @include('components.dashboard._input-error-notif')
+                          </div>
+                      @enderror
                     </div>
 
                     {{-- Maskapai --}}

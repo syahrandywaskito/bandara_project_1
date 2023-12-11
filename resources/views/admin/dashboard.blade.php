@@ -33,7 +33,7 @@
               </svg>
               Panduan dalam pembuatan laporan pengecekan
             </h2>
-            <p class="text-sm lg:text-base xl:text-lg font-normal text-gray-600 dark:text-gray-100 mb-4">
+            <p class="text-sm lg:text-base xl:text-lg font-normal text-gray-600 dark:text-gray-100 mb-4 font-roboto">
               Selamat datang di <em>Panduan Pembuatan Laporan</em>. Panduan ini akan membantu anda memahami langkah-langkah yang diperlukan untuk menginput data laporan dengan benar dan efisien.
             </p>
             
@@ -46,7 +46,7 @@
                 <h3 class="text-xs sm:text-sm md:text-base font-semibold text-gray-900 dark:text-gray-50 uppercase">
                   Menambahkan nama perangkat yang akan di cek 
                 </h3>
-                <p class="mb-4 text-xs sm:text-sm md:text-base font-normal text-gray-600 dark:text-gray-300">
+                <p class="mb-4 text-xs sm:text-sm lg:text-base font-normal text-gray-600 dark:text-gray-300">
                   Penambahan perangkat berfungsi untuk menambahkan input laporan yang ada pada bagian laporan tambah data.
                 </p>
               </li>
@@ -58,7 +58,7 @@
                 <h3 class="text-xs sm:text-sm md:text-base font-semibold text-gray-900 dark:text-gray-50 uppercase">
                   Pembuatan laporan dari hasil pengecekan perangkat
                 </h3>
-                <p class="text-xs sm:text-sm md:text-base font-normal text-gray-600 dark:text-gray-300">
+                <p class="text-xs sm:text-sm lg:text-base font-normal text-gray-600 dark:text-gray-300">
                   Laporan dibuat dari data pengecekan yang dilakukan setiap hari. Input data akan muncul sesuai dengan perangkat yang ditambahkan sebelumnya. Pembuatan laporan akan di atur perhari, jika ingin memasukkan laporan pada tanggal yang diinginkan, maka ubah tanggal pada input tanggal.
                 </p>
               </li>
@@ -70,7 +70,7 @@
                 <h3 class="text-xs sm:text-sm md:text-base font-semibold text-gray-900 dark:text-gray-50 uppercase">
                   Menampilkan laporan dalam bentuk tabel
                 </h3>
-                <p class="text-xs sm:text-sm md:text-base font-normal text-gray-600 dark:text-gray-300">
+                <p class="text-xs sm:text-sm lg:text-base font-normal text-gray-600 dark:text-gray-300">
                   Laporan akan ditampilkan dalam bentuk tabel yang lengkap dengan <em>Aksi</em> yang dapat dilakukan kepada data seperti : <strong>Edit</strong>, <strong>Lihat</strong>, dan <strong>Delete</strong>. Laporan akan ditampilkan sesuai hari ini saja, jika ingin melihat laporan tanggal sebelumnya, maka ubah pada input tanggal.
                 </p>
               </li>
@@ -82,7 +82,7 @@
                 <h3 class="text-xs sm:text-sm md:text-base font-semibold text-gray-900 dark:text-gray-50 uppercase">
                   Mendownload laporan dalam bentuk PDF
                 </h3>
-                <p class="text-xs sm:text-sm md:text-base font-normal text-gray-600 dark:text-gray-300">
+                <p class="text-xs sm:text-sm lg:text-base font-normal text-gray-600 dark:text-gray-300">
                   Laporan dapat di download oleh semua orang yang ingin melihat laporan tersebut yang tersedia dalam bentuk PDF yang akan direkap perbulan.
                 </p>
               </li>
@@ -104,7 +104,7 @@
               </svg>
               Panduan dalam pembuatan berita
             </h2>
-            <p class="text-sm lg:text-base xl:text-lg font-normal text-gray-600 dark:text-gray-100 mb-4">
+            <p class="text-sm lg:text-base xl:text-lg font-normal text-gray-600 dark:text-gray-100 mb-4 font-roboto">
               Selamat datang di <em>Panduan Pembuatan Berita</em>. Panduan ini akan membantu anda memahami langkah-langkah dalam membuat berita terkini sesuai peristiwa yang ada dan terjadi.
             </p>
             
@@ -117,7 +117,7 @@
                 <h3 class="text-xs sm:text-sm md:text-base font-semibold text-gray-900 dark:text-gray-50 uppercase">
                   Menambahkan berita pada halaman tambah berita
                 </h3>
-                <p class="mb-4 text-xs sm:text-sm md:text-base font-normal text-gray-600 dark:text-gray-300">
+                <p class="mb-4 text-xs sm:text-sm lg:text-base font-normal text-gray-600 dark:text-gray-300">
                   Penambahan berita ini dapat dilakukan oleh siapa saja yang dapat mengakses dashboard. Syarat yang harus dipatuhi yaitu berita harus bersifat fakta dan aktual
                 </p>
               </li>
@@ -129,7 +129,7 @@
                 <h3 class="text-xs sm:text-sm md:text-base font-semibold text-gray-900 dark:text-gray-50 uppercase">
                   Tampilan berita dalam bentuk tabel
                 </h3>
-                <p class="text-xs sm:text-sm md:text-base font-normal text-gray-600 dark:text-gray-300">
+                <p class="text-xs sm:text-sm lg:text-base font-normal text-gray-600 dark:text-gray-300">
                   Berita ditampilkan dalam bentuk tabel, lengkap dengan aksi yang dapat dipilih seperti : <strong>Edit</strong>, <strong>Lihat</strong>, dan <strong>Delete</strong>.
                 </p>
               </li>
@@ -141,7 +141,7 @@
                 <h3 class="text-xs sm:text-sm md:text-base font-semibold text-gray-900 dark:text-gray-50 uppercase">
                   Menampilkan berita pada landing page
                 </h3>
-                <p class="text-xs sm:text-sm md:text-base font-normal text-gray-600 dark:text-gray-300">
+                <p class="text-xs sm:text-sm lg:text-base font-normal text-gray-600 dark:text-gray-300">
                   Berita akan ditampilkan pada <em>Landing Page</em>, dan dapat di buka untuk melihat secara lengkap isi berita.
                 </p>
               </li>
@@ -166,7 +166,7 @@
               </svg>
               Panduan dalam pembuatan jadwal
             </h2>
-            <p class="text-sm lg:text-base xl:text-lg font-normal text-gray-600 dark:text-gray-100 mb-4">
+            <p class="text-sm lg:text-base xl:text-lg font-normal text-gray-600 dark:text-gray-100 mb-4 font-roboto">
               Selamat datang di <em>Panduan Pembuatan Jadwal</em>. Panduan ini akan membantu anda memahami langkah-langkah dalam membuat jadwal penerbangan yang sesuai dengan FIDS pada bandara.
             </p>
             
@@ -179,7 +179,7 @@
                 <h3 class="text-xs sm:text-sm md:text-base font-semibold text-gray-900 dark:text-gray-50 uppercase">
                   Menambahkan jadwal pada halaman tambah jadwal
                 </h3>
-                <p class="mb-4 text-xs sm:text-sm md:text-base font-normal text-gray-600 dark:text-gray-300">
+                <p class="mb-4 text-xs sm:text-sm lg:text-base font-normal text-gray-600 dark:text-gray-300">
                   Penambahan berita ini dapat dilakukan oleh siapa saja yang dapat mengakses dashboard. Syarat yang harus dipatuhi yaitu jadwal harus sesuai dengan data yang ada, usahakan tidak ada kesalahan yang disengaja dalam menginput jadwal. 
                 </p>
               </li>
@@ -191,7 +191,7 @@
                 <h3 class="text-xs sm:text-sm md:text-base font-semibold text-gray-900 dark:text-gray-50 uppercase">
                   Tampilan berita dalam bentuk tabel
                 </h3>
-                <p class="text-xs sm:text-sm md:text-base font-normal text-gray-600 dark:text-gray-300">
+                <p class="text-xs sm:text-sm lg:text-base font-normal text-gray-600 dark:text-gray-300">
                   Berita ditampilkan dalam bentuk tabel yang dibagi menjadi tabel keberangkatan dan kedatangan, lengkap dengan aksi yang dapat dipilih seperti : <strong>Edit</strong>, <strong>Lihat</strong>, dan <strong>Delete</strong>.
                 </p>
               </li>
@@ -203,7 +203,7 @@
                 <h3 class="text-xs sm:text-sm md:text-base font-semibold text-gray-900 dark:text-gray-50 uppercase">
                   Menampilkan jadwal pada landing page
                 </h3>
-                <p class="text-xs sm:text-sm md:text-base font-normal text-gray-600 dark:text-gray-300">
+                <p class="text-xs sm:text-sm lg:text-base font-normal text-gray-600 dark:text-gray-300">
                   Jadwal akan ditampilkan pada <em>Landing Page</em>, dan dibagi menjadi jadwal keberangkatan dan kedatangan.
                 </p>
               </li>

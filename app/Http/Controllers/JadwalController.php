@@ -62,7 +62,12 @@ class JadwalController extends Controller
             'id_penerbangan' => 'required',
             'tujuan' => 'required',
             'jam' => 'required'
-        ]);
+        ],
+        [
+            'logo_maskapai.mimes' => 'Gambar harus berformat jpeg, png, jpg',
+            'logo_maskapai.image' => 'File harus bertipe image atau gambar',
+        ]
+        );
 
         $nama_maskapai = $request->maskapai;
 
@@ -95,7 +100,12 @@ class JadwalController extends Controller
             'id_penerbangan' => 'required',
             'tujuan' => 'required',
             'jam' => 'required',
-        ]);
+        ],
+        [
+            'logo_maskapai.mimes' => 'Gambar harus berformat jpeg, png, jpg',
+            'logo_maskapai.image' => 'File harus bertipe image atau gambar',
+        ]
+        );
 
         if ($request->hasFile('logo_maskapai')) {
             
