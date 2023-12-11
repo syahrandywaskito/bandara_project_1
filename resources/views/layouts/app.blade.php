@@ -29,7 +29,7 @@
               data-drawer-toggle="logo-sidebar"
               aria-controls="logo-sidebar"
               type="button"
-              class="inline-flex items-center p-2 text-sm text-gray-900 rounded-lg lg:hidden hover:text-gray-50 hover:bg-indigo-800 focus:outline-none"
+              class="inline-flex items-center p-2 text-sm text-gray-900 rounded-lg lg:hidden hover:text-gray-50 hover:bg-indigo-800 dark:text-gray-100 dark:hover:bg-slate-700 focus:outline-none transition duration-200 shadow-md"
             >
               <span class="sr-only">Open sidebar</span>
               <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">

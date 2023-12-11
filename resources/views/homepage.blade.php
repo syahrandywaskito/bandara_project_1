@@ -9,7 +9,6 @@
 @endsection
 
 @section('content')
-    {{-- TODO : buat navbar menjadi scalable dalam bentuk template --}}
 
     {{-- * navbar --}}
     @include('components.home.navbar', [
@@ -70,156 +69,82 @@
       </section>
     </header>
 
-    <section id="about">
-      <div class="grid grid-cols-1 px-4 mx-auto xl:hidden gap-4">
+    <section id="about" class="px-4 mx-auto max-w-screen-xl">
+      <div class="grid grid-cols-1 px-4 mx-auto gap-4">
         <div class="text-center" data-aos="fade-up" data-aos-delay="300" data-aos-ease="ease-in-out">
           <h1 class="font-semibold font-montserrat text-sm md:text-base lg:text-xl uppercase">
             Berita
           </h1>
         </div>
 
-        {{-- TODO : Tata Ulang tampilan berita pada perangkat mobile --}}
-
-        @if ($beritaPaginate) 
-          @foreach ($beritaPaginate as $data)
-            <div>
-              <div class="bg-white border border-gray-200 rounded-lg shadow" data-aos="fade-up" data-aos-delay="600" data-aos-ease="ease-in-out" data-aos-duration="400">
-                <a href="{{route('berita', $data->id)}}">
-                  <div href="#">
-                    <img class="rounded-t-lg" src="{{asset('/storage/berita/'.$data->gambar)}}" alt="" />
-                  </div>
-                  <div class="p-5 font-montserrat">
-                    <div>
-                      <h5 class="mb-1 text-sm sm:text-base md:text-lg font-bold tracking-tight text-gray-900">
-                        {{$data->judul}}
-                      </h5>
+        <div class="flex-row lg:flex lg:space-x-10 justify-center mt-7">
+          @if ($beritaPaginate) 
+            @foreach ($beritaPaginate as $data)
+              <div class="">
+                <div class="bg-white border border-gray-200 rounded-lg shadow lg:w-[40rem]" data-aos="fade-right" data-aos-delay="600" data-aos-ease="ease-in-out" data-aos-duration="400">
+                  <a href="{{route('berita', $data->id)}}">
+                    <div href="#">
+                      <img class="rounded-t-lg" src="{{asset('/storage/berita/'.$data->gambar)}}" alt="" />
                     </div>
-                    <div class=" truncate text-xs sm:text-sm md:text-base">
-                      {!! Str::limit(strip_tags($data->isi), $limit = 100, $end = '...') !!}
-                    </div>
-                  </div>
-                </a>
-              </div>
-            </div>
-          @endforeach
-
-          @foreach ($beritaPaginate2 as $data)
-              @php
-                  var_dump($data->judul);
-                  echo "<br>";
-              @endphp
-          @endforeach
-        @else
-
-          <div>
-            <div class="bg-white border border-gray-200 rounded-lg shadow" data-aos="fade-up" data-aos-delay="600" data-aos-ease="ease-in-out" data-aos-duration="400">
-              <div class=" cursor-not-allowed">
-                <div href="#">
-                  <img class="rounded-t-lg" src="{{asset('img/image-not-available-.jpg')}}" alt="" />
-                </div>
-                <div class="p-5 font-montserrat">
-                  <div href="#">
-                    <h5 class="mb-1 text-sm sm:text-base md:text-lg font-bold tracking-tight text-gray-900">
-                      Berita Tidak Tersedia
-                    </h5>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        @endif
-
-        
-      </div>
-
-      {{-- TODO : Buat layout berita menjadi lebih rapi tanpa menggunakan carousel --}}
-
-      <div class="px-4 mx-auto max-w-screen-xl hidden xl:block">
-        {{-- header text --}}
-        <div class="text-center pb-7 md:pb-10" data-aos="fade-up" data-aos-delay="300" data-aos-ease="ease-in-out">
-          <h1 class="font-semibold font-montserrat text-sm md:text-base lg:text-xl uppercase">
-            Berita
-          </h1>
-        </div>
-        {{-- carousel part --}}
-        <div id="controls-carousel" class="relative w-full" data-carousel="static">
-          <!-- Carousel wrapper -->
-          <div class="relative h-[40vh] overflow-hidden rounded-lg xl:h-[70vh]" data-aos="fade-up" data-aos-delay="600" data-aos-ease="ease-in-out" data-aos-duration="400">
-            {{-- gambar carousel yang akan ditampilkan dengan foreach --}} 
-            @if ($berita)
-              @foreach ($berita as $data)
-                <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                  <a  href="{{route('berita', $data->id)}}">
-                    <img src="{{asset('/storage/berita/'.$data->gambar)}}" class="absolute block -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 transition duration-200" alt="" />
-
-                    <div class="absolute bottom-0 w-full">
-                      <div class="bg-opacity-80 font-montserrat bg-indigo-600 text-white shadow-lg mx-6 mb-4 px-4 py-3 rounded-lg" data-aos="fade-up" data-aos-duration="500" data-aos-delay="700" data-aos-ease="ease-in-out">
-                        <h3 class="text-center uppercase">
-                          {{ $data->judul }}
-                        </h3>
-                        <p class="pt-4 text-xs md:text-sm lg:text-base text-ellipsis truncate">
-                          {!! Str::limit(strip_tags($data->isi), $limit = 150, $end = '...') !!}
-                        </p>
+                    <div class="p-5 font-montserrat">
+                      <div>
+                        <h5 class="mb-1 text-sm sm:text-base md:text-lg font-bold tracking-tight text-gray-900">
+                          {{$data->judul}}
+                        </h5>
+                      </div>
+                      <div class=" truncate text-xs sm:text-sm md:text-base">
+                        {!! Str::limit(strip_tags($data->isi), $limit = 100, $end = '...') !!}
                       </div>
                     </div>
                   </a>
                 </div>
-              @endforeach
-
-            @else
-                
-              <div class="hidden duration-700 ease-in-out" data-carousel-item>
+              </div>
+            @endforeach
+  
+              <div class=" flex-row space-y-5 mt-5 lg:mt-0" data-aos="fade-left" data-aos-delay="600" data-aos-ease="ease-in-out" data-aos-duration="400">
+                @foreach ($beritaPaginate2 as $data)
+                  <a href="{{route('berita', $data->id)}}" class="flex space-x-5 items-center bg-white rounded-lg shadow-md hover:translate-x-1 transition duration-200 pr-5">
+                    <div>
+                      <img src="{{ asset('/storage/berita/'.$data->gambar) }}" class=" w-32 lg:w-44 rounded-l-lg" alt="">
+                    </div>
+                    <div>
+                      <h3 class="text-sm font-bold font-roboto">{{ $data->judul}}</h3>
+                      <div class=" truncate text-xs sm:text-sm md:text-base mt-1">
+                          {!! Str::limit(strip_tags($data->isi), $limit = 35, $end = '...') !!}
+                        </div>
+                    </div>
+                  </a>
+                  @endforeach
+              </div>
+          
+          @else
+  
+            <div>
+              <div class="bg-white border border-gray-200 rounded-lg shadow" data-aos="fade-up" data-aos-delay="600" data-aos-ease="ease-in-out" data-aos-duration="400">
                 <div class=" cursor-not-allowed">
-                  <img src="{{asset('img/image-not-available-.jpg')}}" class="absolute block -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 transition duration-200" alt="" />
-
-                  <div class="absolute bottom-0 w-full">
-                    <div class="bg-opacity-80 font-montserrat bg-indigo-600 text-white shadow-lg mx-6 mb-4 px-4 py-3 rounded-lg" data-aos="fade-up" data-aos-duration="500" data-aos-delay="700" data-aos-ease="ease-in-out">
-                      <h3 class="text-center uppercase">
+                  <div href="#">
+                    <img class="rounded-t-lg" src="{{asset('img/image-not-available-.jpg')}}" alt="" />
+                  </div>
+                  <div class="p-5 font-montserrat">
+                    <div href="#">
+                      <h5 class="mb-1 text-sm sm:text-base md:text-lg font-bold tracking-tight text-gray-900">
                         Berita Tidak Tersedia
-                      </h3>
+                      </h5>
                     </div>
                   </div>
                 </div>
               </div>
-
-              <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <div class=" cursor-not-allowed">
-                  <img src="{{asset('img/image-not-available-.jpg')}}" class="absolute block -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 transition duration-200" alt="" />
-
-                  <div class="absolute bottom-0 w-full">
-                    <div class="bg-opacity-80 font-montserrat bg-indigo-600 text-white shadow-lg mx-6 mb-4 px-4 py-3 rounded-lg" data-aos="fade-up" data-aos-duration="500" data-aos-delay="700" data-aos-ease="ease-in-out">
-                      <h3 class="text-center uppercase">
-                        Berita Tidak Tersedia
-                      </h3>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-            @endif
-          </div>
-          <!-- Slider controls -->
-          <button type="button" class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
-            <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 group-hover:bg-white/50 group-focus:ring-4 group-focus:ring-white group-focus:outline-none">
-              <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4" />
-              </svg>
-              <span class="sr-only">Previous</span>
-            </span>
-          </button>
-          <button type="button" class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
-            <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 group-hover:bg-white/50 group-focus:ring-4 group-focus:ring-white group-focus:outline-none">
-              <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
-              </svg>
-              <span class="sr-only">Next</span>
-            </span>
-          </button>
+            </div>
+  
+          @endif
         </div>
+
       </div>
 
-      {{-- header text --}}
+      {{-- TODO : Buat layout berita menjadi lebih rapi tanpa menggunakan carousel --}}
+      {{-- ? : Layout model 1 berita terbaru ditampilkan full, sedangkan berita yang sudah berlalu akan ditampilkan dalam row yang berada disamping berita 1 --}}
+
+      
       <div class="text-center pb-8 md:pb-3 mt-20" data-aos="fade-up" data-aos-delay="100" data-aos-duration="400" data-aos-ease="ease-in-out">
 
         {{-- * Header ToolTip --}}
@@ -242,13 +167,11 @@
       </div>
 
       {{-- jadwal penerbangan normal --}}
-      <div class="">
         <div class=" py-3 px-4 mx-auto max-w-screen-xl">
-            <div class="relative">
-              <div class="relative overflow-hidden">
 
-                {{-- jadwal keberangkatan --}}
-                <table class=" w-full text-sm text-left bg-white rounded-lg" data-aos="fade-up" data-aos-delay="300" data-aos-duration="500" data-aos-ease="ease-in-out">
+          {{-- jadwal keberangkatan --}}
+            <div class="relative overflow-x-auto overflow-y-hidden">
+                <table class=" w-full text-sm text-left bg-white" data-aos="fade-up" data-aos-delay="300" data-aos-duration="500" data-aos-ease="ease-in-out">
                   {{-- caption --}}
                   <caption class="pt-2 text-right">
                     <div class="pb-6 flex justify-between items-center">
@@ -285,10 +208,10 @@
                   <tbody id="scheduleData" class="text-center font-roboto">
                     @foreach ($keberangkatan as $data)
                       @php
-                      $hari = now()->isoFormat('dddd'); // Mengambil nama hari
+                      $hari = now()->isoFormat('dddd');
                       @endphp
             
-                      @if ($data->id_penerbangan != 'GIA-291' || in_array($hari, ['Senin', 'Rabu', 'Jumat', 'Sabtu', 'Minggu']))  
+                      @if ($data->id_penerbangan != 'GA-291' || in_array($hari, ['Senin', 'Rabu', 'Jumat', 'Sabtu', 'Minggu']))  
                       <tr>
                         <td class="px-4 lg:px-0 py-2 text-center hidden md:block">
                           <img src="{{asset('/storage/logo/'.$data->logo_maskapai)}}" style="width: 120px" alt="{{$data->maskapai}}" class="mx-auto">
@@ -315,80 +238,80 @@
                     @endforeach
                   </tbody>
                 </table>
-
-                {{-- jadwal kedatangan --}}
-                <table class=" w-full mt-14 text-sm text-left bg-white rounded-lg" data-aos="fade-up" data-aos-delay="300" data-aos-duration="500" data-aos-ease="ease-in-out">
-                  {{-- caption --}}
-                  <caption class="pt-2 text-right">
-                    <div class="pb-6 flex justify-between items-center">
-                      <div class="text-sm md:text-base">
-                        <h2 class="font-montserrat font-semibold uppercase inline-flex items-center cursor-default">
-                          Jadwal Kedatangan
-                        </h2>
-                      </div>
-                      <div class="text-sm md:text-base">
-                        <p class="font-montserrat hidden sm:block">
-                          {{now()->isoFormat('dddd, D MMMM Y')}}
-                        </p>
-                        <p class="font-montserrat clock hidden sm:block"></p>
-                      </div>
-                    </div>
-                  </caption>
-                  {{-- table head --}}
-                  <thead class="text-xs font-montserrat sm:text-sm text-center text-gray-50 uppercase bg-gradient-to-r from-indigo-600 to-blue-500">
-                    <tr>
-                      <th scope="col" class="px-6 py-3">
-                        maskapai
-                      </th>
-                      <th scope="col" class="px-6 py-3">
-                        id Penerbangan
-                      </th>
-                      <th scope="col" class="px-6 py-3">
-                        Dari
-                      </th>
-                      <th scope="col" class="px-6 py-3">
-                        Jam Penerbangan
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody id="scheduleData" class="text-center font-roboto">
-                    @foreach ($kedatangan as $data)
-                      @php
-                      $hari = now()->isoFormat('dddd'); // Mengambil nama hari
-                      @endphp
-            
-                      @if ($data->id_penerbangan != 'GIA-290' || in_array($hari, ['Senin', 'Rabu', 'Jumat', 'Sabtu', 'Minggu']))  
-                      <tr>
-                        <td class="px-4 lg:px-0 py-2 text-center hidden md:block">
-                          <img src="{{asset('/storage/logo/'.$data->logo_maskapai)}}" style="width: 120px" alt="{{$data->maskapai}}" class="mx-auto">
-                        </td>
-                        <td class="px-4 py-6 text-xs md:text-sm block md:hidden">
-                          {{ $data->maskapai }}
-                        </td>
-                        <td class="px-6 py-4 text-xs md:text-sm">
-                          {{ $data->id_penerbangan }}
-                        </td>
-                        <td class="px-6 py-4 text-xs md:text-sm">
-                          {{ $data->tujuan }}
-                        </td>
-                        <td class="px-6 py-4 text-xs md:text-sm">
-                          @php 
-                            $jam = $data->jam; 
-                            $carbon = \Carbon\Carbon::parse($jam); 
-                            $formatted = $carbon->isoFormat('HH:m');
-                          @endphp
-                          {{$formatted }}
-                        </td>
-                      </tr>
-                      @endif
-                    @endforeach
-                  </tbody>
-                </table>
-
-              </div>
             </div>
-        </div>
-      </div>  
+
+            {{-- jadwal kedatangan --}}
+            <div class="relative overflow-x-auto overflow-y-hidden">
+              <table class=" w-full mt-14 text-sm text-left bg-white" data-aos="fade-up" data-aos-delay="300" data-aos-duration="500" data-aos-ease="ease-in-out">
+                {{-- caption --}}
+                <caption class="pt-2 text-right">
+                  <div class="pb-6 flex justify-between items-center">
+                    <div class="text-sm md:text-base">
+                      <h2 class="font-montserrat font-semibold uppercase inline-flex items-center cursor-default">
+                        Jadwal Kedatangan
+                      </h2>
+                    </div>
+                    <div class="text-sm md:text-base">
+                      <p class="font-montserrat hidden sm:block">
+                        {{now()->isoFormat('dddd, D MMMM Y')}}
+                      </p>
+                      <p class="font-montserrat clock hidden sm:block"></p>
+                    </div>
+                  </div>
+                </caption>
+                {{-- table head --}}
+                <thead class="text-xs font-montserrat sm:text-sm text-center text-gray-50 uppercase bg-gradient-to-r from-indigo-600 to-blue-500">
+                  <tr>
+                    <th scope="col" class="px-6 py-3">
+                      maskapai
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                      id Penerbangan
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                      Dari
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                      Jam Penerbangan
+                    </th>
+                  </tr>
+                </thead>
+                <tbody id="scheduleData" class="text-center font-roboto">
+                  @foreach ($kedatangan as $data)
+                    @php
+                    $hari = now()->isoFormat('dddd');
+                    @endphp
+          
+                    @if ($data->id_penerbangan != 'GA-290' || in_array($hari, ['Senin', 'Rabu', 'Jumat', 'Sabtu', 'Minggu']))  
+                    <tr>
+                      <td class="px-4 lg:px-0 py-2 text-center hidden md:block">
+                        <img src="{{asset('/storage/logo/'.$data->logo_maskapai)}}" style="width: 120px" alt="{{$data->maskapai}}" class="mx-auto">
+                      </td>
+                      <td class="px-4 py-6 text-xs md:text-sm block md:hidden">
+                        {{ $data->maskapai }}
+                      </td>
+                      <td class="px-6 py-4 text-xs md:text-sm">
+                        {{ $data->id_penerbangan }}
+                      </td>
+                      <td class="px-6 py-4 text-xs md:text-sm">
+                        {{ $data->tujuan }}
+                      </td>
+                      <td class="px-6 py-4 text-xs md:text-sm">
+                        @php 
+                          $jam = $data->jam; 
+                          $carbon = \Carbon\Carbon::parse($jam); 
+                          $formatted = $carbon->isoFormat('HH:m');
+                        @endphp
+                        {{$formatted }}
+                      </td>
+                    </tr>
+                    @endif
+                  @endforeach
+                </tbody>
+              </table>
+            </div>
+
+        </div>  
     </section>
 
 @endsection
