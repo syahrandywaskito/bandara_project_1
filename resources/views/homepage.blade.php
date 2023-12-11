@@ -89,7 +89,7 @@
                     <img class="rounded-t-lg" src="{{asset('/storage/berita/'.$data->gambar)}}" alt="" />
                   </div>
                   <div class="p-5 font-montserrat">
-                    <div href="#">
+                    <div>
                       <h5 class="mb-1 text-sm sm:text-base md:text-lg font-bold tracking-tight text-gray-900">
                         {{$data->judul}}
                       </h5>
